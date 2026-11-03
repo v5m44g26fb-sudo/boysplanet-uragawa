@@ -124,7 +124,7 @@ main.noscroll{overflow:hidden}
 .av{width:48px;height:48px;border-radius:50%;flex:0 0 auto;object-fit:cover;background:#2a4a7f;border:1px solid rgba(255,255,255,.08)}
 .av-init{width:48px;height:48px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2c5f8a,#7cc7ff);color:#fff;font-weight:600;font-size:19px;font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;line-height:1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07),inset 0 2px 2px rgba(255,255,255,.30),inset 0 -2px 3px rgba(0,0,0,.16)}
 .av.sm,.av-init.sm{width:34px;height:34px;font-size:14px}
-.av-init.grp{background:linear-gradient(135deg,#5b2ea6,#c792ff)}
+.av-init.grp{background:linear-gradient(165deg,#5e9bd8 0%,#155e9e 52%,#7a4fd0 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 2px 2px rgba(255,255,255,.32),inset 0 -2px 3px rgba(0,0,0,.18)}
 /* twitter (2023) */
 #screen-twitter{padding-bottom:0;position:relative}
 #screen-twitter.active{display:flex;flex-direction:column;height:100%;padding-bottom:0}
@@ -204,13 +204,13 @@ main.noscroll{overflow:hidden}
 .twc-img{position:relative;border-radius:16px;overflow:hidden;border:1px solid #e8eef2}
 .twc-img img{width:100%;display:block;max-height:210px;object-fit:cover;object-position:top}
 .twc-img button{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(15,20,25,.75);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
-.twc-picbtn{background:none;border:none;font-size:19px;cursor:pointer;padding:4px 2px;line-height:1}
+.twc-picbtn{background:none;border:none;color:#1d9bf0;cursor:pointer;padding:4px 2px;line-height:1;display:flex;align-items:center}
 .pic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:4px 14px 6px}
 .pic-grid .cell{aspect-ratio:1;overflow:hidden;border-radius:10px;cursor:pointer;background:#e8eef2}
 .pic-grid .cell img{width:100%;height:100%;object-fit:cover;display:block}
 .tw-dots{cursor:pointer;padding:2px 8px;margin-right:-8px}
 .tw-av{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;cursor:pointer;object-fit:cover}
-.tw-av.sq{border-radius:11px}
+.tw-av.sq{border-radius:11px;font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;font-weight:600;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 2px 2px rgba(255,255,255,.32),inset 0 -2px 3px rgba(0,0,0,.18)}
 .tw-av.self{background:linear-gradient(165deg,#ffb59d 0%,#fb8659 55%,#f96a3f 100%);font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;font-weight:600;font-size:16px;line-height:1;box-shadow:inset 0 0 0 1px rgba(23,10,0,.06),inset 0 2px 2px rgba(255,255,255,.35),inset 0 -2px 3px rgba(160,50,10,.16)}
 .tw-av.ini{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;font-weight:600;font-size:16px;line-height:1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 2px 2px rgba(255,255,255,.32),inset 0 -2px 3px rgba(0,0,0,.18)}
 .tw-bdg{width:16px;height:16px;flex:0 0 auto;vertical-align:-2.5px;margin-left:2px}
@@ -253,9 +253,13 @@ main.noscroll{overflow:hidden}
 .tw-trend .kw{font-weight:700;font-size:15px;color:#0f1419;margin-top:1px}
 .tw-trend .cnt{font-size:12.5px;color:#536471;margin-top:1px}
 .tw-notif{display:flex;gap:11px;padding:12px 16px;border-bottom:1px solid #eff3f4}
-.tw-notif .nic{width:30px;flex:0 0 auto;text-align:center;font-size:17px}
+.tw-notif .nic{width:30px;flex:0 0 auto;display:flex;justify-content:center;padding-top:2px}
 .tw-notif .ntx{flex:1;min-width:0;font-size:14px;color:#0f1419;line-height:1.55}
 .tw-notif .ntx .ex{color:#536471;font-size:13.5px;margin-top:2px}
+.tw-notif .ntx .avw{display:block;margin-bottom:6px}
+.tw-notif .ntx .avw .tw-av{width:30px;height:30px;font-size:12px}
+.tw-notif .ntx .avw .tw-av.sq{border-radius:8px}
+.tw-notif .ntx .nh{line-height:1.5}
 .tw-pf-top{display:flex;align-items:center;gap:4px;padding:6px 8px;background:rgba(255,255,255,.94);flex:0 0 auto}
 .tw-pf-top .backbtn{color:#0f1419;margin-left:-6px}
 .tw-pf-top .who{flex:1;min-width:0}
@@ -287,6 +291,7 @@ main.noscroll{overflow:hidden}
 .line-search{margin:0 12px 4px;background:#f2f2f7;border-radius:10px;color:#8e8e93;font-size:13.5px;padding:9px 12px;display:flex;gap:7px;align-items:center;cursor:pointer}
 .chat-head-ic{display:flex;gap:15px;align-items:center;color:#111;font-size:16.5px;padding-right:2px;flex:0 0 auto}
 .ci-ic{font-size:18px;color:#3a3a3c;padding:2px 1px;flex:0 0 auto;cursor:pointer}
+.chat-head-ic svg,.ci-ic svg{display:block}
 /* instagram extras */
 .ig-stories{display:flex;gap:15px;padding:12px 14px 4px;overflow-x:auto;scrollbar-width:none}
 .ig-stories::-webkit-scrollbar{display:none}
@@ -501,6 +506,7 @@ main.noscroll{overflow:hidden}
 .call-btns .cb .ic{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font-size:22px}
 #call-end{width:64px;height:64px;border-radius:50%;background:linear-gradient(160deg,#ff5d6e,#e53247);border:none;color:#fff;font-size:25px;cursor:pointer;box-shadow:0 10px 24px rgba(229,50,71,.4)}
 #call-end:active{transform:scale(.92)}
+#call-end svg{display:block;margin:0 auto}
 /* settings / fin */
 .set-row{display:flex;align-items:center;gap:10px;margin:10px 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:14px;min-height:52px}
 .set-row .grow{flex:1}
@@ -520,7 +526,7 @@ main.noscroll{overflow:hidden}
 #music-bar .mb-seek span{font-size:10.5px;color:var(--sub);font-variant-numeric:tabular-nums;min-width:30px}
 #music-bar .mb-seek span:last-child{text-align:right}
 #music-bar .mb-modes{display:flex;gap:8px;align-items:center;padding:0 2px}
-#music-bar .mb-tgl{width:auto;height:auto;border-radius:999px;padding:5px 13px;font-size:11.5px;font-weight:700;color:var(--sub);background:rgba(255,255,255,.06);border:1px solid var(--line-soft);cursor:pointer}
+#music-bar .mb-tgl{display:inline-flex;align-items:center;gap:5px;width:auto;height:auto;border-radius:999px;padding:5px 13px;font-size:11.5px;font-weight:700;color:var(--sub);background:rgba(255,255,255,.06);border:1px solid var(--line-soft);cursor:pointer}
 #music-bar .mb-tgl.on{color:#fff;border-color:var(--accent-d);background:rgba(61,143,209,.4)}
 #mb-seek{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:rgba(255,255,255,.25);outline:none;cursor:pointer;margin:0}
 #mb-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:#fff;box-shadow:0 1px 5px rgba(0,0,0,.5)}
@@ -571,12 +577,12 @@ main.noscroll{overflow:hidden}
 <section class="screen" id="screen-scene"><div id="scene-body"></div><div class="choice-list" id="scene-choices"></div><div id="scene-next"></div></section>
 <section class="screen light" id="screen-chatlist"><div id="chat-list"></div></section>
 <section class="screen light" id="screen-chat">
-<header class="app-head"><button class="backbtn" id="chat-back">‹</button><div style="flex:1;min-width:0"><h1 id="chat-title">トーク</h1><div class="sub" id="chat-sub"></div></div><div class="chat-head-ic"><span onclick="toggleChatSearch()">🔍</span><span onclick="toast('通話は物語の場面で行われます')">📞</span><span onclick="openChatMenu()">☰</span></div></header>
+<header class="app-head"><button class="backbtn" id="chat-back">‹</button><div style="flex:1;min-width:0"><h1 id="chat-title">トーク</h1><div class="sub" id="chat-sub"></div></div><div class="chat-head-ic"><span onclick="toggleChatSearch()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg></span><span onclick="toast('通話は物語の場面で行われます')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3l1.5 4.5-2.3 1.7a12.5 12.5 0 0 0 5.1 5.1L14 12.5l4.5 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg></span><span onclick="openChatMenu()">☰</span></div></header>
 <div class="chat-searchrow" id="chat-searchrow"><input id="chat-q" type="text" placeholder="トーク内を検索"><span class="cnt" id="chat-qcnt"></span><span style="cursor:pointer;font-size:15px;color:#33506e" onclick="closeChatSearch()">✕</span></div>
 <div id="chat-body"></div>
 <div class="choice-list" id="chat-choices" style="padding:4px 14px"></div>
-<div id="chat-inputbar"><span class="ci-ic" onclick="toggleAttach()">＋</span><span class="ci-ic" onclick="toast('写真は物語の場面で共有されます')">📷</span><div id="chat-fake">メッセージを入力</div><span class="ci-ic" onclick="toggleAttach()">☺</span><span class="ci-ic" onclick="toast('ボイスメッセージは物語の場面で届きます')">🎤</span></div>
-<div class="attach-panel" id="attach-panel"><div class="ap" onclick="toast('写真は物語の場面で共有されます')"><span class="aic">🖼</span>写真</div><div class="ap" onclick="toast('写真は物語の場面で共有されます')"><span class="aic">📷</span>カメラ</div><div class="ap" onclick="toast('位置情報の送信は合宿中制限されています')"><span class="aic">📍</span>位置情報</div><div class="ap" onclick="toast('ファイル送信は合宿用アカウントでは制限されています')"><span class="aic">📁</span>ファイル</div><div class="ap" onclick="toast('スタンプは物語の場面で届きます')"><span class="aic">☺</span>スタンプ</div><div class="ap" onclick="toast('ボイスメッセージは物語の場面で届きます')"><span class="aic">🎙</span>ボイス</div><div class="ap" onclick="toast('ギフトは利用できません')"><span class="aic">🎁</span>ギフト</div><div class="ap" onclick="toast('送金は利用できません')"><span class="aic">💸</span>送金</div></div>
+<div id="chat-inputbar"><span class="ci-ic" onclick="toggleAttach()">＋</span><span class="ci-ic" onclick="toast('写真は物語の場面で共有されます')"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13.5" r="3.4"/><path d="M8.5 7l1.2-2.5h4.6L15.5 7"/></svg></span><div id="chat-fake">メッセージを入力</div><span class="ci-ic" onclick="toggleAttach()"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 14.2a4.6 4.6 0 0 0 7 0"/><circle cx="9" cy="9.8" r="1.15" fill="currentColor" stroke="none"/><circle cx="15" cy="9.8" r="1.15" fill="currentColor" stroke="none"/></svg></span><span class="ci-ic" onclick="toast('ボイスメッセージは物語の場面で届きます')"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17.5V21"/></svg></span></div>
+<div class="attach-panel" id="attach-panel"><div class="ap" onclick="toast('写真は物語の場面で共有されます')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4.5 17.5l4.7-4.2 3 2.7 3.3-3 4 3.7"/></svg></span>写真</div><div class="ap" onclick="toast('写真は物語の場面で共有されます')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13.5" r="3.4"/><path d="M8.5 7l1.2-2.5h4.6L15.5 7"/></svg></span>カメラ</div><div class="ap" onclick="toast('位置情報の送信は合宿中制限されています')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.3-5.2-6.3-10A6.3 6.3 0 0 1 12 4.5 6.3 6.3 0 0 1 18.3 11c0 4.8-6.3 10-6.3 10z"/><circle cx="12" cy="10.8" r="2.3"/></svg></span>位置情報</div><div class="ap" onclick="toast('ファイル送信は合宿用アカウントでは制限されています')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.8A1.8 1.8 0 0 1 5.3 5h3.9l2.1 2.6h7.4a1.8 1.8 0 0 1 1.8 1.8V17a1.8 1.8 0 0 1-1.8 1.8H5.3A1.8 1.8 0 0 1 3.5 17z"/></svg></span>ファイル</div><div class="ap" onclick="toast('スタンプは物語の場面で届きます')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 14.2a4.6 4.6 0 0 0 7 0"/><circle cx="9" cy="9.8" r="1.15" fill="currentColor" stroke="none"/><circle cx="15" cy="9.8" r="1.15" fill="currentColor" stroke="none"/></svg></span>スタンプ</div><div class="ap" onclick="toast('ボイスメッセージは物語の場面で届きます')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17.5V21"/></svg></span>ボイス</div><div class="ap" onclick="toast('ギフトは利用できません')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="9.5"/><path d="M12 10.5V20M3.5 7h17v3.5h-17z"/><path d="M12 7S9.4 7.2 8.2 6a2 2 0 1 1 3-2.4C12.2 4.8 12 7 12 7zm0 0s2.6.2 3.8-1a2 2 0 1 0-3-2.4C11.8 4.8 12 7 12 7z"/></svg></span>ギフト</div><div class="ap" onclick="toast('送金は利用できません')"><span class="aic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 7.6L12 11.8l3.4-4.2M12 11.8v5M9.4 13.8h5.2M9.4 16h5.2"/></svg></span>送金</div></div>
 </section>
 <section class="screen" id="screen-mnet"><div id="mnet-body"></div></section>
 <section class="screen light" id="screen-twitter"></section>
@@ -590,11 +596,11 @@ main.noscroll{overflow:hidden}
 <div class="call-top"><div class="call-status">BOYS PLANET · プラネットキャンプ</div><div class="call-avwrap" id="call-av-wrap"></div><div id="call-name">井汲大翔</div><div id="call-timer">通話中… 00:00</div></div>
 <div id="call-sub"></div>
 <div class="choice-list" id="call-choices"></div>
-<div class="call-btns"><div class="cb"><span class="ic">🔇</span>消音</div><button id="call-end" title="終了">📞</button><div class="cb"><span class="ic">🔊</span>スピーカー</div></div>
+<div class="call-btns"><div class="cb"><span class="ic" style="color:#fff"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.2 9.7V6a2.8 2.8 0 0 1 5.4-1M9.5 5.4A2.8 2.8 0 0 1 12 3.4a2.8 2.8 0 0 1 2.8 2.8v4.6a2.8 2.8 0 0 1-.6 1.7M14.8 13.4a2.9 2.9 0 0 1-4.9-.6M6.3 10.2v.8a5.7 5.7 0 0 0 10.1 4M17.7 10.2v.8a5.7 5.7 0 0 1-1 2.8M12 17.2v3.4M4.5 4.5l15 15"/></svg></span>消音</div><button id="call-end" title="終了"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><g transform="rotate(135 12 12)"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.4 11.4 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02L6.62 10.79z"/></g></svg></button><div class="cb"><span class="ic" style="color:#fff"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.8v4.4h3.3L12 18.6V5.4L7.3 9.8H4z" fill="currentColor"/><path d="M15.3 9.8a3.4 3.4 0 0 1 0 4.4M17.8 7.4a7 7 0 0 1 0 9.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>スピーカー</div></div>
 </section>
 <section class="screen" id="screen-settings"><div id="settings-body"></div></section>
 </main>
-<div id="music-bar"><div class="mb-row"><span class="note">🎵</span><div class="ti"><div class="a" id="mb-title"></div><div class="b" id="mb-sub"></div></div><button id="mb-prev" onclick="musSkip(-1)" aria-label="前の曲">⏮</button><button id="mb-toggle">⏸</button><button id="mb-next" onclick="musSkip(1)" aria-label="次の曲">⏭</button><button id="mb-stop">✕</button></div><div class="mb-seek"><span id="mb-cur">0:00</span><input type="range" id="mb-seek" min="0" max="1000" value="0" aria-label="再生位置"><span id="mb-dur">0:00</span></div><div class="mb-modes"><button class="mb-tgl" id="mb-shuf" onclick="musToggleShuf()">🔀 シャッフル</button><button class="mb-tgl" id="mb-rep" onclick="musCycleRep()">🔁 リピート：オフ</button></div></div>
+<div id="music-bar"><div class="mb-row"><span class="note"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></span><div class="ti"><div class="a" id="mb-title"></div><div class="b" id="mb-sub"></div></div><button id="mb-prev" onclick="musSkip(-1)" aria-label="前の曲">⏮</button><button id="mb-toggle">⏸</button><button id="mb-next" onclick="musSkip(1)" aria-label="次の曲">⏭</button><button id="mb-stop">✕</button></div><div class="mb-seek"><span id="mb-cur">0:00</span><input type="range" id="mb-seek" min="0" max="1000" value="0" aria-label="再生位置"><span id="mb-dur">0:00</span></div><div class="mb-modes"><button class="mb-tgl" id="mb-shuf" onclick="musToggleShuf()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg> シャッフル</button><button class="mb-tgl" id="mb-rep" onclick="musCycleRep()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg> リピート：オフ</button></div></div>
 <div id="notif-banner"></div>
 <div id="sheet"></div>
 <div id="story-viewer"></div>
@@ -1096,7 +1102,9 @@ function mbSync(){const sk=document.getElementById("mb-seek"); const curs=docume
 const MUS_QUEUE=["signal","verynice","bgm"];
 let musPlayed={};
 function musLoopFor(key){return S.musRep==="one"||(key==="bgm"&&S.musRep==="off"&&!S.musShuf);}
-function musModeSync(){const sh=document.getElementById("mb-shuf"), rp=document.getElementById("mb-rep"); if(sh)sh.classList.toggle("on",!!S.musShuf); if(rp){rp.classList.toggle("on",S.musRep!=="off"); rp.textContent=S.musRep==="one"?"🔂 リピート：1曲":(S.musRep==="all"?"🔁 リピート：すべて":"🔁 リピート：オフ");}}
+const MUS_ICO_REP='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>';
+const MUS_ICO_REP1='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z"/></svg>';
+function musModeSync(){const sh=document.getElementById("mb-shuf"), rp=document.getElementById("mb-rep"); if(sh)sh.classList.toggle("on",!!S.musShuf); if(rp){rp.classList.toggle("on",S.musRep!=="off"); rp.innerHTML=(S.musRep==="one"?MUS_ICO_REP1+" リピート：1曲":MUS_ICO_REP+" リピート："+(S.musRep==="all"?"すべて":"オフ"));}}
 function musApplyLoop(){if(musicAudio)musicAudio.loop=musLoopFor(musicKey);}
 function musToggleShuf(){S.musShuf=!S.musShuf; musPlayed={}; if(musicKey)musPlayed[musicKey]=true; musApplyLoop(); save(); musModeSync(); toast(S.musShuf?"シャッフルをONにしました":"シャッフルをOFFにしました");}
 function musCycleRep(){S.musRep=(S.musRep==="off")?"all":(S.musRep==="all"?"one":"off"); musApplyLoop(); save(); musModeSync(); toast("リピート："+(S.musRep==="all"?"すべて":S.musRep==="one"?"1曲":"オフ"));}
@@ -1265,18 +1273,19 @@ nx.innerHTML='<button class="big-btn" onclick="go(\'home\')">ホームに戻る<
 /* ---- chat ---- */
 function threadSteps(id){return STEPS.map(function(s,i){return {s:s,i:i};}).filter(function(x){return x.s.type==="talk"&&x.s.thread===id;});}
 let lineQuery="";
+const MIC_MINI='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17.5V21"/></svg>';
 function chatRowsHTML(){
 let rows="";
 Object.keys(THREADS).forEach(function(id){
 const ts=threadSteps(id); const avail=ts.filter(function(x){return x.i<S.step||(x.i===S.step);});
 if(!avail.length&&!(curStep().type==="talk"&&curStep().thread===id))return;
 const last=avail[avail.length-1];
-let pv=""; if(last){const ms=last.s.msgs.filter(function(m){return m.f!=="sys";}); const lm=ms[ms.length-1]; pv=lm?(lm.v?"🎤 ボイスメッセージ":lm.t):"";}
+let pv="", pvV=false; if(last){const ms=last.s.msgs.filter(function(m){return m.f!=="sys";}); const lm=ms[ms.length-1]; if(lm){if(lm.v){pv=MIC_MINI+" ボイスメッセージ"; pvV=true;} else pv=lm.t;}}
 const th=THREADS[id];
 if(lineQuery&&((th.title||"")+" "+pv).indexOf(lineQuery)<0)return;
 const unread=(curStep().type==="talk"&&curStep().thread===id&&!S.doneSteps.includes(S.step))?'<span class="ubdg">1</span>':"";
 const av=th.group?grpAvHTML(th.members):avHTML(th.members[0]);
-rows+='<div class="thread-l" onclick="openThread(\''+id+'\')">'+av+'<div class="meta"><div class="nm">'+esc(th.title)+'</div><div class="pv">'+esc(pv)+'</div></div>'+unread+"</div>";
+rows+='<div class="thread-l" onclick="openThread(\''+id+'\')">'+av+'<div class="meta"><div class="nm">'+esc(th.title)+'</div><div class="pv">'+(pvV?pv:esc(pv))+'</div></div>'+unread+"</div>";
 });
 if(!rows)return '<p style="padding:20px 16px;color:#888;font-size:13px">'+(lineQuery?"「"+esc(lineQuery)+"」に一致するトークはありません。":"まだトークはありません。")+"</p>";
 return rows;
@@ -1284,7 +1293,7 @@ return rows;
 function renderChatListRows(){const el=document.getElementById("chat-rows"); if(el)el.innerHTML=chatRowsHTML();}
 function renderChatList(){
 S.seenApps.talk=S.step;
-document.getElementById("chat-list").innerHTML=headHTML("トーク","LINE", "home").replace('class="app-head"','class="app-head" style="position:sticky"')+'<div class="line-search"><span>🔍</span><input id="line-q" type="text" placeholder="トークルームとメッセージを検索" value="'+esc(lineQuery)+'" oninput="lineQuery=this.value;renderChatListRows()"></div><div id="chat-rows">'+chatRowsHTML()+"</div>";
+document.getElementById("chat-list").innerHTML=headHTML("トーク","LINE", "home").replace('class="app-head"','class="app-head" style="position:sticky"')+'<div class="line-search"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg></span><input id="line-q" type="text" placeholder="トークルームとメッセージを検索" value="'+esc(lineQuery)+'" oninput="lineQuery=this.value;renderChatListRows()"></div><div id="chat-rows">'+chatRowsHTML()+"</div>";
 save();
 }
 function openThread(id,fromStep){
@@ -1360,9 +1369,9 @@ function toggleAttach(){const p=document.getElementById("attach-panel"); if(p)p.
 function openChatMenu(){
 const th=THREADS[curThread]; if(!th){toast("トークを開いていません"); return;}
 let items='<div class="sheet-title">'+esc(th.title)+'</div><div class="sheet-sub">'+esc(th.sub)+'</div>';
-items+='<div class="sheet-item" onclick="chatMenuMembers()">👥 メンバー</div>';
-items+='<div class="sheet-item" onclick="closeSheet();toast(\'通知はオンになっています\')">🔔 通知オン</div>';
-items+='<div class="sheet-item" onclick="closeSheet();toast(\'アルバムはまだ作成されていません\')">🖼 アルバム</div>';
+items+='<div class="sheet-item" onclick="chatMenuMembers()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.4"/><path d="M3.5 19.5c.7-3.2 2.9-4.8 5.5-4.8s4.8 1.6 5.5 4.8M15.5 5.6a3.4 3.4 0 0 1 0 6M17.8 15.1c1.6.7 2.7 2.1 3.1 4.4"/></svg> メンバー</div>';
+items+='<div class="sheet-item" onclick="closeSheet();toast(\'通知はオンになっています\')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a2.4 2.4 0 0 0 2.4-2.4H9.6A2.4 2.4 0 0 0 12 21zM18.7 18.6v-1.9L17 14V9.6C17 6.8 15.4 4.5 13 3.7V3a1 1 0 1 0-2 0v.7C8.6 4.5 7 6.8 7 9.6V14l-1.7 2.7v1.9h13.4z"/></svg> 通知オン</div>';
+items+='<div class="sheet-item" onclick="closeSheet();toast(\'アルバムはまだ作成されていません\')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4.5 17.5l4.7-4.2 3 2.7 3.3-3 4 3.7"/></svg> アルバム</div>';
 items+='<div class="sheet-item" onclick="closeSheet()">閉じる</div>';
 openSheet(items);
 }
@@ -1376,14 +1385,15 @@ openSheet(items);
 }
 /* ---- mnet plus ---- */
 let mpView="vote";
+function mpIco(p){return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+"</svg>";}
 function mpTabsHTML(){
 function tb(v,ic,lb){return '<span class="'+(mpView===v?"on":"")+'" onclick="mpGo(\''+v+'\')">'+ic+"<i>"+lb+"</i></span>";}
-return '<div class="mp-tabs">'+tb("vote","🏠","홈")+tb("vote","🗳","투표")+tb("contents","🎬","콘텐츠")+tb("my","👤","마이")+"</div>";
+return '<div class="mp-tabs">'+tb("vote",mpIco('<path d="M4 11.2L12 4l8 7.2V19a1.8 1.8 0 0 1-1.8 1.8h-3.7v-6.3h-5v6.3H5.8A1.8 1.8 0 0 1 4 19z"/>'),"홈")+tb("vote",mpIco('<rect x="4" y="4.5" width="16" height="16" rx="3.5"/><path d="M8.6 12.4l2.4 2.4 4.4-4.9"/>'),"투표")+tb("contents",mpIco('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7.5 5v14M16.5 5v14M7.5 9.5H3.8M7.5 14.5H3.8M16.5 9.5h3.7M16.5 14.5h3.7"/><path d="M10.4 9.9l4.3 2.1-4.3 2.1z" fill="currentColor" stroke="none"/>'),"콘텐츠")+tb("my",mpIco('<circle cx="12" cy="8" r="3.6"/><path d="M5.2 19.6c.8-3.3 3.5-5 6.8-5s6 1.7 6.8 5"/>'),"마이")+"</div>";
 }
 function mpGo(v){mpView=v; renderMnet();}
 function mnetVoteAsk(){
 if(S.mnetLeft<=0){toast("本日の投票は完了しています"); return;}
-openSheet('<div class="sheet-title">井汲大翔に投票しますか？</div><div class="sheet-sub">本日の残り投票数：'+S.mnetLeft+'票。投票すると取り消せません。</div><div class="sheet-item" style="color:#7a1fa2;font-weight:700" onclick="closeSheet();mnetVote()">🗳 投票する</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');
+openSheet('<div class="sheet-title">井汲大翔に投票しますか？</div><div class="sheet-sub">本日の残り投票数：'+S.mnetLeft+'票。投票すると取り消せません。</div><div class="sheet-item" style="color:#7a1fa2;font-weight:700" onclick="closeSheet();mnetVote()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="16" rx="3.5"/><path d="M8.6 12.4l2.4 2.4 4.4-4.9"/></svg> 投票する</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');
 }
 function mpcSeek(el){if(!musicAudio)return; const d=musicAudio.duration; if(isFinite(d)&&d>0){musicAudio.currentTime=(+el.value)/1000*d; mbSync();}}
 function mpNowHTML(){
@@ -1424,11 +1434,11 @@ const voted=S.mnetLeft<=0;
 document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","公式投票アプリ","home")
 +'<div class="mp-hero"><div class="lg">Mnet Plus ✓</div><div class="ds">BOYS PLANET 公式投票<br>あなたの投票が、少年たちの運命を決めます</div></div>'
 +'<div class="mp-card"><div class="row1">'+avHTML("hiroto")+'<div><div class="nm">井汲大翔 <span style="color:var(--pink);font-size:12px">Gグループ</span></div><div class="inf">IKUMI HIROTO · RBW · 2002.08.23<br>キーワード：「I must debut!!!!!!!」</div></div></div>'
-+'<button class="mp-votebtn'+(voted?" done":"")+'" onclick="mnetVoteAsk()">'+(voted?"本日の投票済み ✓":"🗳️ 大翔に投票する（残り"+S.mnetLeft+"票）")+"</button>"
++'<button class="mp-votebtn'+(voted?" done":"")+'" onclick="mnetVoteAsk()">'+(voted?"本日の投票済み ✓":"<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true' style='vertical-align:-3px'><rect x='4' y='4.5' width='16' height='16' rx='3.5'/><path d='M8.6 12.4l2.4 2.4 4.4-4.9'/></svg> 大翔に投票する（残り"+S.mnetLeft+"票）")+"</button>"
 +'<div class="mp-done-note'+(S.mnetCast>0?" on":"")+'">✓ 投票が反映されました（大翔への累計 '+S.mnetCast+'票）</div>'
 +'<div class="mp-est"><span>現在の推定ポイント（ゲーム内推定）</span><b>'+fmt(pts)+'点 · '+rk+'位相当</b></div>'
 +'<div class="mp-note">投票期間：第1回 2023.02.02 〜 02.24 10:00 (KST)<br>1日1端末につき最大9人まで投票可能。結果は生存者発表式で公表されます。</div></div>'
-+'<div class="mp-top9"><h4>🏆 第2話放送時点の上位9（デビュー圏）</h4>'+t9+'</div>'
++'<div class="mp-top9"><h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M8 21h8M12 16.5V21M7.5 4h9v4.5a4.5 4.5 0 0 1-9 0V4z"/><path d="M7.5 5.5H4.8A1.3 1.3 0 0 0 3.5 6.8c0 1.9 1.7 3.2 4 3.2M16.5 5.5h2.7a1.3 1.3 0 0 1 1.3 1.3c0 1.9-1.7 3.2-4 3.2"/></svg> 第2話放送時点の上位9（デビュー圏）</h4>'+t9+'</div>'
 +'<p style="margin:0 16px;font-size:11px;color:var(--sub2);line-height:1.7">※推定ポイント・順位はゲーム内の目安表示です。実際の投票は当時のMnet Plusアプリで行われました。</p>'
 +mpTabsHTML();
 }
@@ -1475,7 +1485,7 @@ return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);}
 function twIniGrad(hex){return "linear-gradient(165deg,"+twShade(hex,.42)+" 0%,"+hex+" 55%,"+twShade(hex,-.20)+" 100%)";}
 function iniBgFor(str){let h=0; str=String(str||"?"); for(let i=0;i<str.length;i++)h=(h*33+str.charCodeAt(i))%997; return twIniGrad(TW_PALETTE[h%TW_PALETTE.length]);}
 function twAvHTML(handle,name){
-if(handle==="@_mnetboysplanet")return '<div class="tw-av sq" style="background:linear-gradient(135deg,#155e9e,#7a4fd0)">BP</div>';
+if(handle==="@_mnetboysplanet")return '<div class="tw-av sq" style="background:linear-gradient(165deg,#5e9bd8 0%,#155e9e 52%,#7a4fd0 100%)">BP</div>';
 if(handle===TW_SELF.handle)return '<div class="tw-av self">'+esc(String(name||"な").slice(0,1))+"</div>";
 let h=0; for(let i=0;i<handle.length;i++)h=(h*33+handle.charCodeAt(i))%997;
 return '<div class="tw-av ini" style="background:'+twIniGrad(TW_PALETTE[h%TW_PALETTE.length])+'">'+esc(String(name||"?").slice(0,1))+"</div>";
@@ -1521,14 +1531,14 @@ function twToggleLike(id){twLiked[id]=!twLiked[id]; twPersist(); renderTwitter()
 function twToggleRT(id){twRTed[id]=!twRTed[id]; twPersist(); renderTwitter();}
 function twToggleFollow(handle){twFollow[handle]=!twFollow[handle]; twPersist(); toast(twFollow[handle]?"フォローしました":"フォローを解除しました"); renderTwitter();}
 function twMineMenu(id){const pin=(S.twPinned===id);
-openSheet((pin?'<div class="sheet-item" onclick="twUnpin()">📌 固定を解除</div>':'<div class="sheet-item" onclick="twPin(\''+id+'\')">📌 プロフィールに固定</div>')+'<div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twAskDelete(\''+id+'\')">🗑 ツイートを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+openSheet((pin?'<div class="sheet-item" onclick="twUnpin()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.2 4.5h5.6l-.7 6.2 2.5 2.5c.25.25.05.7-.3.7H7.7c-.35 0-.55-.45-.3-.7l2.5-2.5-.7-6.2z"/><path d="M12 14v6.5"/></svg> 固定を解除</div>':'<div class="sheet-item" onclick="twPin(\''+id+'\')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.2 4.5h5.6l-.7 6.2 2.5 2.5c.25.25.05.7-.3.7H7.7c-.35 0-.55-.45-.3-.7l2.5-2.5-.7-6.2z"/><path d="M12 14v6.5"/></svg> プロフィールに固定</div>')+'<div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twAskDelete(\''+id+'\')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 6.5h15M9.5 6V4.8A.8.8 0 0 1 10.3 4h3.4a.8.8 0 0 1 .8.8V6M6.5 6.5l.8 12a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9l.8-12M10 10.5v6M14 10.5v6"/></svg> ツイートを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
 function twPin(id){S.twPinned=id; save(); closeSheet(); renderTwitter(); toast("プロフィールに固定しました");}
 function twUnpin(){S.twPinned=null; save(); closeSheet(); renderTwitter(); toast("固定を解除しました");}
 function twAskDelete(id){openSheet('<div class="sheet-title">ツイートを削除しますか？</div><div class="sheet-sub">この操作は取り消せません。タイムラインやプロフィールからも削除されます。</div><div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twDoDelete(\''+id+'\')">削除する</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
 function twDoDelete(id){S.myTweets=(S.myTweets||[]).filter(function(t){return t.id!==id;}); if(S.twPinned===id)S.twPinned=null; if(twLiked[id])delete twLiked[id]; if(twRTed[id])delete twRTed[id]; twPersist(); closeSheet(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートを削除しました");}
 function twBackHeadHTML(title){return '<div class="tw-detail-head"><button class="backbtn" onclick="twGo(\'feed\')">‹</button><div class="ttl">'+esc(title)+"</div></div>";}
 function twFeedHeadHTML(){
-return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av" style="cursor:pointer" onclick="twOpenProfile(\''+TW_SELF.handle+'\')">な</div><div class="bird">'+TW_BIRD+'</div><div class="spark">✨</div></div>'
+return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av" style="cursor:pointer" onclick="twOpenProfile(\''+TW_SELF.handle+'\')">な</div><div class="bird">'+TW_BIRD+'</div><div class="spark"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.62 5.3 2.2 7.3 9.5 9.5-7.3 2.2-8.88 4.2-9.5 9.5-.62-5.3-2.2-7.3-9.5-9.5 7.3-2.2 8.88-4.2 9.5-9.5z"/></svg></div></div>'
 +'<div class="tw-tabs"><span class="'+(twUI.tab==="rec"?"on":"")+'" onclick="twSetTab(\'rec\')"><i>おすすめ</i></span><span class="'+(twUI.tab==="fol"?"on":"")+'" onclick="twSetTab(\'fol\')"><i>フォロー中</i></span></div>';
 }
 function twSetTab(t){twUI.tab=t; twUI._reset=true; renderTwitter();}
@@ -1574,12 +1584,12 @@ let h='<div class="tw-pf-banner"></div><div class="tw-pf-main"><div class="tw-pf
 +'<div class="tw-pf-name">'+esc(pr.name)+badge+"</div>"
 +'<div class="tw-pf-handle">'+esc(handle)+"</div>"
 +(pr.bio?'<div class="tw-pf-bio">'+esc(pr.bio)+"</div>":"")
-+'<div class="tw-pf-meta">'+(pr.loc?"<span>📍 "+esc(pr.loc)+"</span>":"")+(pr.link?"<span>🔗 "+esc(pr.link)+"</span>":"")+"<span>🗓 "+esc(pr.joined)+"</span></div>"
++'<div class="tw-pf-meta">'+(pr.loc?"<span>"+'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M12 21s-6.3-5.2-6.3-10A6.3 6.3 0 0 1 12 4.5 6.3 6.3 0 0 1 18.3 11c0 4.8-6.3 10-6.3 10z"/><circle cx="12" cy="10.8" r="2.3"/></svg> '+esc(pr.loc)+"</span>":"")+(pr.link?"<span>"+'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 1 0-6.4-6.4l-1.5 1.5"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 1 0 6.4 6.4l1.5-1.5"/></svg> '+esc(pr.link)+"</span>":"")+"<span>"+'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg> '+esc(pr.joined)+"</span></div>"
 +'<div class="tw-pf-counts"><span><b>'+esc(pr.following)+"</b> フォロー中</span><span><b>"+esc(pr.followers)+"</b> フォロワー</span></div></div>"
 +'<div class="tw-pf-tabs"><span class="'+(twUI.pfTab==="tw"?"on":"")+'" onclick="twSetPfTab(\'tw\')"><i>ツイート</i></span><span class="'+(twUI.pfTab==="rp"?"on":"")+'" onclick="twSetPfTab(\'rp\')"><i>返信</i></span><span class="'+(twUI.pfTab==="md"?"on":"")+'" onclick="twSetPfTab(\'md\')"><i>メディア</i></span><span class="'+(twUI.pfTab==="lk"?"on":"")+'" onclick="twSetPfTab(\'lk\')"><i>いいね</i></span></div>';
 if(twUI.pfTab==="tw"){let mine=(handle===TW_SELF.handle)?(S.myTweets||[]).slice():TWITTER.filter(function(t){return t.handle===handle&&t.at<=S.step;}).slice().reverse(); let pinT=null;
 if(handle===TW_SELF.handle&&S.twPinned){pinT=(S.myTweets||[]).find(function(t){return t.id===S.twPinned;})||null; if(pinT)mine=mine.filter(function(t){return t.id!==pinT.id;});}
-if(pinT)h+='<div class="tw-pinlab">📌 固定されたツイート</div>'+twTweetHTML(pinT);
+if(pinT)h+='<div class="tw-pinlab"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M9.2 4.5h5.6l-.7 6.2 2.5 2.5c.25.25.05.7-.3.7H7.7c-.35 0-.55-.45-.3-.7l2.5-2.5-.7-6.2z"/><path d="M12 14v6.5"/></svg> 固定されたツイート</div>'+twTweetHTML(pinT);
 h+=(mine.length?mine.map(twTweetHTML).join(""):(pinT?"":'<div class="tw-empty"><div class="ed">まだツイートがありません。</div></div>'));}
 else if(twUI.pfTab==="rp"){h+=twRepliesHTML(handle);}
 else if(twUI.pfTab==="md"){h+=twMediaHTML(handle);}
@@ -1617,7 +1627,7 @@ return mine.map(function(t){
 const p=twParentOf(t);
 let ctx="";
 if(p){let hsh=0; for(let i=0;i<p.handle.length;i++)hsh=(hsh*33+p.handle.charCodeAt(i))%997;
-const cavBg=(p.handle==="@_mnetboysplanet")?"linear-gradient(135deg,#155e9e,#7a4fd0)":twIniGrad(TW_PALETTE[hsh%TW_PALETTE.length]);
+const cavBg=(p.handle==="@_mnetboysplanet")?"linear-gradient(165deg,#5e9bd8 0%,#155e9e 52%,#7a4fd0 100%)":twIniGrad(TW_PALETTE[hsh%TW_PALETTE.length]);
 const cavTx=(p.handle==="@_mnetboysplanet")?"BP":esc(p.name.slice(0,1));
 ctx='<div class="ctxp"><span class="cav" style="background:'+cavBg+'" onclick="event.stopPropagation();twOpenProfile(\''+p.handle+'\')">'+cavTx+'</span><span class="ctx-tx"><b>'+esc(p.name)+'</b> '+esc(p.handle)+" · "+esc(p.text.replace(/\n/g," "))+'</span><span class="ctx-to">への返信</span></div>';}
 return '<div class="tw-replyctx">'+ctx+twTweetHTML(t)+"</div>";
@@ -1626,7 +1636,7 @@ return '<div class="tw-replyctx">'+ctx+twTweetHTML(t)+"</div>";
 function twSetPfTab(t){twUI.pfTab=t; twUI._reset=true; renderTwitter();}
 function twSearchHeadHTML(){
 const q=esc(twUI.query).replace(/"/g,"&quot;");
-return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="tw-searchbar"><span>🔍</span><input id="tw-q" type="text" placeholder="キーワード検索" value="'+q+'" oninput="twSetQuery(this.value)" autocomplete="off" enterkeyhint="search">'+(twUI.query?'<button class="qx" onclick="twClearQuery()" aria-label="検索をクリア">✕</button>':"")+'</div><div class="spark">⚙</div></div>';
+return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="tw-searchbar"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg></span><input id="tw-q" type="text" placeholder="キーワード検索" value="'+q+'" oninput="twSetQuery(this.value)" autocomplete="off" enterkeyhint="search">'+(twUI.query?'<button class="qx" onclick="twClearQuery()" aria-label="検索をクリア">✕</button>':"")+'</div><div class="spark"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2z"/></svg></div></div>';
 }
 function twSetQuery(v){twUI.query=v; twUI._reset=true; twUI._focusQ=true; renderTwitter();}
 function twClearQuery(){twUI.query=""; twUI._reset=true; twUI._focusQ=true; renderTwitter();}
@@ -1656,27 +1666,44 @@ h+='<div class="tw-sec-head">おすすめユーザー</div>';
 ["@_mnetboysplanet","@roto_dan_jp"].forEach(function(handle){h+=twUserRowHTML(handle);});
 return h;
 }
-function twNotifHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">通知</div><div class="spark">⚙</div></div>';}
+function twNotifHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">通知</div><div class="spark"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2z"/></svg></div></div>';}
+function twNotifIcon(type){
+const P={
+star:'<svg width="23" height="23" viewBox="0 0 24 24" fill="#794bc4" aria-hidden="true"><path d="M12 2.6l2.83 6.36 6.97.72-5.2 4.73 1.45 6.84L12 17.77l-6.05 3.48 1.45-6.84-5.2-4.73 6.97-.72z"/></svg>',
+like:'<svg width="21" height="21" viewBox="0 0 24 24" fill="#e0245e" aria-hidden="true"><path d="M20.83 4.59a5.5 5.5 0 0 0-7.79 0L12 5.64l-1.04-1.05a5.5 5.5 0 0 0-7.79 7.78l1.05 1.05L12 21.23l7.78-7.78 1.05-1.05a5.5 5.5 0 0 0 0-7.81z"/></svg>',
+rt:'<svg width="23" height="23" viewBox="0 0 24 24" fill="#17bf63" aria-hidden="true"><path d="M22.46 6.5l-3.9-3.9a.5.5 0 0 0-.85.35v2.63c-9.11.32-12.61 4.32-12.61 10.52h2.72c0-4.9 2.6-7.67 9.84-7.94v2.6a.5.5 0 0 0 .85.36l3.95-3.94a.5.5 0 0 0 0-.72zM1.54 17.5l3.9 3.9a.5.5 0 0 0 .85-.35v-2.63c9.11-.32 12.61-4.32 12.61-10.52h-2.72c0 4.9-2.6 7.67-9.84 7.94v-2.6a.5.5 0 0 0-.85-.36l-3.95 3.94a.5.5 0 0 0 0 .72z"/></svg>',
+follow:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="7.5" r="4" fill="#1d9bf0"/><path d="M2.5 20.5c.8-4 3.9-6.2 7.5-6.2 1.2 0 2.3.2 3.3.7a5.6 5.6 0 0 0-.8 2.9c0 .9.2 1.8.6 2.6H2.5z" fill="#1d9bf0"/><circle cx="17.6" cy="17.6" r="4.7" fill="#1d9bf0"/><path d="M17.6 15.1v5M15.1 17.6h5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>'};
+return P[type]||P.star;
+}
 function twNotifHTML(){
 const list=TWITTER.filter(function(t){return t.at<=S.step&&twFollow[t.handle];}).slice().reverse();
 if(!list.length)return '<div class="tw-empty"><div class="et">通知はまだありません</div><div class="ed">フォロー中のアカウントの新しいツイートなどが、ここに表示されます。</div></div>';
-return list.map(function(t){const d=twDateObj(t); return '<div class="tw-notif" onclick="twOpenTweet(\''+t.id+'\')"><div class="nic">🔔</div><div class="ntx"><b>'+esc(t.name)+"</b>さんがツイートしました · "+d.short+'<div class="ex">'+esc(t.text.length>72?t.text.slice(0,72)+"…":t.text)+"</div></div></div>";}).join("");
+function exOf(t){return t.text.length>72?t.text.slice(0,72)+"…":t.text;}
+const rows=list.map(function(t){const d=twDateObj(t); return {icon:"star",handle:t.handle,name:t.name,act:"さんがツイートしました",date:d.short,ex:exOf(t),open:"twOpenTweet('"+t.id+"')"};});
+/* アクティビティ分（いいね／RT／フォロー）は既存アカウントと既存ツイートから構成するUI定型表示 */
+const off=list.find(function(t){return t.handle==="@_mnetboysplanet";});
+const roto=TWITTER.find(function(t){return t.handle==="@roto_dan_jp"&&t.at<=S.step;});
+const live=TWITTER.find(function(t){return t.handle==="@bp_live_jp"&&t.at<=S.step;});
+if(off&&roto){const d=twDateObj(off); rows.splice(Math.min(1,rows.length),0,{icon:"like",handle:roto.handle,name:roto.name,act:"さんがツイートをいいねしました",date:d.short,ex:exOf(off),open:"twOpenTweet('"+off.id+"')"});}
+if(off&&live){const d=twDateObj(off); rows.push({icon:"rt",handle:live.handle,name:live.name,act:"さんがツイートをリツイートしました",date:d.short,ex:exOf(off),open:"twOpenTweet('"+off.id+"')"});}
+if(roto){const d=twDateObj(list[0]); rows.push({icon:"follow",handle:roto.handle,name:roto.name,act:"さんがあなたをフォローしました",date:d.short,ex:"",open:"twOpenProfile('"+roto.handle+"')"});}
+return rows.map(function(r){return '<div class="tw-notif" onclick="'+r.open+'"><div class="nic">'+twNotifIcon(r.icon)+'</div><div class="ntx"><span class="avw">'+twAvHTML(r.handle,r.name)+'</span><div class="nh"><b>'+esc(r.name)+"</b>"+esc(r.act)+" · "+r.date+"</div>"+(r.ex?'<div class="ex">'+esc(r.ex)+"</div>":"")+"</div></div>";}).join("");
 }
-function twDmHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">メッセージ</div><div class="spark">✉️</div></div>';}
+function twDmHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">メッセージ</div><div class="spark"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5.5h17v13h-17zM3.8 6.4L12 12l8.2-5.6"/></svg></div></div>';}
 function twDmHTML(){return '<div class="tw-empty"><div class="et">受信トレイへようこそ！</div><div class="ed">既存の会話がここに表示されます。合宿期間中、スタッフ用アカウントのダイレクトメッセージは運用チームが管理しています。</div></div>';}
 let twcSess={text:"",img:null,draftId:null};
 function twDraftsArr(){if(!Array.isArray(S.twDrafts))S.twDrafts=[]; return S.twDrafts;}
 const TW_PIC_CHOICES=["hiroto","keita","zhanghao","hanbin","matthew","jiwoong"];
 function twcImgHTML(){return twcSess.img?'<div class="twc-img"><img src="'+twcSess.img+'" alt=""><button onclick="twPicRemove()" aria-label="写真をはずす">✕</button></div>':"";}
-function twComposeHTML(){return '<div class="tw-compose" id="tw-compose"><div class="twc-head"><button class="twc-cancel" onclick="twComposeClose()">キャンセル</button><div class="twc-title">ツイート</div><button class="twc-draftsbtn" id="twc-draftsbtn" style="display:none" onclick="twDraftsOpen()">下書き</button><button class="twc-post" id="twc-post" onclick="twPost()" disabled>ツイートする</button></div><div class="twc-body">'+twAvHTML(TW_SELF.handle,TW_SELF.name)+'<textarea id="twc-text" placeholder="いまどうしてる？" oninput="twcUpd()">'+esc(twcSess.text)+'</textarea></div><div class="twc-imgwrap" id="twc-imgwrap">'+twcImgHTML()+'</div><div class="twc-foot"><button class="twc-picbtn" onclick="twPicSheet()" aria-label="写真を追加">🖼</button><span class="twc-globe">🌐 全員が返信できます</span><span class="twc-ringbox" id="twc-ringbox"><svg class="twc-ring" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle class="rbg" cx="13" cy="13" r="11"></circle><circle class="rfg" id="twc-ringfg" cx="13" cy="13" r="11" stroke-dasharray="69.12" stroke-dashoffset="69.12"></circle></svg><span class="twc-count" id="twc-count"></span></span></div></div>';}
+function twComposeHTML(){return '<div class="tw-compose" id="tw-compose"><div class="twc-head"><button class="twc-cancel" onclick="twComposeClose()">キャンセル</button><div class="twc-title">ツイート</div><button class="twc-draftsbtn" id="twc-draftsbtn" style="display:none" onclick="twDraftsOpen()">下書き</button><button class="twc-post" id="twc-post" onclick="twPost()" disabled>ツイートする</button></div><div class="twc-body">'+twAvHTML(TW_SELF.handle,TW_SELF.name)+'<textarea id="twc-text" placeholder="いまどうしてる？" oninput="twcUpd()">'+esc(twcSess.text)+'</textarea></div><div class="twc-imgwrap" id="twc-imgwrap">'+twcImgHTML()+'</div><div class="twc-foot"><button class="twc-picbtn" onclick="twPicSheet()" aria-label="写真を追加"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4.5 17.5l4.7-4.2 3 2.7 3.3-3 4 3.7"/></svg></button><span class="twc-globe"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.2 3.6 8.5s-1.2 6.2-3.6 8.5c-2.4-2.3-3.6-5.2-3.6-8.5S9.6 5.8 12 3.5z"/></svg> 全員が返信できます</span><span class="twc-ringbox" id="twc-ringbox"><svg class="twc-ring" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle class="rbg" cx="13" cy="13" r="11"></circle><circle class="rfg" id="twc-ringfg" cx="13" cy="13" r="11" stroke-dasharray="69.12" stroke-dashoffset="69.12"></circle></svg><span class="twc-count" id="twc-count"></span></span></div></div>';}
 function twComposeOpen(){const c=document.getElementById("tw-compose"); if(!c)return; c.classList.add("on"); twcUpd(); const t=document.getElementById("twc-text"); if(t)setTimeout(function(){try{t.focus({preventScroll:true});}catch(e){}},60);}
 function twComposeHide(){const c=document.getElementById("tw-compose"); if(c)c.classList.remove("on");}
-function twComposeClose(){const cur=document.getElementById("twc-text"); if(cur)twcSess.text=cur.value; const has=!!twcSess.text.trim()||!!twcSess.img; const resetSess=function(){twcSess={text:"",img:null,draftId:null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=""; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML="";}; if(!has){resetSess(); twComposeHide(); return;} const src=twcSess.draftId?twDraftsArr().find(function(d){return d.ts===twcSess.draftId;}):null; if(src&&(src.text||"")===twcSess.text&&(src.img||null)===twcSess.img){resetSess(); twComposeHide(); return;} openSheet('<div class="sheet-title">下書きを保存しますか？</div><div class="sheet-sub">保存した下書きは、ツイート画面の「下書き」から選んで再開できます。</div><div class="sheet-item" style="color:#1d9bf0;font-weight:700" onclick="twDraftSave()">📝 下書きを保存</div><div class="sheet-item" style="color:#f4212e" onclick="twDraftDiscard()">下書きを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twComposeClose(){const cur=document.getElementById("twc-text"); if(cur)twcSess.text=cur.value; const has=!!twcSess.text.trim()||!!twcSess.img; const resetSess=function(){twcSess={text:"",img:null,draftId:null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=""; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML="";}; if(!has){resetSess(); twComposeHide(); return;} const src=twcSess.draftId?twDraftsArr().find(function(d){return d.ts===twcSess.draftId;}):null; if(src&&(src.text||"")===twcSess.text&&(src.img||null)===twcSess.img){resetSess(); twComposeHide(); return;} openSheet('<div class="sheet-title">下書きを保存しますか？</div><div class="sheet-sub">保存した下書きは、ツイート画面の「下書き」から選んで再開できます。</div><div class="sheet-item" style="color:#1d9bf0;font-weight:700" onclick="twDraftSave()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h13v16h-13z"/><path d="M8.5 9h7M8.5 12.5h7M8.5 16h4"/></svg> 下書きを保存</div><div class="sheet-item" style="color:#f4212e" onclick="twDraftDiscard()">下書きを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
 function twDraftSave(){const ds=twDraftsArr(); if(twcSess.draftId){const d=ds.find(function(x){return x.ts===twcSess.draftId;}); if(d){d.text=twcSess.text; d.img=twcSess.img; d.ts=Date.now();} else ds.unshift({text:twcSess.text,img:twcSess.img,ts:Date.now()});} else ds.unshift({text:twcSess.text,img:twcSess.img,ts:Date.now()}); save(); twcSess={text:"",img:null,draftId:null}; closeSheet(); twComposeHide(); toast("下書きを保存しました");}
 function twDraftDiscard(){if(twcSess.draftId){const ds=twDraftsArr(); const i=ds.findIndex(function(x){return x.ts===twcSess.draftId;}); if(i>=0)ds.splice(i,1);} S.twDraft=null; save(); twcSess={text:"",img:null,draftId:null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=""; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=""; closeSheet(); twComposeHide(); toast("下書きを削除しました");}
 function twDraftsOpen(){const cur=document.getElementById("twc-text"); if(cur)twcSess.text=cur.value; const ds=twDraftsArr(); if(!ds.length){toast("下書きはありません"); return;}
 let h='<div class="sheet-title">下書き</div><div class="sheet-sub">タップすると、その下書きから再開できます。</div>';
-h+=ds.map(function(d,i){const dt=new Date(d.ts||Date.now()); const dstr=dt.getFullYear()+"/"+(dt.getMonth()+1)+"/"+dt.getDate(); return '<div class="tw-draft-row" onclick="twDraftResume('+i+')"><div class="tw-draft-tx">'+(d.text?esc(d.text):'<span style="color:#888">（写真のみの下書き）</span>')+(d.img?'<span class="tw-draft-img"><img src="'+d.img+'" alt=""></span>':"")+'<div class="tw-draft-date">'+dstr+'</div></div><button class="tw-draft-del" onclick="event.stopPropagation();twDraftDelete('+i+')" aria-label="この下書きを削除">🗑</button></div>';}).join("");
+h+=ds.map(function(d,i){const dt=new Date(d.ts||Date.now()); const dstr=dt.getFullYear()+"/"+(dt.getMonth()+1)+"/"+dt.getDate(); return '<div class="tw-draft-row" onclick="twDraftResume('+i+')"><div class="tw-draft-tx">'+(d.text?esc(d.text):'<span style="color:#888">（写真のみの下書き）</span>')+(d.img?'<span class="tw-draft-img"><img src="'+d.img+'" alt=""></span>':"")+'<div class="tw-draft-date">'+dstr+'</div></div><button class="tw-draft-del" onclick="event.stopPropagation();twDraftDelete('+i+')" aria-label="この下書きを削除"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 6.5h15M9.5 6V4.8A.8.8 0 0 1 10.3 4h3.4a.8.8 0 0 1 .8.8V6M6.5 6.5l.8 12a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9l.8-12M10 10.5v6M14 10.5v6"/></svg></button></div>';}).join("");
 h+='<div class="sheet-item" onclick="closeSheet()">キャンセル</div>';
 openSheet(h);}
 function twDraftResume(i){const d=twDraftsArr()[i]; if(!d)return; twcSess={text:d.text||"",img:d.img||null,draftId:d.ts}; closeSheet(); const ta=document.getElementById("twc-text"); if(ta)ta.value=twcSess.text; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=twcImgHTML(); twcUpd(); if(ta)setTimeout(function(){try{ta.focus({preventScroll:true});}catch(e){}},60);}
@@ -1746,7 +1773,7 @@ let hsh=0; for(let i=0;i<pid.length;i++)hsh=(hsh*31+pid.charCodeAt(i))%997;
 const cs=[IG_COMMENTS[hsh%IG_COMMENTS.length],IG_COMMENTS[(hsh+1)%IG_COMMENTS.length],IG_COMMENTS[(hsh+3)%IG_COMMENTS.length]];
 let html='<div class="sheet-title">コメント</div>';
 cs.forEach(function(c){html+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:'+iniBgFor(c[0])+'">'+esc(c[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(c[0])+'</b>　'+esc(c[1])+"</div></div>";});
-html+='<div class="sheet-item" style="color:#8e8e8e" onclick="toast(\'コメントの投稿は公式アカウント運用のため制限されています\')">💬 コメントを追加…</div>';
+html+='<div class="sheet-item" style="color:#8e8e8e" onclick="toast(\'コメントの投稿は公式アカウント運用のため制限されています\')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> コメントを追加…</div>';
 openSheet(html);
 }
 function openIgActivity(){
@@ -1771,10 +1798,10 @@ const el=document.getElementById("insta-list");
 const posts=INSTA.filter(function(p){return p.at<=S.step;}).slice().reverse();
 let storiesHTML='<div class="ig-stories">'+IG_STORIES.map(function(s,i){const c=s[1]?CAST[s[1]]:null; const face=c?'<img src="'+c.img+'" alt="">':'<div class="av-init grp" style="font-size:15px">'+s[2]+"</div>"; return '<div class="ig-st" onclick="openStory('+i+')"><div class="ring">'+face+'</div><div class="lb">'+esc(s[0])+"</div></div>";}).join("")+"</div>";
 el.innerHTML=headHTML("Instagram","2023","home")
-+'<div style="display:flex;align-items:center;padding:2px 16px 0"><span style="font-size:21px;font-weight:700;color:#111;font-family:Georgia,serif;font-style:italic">Instagram</span><span style="margin-left:auto;font-size:18px;color:#111"><span style="cursor:pointer" onclick="openIgActivity()">♡</span>&nbsp;&nbsp;<span style="cursor:pointer" onclick="toast(\'ダイレクトメッセージは公式アカウントでは制限されています\')">➤</span></span></div>'
++'<div style="display:flex;align-items:center;padding:2px 16px 0"><span style="font-size:21px;font-weight:700;color:#111;font-family:Georgia,serif;font-style:italic">Instagram</span><span style="margin-left:auto;font-size:18px;color:#111"><span style="cursor:pointer" onclick="openIgActivity()"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>&nbsp;&nbsp;<span style="cursor:pointer" onclick="toast(\'ダイレクトメッセージは公式アカウントでは制限されています\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span></span></div>'
 +storiesHTML
-+'<div class="ig-head" style="margin-top:10px"><div class="av-init grp" style="width:38px;height:38px;font-size:15px">BP</div><div><div style="font-weight:700;font-size:14.5px;color:#111">boysplanet.official <span style="color:#0095f6">✔</span></div><div style="font-size:12px;color:#666">BOYS PLANET 公式</div></div></div>'
-+(posts.map(function(p){const c=CAST[p.img]; const liked=!!igLiked[p.id], saved=!!igSaved[p.id]; return '<div class="ig-post"><div class="ph">'+avHTML(p.img,"sm")+'<div style="flex:1;min-width:0"><div class="nm">boysplanet.official</div><div class="lc">Planet Camp, Paju</div></div><span style="color:#111;font-size:16px">⋯</span></div>'+(c?'<img class="img" src="'+c.img+'" alt="">':"")+'<div class="ig-actrow"><span style="cursor:pointer;color:'+(liked?"#ed4956":"#111")+'" onclick="igToggleLike(\''+p.id+'\')">'+(liked?"♥":"♡")+'</span><span style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')">💬</span><span style="cursor:pointer" onclick="toast(\'リンクをコピーしました\')">➤</span><span class="bk" style="cursor:pointer;opacity:'+(saved?"1":".45")+'" onclick="igToggleSave(\''+p.id+'\')">🔖</span></div><div class="ig-likes">'+igLikeStr(p)+'</div><div class="cap"><b>boysplanet.official</b>'+esc(p.cap)+'</div><div class="ig-comments" style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')">コメント'+igCmts(p)+'件をすべて見る</div><div style="padding:3px 14px 0;font-size:11px;color:#8e8e8e;letter-spacing:.02em">'+esc(p.time)+"</div></div>";}).join("")||'<p style="padding:20px 16px;color:#888">まだ投稿がありません。</p>');
++'<div class="ig-head" style="margin-top:10px"><div class="av-init grp" style="width:38px;height:38px;font-size:15px">BP</div><div><div style="font-weight:700;font-size:14.5px;color:#111">boysplanet.official '+twBadgeSVG("#0095f6")+'</div><div style="font-size:12px;color:#666">BOYS PLANET 公式</div></div></div>'
++(posts.map(function(p){const c=CAST[p.img]; const liked=!!igLiked[p.id], saved=!!igSaved[p.id]; return '<div class="ig-post"><div class="ph">'+avHTML(p.img,"sm")+'<div style="flex:1;min-width:0"><div class="nm">boysplanet.official</div><div class="lc">Planet Camp, Paju</div></div><span style="color:#111;font-size:16px">⋯</span></div>'+(c?'<img class="img" src="'+c.img+'" alt="">':"")+'<div class="ig-actrow"><span style="cursor:pointer;color:'+(liked?"#ed4956":"#111")+'" onclick="igToggleLike(\''+p.id+'\')">'+(liked?"♥":"♡")+'</span><span style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span style="cursor:pointer" onclick="toast(\'リンクをコピーしました\')">➤</span><span class="bk" style="cursor:pointer;opacity:'+(saved?"1":".45")+'" onclick="igToggleSave(\''+p.id+'\')">'+(saved?'<svg width="20" height="20" viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M7 3.8h10c.3 0 .5.2.5.5V20L12 16.1 6.5 20V4.3c0-.3.2-.5.5-.5z"/></svg>':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.8h10c.3 0 .5.2.5.5V20L12 16.1 6.5 20V4.3c0-.3.2-.5.5-.5z"/></svg>')+'</span></div><div class="ig-likes">'+igLikeStr(p)+'</div><div class="cap"><b>boysplanet.official</b>'+esc(p.cap)+'</div><div class="ig-comments" style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')">コメント'+igCmts(p)+'件をすべて見る</div><div style="padding:3px 14px 0;font-size:11px;color:#8e8e8e;letter-spacing:.02em">'+esc(p.time)+"</div></div>";}).join("")||'<p style="padding:20px 16px;color:#888">まだ投稿がありません。</p>');
 }
 /* ---- support ---- */
 let supAlloc=null;
@@ -1910,9 +1937,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.9｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.9 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v2.0｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v2.0 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.9<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v2.0<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
