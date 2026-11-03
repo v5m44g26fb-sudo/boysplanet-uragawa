@@ -915,6 +915,8 @@ M("hiroto","言わんとやってられへん。日プ、創造営……次で�
 M("hiroto","プロフィールに書いた言葉、見た？　『I must debut』"),
 M("me","見たよ。感嘆符、7つも付いてた"),
 M("hiroto","……8つにすればよかった"),
+M("me","……少し痩せた？　前より、頬のラインがシャープになった気がする"),
+M("hiroto","え、分かる？　……なおさん、そういうとこ、ほんまよく見てるよな"),
 SYS("彼は笑っていたけれど、「最後にする」という言葉の重さは伝わってきた。")
 ],
 choices:[
@@ -1117,6 +1119,10 @@ V("hiroto","line2"),
 M("me","マスターの言葉も、ちゃんと届いてたよ"),
 M("hiroto","『魅せ方をわかっている』か。……悪くないな、その言い方"),
 M("hiroto","次は発表や。生き残るで、絶対に"),
+M("hiroto","……なあ、なおさん。俺のパートのときの歓声、なおさんの声も混ざってた？"),
+M("me","……スタッフは、声出しちゃダメなの"),
+M("hiroto","はは、せやな。……でも、心の中では出してくれてたやろ"),
+M("me","……そりゃ、もう"),
 SYS("三度目の挑戦は、まだ終わらない。")
 ],
 choices:[
@@ -1135,6 +1141,9 @@ script:[
 {who:"hiroto",text:"明日、名前が呼ばれるかどうかは分からん。でも……ここまで一緒に来てくれて、ありがとう"},
 {who:"hiroto",text:"明日、発表ですね。……大丈夫です。なおさんが、ついててくれるんで",v:"line3"},
 {who:"me",text:"呼ばれるよ。……呼ばせようって、私はずっと裏で動いてたから"},
+{who:"hiroto",text:"……スタッフの人、他にもようさんおるのにな。なんで俺、なおさんに電話したと思う？"},
+{who:"me",text:"……なんで？"},
+{who:"hiroto",text:"声、聞いたら落ち着くねん。……それだけやで。ほんまに、それだけ"},
 {who:"hiroto",text:"はは。……うん。ほな、明日。いい報告、待ってて"}
 ]},
 {type:"rank",badge:"順位発表",title:"第1回生存者発表式",desc:"93人から52人へ",
@@ -1256,6 +1265,9 @@ M("hiroto","拓斗はな、まだ15歳やで。あいつが泣いてるの見た
 M("me","日プのときの自分を、見てるみたい？"),
 M("hiroto","……ちょっと、な。若い頃の自分に、『大丈夫や』って言うてる気分やった"),
 M("hiroto","俺はもう、後がないから。今度こそ結果を出さな、ほんまに終わってまう"),
+M("hiroto","……なおさんには、弱いとこばっかり見せてる気がするわ"),
+M("me","見せてくれるのは、信頼してくれてるからだと思ってる"),
+M("hiroto","信頼、か。……うん。信頼やな"),
 SYS("短い言葉の向こうに、3回目の挑戦の重さが沈んでいた。")
 ],
 choices:[
@@ -1344,6 +1356,8 @@ M("hiroto","……拓斗な、本番で笑ってたんやで。あれが一番�
 M("hiroto","次は発表か。52人から28人。……半分近くが消える"),
 M("me","ここまで来たんだから、あとは信じて待とう"),
 M("hiroto","うん。……なおさんがおってくれて、よかった"),
+M("hiroto","……これ、本番のあとだけの話やで。他のスタッフには、こんなこと言わへん"),
+M("me","……うん。分かってる"),
 SYS("結果の夜は静かに更けていった。")
 ],
 choices:[
@@ -1360,7 +1374,10 @@ script:[
 {who:"hiroto",text:"……それでも、やっぱり"},
 {who:"hiroto",text:"明日、発表ですね。……今度も、残りたいです。……残れますように",v:"line6"},
 {who:"me",text:"大丈夫。今回も、裏側は全部やってきたから"},
-{who:"hiroto",text:"ほんまに？　……信じるわ、なおさんのこと"}
+{who:"hiroto",text:"ほんまに？　……信じるわ、なおさんのこと"},
+{who:"hiroto",text:"……あ、まだ切らんといて"},
+{who:"me",text:"ひろと？"},
+{who:"hiroto",text:"いや、ほんまになんでもないねん。……声、もうちょっとだけ聞いてたかった。……おやすみ、なおさん"}
 ]},
 {type:"rank2",badge:"順位発表",title:"第2回生存者発表式",desc:"52人から28人へ",
 loc:"2023年3月23日 · 第2回生存者発表式（MC：イ・ミニョク）"},
@@ -1393,6 +1410,9 @@ M("hiroto","『オオカミのような』とか言ってしもたけどな。�
 M("hiroto","次のミッション、アーティストバトルらしいで。新曲で勝負するやつ"),
 M("me","いよいよ最終盤だね"),
 M("hiroto","うん。日プでも創造営でも、ここから先が一番しんどかった。でも今回は、最後まで行くって決めてるねん"),
+M("hiroto","……そういえば。第2回発表の前夜、電話で言いかけたこと、あったやろ"),
+M("me","……覚えてる。まだ、聞いてないけど"),
+M("hiroto","ファイナルまで行ったら、言うわ。……だから、絶対に行く"),
 SYS("三度目の正直へ――残された時間は、もう長くない。")
 ],
 choices:[
@@ -1482,7 +1502,11 @@ pages:[
 `大翔は、自分のサブラップの言葉の置き方を、何度も録音しては聞き返していた。
 目立つパートではない。けれど、曲の流れが切り替わる場所を担う、歯車のようなパートだ。
 <span class="who">大翔</span>「俺の場所は、ここや。……ここを完璧にする」
-窓の外が白み始めた頃、6人の動きが、ようやく一つの形に重なった。`],
+窓の外が白み始めた頃、6人の動きが、ようやく一つの形に重なった。
+
+合間に差し入れた温かい飲み物を、大翔は両手で受け取った。
+<span class="who">大翔</span>「……なおさんが見ててくれるから、頑張れるんやと思う」
+短い一言だったけれど、その声は昼間の彼より、少しだけ素直だった。`],
 choices:[
 {label:"修正箇所の最終チェックリストを作り、本番前の確認を仕組み化する",fx:{score:6,trust:2},note:"本番までの道筋が固定された"},
 {label:"夜明け前の食事と短い仮眠の時間を確保する",fx:{mental:4,score:3},note:"6人の疲労が少し回復した"}
@@ -1533,6 +1557,9 @@ M("hiroto","……ほんまに？　それは、嬉しいな"),
 M("hiroto","次は発表や。28人から18人。ここを越えたら、ファイナル"),
 M("me","ここまで来たんだから、あとは信じて待とう"),
 M("hiroto","うん。……三回目の挑戦、ここで終わらせへん"),
+M("hiroto","なあ、なおさん。……全部終わったら、話したいことがあるねん"),
+M("me","ファイナルまで、取っておいて"),
+M("hiroto","……うん。取っとく。……絶対、言うから"),
 SYS("結果の夜は静かに更けていった。")
 ],
 choices:[
@@ -1549,7 +1576,11 @@ script:[
 {who:"me",text:"ひろとは、やりきったよ。En Garde、あれ以上のステージはなかった"},
 {who:"hiroto",text:"……せやな。6人で作り直して、出し切った"},
 {who:"hiroto",text:"なあ、なおさん。明日、もし名前が呼ばれたら――その時は、ファイナルの話をしようや"},
-{who:"me",text:"うん。きっと、しよう"}
+{who:"me",text:"うん。きっと、しよう"},
+{who:"hiroto",text:"……あのさ、なおさん。この番組が終わったら、俺は――"},
+{who:"hiroto",text:"……いや。やっぱり、終わってから言うわ"},
+{who:"me",text:"また言いかけて、止めるんだ"},
+{who:"hiroto",text:"はは。……終わるまで、待っててな"}
 ],
 callChoices:[
 {label:"「今度こそ、ファイナルまで行こう」",resp:"……うん。行くわ、ファイナル。なおさんと、一緒に"},
@@ -1586,6 +1617,7 @@ M("hiroto","はは。……日プのときは、ファイナルまで行かれ�
 M("hiroto","今回が、三回目のファイナルやな"),
 M("me","三回目の正直、だね"),
 M("hiroto","うん。……なあ、結果がどうなっても、なおさんには最初に言うわ。約束"),
+M("hiroto","言いかけてた話も、やで。全部終わったら――一番に、なおさんに言う"),
 SYS("最後の一週間が、静かに進んでいく。")
 ],
 choices:[
@@ -1601,7 +1633,10 @@ script:[
 {who:"me",text:"長かったね。……でも、ここまで来た"},
 {who:"hiroto",text:"明日、全部決まります。……悔いは、ないです",v:"line8"},
 {who:"me",text:"うん。明日、会場で見てるから"},
-{who:"hiroto",text:"……ありがとう。ほな、明日。いい報告、できるようにするわ"}
+{who:"hiroto",text:"……ありがとう。ほな、明日。いい報告、できるようにするわ"},
+{who:"hiroto",text:"……あのさ、なおさん"},
+{who:"hiroto",text:"明日が終わったら、言いかけてた話、するから。……ちゃんと、聞いてな"},
+{who:"me",text:"うん。聞くよ。……約束する"}
 ],
 callChoices:[
 {label:"「明日、デビューの名前を呼ばれよう」",resp:"……約束やな。じゃあ、俺も約束する。今度こそ、デビューする"},
@@ -1908,7 +1943,7 @@ function sceneChoice(i){const st=curStep(); const c=st.choices[i]; completeStep(
 function fin1Move(){const r=S.heroRank; if(r===null||r===undefined)return "この世界線でも、彼はその場所を守り切った。"; if(r<21)return "この世界線では、あなたの裏側の仕事が、その数字を"+r+"位へと動かした。"; if(r===21)return "この世界線でも、彼は史実と同じ21位だった。まずは、越えるべき最初の関門を越えた。"; return "史実の21位には届かなかったが、生存ライン（52位）は越えた。巻き返しは、ここからだ。";}
 function renderFin(body,ch,nx){
 const rank=S.heroRank, pts=S.heroPoints;
-body.innerHTML='<span class="scene-loc">2023年3月 · 第1部 エピローグ</span><div class="scene-text">第1回生存者発表式が終わった。\n会場の外、冷たい夜風の中で、大翔が待っていた。\n\n<span class="who">大翔</span>「……残れた。まず、ここは越えたな」\n史実の記録では、この日の彼は21位だった。'+fin1Move()+'\n\n次なるミッションは「デュアルポジションバトル」。\n彼が挑むのは、ラップとダンス、2つのポジションを同時に魅せる戦いだ。\n<span class="who">大翔</span>「次も、見ててや。……ここから先も、一緒に」\n\n三度目の挑戦は、まだ折り返してもいない。</div>'
+body.innerHTML='<span class="scene-loc">2023年3月 · 第1部 エピローグ</span><div class="scene-text">第1回生存者発表式が終わった。\n会場の外、冷たい夜風の中で、大翔が待っていた。\n\n<span class="who">大翔</span>「……残れた。まず、ここは越えたな」\n史実の記録では、この日の彼は21位だった。'+fin1Move()+'\n\n次なるミッションは「デュアルポジションバトル」。\n彼が挑むのは、ラップとダンス、2つのポジションを同時に魅せる戦いだ。\n<span class="who">大翔</span>「次も、見ててや。……ここから先も、一緒に」\n彼は歩き出してから、何度か振り返った。その背中を見送る時間が、仕事の範囲を少しだけ超えていることに気づいていた――今はまだ、認めるわけにはいかなかったけれど。\n\n三度目の挑戦は、まだ折り返してもいない。</div>'
 +'<div class="fin-box"><h3>第1部 結果</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · 第1回生存者発表 '+fmt(pts)+'点（史実：21位／1,381,864点）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（52位）は突破。デビュー圏（9位）までは、まだ大きな壁がある。第2部では「デュアルポジションバトル」でRicky・拓斗らと組む『Rush Hour』チームの戦いが待っている。</p></div>';
 nx.innerHTML=(S.part2Done?"":'<button class="big-btn" onclick="startPart2()">'+(S.part2Started?"第2部のつづきへ ›":"第2部へ進む ›")+"</button>")+'<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 }
@@ -1916,14 +1951,14 @@ function renderFin2(body,ch,nx){
 const pts=S.heroPoints2||0;
 if(heroAlive2()){
 const rank=S.heroRank2;
-body.innerHTML='<span class="scene-loc">2023年3月 · 第2部 エピローグ</span><div class="scene-text">第2回生存者発表式が終わった。52人から、28人へ。\n大翔の名前は、呼ばれた。\n\n<span class="who">大翔</span>「……残れた。ほんまに、残れた」\n放送では彼は、こう言ったという。「とても不思議な気持ちです。これが夢か現実か分かりませんが、恩返しできるようベストを尽くします」\n\n史実の記録では、この日の彼は28位――最後の1枠での生存だった。この世界線では、'+(rank===28?'裏側の仕事が、その最後の1枠を守り切った':'あなたの裏側の仕事が、その数字を'+rank+'位へと動かした')+'。\nRush Hourの衝突も、涙も、調停も、742点の悔しさも、全部がこの結果につながっている。\n\n<span class="who">大翔</span>「次はアーティストバトルや。……ここから、もっと上に行くで」\n三度目の挑戦は、後半戦に入る。</div>'
+body.innerHTML='<span class="scene-loc">2023年3月 · 第2部 エピローグ</span><div class="scene-text">第2回生存者発表式が終わった。52人から、28人へ。\n大翔の名前は、呼ばれた。\n\n<span class="who">大翔</span>「……残れた。ほんまに、残れた」\n放送では彼は、こう言ったという。「とても不思議な気持ちです。これが夢か現実か分かりませんが、恩返しできるようベストを尽くします」\n\n史実の記録では、この日の彼は28位――最後の1枠での生存だった。この世界線では、'+(rank===28?'裏側の仕事が、その最後の1枠を守り切った':'あなたの裏側の仕事が、その数字を'+rank+'位へと動かした')+'。\nRush Hourの衝突も、涙も、調停も、742点の悔しさも、全部がこの結果につながっている。\n\n<span class="who">大翔</span>「次はアーティストバトルや。……ここから、もっと上に行くで」\n言い終えた彼は、安堵でほころんだ顔のまま、まっすぐこちらを見ていた。その視線は、スタッフと練習生の距離より、一歩だけ近くに感じた。\n三度目の挑戦は、後半戦に入る。</div>'
 +'<div class="fin-box"><h3>第2部 結果</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · 第2回生存者発表 '+fmt(pts)+'点（史実：28位／1,077,299点）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（28位）を突破。次なるミッションはアーティストバトル。史実の大翔は第3回発表で21位まで戻し、最後の夜に散る――その先を書き換える戦いは、第3部へ続く。</p></div>';
 nx.innerHTML=(S.part3Done?"":'<button class="big-btn" onclick="startPart3()">'+(S.part3Started?"第3部のつづきへ ›":"第3部へ進む ›")+"</button>")+'<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 return;
 }
 const rankTxt=(S.heroRank2!==null&&S.heroRank2!==undefined)?S.heroRank2+"位":"31位以下";
 const gap=1077299-pts;
-body.innerHTML='<span class="scene-loc">2023年3月 · 第2部 エピローグ</span><div class="scene-text">第2回生存者発表式。\n28位――最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n\n史実の記録では、彼はこの最後の1枠に滑り込んでいた。この世界線では、あと'+fmt(gap)+'点が、届かなかった。\n\n<span class="who">大翔</span>「……ごめんな、なおさん。俺は、やりきったつもりやったんやけど」\n謝る背中を見て、胸が詰まった。ステージで全てを出し切った男に、かける言葉は簡単には見つからない。\nそれでも、この戦いの記録は消えない。Rush Hourの5人と過ごした日々も、拓斗の涙に隣で寄り添った時間も。\n\n――もう一度、この第2部を戦い直すこともできる。裏側の配分ひとつで、運命は変わるのだから。</div>'
+body.innerHTML='<span class="scene-loc">2023年3月 · 第2部 エピローグ</span><div class="scene-text">第2回生存者発表式。\n28位――最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n\n史実の記録では、彼はこの最後の1枠に滑り込んでいた。この世界線では、あと'+fmt(gap)+'点が、届かなかった。\n\n<span class="who">大翔</span>「……ごめんな、なおさん。俺は、やりきったつもりやったんやけど」\n謝る背中を見て、胸が詰まった。ステージで全てを出し切った男に、かける言葉は簡単には見つからない。\nそれでも、この戦いの記録は消えない。Rush Hourの5人と過ごした日々も、拓斗の涙に隣で寄り添った時間も。\n\n寮へ戻る彼を、入口まで見送った。言葉は何も出なかったけれど、彼は扉の前で一度だけ振り返り、小さく頷いた。\n\n――もう一度、この第2部を戦い直すこともできる。裏側の配分ひとつで、運命は変わるのだから。</div>'
 +'<div class="fin-box"><h3>第2部 結果</h3><div class="fin-rank" style="color:var(--danger)">脱落（'+rankTxt+'）</div><div class="fin-sub">井汲大翔 · 第2回生存者発表 '+fmt(pts)+'点（史実：28位／1,077,299点で生存）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（28位＝1,077,299点相当）まで、あと'+fmt(gap)+'点だった。サポート配分と選択を変えて、第2部の最初から挑み直せます。</p></div>';
 nx.innerHTML='<button class="big-btn" onclick="restartPart2()">第2部の最初からやり直す</button><button class="ghost-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 }
@@ -1931,27 +1966,27 @@ function renderFin3(body,ch,nx){
 const pts=S.heroPoints3||0;
 if(heroAlive3()){
 const rank=S.heroRank3;
-body.innerHTML='<span class="scene-loc">2023年4月 · 第3部 エピローグ（前半）</span><div class="scene-text">第3回生存者発表式が終わった。28人から、18人へ。\n大翔の名前は、呼ばれた。\n\n<span class="who">大翔</span>「……残れた。ファイナルや。ほんまに、ファイナルまで来た」\n史実の記録では、この夜が彼の最後の夜だった。21位で名前を呼ばれず、静かにステージを降りた場所。\nこの世界線では、'+(rank===18?'最後の1枠を、裏側の仕事と本人のステージが掴み取った':'あなたの裏側の仕事が、その数字を'+rank+'位へと動かし、彼をファイナルの舞台へ押し上げた')+'。\n\n残るは、ファイナル。18人から9人へ。デビューの扉は、もう目の前にある。\n<span class="who">大翔</span>「あと一週間。……最後まで、頼むで。なおさん」</div>'
+body.innerHTML='<span class="scene-loc">2023年4月 · 第3部 エピローグ（前半）</span><div class="scene-text">第3回生存者発表式が終わった。28人から、18人へ。\n大翔の名前は、呼ばれた。\n\n<span class="who">大翔</span>「……残れた。ファイナルや。ほんまに、ファイナルまで来た」\n史実の記録では、この夜が彼の最後の夜だった。21位で名前を呼ばれず、静かにステージを降りた場所。\nこの世界線では、'+(rank===18?'最後の1枠を、裏側の仕事と本人のステージが掴み取った':'あなたの裏側の仕事が、その数字を'+rank+'位へと動かし、彼をファイナルの舞台へ押し上げた')+'。\n\n残るは、ファイナル。18人から9人へ。デビューの扉は、もう目の前にある。\n<span class="who">大翔</span>「あと一週間。……最後まで、頼むで。なおさん」\n\nその「最後まで」が、仕事の話だけではないことを――二人とも、もう分かっていた。</div>'
 +'<div class="fin-box"><h3>第3回 結果</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · 第3回生存者発表 '+fmt(pts)+'点（史実：21位／1,582,819点で脱落）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（18位）を突破し、ファイナル進出が決定。ファイナルでは『Jelly Pop』『Hot Summer』の2ステージと、生放送での最終投票によって、デビューする9人が決まる。</p></div>';
 nx.innerHTML=(S.part3Done?"":'<button class="big-btn" onclick="startFinalPhase()">ファイナルへ進む ›</button>')+'<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 return;
 }
 const rankTxt=(S.heroRank3!==null&&S.heroRank3!==undefined)?S.heroRank3+"位":"22位以下（順位の確定できない脱落圏）";
 const gap=Math.max(0,2022976-pts);
-body.innerHTML='<span class="scene-loc">2023年4月 · 第3部 エピローグ</span><div class="scene-text">第3回生存者発表式。\n18位――最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n\n史実の記録でも、彼はこの夜、21位でステージを降りている。この世界線では、'+rankTxt+'。生存ラインまで、あと'+fmt(gap)+'点が届かなかった。\n放送で彼は、こう言い残したという。\n「僕が不足していて良い結果にはなりませんでしたが、応援してくださった間、スタークリエイターの皆さんが幸せだったなら、僕はとても嬉しいです。ありがとうございました」\n\n<span class="who">大翔</span>「……ごめんな、なおさん。……でも、悔いはないわ。全部、出したから」\n三度目の挑戦は、ここで幕を閉じた。En Gardeの6人と過ごした日々も、夜通しの練習も、この結果ごと、確かに存在した時間だった。\n\n――もう一度、この第3部を戦い直すこともできる。裏側の配分ひとつで、運命は変わるのだから。</div>'
+body.innerHTML='<span class="scene-loc">2023年4月 · 第3部 エピローグ</span><div class="scene-text">第3回生存者発表式。\n18位――最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n\n史実の記録でも、彼はこの夜、21位でステージを降りている。この世界線では、'+rankTxt+'。生存ラインまで、あと'+fmt(gap)+'点が届かなかった。\n放送で彼は、こう言い残したという。\n「僕が不足していて良い結果にはなりませんでしたが、応援してくださった間、スタークリエイターの皆さんが幸せだったなら、僕はとても嬉しいです。ありがとうございました」\n\n<span class="who">大翔</span>「……ごめんな、なおさん。……でも、悔いはないわ。全部、出したから」\n寮を出る彼を見送った。彼は荷物を持ち直して、一度だけこちらへ向き直り――何も言わず、小さく頭を下げた。言いかけて、まだ言えていない言葉が、その沈黙の中に残った。\n三度目の挑戦は、ここで幕を閉じた。En Gardeの6人と過ごした日々も、夜通しの練習も、この結果ごと、確かに存在した時間だった。\n\n――もう一度、この第3部を戦い直すこともできる。裏側の配分ひとつで、運命は変わるのだから。</div>'
 +'<div class="fin-box"><h3>第3回 結果</h3><div class="fin-rank" style="color:var(--danger)">脱落（'+rankTxt+'）</div><div class="fin-sub">井汲大翔 · 第3回生存者発表 '+fmt(pts)+'点（史実：21位／1,582,819点で脱落）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（18位＝2,022,976点）まで、あと'+fmt(gap)+'点だった。サポート配分と選択を変えて、第3部の最初から挑み直せます（第2部までの結果は保持されます）。</p></div>';
 nx.innerHTML='<button class="big-btn" onclick="restartPart3()">第3部の最初からやり直す</button><button class="ghost-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 }
 function renderFin4(body,ch,nx){
 const pts=S.heroPointsF||0, rank=S.heroRankF;
 if(heroDebut()){
-body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\nデビュー圏の名前が、一つずつ読み上げられていく。\nそして――大翔の名前が、呼ばれた。\n\n<span class="who">大翔</span>「……デビューや。なおさん、俺、デビューするんや……！」\n史実の記録では、彼は第3回発表の21位で、この舞台に立つことすらなかった。この世界線では、あなたの裏側の仕事と、彼自身のステージが、'+rank+'位という結果を引き寄せた。\n日プで36位、創造営で15位、ボイプラでは――ついに、9人の枠の中へ。\n\nそして2023年7月10日。ZEROBASEONEは1stミニアルバム『YOUTH IN THE SHADE』のタイトル曲「In Bloom」でデビューした。その9人の中に、井汲大翔の名前が刻まれている。\n三度目の正直は、実った。\n\n――担当をデビューさせる件、完。</div>'
+body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\nデビュー圏の名前が、一つずつ読み上げられていく。\nそして――大翔の名前が、呼ばれた。\n\n<span class="who">大翔</span>「……デビューや。なおさん、俺、デビューするんや……！」\n史実の記録では、彼は第3回発表の21位で、この舞台に立つことすらなかった。この世界線では、あなたの裏側の仕事と、彼自身のステージが、'+rank+'位という結果を引き寄せた。\n日プで36位、創造営で15位、ボイプラでは――ついに、9人の枠の中へ。\n\nそして2023年7月10日。ZEROBASEONEは1stミニアルバム『YOUTH IN THE SHADE』のタイトル曲「In Bloom」でデビューした。その9人の中に、井汲大翔の名前が刻まれている。\n三度目の正直は、実った。\n\nその夜、楽屋裏の廊下。騒ぎの向こうから、彼が駆け寄ってきた。\n<span class="who">大翔</span>「なおさん。……言いかけてた話、するわ」\n彼は少し笑って、言葉を探すように、一拍だけ置いた。\n<span class="who">大翔</span>「スタッフと練習生、とか。……そういうのは、もう終わったやろ。俺は、なおさんが好きや。……ずっと、隣におってほしい」\n答えは、言葉より先に出た。彼がそっと広げた腕の中に、身を預ける。数秒の抱擁が、4年分の全部への返事だった。\n<span class="who">大翔</span>「……これからも、よろしくな」\n\n――担当をデビューさせる件、完。</div>'
 +'<div class="fin-box"><h3>最終結果 ― デビュー</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · ファイナル '+fmt(pts)+'点（史実：第3回発表21位で脱落・ファイナル未進出）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>ZEROBASEONEのメンバーとしてデビューが決定。日プ編・創造営編から続いた三部作は、ここに完結します。応援ありがとうございました。</p></div>';
 nx.innerHTML='<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 return;
 }
 const gap9=Math.max(0,1196622-pts);
-body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\n9位――デビュー圏の最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n最終順位は、'+rank+'位。デビューまで、あと'+fmt(gap9)+'点だった。\n\nそれでも。史実の記録で21位に終わった男は、この世界線ではファイナルの舞台に立ち、18人の中から最後の9席を争った。\n<span class="who">大翔</span>「……ここまで来れたんやもんな。日プでも、創造営でも、立てんかった場所や。……ありがとう、なおさん」\n\nその後の彼は、歩みを止めなかった。（以下は史実の記録）\n個人Instagramを開設し、6月にはワン・ツーハオとの合同ファンミーティングを東京・大阪で開催（全公演完売）。7月にはRBWの新チーム「New ID」のメンバーとなり、8月のRBWファミリーコンサートでは、思い出の『En Garde』でステージの幕を開けた。\nデビューの形は変わっても、彼の物語は続いていく。\n\n――三度目の挑戦に寄り添った日々は、ここで一区切り。担当をデビューさせる件【ボイプラ編】、完。</div>'
+body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\n9位――デビュー圏の最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n最終順位は、'+rank+'位。デビューまで、あと'+fmt(gap9)+'点だった。\n\nそれでも。史実の記録で21位に終わった男は、この世界線ではファイナルの舞台に立ち、18人の中から最後の9席を争った。\n<span class="who">大翔</span>「……ここまで来れたんやもんな。日プでも、創造営でも、立てんかった場所や。……ありがとう、なおさん」\n\nその夜遅く、帰り際のロビーで、彼は立ち止まった。\n<span class="who">大翔</span>「デビューは、できんかった。……けど、約束の話は、するわ」\n<span class="who">大翔</span>「俺は、なおさんが好きや。デビューできたかどうかは、関係あらへんかった」\n見送りの場所で、短く抱き合った。それは慰めではなく、約束を果たした証だった。\n\nその後の彼は、歩みを止めなかった。（以下は史実の記録）\n個人Instagramを開設し、6月にはワン・ツーハオとの合同ファンミーティングを東京・大阪で開催（全公演完売）。7月にはRBWの新チーム「New ID」のメンバーとなり、8月のRBWファミリーコンサートでは、思い出の『En Garde』でステージの幕を開けた。\nデビューの形は変わっても、彼の物語は続いていく。\n\n――三度目の挑戦に寄り添った日々は、ここで一区切り。担当をデビューさせる件【ボイプラ編】、完。</div>'
 +'<div class="fin-box"><h3>最終結果 ― あと一歩</h3><div class="fin-rank" style="color:var(--gold)">'+rank+'位</div><div class="fin-sub">井汲大翔 · ファイナル '+fmt(pts)+'点（史実：第3回発表21位で脱落・ファイナル未進出）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>デビュー圏（9位＝1,196,622点）まで、あと'+fmt(gap9)+'点だった。第3部の最初から（第3回発表の結果も含めて）挑み直すこともできます。</p></div>';
 nx.innerHTML='<button class="big-btn" onclick="restartPart3()">第3部の最初からやり直す</button><button class="ghost-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 }
@@ -2726,9 +2761,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.0｜第3部（アーティストバトル〜ファイナル・両エンディング）を追加し三部作が完結\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.0 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.1｜既存の本編に恋愛ラインを織り込み（三部を通した緩やかな距離の変化と、両エンディングへの約束の反映）\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.1 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.0<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.1<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
