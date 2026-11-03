@@ -615,6 +615,7 @@ main.noscroll{overflow:hidden}
 .mem-card.locked{cursor:default;opacity:.75}
 .mem-card.locked .ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#16264a,#0c1730);font-size:30px;color:#47608f;font-weight:900}
 .mem-card .lk{font-size:11px;color:var(--sub2);line-height:1.55;margin-top:5px}
+.mem-card.mem-spot{outline:2px solid #ffd76a;outline-offset:2px;box-shadow:0 0 0 5px rgba(255,215,106,.22)}
 .mem-detail-img{width:100%;border-radius:14px;display:block;margin-bottom:12px}
 .mem-quote{font-size:14.5px;line-height:1.9;color:var(--txt);background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px}
 .mem-meta{font-size:11.5px;color:var(--sub2);margin-top:10px;line-height:1.7}
@@ -2369,7 +2370,7 @@ MEMORIES.forEach(function(m,i){if(mi<0&&m.at===step&&m.kind==="通話")mi=i;});
 if(mi<0){toast("この通話に対応する思い出カードはまだありません"); return;}
 const m=MEMORIES[mi];
 if(memReached()<m.at){
-openSheet('<div class="sheet-title">思い出カードはまだ解放されていません</div><div class="sheet-sub">'+esc(m.part)+' · 通話「'+esc(STEPS[step].title)+'」に対応するカード「'+esc(m.title)+'」です。<br>解放条件：'+esc(m.hint)+'<br>※この通話は履歴に残っていますが、思い出カード側はまだ解放されていません。物語を進めて到達すると開けるようになります。</div><div class="sheet-item" onclick="closeSheet()">閉じる</div>');
+openSheet('<div class="sheet-title">思い出カードはまだ解放されていません</div><div class="sheet-sub">'+esc(m.part)+' · 通話「'+esc(STEPS[step].title)+'」に対応するカード「'+esc(m.title)+'」です。<br>解放条件：'+esc(m.hint)+'<br>※この通話は履歴に残っていますが、思い出カード側はまだ解放されていません。物語を進めて到達すると開けるようになります。</div><div class="sheet-item" onclick="closeSheet();go(\'memory\');memSpot('+mi+')">思い出画面でカードの場所を見る ›</div><div class="sheet-item" onclick="closeSheet()">閉じる</div>');
 return;
 }
 go("memory");
@@ -2385,7 +2386,8 @@ function cvLineHTML(ln){
 if(ln.who==="me")return '<div class="msgrow me"><div class="msgcol"><div class="bubble">'+esc(ln.text)+"</div></div></div>";
 let h='<div class="msgrow">'+avHTML("hiroto","sm")+'<div class="msgcol"><div class="msgname">井汲大翔</div><div class="bubble">'+esc(ln.text)+"</div>";
 /* v4.8: ボイス行は通話本編の字幕内ボイスバブルと同一のクラス（call-voice＝幅いっぱい＋上の余白）にし、再生状態の見た目まで揃える */
-if(ln.v){const v=VOICES[ln.v]; if(v)h+='<div class="bubble voice-bub call-voice" onclick="playVoice(\''+ln.v+'\',this)"><span class="play">▶</span><span class="wave"></span><span style="font-size:12px;opacity:.65">'+v.label+"</span></div>";}
+/* v4.11: 再生は cvPlayVoice 経由にし、再生中の行へ自動スクロールする */
+if(ln.v){const v=VOICES[ln.v]; if(v)h+='<div class="bubble voice-bub call-voice" onclick="cvPlayVoice(\''+ln.v+'\',this)"><span class="play">▶</span><span class="wave"></span><span style="font-size:12px;opacity:.65">'+v.label+"</span></div>";}
 return h+"</div></div>";
 }
 function renderCallView(){
@@ -2403,8 +2405,18 @@ html+="</div>";
    対応付けと未解放時の案内は、通話履歴の行タップと同じ callToMemory を使い、
    「履歴→読み返し→思い出」の往復を閉じる */
 html+='<button class="cv-membtn" onclick="callToMemory('+i+')">この通話の思い出カードを開く ›</button>';
-html+='<p class="cv-note">※読み返し専用の表示です。物語の進行やセーブには影響しません。実際に選んだ返事は記録されていないため、締めは当時の選択肢を両方とも載せています。</p>';
+html+='<p class="cv-note">※読み返し専用の表示です。物語の進行やセーブには影響しません。実際に選んだ返事は記録されていないため、締めは当時の選択肢を両方とも載せています。ボイスを再生すると、その行が見える位置まで自動でスクロールします。</p>';
 el.innerHTML=html;
+}
+/* v4.11: 読み返し画面専用のボイス再生。playVoice で再生を開始した時だけ、
+   再生中の行（.msgrow）が見える位置までスクロールする。同じボタンの再タップによる
+   停止ではスクロールしない。再生・停止の状態管理は既存の playVoice/stopVoice のまま */
+function cvPlayVoice(key,btn){
+playVoice(key,btn);
+if(!btn||voiceBtn!==btn)return; /* このボタンが再生中でなければ（停止操作など）何もしない */
+const row=(btn.closest?btn.closest(".msgrow"):null)||btn;
+const rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+try{row.scrollIntoView({behavior:rm?"auto":"smooth",block:"center"});}catch(e){try{row.scrollIntoView();}catch(e2){}}
 }
 /* ---- Mnet Plus マイページ用：投票履歴と推定の推移（v4.5） ----
    推定ポイント・順位は既存の curEst() の値をそのまま記録するだけで、計算式には触れない */
@@ -2693,9 +2705,13 @@ const fam2=famCard("engarde","히로토 개인캠 ｜ En Garde","アーティス
 if(fam1||fam2)fams='<div class="mp-sec">井汲大翔 個人チッケム（개인캠）</div><div class="mp-fgrid">'+fam1+fam2+"</div>";
 /* v4.10: ベスト相方選出を、コンテンツタブの未公開映像カードとしても出す（グループバトル後＝step13到達で表示）。
    楽曲ではないため再生はせず、タップで選出の内容をシート表示する。新規の数値（再生数等）は作らない */
+/* v4.11: 未公開映像の第2弾として、第11話の企画ゲーム「静寂の中の叫び」の切り抜きカードを step47 到達で追加する。
+   裏取りがファン記録の層のため、公式映像ではなく「ファン編集の切り抜き」という体裁に留める。新規の数値は作らない */
 let unrel="";
-if(S.step>=13)unrel='<div class="mp-sec">未公開映像（미공개 영상）</div>'
+if(S.step>=13){unrel='<div class="mp-sec">未公開映像（미공개 영상）</div>'
 +'<div class="mp-vcard" onclick="mpBestMate()"><div class="mp-vthumb"><span class="ply">▶</span></div><div class="vt"><div class="t">미공개 ｜ ベスト相方（ベスト 짝꿍）発表</div><div class="s">Mnet公式YouTube · 未公開映像<br>2023.2.21 公開<br>VERY NICEで対向同士だったチョン・ミンギュ×井汲大翔が「ベスト相方」に選出。タップで内容を表示</div></div></div>';
+if(S.step>=47)unrel+='<div class="mp-vcard" onclick="mpSilentClip()"><div class="mp-vthumb"><span class="ply">▶</span></div><div class="vt"><div class="t">切り抜き ｜ 「静寂の中の叫び」</div><div class="s">ファン編集の切り抜き動画（非公式）<br>第11話 · 企画ゲーム<br>放送分量は少なめだった大翔の全力の叫びとリアクションが、ファンの間で「レジェンド級の切り抜き」として回ったとされるもの。タップで内容を表示</div></div></div>';
+}
 document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","コンテンツ","home")
 +mpNowHTML()
 +'<div class="mp-sec">ステージ映像</div>'
@@ -2706,6 +2722,12 @@ mbSync();
 /* v4.10: 未公開映像カード（ベスト相方）の内容シート。数値は既存の作中記録（個人対決53対39）の範囲のみ */
 function mpBestMate(){
 openSheet('<div class="sheet-title">ベスト相方（ベスト 짝꿍）</div><div class="sheet-sub">Mnet公式YouTubeの未公開映像で、チョン・ミンギュと井汲大翔が「ベスト相方（ベスト 짝꿍）」に選ばれました。<br>VERY NICEではキリングパートを懸けて対向ポジション同士でぶつかり合った2人（個人対決は53対39）。ステージの上ではライバル、外では一番の相方同士だったという関係性が、ファンの話題になりました。</div><div class="sheet-item" onclick="closeSheet()">閉じる</div>');
+}
+/* v4.11: 未公開映像の第2弾（「静寂の中の叫び」切り抜き）の内容シート。
+   裏取りがファン記録（Namu Wiki）の層のため、ファン編集の切り抜きが回ったという体裁に留め、
+   史実としては断定しない。文面は既存の tw19・思い出カードの空気感の範囲に揃える */
+function mpSilentClip(){
+openSheet('<div class="sheet-title">切り抜き ｜ 「静寂の中の叫び」</div><div class="sheet-sub">ファンが編集した切り抜き動画（非公式）の紹介です。<br>第11話、順位発表の合間に流れた企画ゲーム「静寂の中の叫び」。ここまで放送分量は少なめだった井汲大翔が、全力の叫びとリアクションで場を掴み、その場面がファンの間で「レジェンド級の切り抜き」として語り草になりました。<br>※このエピソードの裏取りはファンの記録の層のため、本作では「切り抜きが回った」という反応の体裁に留め、史実としては断定していません。</div><div class="sheet-item" onclick="closeSheet()">閉じる</div>');
 }
 /* コンテンツのカード用：同じ曲なら再生/一時停止を切り替え、新規なら再生開始 */
 function mpPlayToggle(key){
@@ -2819,7 +2841,7 @@ mpSnapEst(); /* v4.5: 開いた時点の推定を推移に記録（値と日付�
 const ce=curEst(); const pts=ce.pts; const rk=ce.rk;
 let hist="";
 const vh=Array.isArray(S.mpVoteHist)?S.mpVoteHist:[];
-hist+='<div class="mp-hist"><h3>投票履歴</h3><div class="hsub">投票した作中の日付ごとに記録されます（最大20件）。各行には推定順位の動きも併記します（v4.8以降の投票は投票ごとの前後比較、それ以前の記録はその日の推定記録との日付突き合わせ）。</div>';
+hist+='<div class="mp-hist"><h3>投票履歴</h3><div class="hsub">投票した作中の日付ごとに記録されます（最大20件）。各行には推定順位の動きも併記します（v4.8以降の投票は投票ごとの前後比較、それ以前の記録はその日の推定記録との日付突き合わせ）。投票した日の記録は、下の「推定順位の推移」グラフでは点に金のリングを付けて表示します（この履歴とグラフを行き来して辿れます）。</div>';
 if(!vh.length)hist+='<div class="mp-hempty">まだ投票履歴がありません。투표（投票）タブから投票すると、ここに残ります。</div>';
 else vh.forEach(function(v){
 hist+='<div class="mp-hrow"><span class="hd">'+esc(v.d)+'</span><span class="hv">'+v.names.map(esc).join("、")+"<br>"+(v.heroIn?"井汲大翔への累計 <b>"+v.cast+"票</b>":"今回は大翔を含まない投票")+" · 残り"+v.left+"回"+mpVoteMoveHTML(v)+"</span></div>";
@@ -3618,10 +3640,10 @@ return "この世界線の大翔："+rk+"位"+(pts?"（"+fmt(pts)+"点）":"")+(
 }
 function memCardHTML(m,i){
 const reached=memReached();
-if(reached<m.at)return '<div class="mem-card locked"><div class="ph">？</div><div class="tx"><div class="tt">？？？</div><div class="lk">'+esc(m.part)+" · "+esc(m.hint)+"</div></div></div>";
+if(reached<m.at)return '<div class="mem-card locked" id="memcard-'+i+'"><div class="ph">？</div><div class="tx"><div class="tt">？？？</div><div class="lk">'+esc(m.part)+" · "+esc(m.hint)+"</div></div></div>";
 const c=m.img?CAST[m.img]:null;
 const ph=c?'<div class="ph"><img src="'+c.img+'" alt=""><span class="kind">'+esc(m.kind)+"</span></div>":'<div class="ph" style="background:linear-gradient(150deg,#3b2a7a,#16264a);display:flex;align-items:center;justify-content:center;padding:12px"><span style="font-size:12.5px;line-height:1.7;color:#dbe7ff;text-align:center">'+esc(memQuote(m).slice(0,42))+'…</span><span class="kind">'+esc(m.kind)+"</span></div>";
-return '<button class="mem-card" onclick="memOpen('+i+')">'+ph+'<div class="tx"><div class="tt">'+esc(m.title)+'</div><div class="qt">'+esc(memQuote(m))+"</div></div></button>";
+return '<button class="mem-card" id="memcard-'+i+'" onclick="memOpen('+i+')">'+ph+'<div class="tx"><div class="tt">'+esc(m.title)+'</div><div class="qt">'+esc(memQuote(m))+"</div></div></button>";
 }
 function renderMemory(){
 const reached=memReached();
@@ -3647,6 +3669,18 @@ openSheet('<div class="sheet-title">'+esc(m.title)+'</div><div class="sheet-sub"
 +(rl?'<div class="mem-meta">'+esc(rl)+"</div>":"")
 +'<div class="sheet-item" onclick="closeSheet()">閉じる</div>', true);
 }
+/* v4.11: 通話履歴の未解放案内シートからの導線先。思い出画面を開いた直後に、
+   対象カード（ロック中）の場所までスクロールし、一時的に金の枠で示す。
+   カードの解放状態やセーブには触れない、表示だけの処理 */
+function memSpot(i){
+setTimeout(function(){
+const el=document.getElementById("memcard-"+i);
+if(!el)return;
+try{el.scrollIntoView({block:"center"});}catch(e){try{el.scrollIntoView();}catch(e2){}}
+el.classList.add("mem-spot");
+setTimeout(function(){el.classList.remove("mem-spot");},2600);
+},80);
+}
 
 /* ---- settings ---- */
 function renderSettings(){
@@ -3655,9 +3689,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.10｜思い出カードに「ベスト相方」「静寂の中の叫び」を追加（全23枚）／ベスト相方選出をMnet Plusコンテンツの未公開映像カードとしても出し投票タブから導線を追加／投票タブの前回投票の要約に推定変動を併記／推定推移グラフで投票した日の記録点に金のリングのマーカー\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.10 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.11｜読み返し画面でボイス再生中の行へ自動スクロール／通話履歴の未解放案内から思い出画面のカードの場所へ進める導線／未公開映像の第2弾「静寂の中の叫び」切り抜きカード（ファン編集の体裁）／投票履歴に推移グラフの金のリングとの相互参照を追記\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.11 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.10<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。v4.4ではSNSとMnet Plusの残りの層（コンテンツのプレイヤーと個人チッケム枠、Instagramのプロフィール画面とストーリー・コメント、Twitterの通知タブとDM会話）を深掘りしました。v4.5ではLINEまわりを精緻化し、トーク一覧の日時表示を作中日付に連動させ（日付の根拠は作中の明記・発表の前日/翌日の派生・到達済み投稿の掲載日に限り、推測では作りません）、通話履歴画面を新設して到達した通話を日付ごとに振り返れるようにし、思い出コレクションに恋愛場面のカード5枚（全21枚）を追加し、Mnet Plusのマイページに作中日時つきの投票履歴と推定順位の推移（既存の推定ロジックの値を記録するだけのもの）を追加しました。v4.6では、トーク一覧を各スレッドの最終メッセージの作中日時（dateAtStepで解決できた日付）が新しい順に並べ替えるようにし（日付が解決できないスレッドは従来の定義順を保って後ろにまとめます）、通話履歴の行をタップすると対応する思い出カードの詳細を開ける導線を付け（未解放の場合は解放条件を案内します）、Mnet Plusマイページの推定推移に順位と推定ポイントの折れ線グラフ（直近12件・リストと併記）を加え、投票タブに前回投票の要約（作中日時と推しメン名）を小さく出すようにしました。v4.7では、推定推移グラフの各点をタップすると、その記録の日付・順位・ポイント・前回比をシートで表示するようにし、通話履歴の行に「読み返す」を追加して到達済みの通話の会話をそのまま閲覧専用で読み返せるようにし（実際に選んだ締めの返事は記録されていないため、当時の選択肢を両方載せます）、投票履歴の各行に、その投票日の推定順位・ポイントの動きを推定の記録との日付突き合わせで併記しました。v4.8では、通話の読み返し画面の末尾に、その通話に対応する思い出カードを開くボタンを置いて「通話履歴→読み返し→思い出」の導線を閉じ、推定推移リストの行をタップしてもグラフと同じ記録の詳細シートが開くように導線を統一し、投票履歴の推定変動を、投票確定時の直前・直後の推定を各行に記録する投票単位の前後比較に精緻化しました（旧セーブの投票記録は項目を持たないため、従来どおり日単位の表示のままです）。読み返し画面のボイス行は、通話本編の字幕内ボイスバブルと同じクラスに揃え、幅いっぱいのバーと再生状態の見た目を一致させました。いずれも史実データ・推定の計算式・時系列ゲート・セーブ形式には影響しません。v4.9では、本編の既存ステップの中に、裏取りできた当時の実在エピソードを織り込みました。シグナルソング『Here I Am』の『M COUNTDOWN』初披露で大翔が担ったエンディング妖精（指ハートからの投げキス、モデルプレス報道）の反響を場面描写とSNSで厚くし、グループバトル後には、Mnet公式の未公開映像でチョン・ミンギュと大翔が「ベスト相方（ベスト 짝꿍）」に選出された出来事（VERY NICEでは対向同士だった2人）をSNSの反応として加えました。「Rush Hour」の練習室の対立場面では、大翔が実際の話し合いで漏らした「サバイバルは3回目。これで出来なかったらアイドルはあきらめなければならない」という趣旨の発言（シネマカフェ報道）に寄せて、彼の本音のセリフを強化しています。第11話の企画ゲーム「静寂の中の叫び」で分量の少なかった大翔がレジェンド級の切り抜きを作ったというエピソードは、裏取りがファン記録の層のため、史実として断定せずファンの反応の空気感としてのみ触れています。実在のファンのハンドルや投稿文の逐語コピーはしていません。v4.10では、v4.9で織り込んだエピソードの受け皿を広げました。思い出コレクションに「ベスト相方」と「静寂の中の叫び」のテキストカードを到達連動で追加し（全23枚）、ベスト相方選出はMnet Plusのコンテンツタブに「未公開映像」カードとしても出し（楽曲ではないため再生はせず、タップで選出の内容を表示します）、投票タブからもそのカードへ進める導線を付けました。あわせて、投票タブの「前回投票」の要約にも、その投票での推定順位・ポイントの動き（v4.8以降の投票は投票単位の前後比較、それ以前は日単位の突き合わせ）を併記し、Mnet Plusマイページの推定推移グラフでは、投票した日に記録された点へ金のリングのマーカーを付けて区別できるようにしました（投票履歴の日付との突き合わせによる表示のみで、記録や計算には触れていません）。いずれも史実データ・推定の計算式・時系列ゲート・セーブ形式には影響しません。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.11<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。v4.4ではSNSとMnet Plusの残りの層（コンテンツのプレイヤーと個人チッケム枠、Instagramのプロフィール画面とストーリー・コメント、Twitterの通知タブとDM会話）を深掘りしました。v4.5ではLINEまわりを精緻化し、トーク一覧の日時表示を作中日付に連動させ（日付の根拠は作中の明記・発表の前日/翌日の派生・到達済み投稿の掲載日に限り、推測では作りません）、通話履歴画面を新設して到達した通話を日付ごとに振り返れるようにし、思い出コレクションに恋愛場面のカード5枚（全21枚）を追加し、Mnet Plusのマイページに作中日時つきの投票履歴と推定順位の推移（既存の推定ロジックの値を記録するだけのもの）を追加しました。v4.6では、トーク一覧を各スレッドの最終メッセージの作中日時（dateAtStepで解決できた日付）が新しい順に並べ替えるようにし（日付が解決できないスレッドは従来の定義順を保って後ろにまとめます）、通話履歴の行をタップすると対応する思い出カードの詳細を開ける導線を付け（未解放の場合は解放条件を案内します）、Mnet Plusマイページの推定推移に順位と推定ポイントの折れ線グラフ（直近12件・リストと併記）を加え、投票タブに前回投票の要約（作中日時と推しメン名）を小さく出すようにしました。v4.7では、推定推移グラフの各点をタップすると、その記録の日付・順位・ポイント・前回比をシートで表示するようにし、通話履歴の行に「読み返す」を追加して到達済みの通話の会話をそのまま閲覧専用で読み返せるようにし（実際に選んだ締めの返事は記録されていないため、当時の選択肢を両方載せます）、投票履歴の各行に、その投票日の推定順位・ポイントの動きを推定の記録との日付突き合わせで併記しました。v4.8では、通話の読み返し画面の末尾に、その通話に対応する思い出カードを開くボタンを置いて「通話履歴→読み返し→思い出」の導線を閉じ、推定推移リストの行をタップしてもグラフと同じ記録の詳細シートが開くように導線を統一し、投票履歴の推定変動を、投票確定時の直前・直後の推定を各行に記録する投票単位の前後比較に精緻化しました（旧セーブの投票記録は項目を持たないため、従来どおり日単位の表示のままです）。読み返し画面のボイス行は、通話本編の字幕内ボイスバブルと同じクラスに揃え、幅いっぱいのバーと再生状態の見た目を一致させました。いずれも史実データ・推定の計算式・時系列ゲート・セーブ形式には影響しません。v4.9では、本編の既存ステップの中に、裏取りできた当時の実在エピソードを織り込みました。シグナルソング『Here I Am』の『M COUNTDOWN』初披露で大翔が担ったエンディング妖精（指ハートからの投げキス、モデルプレス報道）の反響を場面描写とSNSで厚くし、グループバトル後には、Mnet公式の未公開映像でチョン・ミンギュと大翔が「ベスト相方（ベスト 짝꿍）」に選出された出来事（VERY NICEでは対向同士だった2人）をSNSの反応として加えました。「Rush Hour」の練習室の対立場面では、大翔が実際の話し合いで漏らした「サバイバルは3回目。これで出来なかったらアイドルはあきらめなければならない」という趣旨の発言（シネマカフェ報道）に寄せて、彼の本音のセリフを強化しています。第11話の企画ゲーム「静寂の中の叫び」で分量の少なかった大翔がレジェンド級の切り抜きを作ったというエピソードは、裏取りがファン記録の層のため、史実として断定せずファンの反応の空気感としてのみ触れています。実在のファンのハンドルや投稿文の逐語コピーはしていません。v4.10では、v4.9で織り込んだエピソードの受け皿を広げました。思い出コレクションに「ベスト相方」と「静寂の中の叫び」のテキストカードを到達連動で追加し（全23枚）、ベスト相方選出はMnet Plusのコンテンツタブに「未公開映像」カードとしても出し（楽曲ではないため再生はせず、タップで選出の内容を表示します）、投票タブからもそのカードへ進める導線を付けました。あわせて、投票タブの「前回投票」の要約にも、その投票での推定順位・ポイントの動き（v4.8以降の投票は投票単位の前後比較、それ以前は日単位の突き合わせ）を併記し、Mnet Plusマイページの推定推移グラフでは、投票した日に記録された点へ金のリングのマーカーを付けて区別できるようにしました（投票履歴の日付との突き合わせによる表示のみで、記録や計算には触れていません）。いずれも史実データ・推定の計算式・時系列ゲート・セーブ形式には影響しません。v4.11では、通話まわりと未公開映像の積み残しを仕上げました。「通話の記録」でボイスを再生すると、再生中の行が見える位置まで自動でスクロールするようにし、通話履歴の未解放案内シートからは、思い出画面を開いて対象カードの場所まで進み、金の枠で示す導線を足しました。Mnet Plusのコンテンツタブの「未公開映像」には第2弾として、第11話の企画ゲーム「静寂の中の叫び」の切り抜きカードを第3回生存者発表式の到達で追加しています（裏取りがファン記録の層のため、ファン編集の切り抜きという体裁に留め、史実としては断定していません）。あわせて、マイページの投票履歴の注記に、推移グラフの金のリングとの対応を明記し、履歴とグラフを行き来して辿れるようにしました。いずれも史実データ・推定の計算式・時系列ゲート・セーブ形式には影響しません。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
