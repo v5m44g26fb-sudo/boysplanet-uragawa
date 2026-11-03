@@ -1377,7 +1377,10 @@ script:[
 {who:"hiroto",text:"ほんまに？　……信じるわ、なおさんのこと"},
 {who:"hiroto",text:"……あ、まだ切らんといて"},
 {who:"me",text:"ひろと？"},
-{who:"hiroto",text:"いや、ほんまになんでもないねん。……声、もうちょっとだけ聞いてたかった。……おやすみ、なおさん"}
+{who:"hiroto",text:"いや、ほんまになんでもないねん。……声、もうちょっとだけ聞いてたかった"},
+{who:"hiroto",text:"……あのさ、なおさん。ほんまは、今夜、言いたいことがあって"},
+{who:"me",text:"……なに？"},
+{who:"hiroto",text:"……いや、今はまだ言わへん。……おやすみ、なおさん"}
 ]},
 {type:"rank2",badge:"順位発表",title:"第2回生存者発表式",desc:"52人から28人へ",
 loc:"2023年3月23日 · 第2回生存者発表式（MC：イ・ミニョク）"},
@@ -1504,7 +1507,7 @@ pages:[
 <span class="who">大翔</span>「俺の場所は、ここや。……ここを完璧にする」
 窓の外が白み始めた頃、6人の動きが、ようやく一つの形に重なった。
 
-合間に差し入れた温かい飲み物を、大翔は両手で受け取った。
+ほっと一息ついたところで温かい飲み物を渡すと、大翔は両手で受け取った。
 <span class="who">大翔</span>「……なおさんが見ててくれるから、頑張れるんやと思う」
 短い一言だったけれど、その声は昼間の彼より、少しだけ素直だった。`],
 choices:[
@@ -1555,16 +1558,16 @@ V("hiroto","line7"),
 M("me","見てたよ。チームの動画、再生数が1位だって"),
 M("hiroto","……ほんまに？　それは、嬉しいな"),
 M("hiroto","次は発表や。28人から18人。ここを越えたら、ファイナル"),
-M("me","ここまで来たんだから、あとは信じて待とう"),
+M("me","やれることは、全部やったよ。あとは信じよう"),
 M("hiroto","うん。……三回目の挑戦、ここで終わらせへん"),
 M("hiroto","なあ、なおさん。……全部終わったら、話したいことがあるねん"),
 M("me","ファイナルまで、取っておいて"),
 M("hiroto","……うん。取っとく。……絶対、言うから"),
-SYS("結果の夜は静かに更けていった。")
+SYS("ステージの熱が冷めやらぬまま、夜は更けていった。")
 ],
 choices:[
-{label:"「発表まで、最後のひと押しの発信を続ける」",fx:{score:5,trust:2},reply:[M("hiroto","頼むわ。……ほんまに、頼む")],note:"最後の追い込み体制ができた"},
-{label:"「今夜はもう休んで。結果は、動かせるだけ動かした」",fx:{mental:5,trust:2},reply:[M("hiroto","……うん。ありがとう、なおさん")],note:"静かに休ませた"}
+{label:"「再生数1位の勢いを、最後のひと押しに変える」",fx:{score:5,trust:2},reply:[M("hiroto","うん。……最後まで、頼むな")],note:"追い込みの軸が決まった"},
+{label:"「今夜はもう休んで。あとは、結果がついてくる」",fx:{mental:5,trust:2},reply:[M("hiroto","……うん。そうする。ありがとう、なおさん")],note:"ゆっくり休ませた"}
 ]},
 {type:"support",phase:6,badge:"サポート",title:"裏側サポート配分（第6フェーズ）",desc:"第3回投票のラストスパート。最後の12ポイント"},
 {type:"call",badge:"通話",title:"発表前夜の電話（第3回）",desc:"第3回生存者発表式の前日",
@@ -1654,6 +1657,7 @@ pages:[
 会場が揺れた。18人の少年たちが、その名前を背負う9席を懸けて、最後のステージに臨む。`,
 `オープニングは、全員での「Here I Am」ファイナルバージョン。
 そして「Jelly Pop」のステージ。ジャン・ハオのキリングパートに歓声が上がり、大翔のサブラップが曲を弾ませる。明るく、まっすぐで、少しだけ切ない――三度目の挑戦の、最後の数分間だった。
+もう一方の「Hot Summer」は、弾けるポップさとは対照的に、熱と力を前面に押し出したステージ。客席の熱気が一段上がるのが、スタッフの立つ場所からでも分かった。9席を懸けた最後の戦いに、ふさわしい熱量だった。
 
 フィナーレでは、18人全員でエンディングソング「Not Alone」を歌った。
 生放送の2次投票も始まっている。結果発表まで、あと少し。`],
@@ -1980,7 +1984,7 @@ nx.innerHTML='<button class="big-btn" onclick="restartPart3()">第3部の最初�
 function renderFin4(body,ch,nx){
 const pts=S.heroPointsF||0, rank=S.heroRankF;
 if(heroDebut()){
-body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\nデビュー圏の名前が、一つずつ読み上げられていく。\nそして――大翔の名前が、呼ばれた。\n\n<span class="who">大翔</span>「……デビューや。なおさん、俺、デビューするんや……！」\n史実の記録では、彼は第3回発表の21位で、この舞台に立つことすらなかった。この世界線では、あなたの裏側の仕事と、彼自身のステージが、'+rank+'位という結果を引き寄せた。\n日プで36位、創造営で15位、ボイプラでは――ついに、9人の枠の中へ。\n\nそして2023年7月10日。ZEROBASEONEは1stミニアルバム『YOUTH IN THE SHADE』のタイトル曲「In Bloom」でデビューした。その9人の中に、井汲大翔の名前が刻まれている。\n三度目の正直は、実った。\n\nその夜、楽屋裏の廊下。騒ぎの向こうから、彼が駆け寄ってきた。\n<span class="who">大翔</span>「なおさん。……言いかけてた話、するわ」\n彼は少し笑って、言葉を探すように、一拍だけ置いた。\n<span class="who">大翔</span>「スタッフと練習生、とか。……そういうのは、もう終わったやろ。俺は、なおさんが好きや。……ずっと、隣におってほしい」\n答えは、言葉より先に出た。彼がそっと広げた腕の中に、身を預ける。数秒の抱擁が、4年分の全部への返事だった。\n<span class="who">大翔</span>「……これからも、よろしくな」\n\n――担当をデビューさせる件、完。</div>'
+body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\nデビュー圏の名前が、一つずつ読み上げられていく。\nそして――大翔の名前が、呼ばれた。\n\n<span class="who">大翔</span>「……デビューや。なおさん、俺、デビューするんや……！」\n史実の記録では、彼は第3回発表の21位で、この舞台に立つことすらなかった。この世界線では、あなたの裏側の仕事と、彼自身のステージが、'+rank+'位という結果を引き寄せた。\n日プで36位、創造営で15位、ボイプラでは――ついに、9人の枠の中へ。\n\nその夜、楽屋裏の廊下。騒ぎの向こうから、彼が駆け寄ってきた。\n<span class="who">大翔</span>「なおさん。……言いかけてた話、するわ」\n彼は少し笑って、言葉を探すように、一拍だけ置いた。\n<span class="who">大翔</span>「スタッフと練習生、とか。……そういうのは、もう終わったやろ。俺は、なおさんが好きや。……ずっと、隣におってほしい」\n答えは、言葉より先に出た。彼がそっと広げた腕の中に、身を預ける。数秒の抱擁が、4年分の全部への返事だった。\n<span class="who">大翔</span>「……これからも、よろしくな」\n\nそして2023年7月10日。ZEROBASEONEは1stミニアルバム『YOUTH IN THE SHADE』のタイトル曲「In Bloom」でデビューした。その9人の中に、井汲大翔の名前が刻まれている。\n三度目の正直は、実った。\n\n――担当をデビューさせる件、完。</div>'
 +'<div class="fin-box"><h3>最終結果 ― デビュー</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · ファイナル '+fmt(pts)+'点（史実：第3回発表21位で脱落・ファイナル未進出）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>ZEROBASEONEのメンバーとしてデビューが決定。日プ編・創造営編から続いた三部作は、ここに完結します。応援ありがとうございました。</p></div>';
 nx.innerHTML='<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 return;
@@ -2761,9 +2765,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.1｜既存の本編に恋愛ラインを織り込み（三部を通した緩やかな距離の変化と、両エンディングへの約束の反映）\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.1 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.2｜恋愛ラインと既存文の接続部を監査（前夜の通話の「言いかけ」を明確化／デビューENDの時系列を整序）し、ファイナルに「Hot Summer」の描写を追加\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.2 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.1<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.2<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
