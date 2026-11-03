@@ -571,12 +571,84 @@ main.noscroll{overflow:hidden}
 @media (max-height:740px){.bp-logo{width:256px}.bp-ring{width:280px;height:280px}.bp-kv{padding:22px 0 10px}.bp-appeal{margin-top:14px;font-size:14px}}
 @media (max-height:620px){.bp-here{display:none}.bp-logo{width:216px}.bp-ring{width:230px;height:230px}.bp-desc{display:none}.bp-kv{padding:14px 0 6px}.bp-chip{transform:scale(.82)}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+/* ==== v4.3: lock screen (iOS 16 style, 2023) ==== */
+#screen-lock{height:100%}
+#screen-lock.active{display:flex;flex-direction:column;padding-bottom:0}
+.lock-wrap{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;color:#fff;cursor:pointer;touch-action:pan-y}
+.lock-wp{position:absolute;inset:0;background-size:cover;background-position:center 18%;transform:scale(1.04)}
+.lock-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,8,22,.34) 0%,rgba(4,8,22,.10) 30%,rgba(4,8,22,.30) 62%,rgba(3,6,16,.78) 100%)}
+.lock-top{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding-top:16px;text-align:center}
+.lock-ic{opacity:.95;margin-bottom:8px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.45))}
+.lock-date{font-size:19px;font-weight:600;letter-spacing:.02em;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.lock-clock{font-size:88px;font-weight:700;line-height:1.04;letter-spacing:-.01em;text-shadow:0 4px 26px rgba(0,0,0,.5);font-variant-numeric:tabular-nums}
+.lock-notifs{position:relative;z-index:2;margin-top:18px;padding:0 10px;display:flex;flex-direction:column;gap:8px;max-height:46%;overflow:hidden}
+.lock-ntf{display:flex;gap:10px;align-items:flex-start;background:rgba(38,42,54,.58);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:22px;padding:11px 13px;box-shadow:0 8px 22px rgba(0,0,0,.28);text-align:left;animation:lockNtfIn .5s ease both}
+.lock-ntf:nth-child(2){animation-delay:.07s}.lock-ntf:nth-child(3){animation-delay:.14s}.lock-ntf:nth-child(4){animation-delay:.21s}
+@keyframes lockNtfIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.lock-ntf .nic{width:34px;height:34px;border-radius:9px;overflow:hidden;flex:0 0 auto;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.lock-ntf .nic svg{width:100%;height:100%;display:block}
+.lock-ntf .ntx{flex:1;min-width:0}
+.lock-ntf .na{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:rgba(255,255,255,.82)}
+.lock-ntf .na b{color:#fff;font-weight:600}
+.lock-ntf .na span{flex:0 0 auto;color:rgba(255,255,255,.66)}
+.lock-ntf .nb{font-size:13.5px;line-height:1.45;color:#fff;margin-top:1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lock-bottom{position:relative;z-index:2;margin-top:auto;display:flex;flex-direction:column;align-items:center;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+.lock-btns{display:flex;justify-content:space-between;width:100%;padding:0 44px;box-sizing:border-box;margin-bottom:14px}
+.lock-rbtn{width:48px;height:48px;border-radius:50%;background:rgba(30,32,42,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;color:#fff}
+.lock-hint{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.92);text-shadow:0 1px 8px rgba(0,0,0,.6);margin-bottom:9px;animation:lockHint 2.6s ease-in-out infinite}
+@keyframes lockHint{0%,100%{opacity:.95}50%{opacity:.55}}
+.lock-bar{width:134px;height:5px;border-radius:99px;background:rgba(255,255,255,.92)}
+@media (max-height:700px){.lock-clock{font-size:72px}.lock-date{font-size:17px}.lock-notifs{max-height:40%}}
+/* ==== v4.3: memory collection ==== */
+.mem-prog{margin:14px 16px 4px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:12px 15px;font-size:12.5px;color:var(--sub);display:flex;justify-content:space-between;align-items:center}
+.mem-prog b{color:var(--gold);font-size:15px}
+.mem-sec{margin:18px 16px 8px;font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--accent)}
+.mem-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:2px 16px 6px}
+.mem-card{background:linear-gradient(165deg,var(--panel2),var(--panel));border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;padding:0;color:var(--txt);font-family:inherit}
+.mem-card:active{transform:scale(.98)}
+.mem-card .ph{height:104px;background:#22386b;position:relative}
+.mem-card .ph img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.mem-card .ph .kind{position:absolute;left:8px;top:8px;background:rgba(4,10,24,.72);color:#cfe0ff;font-size:10px;font-weight:700;border-radius:999px;padding:3px 8px;letter-spacing:.06em}
+.mem-card .tx{padding:10px 12px 12px}
+.mem-card .tt{font-size:13.5px;font-weight:800;line-height:1.45}
+.mem-card .qt{font-size:11.5px;color:var(--sub);line-height:1.6;margin-top:5px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.mem-card.locked{cursor:default;opacity:.75}
+.mem-card.locked .ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#16264a,#0c1730);font-size:30px;color:#47608f;font-weight:900}
+.mem-card .lk{font-size:11px;color:var(--sub2);line-height:1.55;margin-top:5px}
+.mem-detail-img{width:100%;border-radius:14px;display:block;margin-bottom:12px}
+.mem-quote{font-size:14.5px;line-height:1.9;color:var(--txt);background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px}
+.mem-meta{font-size:11.5px;color:var(--sub2);margin-top:10px;line-height:1.7}
+/* ==== v4.3: mnet plus interactive voting ==== */
+.mp-pickgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 16px 12px}
+.mp-pick{background:rgba(22,38,74,.65);border:2px solid rgba(120,150,210,.25);border-radius:14px;padding:10px 6px 9px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;color:var(--txt);font-family:inherit;position:relative}
+.mp-pick .av,.mp-pick .av-init{width:52px;height:52px}
+.mp-pick .pn{font-size:11.5px;font-weight:700;line-height:1.3;text-align:center}
+.mp-pick .pg{font-size:10px;color:var(--sub2)}
+.mp-pick.on{border-color:var(--pink);background:rgba(255,143,178,.13);box-shadow:0 0 0 1px var(--pink)}
+.mp-pick .ck{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:var(--pink);color:#fff;font-size:12px;font-weight:900;display:none;align-items:center;justify-content:center}
+.mp-pick.on .ck{display:flex}
+.mp-pick.hero-pick{border-color:rgba(255,215,106,.55)}
+.mp-pickbar{position:sticky;bottom:calc(84px + env(safe-area-inset-bottom));margin:6px 16px 0;background:rgba(18,28,56,.96);border:1px solid rgba(199,146,255,.35);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);z-index:4}
+.mp-pickbar .cnt{font-size:12.5px;color:var(--sub);margin-bottom:9px}
+.mp-pickbar .cnt b{color:var(--gold);font-size:14px}
+.mp-done-wrap{padding:26px 22px 8px;text-align:center}
+.mp-done-ck{width:84px;height:84px;margin:6px auto 16px;border-radius:50%;background:linear-gradient(140deg,#37d67a,#14b8a6);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(20,184,166,.4);animation:mpPop .45s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes mpPop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.mp-done-t{font-size:19px;font-weight:900}
+.mp-done-s{font-size:12.5px;color:var(--sub);line-height:1.8;margin-top:8px}
+.mp-done-est{margin:18px 0 4px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:16px;padding:15px 16px;text-align:left}
+.mp-done-est .er{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--sub);padding:4px 0}
+.mp-done-est .er b{color:var(--txt);font-size:16px;font-variant-numeric:tabular-nums}
+.mp-done-est .er b.big{font-size:21px;color:var(--gold)}
+.mp-delta{font-weight:900;font-size:12.5px}
+.mp-delta.up{color:#37d67a}.mp-delta.dn{color:#ff8296}.mp-delta.eq{color:var(--sub2)}
 </style>
 </head>
 <body>
 <div id="phone">
 <div id="sb"><span id="sb-time">9:41</span><div class="island"></div><span class="sic"><svg width="17" height="11" viewBox="0 0 17 11" fill="#dfeaff"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><span style="font-size:11.5px;font-weight:700">5G</span><svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="20" height="11" rx="3.5" fill="none" stroke="rgba(255,255,255,.5)"/><rect x="2.2" y="2.2" width="13" height="7.6" rx="1.8" fill="#dfeaff"/><path d="M22.8 4v4a2.2 2.2 0 0 0 0-4z" fill="rgba(255,255,255,.5)"/></svg></span></div>
 <main id="main">
+<section class="screen" id="screen-lock"></section>
 <section class="screen" id="screen-title"></section>
 <section class="screen" id="screen-home"></section>
 <section class="screen" id="screen-scene"><div id="scene-body"></div><div class="choice-list" id="scene-choices"></div><div id="scene-next"></div></section>
@@ -597,6 +669,7 @@ main.noscroll{overflow:hidden}
 <section class="screen" id="screen-rank"><div id="rank-body"></div></section>
 <section class="screen" id="screen-members"><div id="members-body"></div></section>
 <section class="screen" id="screen-profile"><div id="pf-body"></div></section>
+<section class="screen" id="screen-memory"><div id="memory-body"></div></section>
 <section class="screen" id="screen-call">
 <div class="call-top"><div class="call-status">BOYS PLANET · プラネットキャンプ</div><div class="call-avwrap" id="call-av-wrap"></div><div id="call-name">井汲大翔</div><div id="call-timer">通話中… 00:00</div></div>
 <div id="call-sub"></div>
@@ -1674,7 +1747,7 @@ loc:"2023年4月20日 · 蚕室室内体育館（MC：ファン・ミニョン�
 /* ============ ENGINE ============ */
 const SAVE_KEY = "bpSaveV1";
 let S = null;
-function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,score2:0,part2Started:false,part2Done:false,heroPoints2:null,heroRank2:null,score3:0,part3Started:false,r3Done:false,heroPoints3:null,heroRank3:null,finalStarted:false,score4:0,heroPointsF:null,heroRankF:null,part3Done:false,rankView:1,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null,twDrafts:[],twPinned:null};}
+function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,score2:0,part2Started:false,part2Done:false,heroPoints2:null,heroRank2:null,score3:0,part3Started:false,r3Done:false,heroPoints3:null,heroRank3:null,finalStarted:false,score4:0,heroPointsF:null,heroRankF:null,part3Done:false,rankView:1,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null,twDrafts:[],twPinned:null,memMax:-1,mpEstSeen:null};}
 
 function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
 function load(){try{const r=localStorage.getItem(SAVE_KEY); if(r){S=Object.assign(defState(),JSON.parse(r)); twMigrate(); return;}}catch(e){} S=defState();}
@@ -1775,7 +1848,7 @@ function toggleMusic(){if(!musicAudio)return; if(musicAudio.paused){musicAudio.p
 function stopVoice(){if(voiceAudio){try{voiceAudio.pause();}catch(e){} voiceAudio=null;} if(voiceBtn){voiceBtn.classList.remove("playing"); const p=voiceBtn.querySelector(".play"); if(p)p.textContent="▶"; voiceBtn=null;} duck(false);}
 function playVoice(key,btn){const v=VOICES[key]; if(!v)return; if(voiceAudio&&voiceBtn===btn){stopVoice(); return;} stopVoice(); duck(true); voiceAudio=new Audio(v.src); voiceAudio.volume=S.vol/100; voiceBtn=btn; btn.classList.add("playing"); const p=btn.querySelector(".play"); if(p)p.textContent="⏸"; voiceAudio.onended=function(){stopVoice();}; voiceAudio.onerror=function(){stopVoice(); toast("音声ファイルを読み込めませんでした");}; voiceAudio.play().catch(function(){stopVoice(); toast("音声を再生できませんでした");});}
 /* ---- navigation ---- */
-const SCREENS=["title","home","scene","chatlist","chat","mnet","twitter","news","insta","support","rank","members","profile","call","settings"];
+const SCREENS=["lock","title","home","scene","chatlist","chat","mnet","twitter","news","insta","support","rank","members","profile","memory","call","settings"];
 let curScreen="home";
 function headHTML(title,sub,to){return '<header class="app-head"><button class="backbtn" onclick="go(\''+(to||"home")+'\')">‹</button><div style="flex:1;min-width:0"><h1>'+esc(title)+'</h1>'+(sub?'<div class="sub">'+esc(sub)+'</div>':"")+"</div></header>";}
 function go(name){
@@ -1784,9 +1857,10 @@ if(name!=="call"){stopCallTimer();}
 if(name!=="home"){const nb=document.getElementById("notif-banner"); if(nb)nb.classList.remove("on"); closeStory();}
 document.querySelectorAll(".screen").forEach(function(el){el.classList.remove("active");});
 const main=document.getElementById("main");
-main.classList.toggle("noscroll", name==="call");
+main.classList.toggle("noscroll", name==="call"||name==="lock");
 const sc=document.getElementById("screen-"+name); if(sc)sc.classList.add("active");
 main.scrollTop=0; curScreen=name;
+if(name==="lock")renderLock();
 if(name==="title")renderTitle();
 if(name==="home")renderHome();
 if(name==="scene")renderScene();
@@ -1799,6 +1873,7 @@ if(name==="support")renderSupport();
 if(name==="rank")renderRankScreen();
 if(name==="members")renderMembers();
 if(name==="profile")renderProfile();
+if(name==="memory")renderMemory();
 if(name==="settings")renderSettings();
 }
 /* ---- story flow ---- */
@@ -1821,7 +1896,7 @@ else {go("scene"); if(st.music)setTimeout(function(){playMusic(st.music);},350);
 }
 function completeStep(fx,note){
 applyFx(fx); if(note)setTimeout(function(){toast(note);},150);
-if(S.step<STEPS.length-1){S.step++; S.doneSteps.push(S.step-1);}
+if(S.step<STEPS.length-1){S.step++; S.doneSteps.push(S.step-1); if(S.step-1>(S.memMax||-1))S.memMax=S.step-1;}
 save();
 if(curStep().type==="fin"){S.part1Done=true; save();}
 if(curStep().type==="fin2"){S.part2Done=true; save();}
@@ -1866,6 +1941,61 @@ function renderTitle(){
  +'</div>';
 }
 
+/* ================= LOCK SCREEN (v4.3) =================
+   起動時はiOS 16様式のロック画面から入り、解除でタイトル画面へ進む。
+   時刻は実時刻ではなく「作中日時」連動：日付は現在の場面の loc 表記を最優先し、
+   無ければ到達済みのSNS／ニュース／IG投稿の最新掲載日を使う。時刻はステップ種別
+   （順位発表＝放送時刻20:50／前夜通話＝深夜帯／サポート＝午前…）から決める。
+   通知は進行度連動（現在のトーク／当ステップのSNS新着／Mnet Plusの投票状況／最新ニュース）。 */
+function storyNow(){
+const st=curStep(); let ymd=null;
+if(st&&(st.loc||st.desc)){const m=String(st.loc||"").match(/(\d{4})年(\d{1,2})月(\d{1,2})日/)||String(st.desc||"").match(/(\d{4})年(\d{1,2})月(\d{1,2})日/); if(m)ymd=[+m[1],+m[2],+m[3]];}
+if(!ymd){let bv=-1; [TWITTER,NEWS,INSTA].forEach(function(arr){(arr||[]).forEach(function(x){if(x.at<=S.step&&x.time){const p=String(x.time).split(".").map(Number); const v=(p[0]||2023)*10000+(p[1]||1)*100+(p[2]||1); if(v>bv){bv=v; ymd=p;}}});});}
+if(!ymd)ymd=[2023,1,30];
+const wd="日月火水木金土"[new Date(ymd[0],ymd[1]-1,ymd[2]).getDay()];
+const ty=st?st.type:"scene"; let hh=20,mm=50;
+if(ty==="call"){hh=23; mm=7+(S.step*7)%40;}
+else if(ty==="talk"){hh=21; mm=12+(S.step*5)%40;}
+else if(ty==="support"){hh=10; mm=0;}
+else if(ty==="fin"||ty==="fin2"||ty==="fin3"||ty==="fin4"){hh=23; mm=42;}
+else if(ty==="scene"){hh=19; mm=18+(S.step*3)%30;}
+return {date:ymd[1]+"月"+ymd[2]+"日", wday:wd, time:hh+":"+String(mm).padStart(2,"0")};
+}
+function lockNotifs(){
+const out=[]; const st=curStep();
+if(st&&st.type==="talk"&&!(S.doneSteps||[]).includes(S.step)){
+let pv="新しいメッセージが届いています";
+if(st.msgs&&st.msgs.length){for(let i=0;i<st.msgs.length;i++){if(st.msgs[i].f==="hiroto"&&st.msgs[i].t){pv=st.msgs[i].t; break;}}}
+const th=(typeof THREADS!=="undefined")?THREADS[st.thread]:null;
+out.push({app:"talk",name:"LINE",body:(th?th.title:"トーク")+"："+pv,go:"chatlist"});
+}
+const tw=TWITTER.filter(function(t){return t.at===S.step;});
+if(tw.length)out.push({app:"twitter",name:"Twitter",body:"新しいツイートが"+tw.length+"件あります ― "+tw[0].name,go:"twitter"});
+const nw=NEWS.filter(function(t){return t.at===S.step;});
+if(nw.length)out.push({app:"news",name:nw[nw.length-1].src,body:nw[nw.length-1].title,go:"news"});
+if(S.mnetLeft>0)out.push({app:"mnet",name:"Mnet Plus",body:"本日の投票がまだできます（残り"+S.mnetLeft+"回）。井汲大翔への投票をお忘れなく",go:"mnet"});
+else out.push({app:"mnet",name:"Mnet Plus",body:"本日の投票は完了しています（大翔への累計 "+S.mnetCast+"票）",go:"mnet"});
+return out.slice(0,4);
+}
+let lockDragY=null;
+function renderLock(){
+const sn=storyNow();
+const ntf=lockNotifs().map(function(n){return '<div class="lock-ntf" onclick="lockNotifTap(event,\''+n.go+'\')"><div class="nic">'+(APP_ICONS[n.app]||"")+'</div><div class="ntx"><div class="na"><b>'+esc(n.name)+'</b><span>今</span></div><div class="nb">'+esc(n.body)+"</div></div></div>";}).join("");
+document.getElementById("screen-lock").innerHTML=
+'<div class="lock-wrap" id="lock-wrap" onclick="unlock()">'
++'<div class="lock-wp" style="background-image:url(\''+CAST.hiroto.img+'\')"></div><div class="lock-shade"></div>'
++'<div class="lock-top"><div class="lock-ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5" fill="#fff" stroke="none"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></div>'
++'<div class="lock-date">'+sn.date+" "+sn.wday+'曜日</div><div class="lock-clock">'+sn.time+"</div></div>"
++'<div class="lock-notifs">'+ntf+"</div>"
++'<div class="lock-bottom"><div class="lock-btns"><span class="lock-rbtn"><svg width="23" height="23" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M9.5 2.5h5l.8 4.2a5.6 5.6 0 0 1 1.2 3.5c0 1.5-.6 2.9-1.6 3.9l-.4 6.4a1.5 1.5 0 0 1-1.5 1.4h-2a1.5 1.5 0 0 1-1.5-1.4l-.4-6.4a5.4 5.4 0 0 1-1.6-3.9c0-1.3.4-2.5 1.2-3.5z"/></svg></span><span class="lock-rbtn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13.5" r="3.4"/><path d="M8.5 7l1.2-2.5h4.6L15.5 7"/></svg></span></div>'
++'<div class="lock-hint">タップまたは上にスワイプで開く</div><div class="lock-bar"></div></div></div>';
+const w=document.getElementById("lock-wrap");
+if(w){w.addEventListener("pointerdown",function(e){lockDragY=e.clientY;}); w.addEventListener("pointerup",function(e){if(lockDragY!==null&&lockDragY-e.clientY>56)unlock(); lockDragY=null;});}
+tickClock();
+}
+function unlock(){if(curScreen!=="lock")return; go("title");}
+function lockNotifTap(ev,app){if(ev)ev.stopPropagation(); if(curScreen!=="lock")return; go(app);}
+
 /* ホームのアプリアイコン：2023年当時の実物をSVGで再現
    LINE=#06C755の白吹き出し／Twitter=X改称前の青地に白い鳥／Instagram=グラデーション+カメラ
    Mnet Plus=公式アプリアイコン（白地にグラデーション枠+ピンクのMと+、App Store掲載アイコンで確認）
@@ -1879,6 +2009,7 @@ twitter:'<svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60
 insta:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-ig-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".82" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-ig-g)"/><rect x="16.5" y="16.5" width="27" height="27" rx="8" fill="none" stroke="#fff" stroke-width="3.1"/><circle cx="30" cy="30" r="6.4" fill="none" stroke="#fff" stroke-width="3.1"/><circle cx="38.6" cy="21.4" r="2" fill="#fff"/></svg>',
 news:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-nw-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d4e89"/><stop offset="1" stop-color="#122c50"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-nw-g)"/><g><rect x="15" y="13" width="30" height="34" rx="2.5" fill="#fff"/><rect x="19" y="17.5" width="22" height="5" fill="#173f6e"/><rect x="19" y="25.5" width="10" height="8.5" fill="#9db8d2"/><rect x="31.5" y="25.5" width="9.5" height="2.1" fill="#5a708c"/><rect x="31.5" y="29.3" width="9.5" height="2.1" fill="#5a708c"/><rect x="31.5" y="33.1" width="9.5" height="2.1" fill="#5a708c"/><rect x="19" y="37" width="22" height="2.1" fill="#8fa5bd"/><rect x="19" y="40.8" width="22" height="2.1" fill="#8fa5bd"/></g></svg>',
 members:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-mb-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b84ad"/><stop offset="1" stop-color="#33567f"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-mb-g)"/><g fill="#fff"><circle cx="41" cy="23" r="5.6" opacity=".72"/><path d="M41 30.5c4.9 0 8.6 3.1 9.3 7.6.1 1-.7 1.9-1.7 1.9h-6.4c.3-1.3.5-2.6.5-4 0-2-.6-3.9-1.7-5.5z" opacity=".72"/><circle cx="24.5" cy="21.5" r="7"/><path d="M24.5 30.5c6.3 0 10.5 4.4 10.5 10.6 0 1.1-.9 1.9-1.9 1.9H15.9c-1 0-1.9-.8-1.9-1.9 0-6.2 4.2-10.6 10.5-10.6z"/></g></svg>',
+memory:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-mem-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fb2"/><stop offset="1" stop-color="#8a3ffc"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-mem-g)"/><rect x="14" y="16" width="32" height="28" rx="4" fill="#fff"/><circle cx="23.5" cy="25" r="3" fill="#ffb340"/><path d="M16 41l9.5-9.5 5.5 5 6-6.5 7 7.5v3.5c0 1.7-1.3 3-3 3H19c-1.7 0-3-1.3-3-3z" fill="#5b84ad"/><path d="M45.5 12.5l1.1 2.3 2.5.4-1.8 1.8.4 2.5-2.2-1.2-2.3 1.2.5-2.5-1.9-1.8 2.6-.4z" fill="#ffd76a"/></svg>',
 support:'<svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60" fill="#fff"/><circle cx="30" cy="30" r="21.5" fill="none" stroke="#d3dbe4" stroke-width="2"/><path d="M30 13.5L36.5 30 30 46.5 23.5 30Z" fill="#e9eef4"/><path d="M30 13.5L36.5 30 30 30Z" fill="#ff3b30"/><circle cx="30" cy="30" r="2.4" fill="#8a97a5"/></svg>',
 rank:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-rk-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7bc2e"/><stop offset="1" stop-color="#dd8f06"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-rk-g)"/><g fill="#fff"><rect x="25" y="21" width="10" height="24" rx="1.6"/><rect x="13" y="29" width="10" height="16" rx="1.6" opacity=".88"/><rect x="37" y="25" width="10" height="20" rx="1.6" opacity=".88"/></g><text x="30" y="38.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="900" fill="#dd8f06">1</text></svg>',
 settings:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-st-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f2f7"/><stop offset="1" stop-color="#c7c7cc"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-st-g)"/><g fill="#636368">'+gearTeeth()+'<circle cx="30" cy="30" r="11"/></g><circle cx="30" cy="30" r="5.2" fill="#d9d9de"/></svg>'
@@ -1903,7 +2034,7 @@ else if(S.part2Started){const p2=computeHeroPoints2(); const r2=computeRank2(p2)
 else if(S.part1Done&&S.heroRank){proj='<span>第1回順位</span><b>'+S.heroRank+'位</b><span style="color:var(--sub)">'+fmt(S.heroPoints)+'点</span>';}
 else{const pts=computeHeroPoints(); proj='<span>推定ポイント</span><b>'+fmt(pts)+'</b><span style="color:var(--sub)">推定 '+computeRank(pts)+'位</span>';}
 const apps=[
-["talk","トーク",un.talk],["mnet","Mnet Plus",0],["twitter","Twitter",un.tw],["news","ニュース",un.nw],["insta","Instagram",un.ig],["members","メンバー",0],["support","サポート",0],["rank","順位表",0],["settings","設定",0]
+["talk","トーク",un.talk],["mnet","Mnet Plus",0],["twitter","Twitter",un.tw],["news","ニュース",un.nw],["insta","Instagram",un.ig],["members","メンバー",0],["memory","思い出",0],["support","サポート",0],["rank","順位表",0],["settings","設定",0]
 ];
 let appHTML=apps.map(function(a){return '<button class="appicon" data-app="'+a[0]+'" onclick="appTap(\''+a[0]+'\')"><span class="ic">'+(APP_ICONS[a[0]]||"")+"</span><span>"+a[1]+"</span>"+(a[2]?'<span class="bdg">'+a[2]+"</span>":"")+"</button>";}).join("");
 document.getElementById("screen-home").innerHTML=
@@ -1924,6 +2055,7 @@ else if(app==="twitter")go("twitter");
 else if(app==="news")go("news");
 else if(app==="insta")go("insta");
 else if(app==="members")go("members");
+else if(app==="memory")go("memory");
 else if(app==="support"){const st=curStep(); if(st.type==="support")go("support"); else toast("サポート配分は物語のサポートフェーズで開放されます");}
 else if(app==="rank"){if(S.part1Done||curStep().type==="rank")go("rank"); else go("rank");}
 else if(app==="settings")go("settings");
@@ -2115,9 +2247,89 @@ function tb(v,ic,lb){return '<span class="'+(mpView===v?"on":"")+'" onclick="mpG
 return '<div class="mp-tabs">'+tb("vote",mpIco('<path d="M4 11.2L12 4l8 7.2V19a1.8 1.8 0 0 1-1.8 1.8h-3.7v-6.3h-5v6.3H5.8A1.8 1.8 0 0 1 4 19z"/>'),"홈")+tb("vote",mpIco('<rect x="4" y="4.5" width="16" height="16" rx="3.5"/><path d="M8.6 12.4l2.4 2.4 4.4-4.9"/>'),"투표")+tb("contents",mpIco('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7.5 5v14M16.5 5v14M7.5 9.5H3.8M7.5 14.5H3.8M16.5 9.5h3.7M16.5 14.5h3.7"/><path d="M10.4 9.9l4.3 2.1-4.3 2.1z" fill="currentColor" stroke="none"/>'),"콘텐츠")+tb("my",mpIco('<circle cx="12" cy="8" r="3.6"/><path d="M5.2 19.6c.8-3.3 3.5-5 6.8-5s6 1.7 6.8 5"/>'),"마이")+"</div>";
 }
 function mpGo(v){mpView=v; renderMnet();}
-function mnetVoteAsk(){
+/* ---- v4.3: インタラクティブ投票（推しメン選択→確認シート→完了演出→見込み変動） ----
+   物語のサポート配分とは別レイヤーの体験。1回の投票＝mnetLeftを1消費し、
+   大翔が選択に含まれていれば従来どおり mnetCast+1／注目度+1。
+   推定ポイント・順位の算出式（curEst）には一切触れない。 */
+let mpPicks=[], mpLastVote=null;
+function mpCandIds(){
+const t9=S.part3Started?["hanbin","zhanghao","jiwoong","taerae","yujin","keita","gyuvin","ricky","matthew"]:S.part2Started?["hanbin","yujin","matthew","zhanghao","jiwoong","gyuvin","taerae","keita","jay"]:["hanbin","matthew","jiwoong","yujin","zhanghao","gyuvin","hoetaek","keita","jay"];
+const ex=S.part3Started?["gunwook","junghyun"]:S.part2Started?["anthonny","haruto"]:["anthonny","osuke","sungmin"];
+const ids=["hiroto"].concat(t9,ex); const seen={}, out=[];
+ids.forEach(function(id){if(!seen[id]){seen[id]=1; out.push(id);}});
+return out;
+}
+function mpNameOf(id){const c=CAST[id]||ROSTER_MAP[id]; if(!c)return id; return c.name||c.n;}
+function mpGrpOf(id){const c=CAST[id]; if(c&&c.grp)return c.grp; const rm=ROSTER_MAP[id]; return rm?(rm.g||""):"";}
+function mnetVoteAsk(){mpStartPick();}
+function mpStartPick(){
 if(S.mnetLeft<=0){toast("本日の投票は完了しています"); return;}
-openSheet('<div class="sheet-title">井汲大翔に投票しますか？</div><div class="sheet-sub">本日の残り投票数：'+S.mnetLeft+'票。投票すると取り消せません。</div><div class="sheet-item" style="color:#7a1fa2;font-weight:700" onclick="closeSheet();mnetVote()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="16" rx="3.5"/><path d="M8.6 12.4l2.4 2.4 4.4-4.9"/></svg> 投票する</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');
+mpPicks=["hiroto"]; mpView="pick"; renderMnet();
+}
+function mpTogglePick(id){
+const i=mpPicks.indexOf(id);
+if(i>=0)mpPicks.splice(i,1);
+else{if(mpPicks.length>=9){toast("投票できるのは最大9人までです"); return;} mpPicks.push(id);}
+renderMnet();
+}
+function mpConfirmAsk(){
+if(!mpPicks.length){toast("推しメンを1人以上選んでください"); return;}
+const names=mpPicks.map(function(id){return esc(mpNameOf(id));}).join("、");
+const heroIn=mpPicks.indexOf("hiroto")>=0;
+openSheet('<div class="sheet-title">この内容で投票しますか？</div><div class="sheet-sub">選択中（'+mpPicks.length+'人）：'+names+'<br>本日の投票を1回分使います（残り '+S.mnetLeft+' 回）。投票すると取り消せません。'+(heroIn?"":"<br>※井汲大翔は今回の選択に含まれていません。")+'</div><div class="sheet-item" style="color:#7a1fa2;font-weight:700" onclick="closeSheet();mpDoVote()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="16" rx="3.5"/><path d="M8.6 12.4l2.4 2.4 4.4-4.9"/></svg> 投票する</div><div class="sheet-item" onclick="closeSheet()">選び直す</div>');
+}
+function mpDoVote(){
+if(S.mnetLeft<=0){toast("本日の投票は完了しています"); mpView="vote"; renderMnet(); return;}
+const before=curEst();
+const heroIn=mpPicks.indexOf("hiroto")>=0;
+S.mnetLeft--; if(heroIn){S.mnetCast++; S.pop=Math.min(100,S.pop+1); clampStats();}
+const after=curEst();
+mpLastVote={names:mpPicks.map(function(id){return mpNameOf(id);}), heroIn:heroIn, before:before, after:after, prevSeen:S.mpEstSeen, cast:S.mnetCast};
+S.mpEstSeen={pts:after.pts, rk:after.rk};
+save(); mpView="done"; renderMnet();
+}
+function mpCountUp(el,from,to){
+if(!el)return; const t0=Date.now(), dur=750;
+const step=function(){const p=Math.min(1,(Date.now()-t0)/dur); const v=Math.round(from+(to-from)*(1-Math.pow(1-p,3))); el.textContent=fmt(v); if(p<1&&document.body.contains(el))setTimeout(step,30);};
+step();
+}
+function renderMnetPick(){
+const ids=mpCandIds();
+const cells=ids.map(function(id){
+const on=mpPicks.indexOf(id)>=0;
+return '<button class="mp-pick'+(on?" on":"")+(id==="hiroto"?" hero-pick":"")+'" onclick="mpTogglePick(\''+id+'\')"><span class="ck">✓</span>'+avHTML(id)+'<span class="pn">'+esc(mpNameOf(id))+(id==="hiroto"?' <span style="color:var(--gold)">★担当</span>':"")+'</span><span class="pg">'+esc(mpGrpOf(id))+'グループ</span></button>';
+}).join("");
+document.getElementById("mnet-body").innerHTML='<header class="app-head"><button class="backbtn" onclick="mpGo(\'vote\')">‹</button><div style="flex:1;min-width:0"><h1>推しメンを選ぶ</h1><div class="sub">Mnet Plus 公式投票</div></div></header>'
++'<p style="margin:14px 16px 12px;font-size:12.5px;color:var(--sub);line-height:1.8">1日1回、最大9人まで投票できます。担当の井汲大翔は最初から選択されています（外すこともできます）。選んだら下のボタンで確認へ進んでください。</p>'
++'<div class="mp-pickgrid">'+cells+"</div>"
++'<div class="mp-pickbar"><div class="cnt">選択中 <b>'+mpPicks.length+" / 9</b> 人"+(mpPicks.indexOf("hiroto")>=0?'（大翔を含む）':'（大翔を含んでいません）')+'</div><button class="mp-votebtn" style="margin-top:0'+(mpPicks.length?"":";opacity:.45")+'" '+(mpPicks.length?"":"disabled")+' onclick="mpConfirmAsk()">この内容で確認する</button></div>'
++mpTabsHTML();
+}
+function renderMnetDone(){
+const v=mpLastVote; if(!v){mpView="vote"; renderMnet(); return;}
+const prev=v.prevSeen;
+let deltaHTML;
+if(!prev)deltaHTML='<span class="mp-delta eq">初回の見込み表示です</span>';
+else if(prev.rk===null&&v.after.rk===null)deltaHTML='<span class="mp-delta eq">前回投票時から ―（脱落圏のまま）</span>';
+else if(prev.rk===null)deltaHTML='<span class="mp-delta up">前回投票時（脱落圏）から ▲ 浮上</span>';
+else if(v.after.rk===null)deltaHTML='<span class="mp-delta dn">前回投票時（'+prev.rk+'位）から ▼ 脱落圏</span>';
+else{const d=prev.rk-v.after.rk; deltaHTML=d>0?'<span class="mp-delta up">前回投票時から ▲'+d+" 上昇</span>":d<0?'<span class="mp-delta dn">前回投票時から ▼'+(-d)+" 下降</span>":'<span class="mp-delta eq">前回投票時から ― 変動なし</span>';}
+const pd=prev?(v.after.pts-prev.pts):0;
+document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","投票完了","home")
++'<div class="mp-done-wrap"><div class="mp-done-ck"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7"/></svg></div>'
++'<div class="mp-done-t">投票が完了しました</div>'
++'<div class="mp-done-s">投票した推しメン（'+v.names.length+'人）<br>'+v.names.map(esc).join("、")+"<br>"
++(v.heroIn?"井汲大翔への累計投票は <b style=\"color:var(--gold)\">"+v.cast+"票</b> になりました。":"今回は井汲大翔への投票は含まれていません。")
++'</div>'
++'<div class="mp-done-est"><div class="er"><span>大翔の推定ポイント（ゲーム内推定）</span><b id="mp-done-pts">'+fmt(v.before.pts)+'</b></div>'
++'<div class="er"><span>現在の見込み順位</span><b class="big">'+(v.after.rk===null?"脱落圏":v.after.rk+"位")+'</b></div>'
++'<div class="er"><span>見込みの変動</span>'+deltaHTML+'</div>'
++(prev?'<div class="er"><span>推定ポイントの増減（前回投票時比）</span><b>'+(pd>0?"+":"")+fmt(pd)+'点</b></div>':"")
++'<div class="mp-note">見込みは物語の進行（裏側サポート等）で動くゲーム内の目安表示です。この投票体験そのものは順位計算には影響しません。</div></div>'
++'<button class="mp-votebtn" onclick="mpGo(\'vote\')">投票タブに戻る</button>'
++'<button class="ghost-btn" onclick="mpGo(\'my\')">マイページで確認する</button></div>'
++mpTabsHTML();
+mpCountUp(document.getElementById("mp-done-pts"), v.before.pts, v.after.pts);
 }
 function mpcSeek(el){if(!musicAudio)return; const d=musicAudio.duration; if(isFinite(d)&&d>0){musicAudio.currentTime=(+el.value)/1000*d; mbSync();}}
 function mpNowHTML(){
@@ -2159,6 +2371,8 @@ document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","マイペ�
 function renderMnet(){
 if(mpView==="contents"){renderMnetContents(); return;}
 if(mpView==="my"){renderMnetMy(); return;}
+if(mpView==="pick"){renderMnetPick(); return;}
+if(mpView==="done"){renderMnetDone(); return;}
 const h=CAST.hiroto; const ce=curEst(); const pts=ce.pts; const rk=ce.rk;
 const top9=S.part3Started?[["hanbin",1],["zhanghao",2],["jiwoong",3],["taerae",4],["yujin",5],["keita",6],["gyuvin",7],["ricky",8],["matthew",9]]:S.part2Started?[["hanbin",1],["yujin",2],["matthew",3],["zhanghao",4],["jiwoong",5],["gyuvin",6],["taerae",7],["keita",8],["jay",9]]:[["hanbin",1],["matthew",2],["jiwoong",3],["yujin",4],["zhanghao",5],["gyuvin",6],["hoetaek",7],["keita",8],["jay",9]];
 let t9=top9.map(function(r){const c=CAST[r[0]]||ROSTER_MAP[r[0]]; const nm=c.name||c.n; return '<div class="mp-t9row"><span class="rk">'+r[1]+'</span>'+avHTML(r[0],"sm")+"<span>"+esc(nm)+"</span></div>";}).join("");
@@ -2167,7 +2381,7 @@ const voted=S.mnetLeft<=0;
 document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","公式投票アプリ","home")
 +'<div class="mp-hero"><div class="lg">Mnet Plus ✓</div><div class="ds">BOYS PLANET 公式投票<br>あなたの投票が、少年たちの運命を決めます</div></div>'
 +'<div class="mp-card"><div class="row1">'+avHTML("hiroto")+'<div><div class="nm">井汲大翔 <span style="color:var(--pink);font-size:12px">Gグループ</span></div><div class="inf">IKUMI HIROTO · RBW · 2002.08.23<br>キーワード：「I must debut!!!!!!!」</div></div></div>'
-+'<button class="mp-votebtn'+(voted?" done":"")+'" onclick="mnetVoteAsk()">'+(voted?"本日の投票済み ✓":"<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true' style='vertical-align:-3px'><rect x='4' y='4.5' width='16' height='16' rx='3.5'/><path d='M8.6 12.4l2.4 2.4 4.4-4.9'/></svg> 大翔に投票する（残り"+S.mnetLeft+"票）")+"</button>"
++'<button class="mp-votebtn'+(voted?" done":"")+'" onclick="mnetVoteAsk()">'+(voted?"本日の投票済み ✓":"<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true' style='vertical-align:-3px'><rect x='4' y='4.5' width='16' height='16' rx='3.5'/><path d='M8.6 12.4l2.4 2.4 4.4-4.9'/></svg> 投票する ― 推しメンを選ぶ（本日あと"+S.mnetLeft+"回）")+"</button>"
 +'<div class="mp-done-note'+(S.mnetCast>0?" on":"")+'">✓ 投票が反映されました（大翔への累計 '+S.mnetCast+'票）</div>'
 +'<div class="mp-est"><span>現在の推定ポイント（ゲーム内推定）</span><b>'+fmt(pts)+'点 · '+(rk===null?"脱落圏":rk+"位相当")+'</b></div>'
 +'<div class="mp-note">'+(S.finalStarted?"投票期間：ファイナル 2023.04.07 〜 04.20（生放送中に2次投票あり）":S.part3Started?"投票期間：第3回 2023.03.24 〜 04.07 10:00 (KST)":S.part2Started?"投票期間：第2回 2023.02.24 〜 03.17 10:00 (KST)":"投票期間：第1回 2023.02.02 〜 02.24 10:00 (KST)")+'<br>1日1端末につき最大9人まで投票可能。結果は生存者発表式で公表されます。</div></div>'
@@ -2175,7 +2389,7 @@ document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","公式投�
 +'<p style="margin:0 16px;font-size:11px;color:var(--sub2);line-height:1.7">※推定ポイント・順位はゲーム内の目安表示です。実際の投票は当時のMnet Plusアプリで行われました。</p>'
 +mpTabsHTML();
 }
-function mnetVote(){if(S.mnetLeft<=0){toast("本日の投票は完了しています"); return;} S.mnetLeft--; S.mnetCast++; S.pop=Math.min(100,S.pop+1); clampStats(); save(); if(window._seOn!==false){} toast("井汲大翔に投票しました（残り"+S.mnetLeft+"票）"); renderMnet();}
+/* v4.3: 旧 mnetVote()（大翔へ即時1票）は mpDoVote() の選択式フローに置き換え */
 /* ---- twitter / news / insta ---- */
 /* ---- twitter (2023) ---- */
 const TW_PROFILES={
@@ -2758,6 +2972,82 @@ const st=curStep();
 if(st.type==="call"&&callState&&(callState.idx>=st.script.length-1)){completeStep({trust:4,mental:3},"通話が終わった");}
 else{go("home"); toast("通話を終了しました");}
 };
+/* ================= MEMORY COLLECTION (v4.3) =================
+   各部の節目（ステージ／発表／通話／フィナーレ）の場面カード。
+   解放は「到達した最大ステップ（memMax＋部クリアフラグから算出）」連動で、
+   リスタートで巻き戻っても解放済みカードは戻らない。 */
+const MEMORIES=[
+{at:0,part:"第1部",kind:"場面",title:"三度目の現場",img:"hiroto",date:"2023年1月 · プラネットキャンプ",hint:"プロローグ到達で解放",quote:"「三回目やで、俺。……三回目も、よろしくお願いします」――4年ぶりの再会は、合宿施設のロビーから始まった。"},
+{at:4,part:"第1部",kind:"ステージ",title:"スターレベルテスト",img:"keita",date:"2023年2月 · 第1話",hint:"「スターレベルテスト」到達で解放",quote:"チーム大阪「Zero For Conduct」。自己評価はALL STAR、審査結果は2スター。始まりは、いつも少しほろ苦い。"},
+{at:6,part:"第1部",kind:"ステージ",title:"シグナルソングテスト",img:"hiroto",date:"2023年2月",hint:"「シグナルソングテスト」到達で解放",quote:"チッケム評価はGグループ4位。『M COUNTDOWN』のエンディング妖精が、最初の爪痕になった。"},
+{at:11,part:"第1部",kind:"ステージ",title:"本番「VERY NICE」",img:"hiroto",date:"2023年2月",hint:"「本番 VERY NICE」到達で解放",quote:"チームは敗れても、キリングパート対決は53対39。大翔個人の勝利が、次の扉を開けた。"},
+{at:14,part:"第1部",kind:"通話",title:"発表前夜の電話",img:null,date:"2023年2月23日 · 第1回発表の前夜",hint:"「発表前夜の電話」到達で解放",quote:"「明日、発表ですね。……大丈夫です。なおさんが、ついててくれるんで」"},
+{at:16,part:"第1部",kind:"フィナーレ",title:"第1回生存者発表式",img:"hiroto",date:"2023年2月24日",hint:"第1部クリアで解放",rank:"r1",quote:"93人から52人へ。三度目の挑戦は、最初の関門を越えた。"},
+{at:20,part:"第2部",kind:"場面",title:"Awesome Hour結成",img:"ricky",date:"2023年3月",hint:"「Awesome Hour結成」到達で解放",quote:"リッキー、拓斗、ジンシャン、ソンミン、そして大翔。「Rush Hour」に集まった5人。"},
+{at:28,part:"第2部",kind:"ステージ",title:"本番「Rush Hour」",img:"ricky",date:"2023年3月",hint:"「本番 Rush Hour」到達で解放",quote:"RAP＆DANCE部門4位、742点。届かなかったベネフィットと、それでも確かに残った手応え。"},
+{at:31,part:"第2部",kind:"通話",title:"発表前夜の電話（第2回）",img:null,date:"2023年3月22日 · 第2回発表の前夜",hint:"「発表前夜の電話（第2回）」到達で解放",quote:"「……あのさ、なおさん。ほんまは、今夜、言いたいことがあって」――「……いや、今はまだ言わへん」"},
+{at:33,part:"第2部",kind:"フィナーレ",title:"第2回生存者発表式",img:"hiroto",date:"2023年3月23日",hint:"第2部クリアで解放",rank:"r2",quote:"52人から28人へ。最後の枠を懸けた夜が終わり、最終章の扉が見えた。"},
+{at:42,part:"第3部",kind:"ステージ",title:"本番「En Garde」",img:"gunwook",date:"2023年4月",hint:"「本番 En Garde」到達で解放",quote:"597点で3位。けれどチームステージ動画の再生数は5曲中1位。数字と熱量の温度差が、彼らを押した。"},
+{at:44,part:"第3部",kind:"トーク",title:"En Gardeのあと",img:null,date:"2023年4月",hint:"「En Gardeのあと」到達で解放",quote:"「En Garde、やりきりました。……あとは、信じて待つだけですね」"},
+{at:47,part:"第3部",kind:"発表",title:"第3回生存者発表式",img:"hiroto",date:"2023年4月13日",hint:"「第3回生存者発表式」到達で解放",rank:"r3",quote:"28人から18人へ。史実では散ったこの夜を越えられるかどうかが、問われた。"},
+{at:52,part:"第3部",kind:"通話",title:"ファイナル前夜の電話",img:null,date:"2023年4月19日 · ファイナルの前夜",hint:"「ファイナル前夜の電話」到達で解放",quote:"「明日、全部決まります。……悔いは、ないです」"},
+{at:53,part:"第3部",kind:"ステージ",title:"ファイナル生放送",img:"hiroto",date:"2023年4月20日 · 蚕室室内体育館",hint:"「ファイナル生放送」到達で解放",quote:"「Jelly Pop」と「Hot Summer」。18人、最後のステージが始まる。"},
+{at:55,part:"第3部",kind:"フィナーレ",title:"三度目の正直",img:"hiroto",date:"2023年4月20日",hint:"エンディング到達で解放",rank:"rf",quote:null}
+];
+function memReached(){
+let r=(typeof S.memMax==="number"&&S.memMax!==null)?S.memMax:-1;
+(S.doneSteps||[]).forEach(function(x){if(typeof x==="number"&&x>r)r=x;});
+if(S.part1Done)r=Math.max(r,16);
+if(S.part2Done)r=Math.max(r,33);
+if(S.r3Done)r=Math.max(r,48);
+if(S.finalStarted)r=Math.max(r,53);
+if(S.part3Done)r=Math.max(r,55);
+return r;
+}
+function memQuote(m){
+if(m.quote)return m.quote;
+if(m.at===55)return heroDebut()?"ZEROBASEONEの9人に、井汲大翔の名前が刻まれた。三度目の正直は、ついに実を結んだ。":"デビューには届かなかった。それでも彼は、史実では立つことのできなかったファイナルの舞台に立った。";
+return "";
+}
+function memRankLine(m){
+if(!m.rank)return "";
+const rk=m.rank==="r1"?S.heroRank:m.rank==="r2"?S.heroRank2:m.rank==="r3"?S.heroRank3:S.heroRankF;
+const pts=m.rank==="r1"?S.heroPoints:m.rank==="r2"?S.heroPoints2:m.rank==="r3"?S.heroPoints3:S.heroPointsF;
+if(rk===null||rk===undefined)return "";
+return "この世界線の大翔："+rk+"位"+(pts?"（"+fmt(pts)+"点）":"")+(m.rank==="rf"?(heroDebut()?" · デビュー決定":" · あと一歩"):"");
+}
+function memCardHTML(m,i){
+const reached=memReached();
+if(reached<m.at)return '<div class="mem-card locked"><div class="ph">？</div><div class="tx"><div class="tt">？？？</div><div class="lk">'+esc(m.part)+" · "+esc(m.hint)+"</div></div></div>";
+const c=m.img?CAST[m.img]:null;
+const ph=c?'<div class="ph"><img src="'+c.img+'" alt=""><span class="kind">'+esc(m.kind)+"</span></div>":'<div class="ph" style="background:linear-gradient(150deg,#3b2a7a,#16264a);display:flex;align-items:center;justify-content:center;padding:12px"><span style="font-size:12.5px;line-height:1.7;color:#dbe7ff;text-align:center">'+esc(memQuote(m).slice(0,42))+'…</span><span class="kind">'+esc(m.kind)+"</span></div>";
+return '<button class="mem-card" onclick="memOpen('+i+')">'+ph+'<div class="tx"><div class="tt">'+esc(m.title)+'</div><div class="qt">'+esc(memQuote(m))+"</div></div></button>";
+}
+function renderMemory(){
+const reached=memReached();
+const un=memCount();
+let html=headHTML("思い出","場面コレクション","home")
++'<div class="mem-prog"><span>集めた場面カード</span><b>'+un+" / "+MEMORIES.length+"</b></div>"
++'<p style="margin:10px 16px 0;font-size:11.5px;color:var(--sub2);line-height:1.7">物語の節目に到達すると、その場面のカードが解放されます。カードをタップすると大きな写真と引用文で読み返せます。</p>';
+["第1部","第2部","第3部"].forEach(function(part){
+html+='<div class="mem-sec">'+part+'</div><div class="mem-grid">';
+MEMORIES.forEach(function(m,i){if(m.part===part)html+=memCardHTML(m,i);});
+html+="</div>";
+});
+document.getElementById("memory-body").innerHTML=html;
+}
+function memCount(){const r=memReached(); return MEMORIES.filter(function(m){return r>=m.at;}).length;}
+function memOpen(i){
+const m=MEMORIES[i]; if(!m||memReached()<m.at)return;
+const c=m.img?CAST[m.img]:null;
+const rl=memRankLine(m);
+openSheet('<div class="sheet-title">'+esc(m.title)+'</div><div class="sheet-sub">'+esc(m.part)+" · "+esc(m.kind)+" · "+esc(m.date)+"</div>"
++(c?'<img class="mem-detail-img" src="'+c.img+'" alt="">':"")
++'<div class="mem-quote">'+esc(memQuote(m))+"</div>"
++(rl?'<div class="mem-meta">'+esc(rl)+"</div>":"")
++'<div class="sheet-item" onclick="closeSheet()">閉じる</div>', true);
+}
+
 /* ---- settings ---- */
 function renderSettings(){
 document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ情報","home")
@@ -2765,9 +3055,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.2｜恋愛ラインと既存文の接続部を監査（前夜の通話の「言いかけ」を明確化／デビューENDの時系列を整序）し、ファイナルに「Hot Summer」の描写を追加\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.2 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.3｜機能レベルの大幅改修：iOS 16様式のロック画面（作中日時・通知連動）／Mnet Plus投票の推しメン選択式への拡張／思い出コレクション新設\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.3 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.2<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.3<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
@@ -2782,9 +3072,9 @@ const first=document.querySelector("#chat-body .bubble.hl"); if(first)first.scro
 document.addEventListener("gesturestart",function(e){e.preventDefault();});
 let lastTouch=0; document.addEventListener("touchend",function(e){const now=Date.now(); if(now-lastTouch<=300){e.preventDefault();} lastTouch=now;},{passive:false});
 if(window.visualViewport){const vv=window.visualViewport; const onVV=function(){if(curScreen==="chat"){const b=document.getElementById("chat-body"); if(b)b.scrollTop=b.scrollHeight;}}; vv.addEventListener("resize",onVV); vv.addEventListener("scroll",onVV);}
-function tickClock(){const d=new Date(); const el=document.getElementById("sb-time"); if(el)el.textContent=d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");}
+function tickClock(){const el=document.getElementById("sb-time"); if(!el)return; if(curScreen==="lock"){el.textContent=storyNow().time; return;} const d=new Date(); el.textContent=d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");}
 setInterval(tickClock,15000); tickClock();
-load(); hydrateTw(); musModeSync(); go("title");
+load(); hydrateTw(); musModeSync(); go("lock");
 </script>
 </body>
 </html>
