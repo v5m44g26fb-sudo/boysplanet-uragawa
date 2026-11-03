@@ -124,6 +124,7 @@ main.noscroll{overflow:hidden}
 .av{width:48px;height:48px;border-radius:50%;flex:0 0 auto;object-fit:cover;background:#2a4a7f;border:1px solid rgba(255,255,255,.08)}
 .av-init{width:48px;height:48px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2c5f8a,#7cc7ff);color:#fff;font-weight:600;font-size:19px;font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;line-height:1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07),inset 0 2px 2px rgba(255,255,255,.30),inset 0 -2px 3px rgba(0,0,0,.16)}
 .av.sm,.av-init.sm{width:34px;height:34px;font-size:14px}
+/* .grp の固定グラデーションは意図的な仕様（v2.2で最終判断）：色は個人イニシャルの名前パレットではなく番組公式のブランドグラデーション（青→紫。タイトルKV／Twitter公式BPアバターと同一値）で統一する。対象は「グループ人数表示」と公式アカウント"BP"フォールバック＝個人ではないため、質感（insetシャドウ・丸ゴシック600）は .av-init と揃えたまま色だけを公式アイデンティティとして固定する */
 .av-init.grp{background:linear-gradient(165deg,#5e9bd8 0%,#155e9e 52%,#7a4fd0 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 2px 2px rgba(255,255,255,.32),inset 0 -2px 3px rgba(0,0,0,.18)}
 /* twitter (2023) */
 #screen-twitter{padding-bottom:0;position:relative}
@@ -663,45 +664,45 @@ const ROSTER=[
 {id:"gunwook",n:"パク・ゴヌク",y:"박건욱",g:"K",a:"Jellyfishエンターテインメント",b:"2005-01-10",s:3,r:10,p:3728699},
 {id:"taerae",n:"キム・テレ",y:"김태래",g:"K",a:"WAKEONE",b:"2002-07-14",s:3,r:11,p:3514786},
 {id:"ricky",n:"リッキー",y:"리키",g:"G",a:"YUE HUAエンターテインメント",b:"2004-05-20",s:3,r:12,p:2122327},
-{id:"daeul",n:"イ・ダウル",y:"이다을",g:"K",a:"143エンターテインメント",b:"2004-04-06",s:2,r:13,p:2103468},
-{id:"junhyeon",n:"クム・ジュンヒョン",y:"금준현",g:"K",a:"Redstart ENM",b:"2004-01-15",s:4,r:14,p:1896096},
+{id:"daeul",n:"イ・ダウル",y:"이다을",g:"K",a:"143エンターテインメント",b:"2004-04-06",s:2,r:13,p:2103468,img:"assets/cast/daeul.jpg"},
+{id:"junhyeon",n:"クム・ジュンヒョン",y:"금준현",g:"K",a:"Redstart ENM",b:"2004-01-15",s:4,r:14,p:1896096,img:"assets/cast/junhyeon.jpg"},
 {id:"takuto",n:"豊永拓斗",y:"타쿠토",g:"G",a:"YYエンターテインメント",b:"2007-11-13",s:0,r:15,p:1882600},
 {id:"haruto",n:"前田晴翔",y:"하루토",g:"G",a:"WAKEONE",b:"2004-11-16",s:4,r:16,p:1764148},
 {id:"seungeon",n:"ユ・スンオン",y:"유승언",g:"K",a:"YUE HUAエンターテインメント",b:"2004-01-02",s:4,r:17,p:1689228},
-{id:"seowon",n:"ソ・ウォン",y:"서원",g:"K",a:"FirstOneエンターテインメント",b:"2000-12-18",s:3,r:18,p:1664080},
+{id:"seowon",n:"ソ・ウォン",y:"서원",g:"K",a:"FirstOneエンターテインメント",b:"2000-12-18",s:3,r:18,p:1664080,img:"assets/cast/seowon.jpg"},
 {id:"anthonny",n:"飯沼アントニー",y:"안토니",g:"G",a:"WAKEONE",b:"2004-02-13",s:3,r:19,p:1604766},
-{id:"seunghwan",n:"イ・スンファン",y:"이승환",g:"K",a:"個人練習生",b:"2000-05-20",s:2,r:20,p:1569664},
-{id:"phanbin",n:"パク・ハンビン",y:"박한빈",g:"K",a:"WAKEONE",b:"2002-03-01",s:4,r:22,p:1327899},
+{id:"seunghwan",n:"イ・スンファン",y:"이승환",g:"K",a:"個人練習生",b:"2000-05-20",s:2,r:20,p:1569664,img:"assets/cast/seunghwan.jpg"},
+{id:"phanbin",n:"パク・ハンビン",y:"박한빈",g:"K",a:"WAKEONE",b:"2002-03-01",s:4,r:22,p:1327899,img:"assets/cast/phanbin.jpg"},
 {id:"junghyun",n:"ムン・ジョンヒョン",y:"문정현",g:"K",a:"WAKEONE",b:"2005-03-31",s:3,r:23,p:1145501},
-{id:"doha",n:"パク・ドハ",y:"박도하",g:"K",a:"CUBEエンターテインメント",b:"2002-11-30",s:0,r:24,p:1140151},
-{id:"woongki",n:"チャ・ウンギ",y:"차웅기",g:"K",a:"WAKEONE",b:"2002-04-23",s:1,r:25,p:1137561},
-{id:"kuanjui",n:"チェン・クァンルイ",y:"천관루이",g:"G",a:"個人練習生",b:"2000-12-28",s:4,r:26,p:1059856},
+{id:"doha",n:"パク・ドハ",y:"박도하",g:"K",a:"CUBEエンターテインメント",b:"2002-11-30",s:0,r:24,p:1140151,img:"assets/cast/doha.jpg"},
+{id:"woongki",n:"チャ・ウンギ",y:"차웅기",g:"K",a:"WAKEONE",b:"2002-04-23",s:1,r:25,p:1137561,img:"assets/cast/woongki.jpg"},
+{id:"kuanjui",n:"チェン・クァンルイ",y:"천관루이",g:"G",a:"個人練習生",b:"2000-12-28",s:4,r:26,p:1059856,img:"assets/cast/kuanjui.jpg"},
 {id:"mingyu",n:"チョン・ミンギュ",y:"정민규",g:"K",a:"個人練習生",b:"1999-12-10",s:0,r:27,p:1054053},
-{id:"ollie",n:"オリー",y:"올리",g:"G",a:"YUE HUAエンターテインメント",b:"2006-04-01",s:3,r:28,p:1050683},
+{id:"ollie",n:"オリー",y:"올리",g:"G",a:"YUE HUAエンターテインメント",b:"2006-04-01",s:3,r:28,p:1050683,img:"assets/cast/ollie.jpg"},
 {id:"zihao",n:"ワン・ツーハオ",y:"왕즈하오",g:"G",a:"Chromosome",b:"2001-03-06",s:3,r:29,p:1039147},
-{id:"junseo",n:"イム・ジュンソ",y:"임준서",g:"K",a:"143エンターテインメント",b:"2005-05-01",s:2,r:30,p:1016985},
+{id:"junseo",n:"イム・ジュンソ",y:"임준서",g:"K",a:"143エンターテインメント",b:"2005-05-01",s:2,r:30,p:1016985,img:"assets/cast/junseo.jpg"},
 {id:"kamden",n:"ナ・カムデン",y:"나캠든",g:"G",a:"FNCエンターテインメント",b:"2001-06-09",s:3,r:31,p:962611},
 {id:"majingxiang",n:"マー・ジンシャン",y:"마징시앙",g:"G",a:"個人練習生",b:"2004-02-16",s:2,r:32,p:843660},
-{id:"honghai",n:"ダン・ホン・ハイ",y:"당홍하이",g:"G",a:"fantagio",b:"2003-10-26",s:2,r:33,p:781564},
-{id:"sungmin",n:"オ・ソンミン",y:"오성민",g:"K",a:"WAKEONE",b:"2001-08-25",s:2,r:34,p:760796},
+{id:"honghai",n:"ダン・ホン・ハイ",y:"당홍하이",g:"G",a:"fantagio",b:"2003-10-26",s:2,r:33,p:781564,img:"assets/cast/honghai.jpg"},
+{id:"sungmin",n:"オ・ソンミン",y:"오성민",g:"K",a:"WAKEONE",b:"2001-08-25",s:2,r:34,p:760796,img:"assets/cast/sungmin.jpg"},
 {id:"cong",n:"コン",y:"콩",g:"G",a:"個人練習生",b:"2000-12-12",s:1,r:35,p:754636},
-{id:"shuaibo",n:"ジャン・シュアイボー",y:"장슈아이보",g:"G",a:"WELLエンターテインメント",b:"2002-07-02",s:1,r:36,p:732400},
-{id:"krystian",n:"クリスティアン",y:"크리스티안",g:"G",a:"個人練習生",b:"2000-01-22",s:2,r:37,p:713399},
-{id:"jongwoo",n:"ユン・ジョンウ",y:"윤종우",g:"K",a:"個人練習生",b:"2000-06-12",s:3,r:38,p:692766},
-{id:"jeonghyeon",n:"イ・ジョンヒョン",y:"이정현",g:"K",a:"WAKEONE",b:"2002-09-11",s:3,r:39,p:676361},
-{id:"dongyeol",n:"イ・ドンヨル",y:"이동열",g:"K",a:"TOPメディア",b:"1998-12-13",s:2,r:40,p:664047},
-{id:"brian",n:"ブライアン",y:"브라이언",g:"G",a:"YUE HUAエンターテインメント",b:"2002-08-21",s:3,r:41,p:634033},
-{id:"yedam",n:"イ・イェダム",y:"이예담",g:"K",a:"LMエンターテインメント",b:"2003-01-19",s:4,r:42,p:632536},
-{id:"wumuti",n:"ウームーティ",y:"우무티",g:"G",a:"JPark&Company",b:"1999-07-07",s:2,r:43,p:521445},
-{id:"jihoo",n:"パク・ジフ",y:"박지후",g:"K",a:"H1GHR MUSIC",b:"2006-07-14",s:4,r:44,p:516507},
-{id:"jianyu",n:"チェン・ジェンユー",y:"천지안위",g:"G",a:"STAR ONエンターテインメント",b:"1998-09-01",s:1,r:45,p:508693},
-{id:"hwanhee",n:"イ・ファニ",y:"이환희",g:"K",a:"TOPメディア",b:"1998-05-06",s:3,r:46,p:507947,note:"第1回発表は46位で生存。その後、体調不良のため番組を降板（史実）"},
-{id:"yunseo",n:"チ・ユンソ",y:"지윤서",g:"K",a:"YUE HUAエンターテインメント",b:"2004-10-15",s:4,r:47,p:428248},
-{id:"donggun",n:"イ・ドンゴン",y:"이동건",g:"K",a:"GREAT Mエンターテインメント",b:"2005-06-03",s:1,r:48,p:387236},
-{id:"hyunbeen",n:"パク・ヒョンビン",y:"박현빈",g:"K",a:"Jellyfishエンターテインメント",b:"2005-04-11",s:3,r:49,p:376700},
-{id:"jinxin",n:"ツァイ・ジンシン",y:"차이진신",g:"G",a:"TOPCLASSエンターテインメント",b:"2003-11-07",s:0,r:50,p:374970},
-{id:"woojin",n:"チェ・ウジン",y:"최우진",g:"K",a:"Redstart ENM",b:"2005-01-24",s:3,r:51,p:368077},
-{id:"ichan",n:"チョン・イチャン",y:"정이찬",g:"K",a:"HYPLEエンターテインメント",b:"2001-05-17",s:2,r:52,p:345335},
+{id:"shuaibo",n:"ジャン・シュアイボー",y:"장슈아이보",g:"G",a:"WELLエンターテインメント",b:"2002-07-02",s:1,r:36,p:732400,img:"assets/cast/shuaibo.jpg"},
+{id:"krystian",n:"クリスティアン",y:"크리스티안",g:"G",a:"個人練習生",b:"2000-01-22",s:2,r:37,p:713399,img:"assets/cast/krystian.jpg"},
+{id:"jongwoo",n:"ユン・ジョンウ",y:"윤종우",g:"K",a:"個人練習生",b:"2000-06-12",s:3,r:38,p:692766,img:"assets/cast/jongwoo.jpg"},
+{id:"jeonghyeon",n:"イ・ジョンヒョン",y:"이정현",g:"K",a:"WAKEONE",b:"2002-09-11",s:3,r:39,p:676361,img:"assets/cast/jeonghyeon.jpg"},
+{id:"dongyeol",n:"イ・ドンヨル",y:"이동열",g:"K",a:"TOPメディア",b:"1998-12-13",s:2,r:40,p:664047,img:"assets/cast/dongyeol.jpg"},
+{id:"brian",n:"ブライアン",y:"브라이언",g:"G",a:"YUE HUAエンターテインメント",b:"2002-08-21",s:3,r:41,p:634033,img:"assets/cast/brian.jpg"},
+{id:"yedam",n:"イ・イェダム",y:"이예담",g:"K",a:"LMエンターテインメント",b:"2003-01-19",s:4,r:42,p:632536,img:"assets/cast/yedam.jpg"},
+{id:"wumuti",n:"ウームーティ",y:"우무티",g:"G",a:"JPark&Company",b:"1999-07-07",s:2,r:43,p:521445,img:"assets/cast/wumuti.jpg"},
+{id:"jihoo",n:"パク・ジフ",y:"박지후",g:"K",a:"H1GHR MUSIC",b:"2006-07-14",s:4,r:44,p:516507,img:"assets/cast/jihoo.jpg"},
+{id:"jianyu",n:"チェン・ジェンユー",y:"천지안위",g:"G",a:"STAR ONエンターテインメント",b:"1998-09-01",s:1,r:45,p:508693,img:"assets/cast/jianyu.jpg"},
+{id:"hwanhee",n:"イ・ファニ",y:"이환희",g:"K",a:"TOPメディア",b:"1998-05-06",s:3,r:46,p:507947,note:"第1回発表は46位で生存。その後、体調不良のため番組を降板（史実）",img:"assets/cast/hwanhee.jpg"},
+{id:"yunseo",n:"チ・ユンソ",y:"지윤서",g:"K",a:"YUE HUAエンターテインメント",b:"2004-10-15",s:4,r:47,p:428248,img:"assets/cast/yunseo.jpg"},
+{id:"donggun",n:"イ・ドンゴン",y:"이동건",g:"K",a:"GREAT Mエンターテインメント",b:"2005-06-03",s:1,r:48,p:387236,img:"assets/cast/donggun.jpg"},
+{id:"hyunbeen",n:"パク・ヒョンビン",y:"박현빈",g:"K",a:"Jellyfishエンターテインメント",b:"2005-04-11",s:3,r:49,p:376700,img:"assets/cast/hyunbeen.jpg"},
+{id:"jinxin",n:"ツァイ・ジンシン",y:"차이진신",g:"G",a:"TOPCLASSエンターテインメント",b:"2003-11-07",s:0,r:50,p:374970,img:"assets/cast/jinxin.jpg"},
+{id:"woojin",n:"チェ・ウジン",y:"최우진",g:"K",a:"Redstart ENM",b:"2005-01-24",s:3,r:51,p:368077,img:"assets/cast/woojin.jpg"},
+{id:"ichan",n:"チョン・イチャン",y:"정이찬",g:"K",a:"HYPLEエンターテインメント",b:"2001-05-17",s:2,r:52,p:345335,img:"assets/cast/ichan.jpg"},
 {id:"osuke",n:"土田央修",y:"오스케",g:"G",a:"個人練習生",b:"2003-05-15",s:1,r:0,p:0},
 {id:"kei",n:"敬",y:"케이",g:"G",a:"スターダストプロモーション",b:"2006-07-17",s:2,r:0,p:0},
 {id:"yuto",n:"佑都",y:"유토",g:"G",a:"個人練習生",b:"2004-12-14",s:2,r:0,p:0},
@@ -774,9 +775,15 @@ const TWITTER = [
 {id:"tw4",at:15,name:"ロト団の端っこ",handle:"@roto_dan_jp",av:null,text:"第1回生存者発表、大翔くん生存！！！\n順位はプレイするたびに変わる運命だけど（IFの世界線）、史実の21位からここがスタート。三度目の正直、今度こそ最後まで #히로토 #井汲大翔",rt:"967",like:"4300",time:"2023.3.2"}
 ];
 const NEWS = [
+{id:"nw5",at:0,src:"Kstyle",time:"2022.12.29",title:"「BOYS PLANET」シグナルソング『Here I Am』ステージ公開…センターはハンビン＆ジャン・ハオ",lead:"Mnet「BOYS PLANET」のシグナルソング『난 빛나 (Here I Am)』のステージが公開された。Kグループのセンターはソン・ハンビン、Gグループのセンターはジャン・ハオ。93人の参加者が初めて一つのステージに立った。",body:"2022年12月29日、Mnet「BOYS PLANET」のシグナルソング『난 빛나 (Here I Am)』のステージ映像が公開された。\n\nKグループのセンターはソン・ハンビン、Gグループのセンターはジャン・ハオが務め、93人の少年たちが初めて一つのステージに立った。\n\n番組の放送開始は2023年2月2日。スタークリエイターの投票によって、最終上位9人がデビューする。"},
 {id:"nw1",at:0,src:"Kstyle",time:"2023.1.30",title:"「BOYS PLANET」に日プ・創造営経験者の井汲大翔が参加…3か国目のサバイバルへ",lead:"Mnet「BOYS PLANET」に、日本の「PRODUCE 101 JAPAN」、中国の「創造営2021」を経験した井汲大翔（RBW所属）が参加する。日・中・韓3か国の大型サバイバル出演は極めて異例だ。",body:"Mnetのサバイバルオーディション「BOYS PLANET」が2月2日に放送を開始する。参加者は98人から辞退者を除く93人。KグループとGグループに分かれ、最終上位9人がZEROBASEONEとしてデビューする。\n\nGグループの井汲大翔（20）は、2019年に「PRODUCE 101 JAPAN」で36位、2021年に「創造営2021」で15位という成績を残してきた。3か国語を操り、各国の現場を知る異色の経歴の持ち主だ。\n\n公式プロフィールに掲げたキーワードは「I must debut!!!!!!!」。三度目の挑戦に懸ける思いがにじむ。"},
+{id:"nw6",at:0,src:"モデルプレス",time:"2023.2.1",title:"井汲大翔、モデルプレスがプロフィール特集…日プ・創造営を経た「3度目の挑戦」",lead:"モデルプレスが「BOYS PLANET」参加者のプロフィールを特集し、日本の「PRODUCE 101 JAPAN」、中国の「創造営2021」を経験した井汲大翔（20）を「3度目の挑戦」として紹介した。",body:"モデルプレスが「BOYS PLANET」の参加者プロフィールを特集し、Gグループの井汲大翔を取り上げた。\n\n大翔は2019年の「PRODUCE 101 JAPAN」で36位、2021年の「創造営2021」で15位という成績を残してきた。日・中・韓3か国の大型サバイバルに挑む異例の経歴が、早くも注目を集めている。\n\n所属はRBW。公式プロフィールに掲げたキーワードは「I must debut!!!!!!!」。2月2日の放送開始を前に、日本人参加者の中でも特に経験値の高い存在として名前が挙がっている。"},
+{id:"nw7",at:4,src:"Kstyle",time:"2023.2.3",title:"「BOYS PLANET」初放送…93人の少年たち、スターレベルテストで火花",lead:"Mnet「BOYS PLANET」が2月2日に初放送を迎えた。最初の関門はスターレベルテスト。参加者が自己評価のスターを掲げ、マスター陣の審査に臨む。",body:"Mnet「BOYS PLANET」が2月2日、初回を放送した。参加者は98人から辞退者を除いた93人。KグループとGグループに分かれ、最終上位9人のデビュー枠を争う。\n\n初回のミッションはスターレベルテスト。参加者自身が付けた自己評価のスターと、マスター陣による審査結果が突き合わされる仕組みだ。\n\n日本人メンバーで組まれたチーム大阪は、BLOCK Bの「Zero For Conduct」を披露する。"},
+{id:"nw8",at:5,src:"モデルプレス",time:"2023.2.9",title:"チーム大阪のスターレベルテスト、ケイタがALL STAR…井汲大翔は自己評価ALL STARから2スターに",lead:"「BOYS PLANET」スターレベルテストで、チーム大阪のケイタが唯一のALL STAR（4スター）を獲得。井汲大翔は自己評価ALL STARを掲げたが、審査結果は2スターだった。",body:"「BOYS PLANET」第2話で、チーム大阪（ケイタ、井汲大翔、ケイ、ユウト）のスターレベルテストが放送された。4人はBLOCK Bの「Zero For Conduct」を披露した。\n\n審査結果は、ケイタがALL STAR（4スター）を獲得し、大翔、ケイ、ユウトは2スター。大翔は自己評価でALL STARを掲げていただけに、悔しさの残るスタートとなった。\n\n次はシグナルソングテスト。再評価でスターがどう動くかも注目される。"},
 {id:"nw2",at:6,src:"モデルプレス",time:"2023.2.10",title:"井汲大翔、シグナルソングのチッケム評価でGグループ4位に…エンディング妖精も話題",lead:"「BOYS PLANET」シグナルソング『난 빛나 (Here I Am)』の個人チッケム評価で、井汲大翔がGグループ4位に入った。センターのジャン・ハオ（7位）を上回る順位で、日本人参加者ではアントニーに次ぐ再生数を記録している。",body:"Mnet「BOYS PLANET」のシグナルソングテストの結果が公開され、個人チッケム（フォーカス動画）の高評価数ランキングで、井汲大翔がGグループ4位に入った。\n\n大翔は『M COUNTDOWN』での初披露ステージでエンディング妖精（最後のクローズアップ）を担当。指ハートから投げキスにつなげる演出が「話題になった」とモデルプレスも報じている。\n\n一方、スターレベルテストとシグナルソングテストのスター評価は2スターのまま。再評価での変動はなかった。実力評価と人気のギャップをどう埋めるかが、今後の鍵になる。"},
+{id:"nw9",at:9,src:"Kstyle",time:"2023.2.16",title:"「BOYS PLANET」K対Gバトル中間チェック…VERY NICE・Gチームに厳しい指摘",lead:"K対Gグループバトルの中間チェックで、「VERY NICE」Gチームがダンスマスターのチェ・ヨンジュンから「ダンスの練習不足」を指摘された。本番までの立て直しが急務だ。",body:"「BOYS PLANET」のK対Gグループバトルに向けた中間チェックが進んでいる。SEVENTEENの「VERY NICE」で対決するGチームは、ダンスマスターのチェ・ヨンジュンから練習不足を指摘された。\n\nGチームは大翔がメンバーを指名して結成したチームで、大翔自身は最も難しいとされる高音パートも担う。中間チェックでは、その高音を最後まで決め切れない場面もあったという。\n\n本番は第4話で放送予定。同じ曲で対決するKチームとの差を、残りの練習でどこまで詰められるかが勝負になる。"},
 {id:"nw3",at:11,src:"Kstyle",time:"2023.2.17",title:"「BOYS PLANET」K対Gグループバトル…VERY NICE対決はKの勝利、大翔は個人で対向に勝利",lead:"K対Gグループバトル「VERY NICE」対決は、Kグループ530点対Gグループ243点でKの勝利。大翔はキリングパートを担い、個人53点を獲得。対向ポジションのチョン・ミンギュ（39点）を上回り、マスターから「自身の魅せ方をわかっている」と評価された。",body:"「BOYS PLANET」第3話・第4話で放送されたK対Gグループバトル。SEVENTEENの「VERY NICE」対決は、Kグループが530点、Gグループが243点と大差がついた。\n\nGチームは大翔がメンバーを指名して結成したチームで、リーダーは桜樹、大翔はサブラッパー2とキリングパートを担当。中間チェックではダンスマスターのチェ・ヨンジュンから「ダンスの練習不足」を指摘され、大翔自身も最も難しい高音パートを最後まで決め切れない場面があった。\n\nそれでも本番では個人53点を獲得し、対向のサブラッパー2、チョン・ミンギュの39点を上回った。マスター陣からは「自身の魅せ方をわかっている」と高い評価も。グループバトル全体ではKグループが勝利し、ベネフィットを獲得。M COUNTDOWNスペシャルステージは「Back Door」のKチームに決まった。"},
+{id:"nw10",at:14,src:"Kstyle",time:"2023.2.24",title:"「BOYS PLANET」第1回生存者発表式、今夜生中継…93人から52人へ",lead:"第1回生存者発表式が2月24日、Mnet K-POP公式YouTubeチャンネルで生中継される。スタークリエイターの投票により、93人から52人の生存者が決まる。",body:"Mnet「BOYS PLANET」の第1回生存者発表式が、2月24日に生中継される。進行はスターマスターのヨ・ジングが務める。\n\n第1回グローバル投票の結果をもとに、93人から52人が生き残る。上位陣の顔ぶれと、生存ラインぎりぎりの順位争いに注目が集まっている。\n\n井汲大翔ら日本人参加者の結果も今夜決まる。三度目の挑戦は、最初の関門を越えられるか。"},
 {id:"nw4",at:15,src:"Kstyle",time:"2023.3.2",title:"「BOYS PLANET」第1回生存者発表…井汲大翔は{rank}位で生存",lead:"第1回生存者発表式（MC：ヨ・ジング）で、93人から52人の生存者が発表された。井汲大翔は{rank}位（{points}点）で生存。三度目の挑戦が、まず一つの関門を越えた。",body:"Mnet「BOYS PLANET」第5話で、第1回生存者発表式の結果が放送された。スターマスターはヨ・ジングが務め、1位はソン・ハンビン（8,343,418点）、52位の生存ラインはチョン・イチャン（345,335点）だった。\n\n井汲大翔は{rank}位（{points}点）で生存を決めた。史実の記録では21位（1,381,864点）だった順位が、この世界線では裏側のサポートによって動き始めている。\n\n次なるミッションは「デュアルポジションバトル」。生き残った52人の戦いは続く。"}
 ];
 const INSTA = [
@@ -1090,7 +1097,7 @@ function starStr(n){if(n===null||n===undefined)return "―"; return "★".repeat
 function computeHeroPoints(){return Math.round(HIROTO_BASE_POINTS*(0.72+0.0085*Math.max(0,S.score)));}
 function computeRank(points){let r=1; ANNOUNCE_R1.forEach(function(row){if(row[1]>points)r++;}); return r;}
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
-function avHTML(id,cls){const c=CAST[id]; cls=cls||""; if(c&&c.img)return '<img class="av '+cls+'" src="'+c.img+'" alt="">'; const nm=c?c.name:(ROSTER_MAP[id]?ROSTER_MAP[id].n:id); return '<div class="av-init '+cls+'" style="background:'+iniBgFor(nm)+'">'+esc(nm.slice(0,1))+'</div>';}
+function avHTML(id,cls){const c=CAST[id]; cls=cls||""; if(c&&c.img)return '<img class="av '+cls+'" src="'+c.img+'" alt="">'; const rm=ROSTER_MAP[id]; if(rm&&rm.img)return '<img class="av '+cls+'" src="'+rm.img+'" alt="">'; const nm=c?c.name:(rm?rm.n:id); return '<div class="av-init '+cls+'" style="background:'+iniBgFor(nm)+'">'+esc(nm.slice(0,1))+'</div>';}
 function grpAvHTML(ids){return '<div class="av-init grp">'+ids.length+'</div>';}
 let toastTimer=null;
 function toast(t){const el=document.getElementById("toast"); el.textContent=t; el.classList.add("show"); clearTimeout(toastTimer); toastTimer=setTimeout(function(){el.classList.remove("show");},2400);}
@@ -1877,7 +1884,7 @@ function renderProfile(){
 const id=S.profileId||"hiroto"; const c=CAST[id]; const r=ROSTER_MAP[id];
 let name,yomi,grp,agency,born,from,star,img,desc,hist,vo,da,ra,vi,extra="";
 if(c){name=c.name; yomi=c.yomi; grp=c.grp; agency=c.agency; born=c.born; from=c.from; star=c.star; img=c.img; desc=c.desc; hist=c.hist; vo=c.vo; da=c.da; ra=c.ra; vi=c.vi;}
-else if(r){name=r.n; yomi=r.y; grp=r.g; agency=r.a; born=r.b; from=""; star=r.s; img=null; desc=r.r?("第1回生存者発表で"+r.r+"位（"+fmt(r.p)+"点）を記録した参加者。"):"第1回生存者発表で脱落した参加者。在籍時の記録は名簿のとおり。"; hist=r.note||""; vo=da=ra=vi=null;}
+else if(r){name=r.n; yomi=r.y; grp=r.g; agency=r.a; born=r.b; from=""; star=r.s; img=r.img||null; desc=r.r?("第1回生存者発表で"+r.r+"位（"+fmt(r.p)+"点）を記録した参加者。"):"第1回生存者発表で脱落した参加者。在籍時の記録は名簿のとおり。"; hist=r.note||""; vo=da=ra=vi=null;}
 else{name=id; yomi=""; grp=""; agency=""; born=""; star=null; desc=""; hist="";}
 const r1info=r?(r.r?("第1回 "+r.r+"位 · "+fmt(r.p)+"点"):"第1回順位発表で脱落"):id==="hiroto"?"プレイで変動（史実21位 · 1,381,864点）":"";
 let html=headHTML(name,"プロフィール","members");
@@ -1943,9 +1950,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v2.1｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v2.1 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v2.2｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v2.2 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v2.1<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v2.2<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
