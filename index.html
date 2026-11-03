@@ -657,7 +657,13 @@ jingu:{name:"ヨ・ジング",yomi:"여진구",grp:"",from:"韓国",agency:"Star
 hanbyul:{name:"イム・ハンビョル",yomi:"임한별",grp:"",from:"韓国",agency:"ボーカルマスター",born:"1989-02-08",age:33,star:null,mentor:true,img:"assets/cast/hanbyul.jpg",vo:97,da:45,ra:35,vi:88,hist:"ボーカルマスター。元Monday Kizのメンバーで、作曲家Onestarとしても活動。Girls Planet 999でもボーカルマスターを務めた",desc:"豊かな感性と圧倒的な歌唱力で知られるボーカリスト。率直な反応が表情に出ることでも話題に。"},
 solji:{name:"ソルジ",yomi:"허솔지",grp:"",from:"韓国",agency:"ボーカルマスター",born:"1989-01-10",age:34,star:null,mentor:true,img:"assets/cast/solji.jpg",vo:98,da:70,ra:30,vi:90,hist:"ボーカルマスター。EXIDのリーダーで、メインボーカルを務める",desc:"抜群の歌唱力に、ポテンシャルを見抜く共感力を備えたマスター。"},
 kooyoung:{name:"ペク・グヨン",yomi:"백구영",grp:"",from:"韓国",agency:"ダンスマスター",star:null,mentor:true,img:"assets/cast/kooyoung.jpg",vo:55,da:99,ra:45,vi:85,hist:"ダンスマスター。1MILLION DANCE STUDIOの振付師で、BoA・EXO・THE BOYZなどの振付を担当。Girls Planet 999でもダンスマスターを務めた",desc:"男性アイドルのステージに特化したトレーニングで、少年たちをさらに輝かせる。"},
-lipj:{name:"LIP J",yomi:"립제이",grp:"",from:"韓国",agency:"ダンスマスター",star:null,mentor:true,img:"assets/cast/lipj.jpg",vo:50,da:98,ra:40,vi:92,hist:"ダンスマスター。PROWDMON所属の振付師で、『Street Woman Fighter』出演でも知られる",desc:"豊かな表現力とセンスあふれる動きで、明確なコーチングを行う。"}
+lipj:{name:"LIP J",yomi:"립제이",grp:"",from:"韓国",agency:"ダンスマスター",star:null,mentor:true,img:"assets/cast/lipj.jpg",vo:50,da:98,ra:40,vi:92,hist:"ダンスマスター。PROWDMON所属の振付師で、『Street Woman Fighter』出演でも知られる",desc:"豊かな表現力とセンスあふれる動きで、明確なコーチングを行う。"},
+seunghwan:{name:"イ・スンファン",yomi:"이승환",grp:"K",from:"韓国",agency:"個人練習生",born:"2000-05-20",age:22,star:2,img:"assets/cast/seunghwan.jpg",vo:88,da:78,ra:30,vi:85,hist:"元1THE9のメンバー。第1回発表20位、第2回発表21位で生存。アーティストバトルでは『En Garde』チームのサブボーカル1を担当した（史実）",desc:"穏やかで誠実な歌声の持ち主。En Gardeチームでは大翔と肩を並べて戦った。"},
+minhyeok:{name:"イ・ミニョク",yomi:"이민혁",grp:"",from:"韓国",agency:"Star Master",born:"1990-11-29",age:32,star:null,mentor:true,vo:90,da:85,ra:88,vi:90,hist:"スターマスター（第6〜8話）。BTOBのメンバーで、第2回生存者発表式の進行を務めた",desc:"明るい進行と的確なコメントで、発表の場を支えるスターマスター。"},
+key:{name:"キー",yomi:"키",grp:"",from:"韓国",agency:"Star Master",born:"1991-09-23",age:31,star:null,mentor:true,vo:88,da:95,ra:70,vi:97,hist:"スターマスター（第8〜10話）。SHINeeのメンバーで、アーティストバトルの発表を担当した",desc:"鋭い感性と率直な言葉で、少年たちのステージを見守る。"},
+gwon:{name:"チョ・グォン",yomi:"조권",grp:"",from:"韓国",agency:"Star Master",born:"1989-08-28",age:33,star:null,mentor:true,vo:95,da:80,ra:40,vi:96,hist:"スターマスター（第10話）。2AMのメンバーで、ミュージカル・スターテストに登場した",desc:"表現者としての経験から、ステージの『伝える力』を説く。"},
+somi:{name:"チョン・ソミ",yomi:"전소미",grp:"",from:"韓国",agency:"Star Master",born:"2001-03-09",age:22,star:null,mentor:true,vo:90,da:92,ra:55,vi:95,hist:"スターマスター（第11話）。『PRODUCE 101』シーズン1の1位・I.O.I出身で、第3回生存者発表式の進行を務めた",desc:"サバイバルの先輩として、発表の重みを知る進行役。"},
+jaehwan:{name:"キム・ジェファン",yomi:"김재환",grp:"",from:"韓国",agency:"Star Master",born:"1996-05-27",age:26,star:null,mentor:true,vo:98,da:75,ra:35,vi:90,hist:"スターマスター（第11・12話）。Wanna One出身のボーカリストで、ファイナルの発表にも立ち会った",desc:"圧倒的な歌声で知られる、先輩アーティストとしての眼差し。"}
 };
 const CAST_ORDER=["hiroto","osuke","keita","takuto","haruto","anthonny","zihao","zhanghao","hanbin","matthew","ricky","gunwook","gyuvin","jiwoong","yujin","taerae","jay","kamden","hoetaek","seungeon","mingyu","junghyun","cong","ouju","ichika","yuki","kei","yuto","majingxiang","sungmin","wenyechen"];
 /* 全93名名簿（第1回順位発表時点の参加者）。r=第1回順位（0は脱落）、p=獲得ポイント（公表値）。出典：Wikipedia『BOYS PLANET』 */
@@ -764,11 +770,22 @@ const ANNOUNCE_R2 = [["hanbin",7043213],["zhanghao",6128945],["yujin",6045275],[
 /* 第2回発表の脱落者（史実順位）。ポイントは公表されている29位・30位のみ実数、それ以外は未公表のため null（推測で埋めない） */
 const ELIM_R2 = [[29,"junghyun",1016789],[30,"majingxiang",923750],[31,"jinxin",null],[32,"anthonny",null],[33,"jihoo",null],[34,"wumuti",null],[35,"sungmin",null],[36,"yedam",null],[37,"brian",null],[38,"mingyu",null],[39,"jianyu",null],[40,"junseo",null],[41,"yunseo",null],[42,"honghai",null],[43,"cong",null],[44,"dongyeol",null],[45,"krystian",null],[46,"doha",null],[47,"daeul",null],[48,"hyunbeen",null],[49,"ichan",null],[50,"woojin",null],[51,"donggun",null],[52,"hwanhee",null]];
 const HIROTO_R2_BASE = 1077299; // 史実：第2回発表28位（最後の生存枠）のポイント
+/* 第3回順位発表：大翔以外の生存者ポイント（出典：Wikipedia『BOYS PLANET』3rd Survival Announcement／namu.wiki 第11話）。大翔はプレイで変動 */
+const ANNOUNCE_R3 = [["hanbin",5389363],["zhanghao",4342882],["jiwoong",3536122],["taerae",3519583],["yujin",3501402],["keita",3069047],["gyuvin",3017119],["ricky",2851613],["matthew",2718044],["hoetaek",2406896],["phanbin",2365604],["gunwook",2329809],["jay",2264984],["seungeon",2242196],["jongwoo",2194327],["junhyeon",2187613],["jeonghyeon",2041636],["kamden",2022976]];
+/* 第3回発表の脱落者（史実順位）。ポイントは公表されている19位・20位・21位のみ実数、それ以外は未公表のため null（推測で埋めない）。21位は史実の大翔の順位だが、本作では大翔の結果はプレイで変動するため一覧には含めない */
+const ELIM_R3 = [[19,"zihao",1889270],[20,"woongki",1817478],[22,"haruto",null],[23,"kuanjui",null],[24,"seunghwan",null],[25,"seowon",null],[26,"ollie",null],[27,"takuto",null],[28,"shuaibo",null]];
+const HIROTO_R3_BASE = 1582819; // 史実：第3回発表21位（脱落）のポイント
+/* ファイナル：大翔以外の全17名のポイント（全員分が公表値。出典：Wikipedia『BOYS PLANET』ファイナル結果）。大翔はプレイで変動 */
+const ANNOUNCE_FIN = [["zhanghao",1998154],["hanbin",1888414],["matthew",1702174],["ricky",1572089],["gunwook",1386039],["taerae",1349595],["gyuvin",1346105],["jiwoong",1338984],["yujin",1196622],["jay",1080505],["phanbin",1076065],["keita",1029999],["hoetaek",935254],["junhyeon",848986],["jeonghyeon",718706],["seungeon",613963],["kamden",601198],["jongwoo",557811]];
 const TRACKS = {
 signal:{title:"난 빛나 (Here I Am)",artist:"BOYS PLANET",src:"assets/music/signal.mp3",note:"シグナルソング（公式音源・長尺版）"},
 verynice:{title:"아주 NICE (VERY NICE)",artist:"SEVENTEEN",src:"assets/music/verynice.mp3",note:"グループバトル課題曲（公式音源・長尺版）"},
 bgm:{title:"The Descent",artist:"Kevin MacLeod (CC-BY)",src:"assets/music/bgm-tension.mp3",note:"順位発表BGM"},
-rushhour:{title:"Rush Hour (Feat. j-hope of BTS)",artist:"Crush",src:"assets/music/rushhour.mp3",note:"デュアルポジションバトル課題曲（公式音源・iTunesプレビュー）"}
+rushhour:{title:"Rush Hour (Feat. j-hope of BTS)",artist:"Crush",src:"assets/music/rushhour.mp3",note:"デュアルポジションバトル課題曲（公式音源・iTunesプレビュー）"},
+engarde:{title:"En Garde (준비, 시작!)",artist:"En Butter",src:"assets/music/engarde.mp3",note:"アーティストバトル課題曲（公式音源・iTunesプレビュー）"},
+jellypop:{title:"Jelly Pop",artist:"BOYS PLANET",src:"assets/music/jellypop.mp3",note:"ファイナル課題曲（公式音源・iTunesプレビュー）"},
+hotsummer:{title:"Hot Summer",artist:"BOYS PLANET",src:"assets/music/hotsummer.mp3",note:"ファイナル課題曲（公式音源・iTunesプレビュー）"},
+notalone:{title:"Not Alone",artist:"BOYS PLANET",src:"assets/music/notalone.mp3",note:"ファイナル・エンディングソング（公式音源・iTunesプレビュー）"}
 };
 const VOICES = {
 line1:{src:"assets/vc-reunion.mp3",label:"0:05",text:"……また来てくれたんですね。……三度目も、よろしくお願いします"},
@@ -776,7 +793,9 @@ line2:{src:"assets/vc-stage.mp3",label:"0:07",text:"今度こそ、デビュー�
 line3:{src:"assets/vc-eve.mp3",label:"0:05",text:"明日、発表ですね。……大丈夫です。なおさんが、ついててくれるんで"},
 line4:{src:"assets/vc-stars.mp3",label:"0:03",text:"2スター……。ここから、上げていきます"},
 line5:{src:"assets/vc-rushhour.mp3",label:"0:04",text:"Rush Hour、やりきりました。……見ててくれましたか"},
-line6:{src:"assets/vc-eve2.mp3",label:"0:05",text:"明日、発表ですね。……今度も、残りたいです。……残れますように"}
+line6:{src:"assets/vc-eve2.mp3",label:"0:05",text:"明日、発表ですね。……今度も、残りたいです。……残れますように"},
+line7:{src:"assets/vc-engarde.mp3",label:"0:04",text:"En Garde、やりきりました。……あとは、信じて待つだけですね"},
+line8:{src:"assets/vc-final.mp3",label:"0:04",text:"明日、全部決まります。……悔いは、ないです"}
 };
 
 /* ============ helpers for story data ============ */
@@ -794,7 +813,13 @@ const TWITTER = [
 {id:"tw7",at:19,name:"BOYS PLANET",handle:"@_mnetboysplanet",av:null,verified:true,text:"[BOYS PLANET] 第2のミッション『デュアルポジションバトル』が始まります！\nVOCAL＆RAP／VOCAL＆DANCE／RAP＆DANCE――2つのポジションをこなす戦い。52人の少年たちの挑戦をお見逃しなく。\n#BOYSPLANET #보이즈플래닛",rt:"9,800",like:"3.9万",time:"2023.3.9"},
 {id:"tw8",at:21,name:"ロト団の端っこ",handle:"@roto_dan_jp",av:null,text:"大翔くんの次のチームは『Rush Hour』！！\nリッキー、拓斗、ジンシャン、ソンミンとの5人チーム。キリングパートはリッキーで、大翔はサブラッパー3＆サブダンサー2。……チーム名がもう強い #히로토 #RushHour",rt:"736",like:"3400",time:"2023.3.10"},
 {id:"tw9",at:29,name:"K-POPバトル観戦記",handle:"@battle_watch_kr",av:null,text:"Rush Hour（Awesome Hour）は742点でRAP＆DANCE部門4位。部門1位はLAWの846点。\nリッキーは個人745点でチーム内トップだったけど、部門1位チームじゃないからベネフィットはなし。大翔の個人点は非公表。…このチーム、ステージまでの過程が濃かっただけに複雑な気持ち #BOYSPLANET",rt:"1500",like:"7200",time:"2023.3.16"},
-{id:"tw10",at:32,name:"BOYS PLANET",handle:"@_mnetboysplanet",av:null,verified:true,text:"[第2回 生存者発表式] 3月23日(木)放送！\n52人から28人へ。デュアルポジションバトルの結果と、スタークリエイターの投票が交わります。\n#BOYSPLANET #보이즈플래닛",rt:"1.4万",like:"4.7万",time:"2023.3.22"}
+{id:"tw10",at:32,name:"BOYS PLANET",handle:"@_mnetboysplanet",av:null,verified:true,text:"[第2回 生存者発表式] 3月23日(木)放送！\n52人から28人へ。デュアルポジションバトルの結果と、スタークリエイターの投票が交わります。\n#BOYSPLANET #보이즈플래닛",rt:"1.4万",like:"4.7万",time:"2023.3.22"},
+{id:"tw11",at:36,name:"BOYS PLANET",handle:"@_mnetboysplanet",av:null,verified:true,text:"[BOYS PLANET] 第3のミッション『アーティストバトル』が始まります！\n Switch／SuperCharger／Over Me／Say My Name／En Garde――5つの新曲を懸けた、28人の戦い。\n#BOYSPLANET #보이즈플래닛 #아티스트배틀",rt:"1.2万",like:"4.9万",time:"2023.3.30"},
+{id:"tw12",at:37,name:"ロト団の端っこ",handle:"@roto_dan_jp",av:null,text:"大翔くんのアーティストバトルは『En Garde』！！\nフェテク先輩（リーダー＆メインボーカル）、ギュビン、ゴヌク、ジュンヒョン、スンファンと6人チーム。大翔はサブラッパー1。チーム名『En Butter』もかわいい…全力で推す #히로토 #EnGarde",rt:"891",like:"3900",time:"2023.3.30"},
+{id:"tw13",at:43,name:"K-POPバトル観戦記",handle:"@battle_watch_kr",av:null,text:"アーティストバトル結果：Over Me 621点で1位（ベネフィット20万点）、Say My Name 612点、En Garde 597点で3位。\nでもEn Gardeはチームステージ動画の再生数が5曲中1位（162万回）。中間チェックで酷評されてから夜通し作り直したチームの意地を見た #BOYSPLANET",rt:"1800",like:"8600",time:"2023.4.6"},
+{id:"tw14",at:45,name:"ロト団の端っこ",handle:"@roto_dan_jp",av:null,text:"第3回投票、あと少しで締切…！\n大翔くんのEn Garde、本当に良かった。チッケムも何度も見返してる。三度目の正直、今度こそファイナルまで連れて行きたい。投票まだの人、Mnet Plusへ！！ #히로토 #井汲大翔",rt:"1100",like:"4800",time:"2023.4.6"},
+{id:"tw15",at:47,name:"BOYS PLANET",handle:"@_mnetboysplanet",av:null,verified:true,text:"[第3回 生存者発表式] 4月13日(木)放送！\n28人から18人へ。ファイナルへ進む少年たちが決まります。進行はスターマスター、チョン・ソミ。\n#BOYSPLANET #보이즈플래닛",rt:"1.5万",like:"5.1万",time:"2023.4.12"},
+{id:"tw16",at:54,name:"BOYS PLANET",handle:"@_mnetboysplanet",av:null,verified:true,text:"[BOYS PLANET] ファイナル生放送が終了しました。\n新しいグループ『ZEROBASEONE』の9人が決定。応援してくださった全世界のスタークリエイターの皆さん、ありがとうございました。\n#BOYSPLANET #ZEROBASEONE #ZB1",rt:"4.8万",like:"16万",time:"2023.4.20"}
 ];
 const NEWS = [
 {id:"nw5",at:0,src:"Kstyle",time:"2022.12.29",title:"「BOYS PLANET」シグナルソング『Here I Am』ステージ公開…センターはハンビン＆ジャン・ハオ",lead:"Mnet「BOYS PLANET」のシグナルソング『난 빛나 (Here I Am)』のステージが公開された。Kグループのセンターはソン・ハンビン、Gグループのセンターはジャン・ハオ。93人の参加者が初めて一つのステージに立った。",body:"2022年12月29日、Mnet「BOYS PLANET」のシグナルソング『난 빛나 (Here I Am)』のステージ映像が公開された。\n\nKグループのセンターはソン・ハンビン、Gグループのセンターはジャン・ハオが務め、93人の少年たちが初めて一つのステージに立った。\n\n番組の放送開始は2023年2月2日。スタークリエイターの投票によって、最終上位9人がデビューする。"},
@@ -811,20 +836,29 @@ const NEWS = [
 {id:"nw12",at:21,src:"モデルプレス",time:"2023.3.10",title:"井汲大翔、「Rush Hour」チーム結成…リッキー、拓斗ら5人でRAP＆DANCE部門に挑む",lead:"「BOYS PLANET」デュアルポジションバトルで、井汲大翔はCrushの「Rush Hour」（feat. j-hope of BTS）に挑む。チームはリッキー、豊永拓斗、マー・ジンシャン、オ・ソンミン、大翔の5人。リーダーはオ・ソンミン、キリングパートはリッキーが担う。",body:"Mnet「BOYS PLANET」のデュアルポジションバトルで、井汲大翔はRAP＆DANCE部門の「Rush Hour」を選んだ。チーム名は「Awesome Hour（어썸아워）」。\n\nメンバーは第1回発表12位のリッキー、15位の豊永拓斗、{rank}位の大翔、32位のマー・ジンシャン、34位のオ・ソンミン。リーダーは最年長のオ・ソンミンが務め、キリングパートはリッキー。大翔はサブラッパー3とサブダンサー2を担当する。\n\n前回のVERY NICEに続き、拓斗とは2ミッション連続で同じチームになった。"},
 {id:"nw13",at:29,src:"Kstyle",time:"2023.3.17",title:"「BOYS PLANET」デュアルポジションバトル結果…RAP＆DANCE部門1位は「LAW」、Rush Hourは742点で4位",lead:"デュアルポジションバトルの結果が発表された。RAP＆DANCE部門は「LAW」が846点で1位となり、ベネフィット10万点と『M COUNTDOWN』スペシャルステージを獲得。大翔らの「Rush Hour」は742点で部門4位だった。",body:"Mnet「BOYS PLANET」のデュアルポジションバトルで、各部門の勝者が決まった。\n\nRAP＆DANCE部門の順位は、1位「LAW」846点、2位「ZOOM」813点、3位「GANG」798点、4位「Rush Hour」742点。1位のLAWチームはメンバー全員にベネフィット10万点と『M COUNTDOWN』スペシャルステージが与えられた。\n\n「Rush Hour」のリッキーは個人745点を記録しチーム内トップだったが、部門1位チームではないためベネフィットはなし。大翔の個人点数は公表されていない。\n\n次の関門は第2回生存者発表式。52人から28人に絞られる。"},
 {id:"nw14",at:32,src:"Kstyle",time:"2023.3.24",title:"「BOYS PLANET」第2回生存者発表…井汲大翔は{rank2txt}、最後の枠を懸けた夜",lead:"第2回生存者発表式（MC：イ・ミニョク）で、52人から28人の生存者が発表された。井汲大翔は{rank2txt}（{points2}点）。史実の記録では、28位＝最後の生存枠での生存だった。",body:"Mnet「BOYS PLANET」第8話で、第2回生存者発表式の結果が放送された。スターマスターはイ・ミニョク（BTOB）が務め、1位はソン・ハンビン（7,043,213点）。第2回グローバル投票には178か国から47,586,404票が集まった。\n\n井汲大翔は{rank2txt}（{points2}点）で発表を終えた。史実の記録では、大翔は28位（1,077,299点）で、最後の1枠に滑り込む生存だった。29位はムン・ジョンヒョン（1,016,789点）で、その差はわずか60,510点だったという。\n\n{after2}"},
-{id:"nw15",at:33,src:"モデルプレス",time:"2023.3.24",title:"「BOYS PLANET」第2回生存者発表、日本人はケイタ・晴翔・拓斗らが生存…28人の戦いはアーティストバトルへ",lead:"「BOYS PLANET」第2回生存者発表式で、52人から28人が生き残った。日本人参加者では寺園佳汰（8位）、前田晴翔（16位）、豊永拓斗（25位）が順当に生存を決めた。",body:"Mnet「BOYS PLANET」の第2回生存者発表式が放送され、52人から28人の生存者が決まった。日本人参加者では、寺園佳汰が8位（4,254,415点）、前田晴翔が16位（2,198,036点）、豊永拓斗が25位（1,175,739点）で生存。\n\n拓斗は番組後のインタビューで、「『Rush Hour』は大翔さんとオ・ソンミンさんがよく教えてくれた」と語ることになる。最年少の彼を支えたのは、同じチームの先輩たちだった。\n\n生き残った28人の次のミッションは、アーティストバトル。デビュー枠9席への道は、ここからが本番だ。"}
+{id:"nw15",at:33,src:"モデルプレス",time:"2023.3.24",title:"「BOYS PLANET」第2回生存者発表、日本人はケイタ・晴翔・拓斗らが生存…28人の戦いはアーティストバトルへ",lead:"「BOYS PLANET」第2回生存者発表式で、52人から28人が生き残った。日本人参加者では寺園佳汰（8位）、前田晴翔（16位）、豊永拓斗（{takutoR2}位）が順当に生存を決めた。",body:"Mnet「BOYS PLANET」の第2回生存者発表式が放送され、52人から28人の生存者が決まった。日本人参加者では、寺園佳汰が8位（4,254,415点）、前田晴翔が16位（2,198,036点）、豊永拓斗が{takutoR2}位（1,175,739点）で生存。\n\n拓斗は番組後のインタビューで、「『Rush Hour』は大翔さんとオ・ソンミンさんがよく教えてくれた」と語ることになる。最年少の彼を支えたのは、同じチームの先輩たちだった。\n\n生き残った28人の次のミッションは、アーティストバトル。デビュー枠9席への道は、ここからが本番だ。"},
+{id:"nw16",at:36,src:"Kstyle",time:"2023.3.30",title:"「BOYS PLANET」第3のミッションは「アーティストバトル」…5つの新曲を懸けた28人の戦い",lead:"「BOYS PLANET」の第3のミッション「アーティストバトル」が発表された。参加者は新曲5曲のチームに分かれ、優勝チームにはベネフィット20万点などが与えられる。",body:"Mnet「BOYS PLANET」第9話で、第3のミッション「アーティストバトル」が発表された。進行はスターマスターのキー（SHINee）が務めた。\n\n課題曲は「Switch」「SuperCharger」「Over Me」「Say My Name」「En Garde (준비, 시작!)」の新曲5曲。チーム編成はスタークリエイターの投票によって決められ、優勝チームのメンバーにはベネフィット20万点、『M COUNTDOWN』のスペシャルステージ、ミニファンミーティングの機会が与えられる。\n\n井汲大翔はファンクポップの「En Garde」チームに配属された。28人の戦いは、いよいよ最終盤に入る。"},
+{id:"nw17",at:37,src:"モデルプレス",time:"2023.3.31",title:"井汲大翔は「En Garde」チームに…リーダーはイ・フェテク、キリングパートはパク・ゴヌク",lead:"「BOYS PLANET」アーティストバトルで、井汲大翔は「En Garde」チーム（En Butter）に所属。イ・フェテク、キム・ギュビン、パク・ゴヌク、クム・ジュンヒョン、イ・スンファン、大翔の6人でステージに挑む。",body:"Mnet「BOYS PLANET」のアーティストバトルで、井汲大翔は「En Garde (준비, 시작!)」のチームに決まった。チーム名は「En Butter」。\n\nメンバーは、リーダー兼メインボーカルのイ・フェテク、メインラッパーのキム・ギュビン、センター兼キリングパートのパク・ゴヌク、サブボーカル2のクム・ジュンヒョン、サブボーカル1のイ・スンファン、そしてサブラッパー1の井汲大翔の6人。\n\nこのチームは、再編成の過程で「メンバー放出のみ・追加なし」という5チーム唯一の形で固まった顔ぶれでもある。最年長のフェテクが率いるチームで、大翔の経験がどう生きるかに注目が集まる。"},
+{id:"nw18",at:43,src:"Kstyle",time:"2023.4.7",title:"「BOYS PLANET」アーティストバトル結果…1位は「Over Me」、「En Garde」は597点で3位",lead:"アーティストバトルの結果が発表された。「Over Me」が621点で1位となりベネフィットを獲得。「En Garde」は597点で3位だったが、チームステージ動画の再生数は5曲中1位を記録した。",body:"Mnet「BOYS PLANET」第10話で、アーティストバトルの結果が発表された。\n\n順位は、1位「Over Me」621点、2位「Say My Name」612点、3位「En Garde」597点、4位「SuperCharger」470点、5位「Switch」432点。1位の「Over Me」チームには、ベネフィット20万点、『M COUNTDOWN』スペシャルステージ、ミニファンミーティングが与えられた。\n\n「En Garde」チーム内ではキム・ギュビンが748点でトップ。井汲大翔の個人点数は公表されていない。一方で、En Gardeのチームステージ動画は再生数162万回と5チーム中1位を記録し（4月7日時点）、大翔の個人チッケムも全体9位の9.6万回を記録した。数字の順位と、視聴者の熱量のあいだにある温度差も話題になっている。\n\n次の関門は第3回生存者発表式。28人から18人に絞られ、ファイナリストが決まる。"},
+{id:"nw19",at:48,src:"Kstyle",time:"2023.4.14",title:"「BOYS PLANET」第3回生存者発表…井汲大翔は{rank3txt}",lead:"第3回生存者発表式（MC：チョン・ソミ）で、28人から18人のファイナリストが発表された。井汲大翔は{rank3txt}（{points3}点）。史実の記録では、21位での脱落だった。",body:"Mnet「BOYS PLANET」第11話で、第3回生存者発表式の結果が放送された。スターマスターはチョン・ソミが務め、1位はソン・ハンビン（5,389,363点）、18位の生存ラインはナ・カムデン（2,022,976点）だった。第3回グローバル投票には182か国から31,750,293票が集まった。\n\n井汲大翔は{rank3txt}（{points3}点）で発表を終えた。史実の記録では、大翔は21位（1,582,819点）で脱落している。18位との差は約44万点だった。\n\n{after3}"},
+{id:"nw20",at:49,src:"モデルプレス",time:"2023.4.14",title:"「BOYS PLANET」ファイナリスト18人決定…決勝は「Jelly Pop」「Hot Summer」の2曲で最終決戦",lead:"「BOYS PLANET」のファイナリスト18人が決まった。ファイナルでは「Jelly Pop」と「Hot Summer」の2チームに分かれてステージを行い、生放送の投票でデビューする9人が決定する。",body:"Mnet「BOYS PLANET」のファイナルに進む18人が決まった。進行はスターマスターのキム・ジェファンが務めている。\n\nファイナルの課題曲は「Jelly Pop」と「Hot Summer」の2曲。キリングパートは、スタークリエイターの投票（動画の再生数といいね数）によって決められる仕組みだ。\n\nファイナルは4月20日、蚕室室内体育館から生放送され、新グループの名前もその場で発表される。井汲大翔ら日本人ファイナリストの結果にも注目が集まる。"},
+{id:"nw21",at:55,src:"Kstyle",time:"2023.4.21",title:"「BOYS PLANET」ファイナル…ZEROBASEONEの9人決定、井汲大翔は{rankftxt}",lead:"「BOYS PLANET」のファイナルが生放送され、新グループ「ZEROBASEONE」のメンバー9人が決定した。1位はジャン・ハオ。井汲大翔は{rankftxt}（{pointsf}点）だった。",body:"Mnet「BOYS PLANET」のファイナルが4月20日、蚕室室内体育館から生放送された。進行はスターマスターのファン・ミニョンが務め、新グループの名前「ZEROBASEONE」もその場で発表された。ファイナルの総投票数は9,398,916票（184か国）。\n\n最終順位は、1位ジャン・ハオ（1,998,154点）、2位ソン・ハンビン（1,888,414点）、3位ソク・マシュー（1,702,174点）、4位リッキー（1,572,089点）、5位パク・ゴヌク（1,386,039点）、6位キム・テレ（1,349,595点）、7位キム・ギュビン（1,346,105点）、8位キム・ジウン（1,338,984点）、9位ハン・ユジン（1,196,622点）。この9人がZEROBASEONEとしてデビューする。\n\n井汲大翔は{rankftxt}（{pointsf}点）でファイナルを終えた。{afterF}\n\nZEROBASEONEは7月10日に1stミニアルバム『YOUTH IN THE SHADE』でデビューする予定だ。"}
 ];
 const INSTA = [
 {id:"ig1",at:0,img:"zhanghao",cap:"[#BOYSPLANET] 시그널송 『난 빛나 (Here I Am)』 무대가 공개되었습니다! G그룹 센터 장하오를 비롯한 93명의 소년들을 응원해주세요 ✨",like:"いいね！ 24.6万件",time:"2022.12.29"},
 {id:"ig3",at:4,img:"keita",cap:"[#BOYSPLANET] 스타 레벨 테스트 비하인드 📸 팀 오사카의 케이타, 히로토, 케이, 유토! 케이타는 ALL STAR를 획득했습니다 ⭐⭐⭐⭐",like:"いいね！ 9.8万件",time:"2023.2.3"},
 {id:"ig2",at:11,img:"hiroto",cap:"[#BOYSPLANET] K vs G 그룹 배틀 『아주 NICE』 G팀 킬링파트 히로토 💗 개인 53점으로 맞대결에서 승리했습니다!",like:"いいね！ 11.2万件",time:"2023.2.17"},
-{id:"ig4",at:29,img:"ricky",cap:"[#BOYSPLANET] 듀얼 포지션 배틀 『Rush Hour』 어썸아워 팀 🔥 랩&댄스 부문에서 742점을 기록했습니다. 리키, 타쿠토, 히로토, 마징시앙, 오성민 5명의 무대를 확인해주세요!",like:"いいね！ 13.7万件",time:"2023.3.16"}
+{id:"ig4",at:29,img:"ricky",cap:"[#BOYSPLANET] 듀얼 포지션 배틀 『Rush Hour』 어썸아워 팀 🔥 랩&댄스 부문에서 742점을 기록했습니다. 리키, 타쿠토, 히로토, 마징시앙, 오성민 5명의 무대를 확인해주세요!",like:"いいね！ 13.7万件",time:"2023.3.16"},
+{id:"ig5",at:42,img:"gunwook",cap:"[#BOYSPLANET] 아티스트 배틀 『En Garde (준비, 시작!)』 En Butter 팀 🔥 킬링파트 건욱을 중심으로, 회택·규빈·준현·승환·히로토 6명의 무대가 공개되었습니다!",like:"いいね！ 15.8万件",time:"2023.4.6"},
+{id:"ig6",at:53,img:"hiroto",cap:"[#BOYSPLANET] 파이널 무대 『Jelly Pop』 🍬 히로토를 비롯한 파이널리스트들의 마지막 무대. 잠실 실내체육관에서 생방송으로 진행되었습니다!",like:"いいね！ 18.9万件",time:"2023.4.20"}
 ];
 const THREADS = {
 hiroto:{title:"井汲大翔",sub:"Gグループ · RBW",members:["hiroto"]},
 osaka:{title:"チーム大阪",sub:"メンバー4人",members:["keita","kei","yuto","hiroto"],group:true},
 nihon:{title:"日本人サポート連絡",sub:"メンバー5人 · スタッフ共有",members:["osuke","takuto","haruto","anthonny"],group:true},
 verynice:{title:"VERY NICE・Gチーム",sub:"メンバー8人",members:["ouju","cong","ichika","yuki","majingxiang","wenyechen","hiroto"],group:true},
-rushhour:{title:"Rush Hourチーム",sub:"メンバー5人 · Awesome Hour",members:["ricky","takuto","majingxiang","sungmin","hiroto"],group:true}
+rushhour:{title:"Rush Hourチーム",sub:"メンバー5人 · Awesome Hour",members:["ricky","takuto","majingxiang","sungmin","hiroto"],group:true},
+engarde:{title:"En Gardeチーム",sub:"メンバー6人 · En Butter",members:["hoetaek","gyuvin","gunwook","junhyeon","seunghwan","hiroto"],group:true}
 };
 const SUPPORT_MENUS = [
 {id:"mnet",t:"Mnet Plus 投票促進",d:"公式投票アプリMnet Plusの投票導線を整え、投票期間のリマインド発信を設計する。票に直結する生命線。",eff:3.2,unit:"ポイント換算効率：高"},
@@ -1330,13 +1364,278 @@ script:[
 ]},
 {type:"rank2",badge:"順位発表",title:"第2回生存者発表式",desc:"52人から28人へ",
 loc:"2023年3月23日 · 第2回生存者発表式（MC：イ・ミニョク）"},
-{type:"fin2",badge:"第2部・完",title:"28人の先へ",desc:"第2部の物語が終わる"}
+{type:"fin2",badge:"第2部・完",title:"28人の先へ",desc:"第2部の物語が終わる"},
+/* ============ STORY (第3部) ============ */
+{type:"scene",badge:"第3部 プロローグ",title:"28人の朝、そして会見へ",desc:"第2回発表の翌日、最終章の始まり",
+loc:"2023年3月下旬 · プラネットキャンプ／CJ ENMセンター",
+pages:[
+`第2回生存者発表式の翌朝。
+52人いた仲間は28人になった。去っていく者たちの見送りは、なおの仕事の一つだった。
+
+Awesome Hourのリーダー、オ・ソンミンの姿も、帰国の列の中にあった。
+<span class="who">ソンミン</span>「大翔、頼んだぞ。……あのチームの分まで、残れよ」
+大翔は{rank2txt}で残った。その順位の重さを知る者は、もう多くは残っていない。`,
+`数日後の3月29日。CJ ENMセンターで、生還した28人の記者会見が開かれた。
+なおは通訳として、大翔のすぐ後ろに立った。
+
+抱負を聞かれた大翔は、少し照れたように笑って、それからはっきりと答えた。
+<span class="who">大翔</span>「子犬のような可愛い魅力から、オオカミのようなかっこいいコンセプトまで何でもできる姿をお見せします。ベストを尽くします」
+三度目のサバイバルも、残りはあと少し。ここから先は、デビューする者と、そうでない者が分かれる場所だ。`],
+choices:[
+{label:"会見の質疑を通訳で支え、日本メディア向けの発信も整える",fx:{score:5,trust:2},note:"大翔の言葉が正確に届いた"},
+{label:"まずは大翔の休息と体調を整える",fx:{mental:5,trust:2},note:"張り詰めた気持ちが少し緩んだ"}
+]},
+{type:"talk",thread:"hiroto",badge:"トーク",title:"ひろと｜28人に残って",desc:"最終章への決意",
+msgs:[
+M("hiroto","なおさん、会見ありがとうございました。通訳、めっちゃ助かった"),
+M("me","大翔の抱負、会場の反応も良かったよ"),
+M("hiroto","『オオカミのような』とか言ってしもたけどな。……言ったからには、やらなあかん"),
+M("hiroto","次のミッション、アーティストバトルらしいで。新曲で勝負するやつ"),
+M("me","いよいよ最終盤だね"),
+M("hiroto","うん。日プでも創造営でも、ここから先が一番しんどかった。でも今回は、最後まで行くって決めてるねん"),
+SYS("三度目の正直へ――残された時間は、もう長くない。")
+],
+choices:[
+{label:"「アーティストバトルに向けて、曲と戦況の分析を始めよう」",fx:{score:5,trust:3},reply:[M("hiroto","頼むわ。なおさんの分析、いつも当たってるから")],note:"最終章への準備が始まった"},
+{label:"「焦らなくていい。一つずつ、確実にやっていこう」",fx:{mental:4,trust:2},reply:[M("hiroto","……せやな。一つずつ、やな")],note:"落ち着きを取り戻した"}
+]},
+{type:"scene",badge:"第7章",title:"アーティストバトル発表",desc:"5つの新曲、28人の戦い",
+loc:"プラネットキャンプ · 大講堂",
+pages:[
+`第3のミッションの発表日。
+スターマスターのキー（SHINee）がステージに立ち、「アーティストバトル」のルールを告げた。
+
+課題曲は、番組のために作られた新曲5曲。「Switch」「SuperCharger」「Over Me」「Say My Name」、そして「En Garde (준비, 시작!)」。
+チーム編成はスタークリエイターの投票で決められる。優勝チームのメンバーには、ベネフィット20万点と『M COUNTDOWN』スペシャルステージ、ミニファンミーティングの機会が与えられる。`,
+`チーム分けの結果が、順に読み上げられていく。
+そして――大翔の名前は、ファンクポップの「En Garde」で呼ばれた。
+
+ウィットに富んだブラスの音と、挑発的なタイトル。「준비, 시작!（準備、スタート！）」という副題のとおり、勝負を仕掛ける者の曲だった。
+<span class="who">大翔</span>「En Garde、か。……剣道の、『構え』の掛け声やな」
+フェンシングの構えの号令。身を低くして、相手の出方を待つ者の姿勢だ。サブラッパーの彼には、合っている気がした。`],
+choices:[
+{label:"「En Garde」の原曲と5曲それぞれの特性を、その場で分析し始める",fx:{score:4,trust:2},note:"曲の分析が進んだ"},
+{label:"他チームの顔ぶれと強豪メンバーを把握する",fx:{score:6,pop:2},note:"全体の戦況が見えてきた"}
+]},
+{type:"scene",badge:"第7章",title:"En Butter結成",desc:"放出のみ・追加なしで固まった6人",
+loc:"プラネットキャンプ · 練習室",
+pages:[
+`「En Garde」のチームは、6人で固まった。
+このチームは再編成の過程で「メンバー放出のみ・追加なし」という、5チームで唯一の形を辿った顔ぶれだった。残った者同士の結束は、最初から少し違っていた。
+
+チーム名は「En Butter」。
+リーダーは最年長のイ・フェテク。彼がメインボーカルも担う。`,
+`役割が決まっていく。
+メインラッパーはキム・ギュビン。センターとキリングパートはパク・ゴヌク。サブボーカル1にイ・スンファン、サブボーカル2にクム・ジュンヒョン。
+そして大翔は、サブラッパー1だった。
+
+<span class="who">フェテク</span>「この6人で、勝とう」
+短い言葉に、6人が頷いた。最年長で、PENTAGONとしてデビュー経験を持つリーダーの背中は、静かに大きかった。`],
+choices:[
+{label:"6人の経歴と得意分野を整理し、会議用の資料を作る",fx:{score:5,trust:2},note:"チームの全体像が共有できた"},
+{label:"「パートの大小より、チームの完成度で勝とう」と伝える",fx:{mental:4,score:3},note:"6人の目線が揃った"}
+]},
+{type:"support",phase:5,badge:"サポート",title:"裏側サポート配分（第5フェーズ）",desc:"アーティストバトル期。12ポイントを配分しよう"},
+{type:"talk",thread:"engarde",badge:"トーク",title:"En Gardeチーム",desc:"En Butterのグループトーク",
+msgs:[
+M("hoetaek","チームの連絡はここで。リーダーのイ・フェテクです。よろしくお願いします"),
+M("gyuvin","ギュビンです。メインラッパー、任せてください"),
+M("gunwook","ゴヌクです。キリングパート、絶対に決めます"),
+M("junhyeon","ジュンヒョンです！　楽しく、激しくいきましょう"),
+M("seunghwan","スンファンです。歌でチームを支えます"),
+M("hiroto","大翔です。サブラッパー1やります。経験だけは豊富やから、なんでも聞いてや"),
+M("hoetaek","では、明日から本格的に練習開始。体調管理も、各自しっかり"),
+M("gyuvin","優勝チームのベネフィット、でかいです。取りにいきましょう"),
+SYS("6人の戦いが始まった。")
+],
+choices:[
+{label:"練習スケジュールと通訳の段取りをまとめて共有する",fx:{score:5,mental:2},reply:[M("hoetaek","助かります。お願いします")],note:"チームの段取りが整った"},
+{label:"「優勝しましょう」と士気を上げる一言を添える",fx:{trust:3,pop:2},reply:[M("gunwook","もちろんです。勝ちます")],note:"チームの士気が上がった"}
+]},
+{type:"scene",badge:"第8章",title:"中間チェックの酷評",desc:"ダンスマスターの厳しい言葉",
+loc:"プラネットキャンプ · リハーサル室",
+pages:[
+`本番を控えた中間チェック。
+En Butterはマスター陣の前で、現時点のステージを通しで披露した。
+
+踊り終えた後の空気は、重かった。
+ダンスマスターのチェ・ヨンジュンから、細部の甘さと、プロを目指す者としての姿勢について、厳しい言葉が次々に飛んだ。「この程度の完成度で、ステージに立つつもりなのか」――趣旨をかいつまめば、そういう話だった。
+6人の顔が、強張っていく。`,
+`控室に戻る廊下で、最初に口を開いたのはフェテクだった。
+<span class="who">フェテク</span>「……反省しよう。でも、下を向く時間はない」
+リーダーの言葉は、叱責ではなく号令だった。
+大翔も頷いた。
+<span class="who">大翔</span>「言われたことは、全部事実や。……ほな、直すしかないやろ」
+その夜から、En Butterの練習は変わっていった。振付は、細部の細部から作り直されることになった。`],
+choices:[
+{label:"講評の一つひとつを言語化し、修正リストとして渡す",fx:{score:6,trust:2},note:"立て直しの道筋ができた"},
+{label:"6人で食事を取り、まず空気をほぐす場を作る",fx:{mental:5,score:4},note:"チームの空気が動き始めた"}
+]},
+{type:"scene",badge:"第8章",title:"夜通しの作り直し",desc:"振付を細部から、夜明けまで",
+loc:"プラネットキャンプ · 練習室",
+pages:[
+`作り直しは、想像以上に根気のいる作業だった。
+フォーメーションの角度、手の置く場所、目線の送り方。一つひとつを止めては直し、直しては通す。
+日付が変わっても、練習室の明かりは消えなかった。
+
+フェテクは時に厳しく声を上げ、時に誰よりも長く鏡の前に立った。デビューを経験した者の「当たり前」の基準が、チーム全体の基準を引き上げていく。`,
+`大翔は、自分のサブラップの言葉の置き方を、何度も録音しては聞き返していた。
+目立つパートではない。けれど、曲の流れが切り替わる場所を担う、歯車のようなパートだ。
+<span class="who">大翔</span>「俺の場所は、ここや。……ここを完璧にする」
+窓の外が白み始めた頃、6人の動きが、ようやく一つの形に重なった。`],
+choices:[
+{label:"修正箇所の最終チェックリストを作り、本番前の確認を仕組み化する",fx:{score:6,trust:2},note:"本番までの道筋が固定された"},
+{label:"夜明け前の食事と短い仮眠の時間を確保する",fx:{mental:4,score:3},note:"6人の疲労が少し回復した"}
+]},
+{type:"scene",badge:"第8章",title:"本番「En Garde」",desc:"アーティストバトル",
+loc:"収録スタジオ · バトル本番",
+pages:[
+`本番の日。
+ブラスのイントロが鳴り、6人がステージに立った。
+
+ゴヌクのキリングパートでは、会場がどよめいた。フェテクのボーカルは曲の芯に太く通り、ギュビンのラップが空気を切り替える。
+大翔のサブラップは、曲の流れが切り替わる場所で、静かに、けれど確かに効いていた。中間チェックの酷評も、夜通しの作り直しも、全部がこの数分間のためにあった。
+スンファンとジュンヒョンの声が重なり、6人のフォーメーションは、練習のどの通しよりも揃っていた。`,
+`踊り終えた後、マスター陣からは「上手かった」「本当にカッコよかった」という言葉が届いたという。
+あの中間チェックの日から思えば、遠い場所まで来た。
+
+――あとは、結果と、その先の投票を待つだけだった。`],
+music:"engarde",
+choices:[
+{label:"ステージの手応えを、すぐ発信の材料に整理する",fx:{score:4,pop:4},note:"本番の熱が外へ届き始めた"},
+{label:"「やりきった」とだけ伝え、6人の労をねぎらう",fx:{mental:4,trust:3},note:"チームの達成感が残った"}
+]},
+{type:"scene",badge:"第8章",title:"結果と、再生数の1位",desc:"597点・3位、そして静かな熱狂",
+loc:"収録スタジオ · 結果発表",
+pages:[
+`アーティストバトルの結果が発表された。
+1位「Over Me」621点。優勝チームにはベネフィット20万点と『M COUNTDOWN』スペシャルステージ、ミニファンミーティングが与えられた。
+2位「Say My Name」612点。
+そして「En Garde」は、<b>597点で3位</b>だった。
+
+チーム内では、ギュビンが748点でトップだった。大翔個人の点数は、今回も公表されなかった。`,
+`けれど、放送が始まると、別の数字が話題をさらった。
+En Gardeのチームステージ動画の再生数は、5チームの中で1位を記録し続けた（放送週時点で162万回）。大翔の個人チッケムも、全体9位の9.6万回。
+順位の数字には表れない場所で、確かに誰かの心を掴んでいた。
+
+次の関門は、第3回生存者発表式。28人から18人へ。ファイナルへ進めるのは、ここまでだ。`],
+choices:[
+{label:"「再生数1位のチーム」という軸で発信を設計し、投票へつなげる",fx:{score:4,pop:3},note:"発信の軸ができた"},
+{label:"公表されなかった大翔の評価を、メディア対応で丁寧に補う",fx:{score:5,trust:3},note:"数字以外の評価が言葉になった"}
+]},
+{type:"talk",thread:"hiroto",badge:"トーク",title:"ひろと｜En Gardeのあと",desc:"本番を終えて",
+msgs:[
+M("hiroto","終わりました。3位。……ベネフィットは逃したけど、ステージは出し切ったと思う"),
+M("hiroto","中間チェックの日から考えたら、ほんまに別のチームみたいやった"),
+V("hiroto","line7"),
+M("me","見てたよ。チームの動画、再生数が1位だって"),
+M("hiroto","……ほんまに？　それは、嬉しいな"),
+M("hiroto","次は発表や。28人から18人。ここを越えたら、ファイナル"),
+M("me","ここまで来たんだから、あとは信じて待とう"),
+M("hiroto","うん。……三回目の挑戦、ここで終わらせへん"),
+SYS("結果の夜は静かに更けていった。")
+],
+choices:[
+{label:"「発表まで、最後のひと押しの発信を続ける」",fx:{score:5,trust:2},reply:[M("hiroto","頼むわ。……ほんまに、頼む")],note:"最後の追い込み体制ができた"},
+{label:"「今夜はもう休んで。結果は、動かせるだけ動かした」",fx:{mental:5,trust:2},reply:[M("hiroto","……うん。ありがとう、なおさん")],note:"静かに休ませた"}
+]},
+{type:"support",phase:6,badge:"サポート",title:"裏側サポート配分（第6フェーズ）",desc:"第3回投票のラストスパート。最後の12ポイント"},
+{type:"call",badge:"通話",title:"発表前夜の電話（第3回）",desc:"第3回生存者発表式の前日",
+script:[
+{who:"hiroto",text:"……なおさん？　まだ起きてた？"},
+{who:"me",text:"起きてたよ。明日だね、第3回発表"},
+{who:"hiroto",text:"うん。……28人から18人。ここを越えたらファイナルや"},
+{who:"hiroto",text:"正直に言うと、怖いねん。三回目でも、やっぱり怖い"},
+{who:"me",text:"ひろとは、やりきったよ。En Garde、あれ以上のステージはなかった"},
+{who:"hiroto",text:"……せやな。6人で作り直して、出し切った"},
+{who:"hiroto",text:"なあ、なおさん。明日、もし名前が呼ばれたら――その時は、ファイナルの話をしようや"},
+{who:"me",text:"うん。きっと、しよう"}
+],
+callChoices:[
+{label:"「今度こそ、ファイナルまで行こう」",resp:"……うん。行くわ、ファイナル。なおさんと、一緒に"},
+{label:"「今夜はもう、ゆっくり休んで」",resp:"……そうする。ほな、おやすみ。なおさん"}
+]},
+{type:"rank3",badge:"順位発表",title:"第3回生存者発表式",desc:"28人から18人へ",
+loc:"2023年4月13日 · 第3回生存者発表式（MC：チョン・ソミ）"},
+{type:"fin3",badge:"第3部・前半完",title:"18人の扉",desc:"第3回発表の結末"},
+{type:"scene",badge:"第9章",title:"ファイナルミッション発表",desc:"Jelly PopとHot Summer",
+loc:"プラネットキャンプ · 大講堂",
+pages:[
+`ファイナルに進んだ18人の前に、スターマスターのキム・ジェファンが立った。
+決勝の仕組みが告げられる。
+
+課題曲は2曲。「Jelly Pop」と「Hot Summer」。
+キリングパートは、スタークリエイターの投票――ステージ動画の再生数といいね数――によって決められる。
+そして最終順位は、ファイナルまでの投票と、生放送当日の投票を合わせて決まる。新グループの名前は、生放送の場で発表されるという。`,
+`大翔は、「Jelly Pop」のチームに入った。
+フェテク、ジャン・ハオ、マシュー、カムデンらと組む、明るく弾けるポップな曲だ。キリングパートはジャン・ハオに決まっていた。
+大翔の担当は、サブラッパー。En Gardeに続いて、また曲の流れを繋ぐ場所だった。
+
+<span class="who">大翔</span>「最後のステージや。……全部、置いてくる」
+残された時間は、一週間。`],
+choices:[
+{label:"生放送投票の仕組みを調べ、最後の発信計画を立てる",fx:{score:4,trust:2},note:"決勝の戦い方が見えた"},
+{label:"大翔のコンディションを最優先に、週の予定を組み直す",fx:{mental:2,score:6},note:"本番への地盤が整った"}
+]},
+{type:"support",phase:7,badge:"サポート",title:"裏側サポート配分（第7フェーズ）",desc:"ファイナル期。デビューを懸けた最後の12ポイント"},
+{type:"talk",thread:"hiroto",badge:"トーク",title:"ひろと｜最後の一週間",desc:"ファイナルの前に",
+msgs:[
+M("hiroto","なおさん、Jelly Popの練習、順調です。明るい曲、意外と楽しい"),
+M("me","大翔の笑顔、ステージで映えると思う"),
+M("hiroto","はは。……日プのときは、ファイナルまで行かれへんかった。創造営でも、最後のステージには立てたけど、届かんかった"),
+M("hiroto","今回が、三回目のファイナルやな"),
+M("me","三回目の正直、だね"),
+M("hiroto","うん。……なあ、結果がどうなっても、なおさんには最初に言うわ。約束"),
+SYS("最後の一週間が、静かに進んでいく。")
+],
+choices:[
+{label:"「生放送の投票導線、最後まで一緒に走り切ろう」",fx:{score:6,trust:3},reply:[M("hiroto","頼むわ。……最後まで、よろしくな")],note:"決勝への体制が固まった"},
+{label:"「結果の前に、まずステージを楽しんで」",fx:{mental:5,trust:2},reply:[M("hiroto","……せやな。楽しむわ、最後のステージ")],note:"肩の力が抜けた"}
+]},
+{type:"call",badge:"通話",title:"ファイナル前夜の電話",desc:"ファイナル生放送の前日",
+script:[
+{who:"hiroto",text:"……なおさん？　起きてた？"},
+{who:"me",text:"起きてたよ。明日だね、ファイナル"},
+{who:"hiroto",text:"うん。蚕室やて。生放送。……緊張するわ"},
+{who:"hiroto",text:"日プから数えたら、4年近く、ずっとこの日のためにやってきた気がする"},
+{who:"me",text:"長かったね。……でも、ここまで来た"},
+{who:"hiroto",text:"明日、全部決まります。……悔いは、ないです",v:"line8"},
+{who:"me",text:"うん。明日、会場で見てるから"},
+{who:"hiroto",text:"……ありがとう。ほな、明日。いい報告、できるようにするわ"}
+],
+callChoices:[
+{label:"「明日、デビューの名前を呼ばれよう」",resp:"……約束やな。じゃあ、俺も約束する。今度こそ、デビューする"},
+{label:"「悔いのないステージを」",resp:"うん。……全部、出してくる。ほな、おやすみ。なおさん"}
+]},
+{type:"scene",badge:"第9章",title:"ファイナル生放送",desc:"蚕室室内体育館 · 運命の夜",
+loc:"2023年4月20日 · 蚕室室内体育館",
+pages:[
+`ファイナル生放送の日。
+蚕室室内体育館は、全世界から集まったスタークリエイターの熱気に包まれていた。
+スターマスターのファン・ミニョンがステージに立ち、新グループの名前を発表した。
+
+――「ZEROBASEONE」。
+
+会場が揺れた。18人の少年たちが、その名前を背負う9席を懸けて、最後のステージに臨む。`,
+`オープニングは、全員での「Here I Am」ファイナルバージョン。
+そして「Jelly Pop」のステージ。ジャン・ハオのキリングパートに歓声が上がり、大翔のサブラップが曲を弾ませる。明るく、まっすぐで、少しだけ切ない――三度目の挑戦の、最後の数分間だった。
+
+フィナーレでは、18人全員でエンディングソング「Not Alone」を歌った。
+生放送の2次投票も始まっている。結果発表まで、あと少し。`],
+music:"jellypop",
+choices:[
+{label:"生放送中に、最後の投票呼びかけを発信する",fx:{score:8,pop:3},note:"最後の票が動き始めた"},
+{label:"ステージを終えた大翔を、静かに迎える",fx:{mental:4,trust:3},note:"彼は小さく、けれど確かに笑った"}
+]},
+{type:"rankf",badge:"ファイナル",title:"ファイナル順位発表",desc:"18人から9人へ",
+loc:"2023年4月20日 · 蚕室室内体育館（MC：ファン・ミニョン）"},
+{type:"fin4",badge:"第3部・完",title:"三度目の正直",desc:"物語の結末"}
 ];
 
 /* ============ ENGINE ============ */
 const SAVE_KEY = "bpSaveV1";
 let S = null;
-function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,score2:0,part2Started:false,part2Done:false,heroPoints2:null,heroRank2:null,rankView:1,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null,twDrafts:[],twPinned:null};}
+function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,score2:0,part2Started:false,part2Done:false,heroPoints2:null,heroRank2:null,score3:0,part3Started:false,r3Done:false,heroPoints3:null,heroRank3:null,finalStarted:false,score4:0,heroPointsF:null,heroRankF:null,part3Done:false,rankView:1,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null,twDrafts:[],twPinned:null};}
 
 function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
 function load(){try{const r=localStorage.getItem(SAVE_KEY); if(r){S=Object.assign(defState(),JSON.parse(r)); twMigrate(); return;}}catch(e){} S=defState();}
@@ -1345,7 +1644,7 @@ if(!Array.isArray(S.twDrafts))S.twDrafts=[];
 if(S.twDraft&&(S.twDraft.text||S.twDraft.img)){S.twDrafts.unshift({text:S.twDraft.text||"",img:S.twDraft.img||null,ts:Date.now()});}
 S.twDraft=null;}
 function clampStats(){S.trust=Math.max(0,Math.min(100,S.trust));S.mental=Math.max(0,Math.min(100,S.mental));S.pop=Math.max(0,Math.min(100,S.pop));}
-function applyFx(fx){if(!fx)return; if(fx.trust)S.trust+=fx.trust; if(fx.mental)S.mental+=fx.mental; if(fx.pop)S.pop+=fx.pop; if(fx.score){if(S.part2Started)S.score2+=fx.score; else S.score+=fx.score;} clampStats();}
+function applyFx(fx){if(!fx)return; if(fx.trust)S.trust+=fx.trust; if(fx.mental)S.mental+=fx.mental; if(fx.pop)S.pop+=fx.pop; if(fx.score){if(S.finalStarted)S.score4+=fx.score; else if(S.part3Started)S.score3+=fx.score; else if(S.part2Started)S.score2+=fx.score; else S.score+=fx.score;} clampStats();}
 function fmt(n){return n.toLocaleString("ja-JP");}
 function starStr(n){if(n===null||n===undefined)return "―"; return "★".repeat(n)+"☆".repeat(4-n)+"（"+n+"スター）";}
 function computeHeroPoints(){return Math.round(HIROTO_BASE_POINTS*(0.72+0.0085*Math.max(0,S.score)));}
@@ -1360,6 +1659,40 @@ if(1016789>points)r++;
 return r;
 }
 function heroAlive2(){return S.heroRank2!==null&&S.heroRank2!==undefined&&S.heroRank2<=28;}
+function computeHeroPoints3(){return Math.round(HIROTO_R3_BASE*(0.33+0.0095*Math.max(0,S.score3)));}
+function computeRank3(points){
+/* 順位が確定できるのは、ポイントが公表されている範囲（19位ワン・ツーハオ1,889,270点／20位チャ・ウンギ1,817,478点／21位＝史実の大翔1,582,819点）まで。
+   それ以下の脱落者（22位以下）のポイントは未公表のため、1,582,819点以下では正確な順位を確定できない（null＝22位以下・脱落圏） */
+if(points<=HIROTO_R3_BASE)return null;
+let r=1; ANNOUNCE_R3.forEach(function(row){if(row[1]>points)r++;});
+if(1889270>points)r++;
+if(1817478>points)r++;
+return r;
+}
+function heroAlive3(){return S.heroRank3!==null&&S.heroRank3!==undefined&&S.heroRank3<=18;}
+function computeHeroPointsF(){return Math.round(1000000*(0.40+0.020*Math.max(0,S.score4)));}
+/* ファイナルの顔ぶれ：大翔が第3回発表を突破した世界線では、史実18位のナ・カムデンが18人の枠から押し出されるため、対戦表からはカムデンを除く（ファイナルは常に18人） */
+function finOthers(){return ANNOUNCE_FIN.filter(function(row){return row[0]!=="kamden";});}
+function computeRankF(points){let r=1; finOthers().forEach(function(row){if(row[1]>points)r++;}); return r;}
+function heroDebut(){return S.heroRankF!==null&&S.heroRankF!==undefined&&S.heroRankF<=9;}
+function startPart3(){
+if(S.part3Done){S.step=STEPS.length-1; save(); go("scene"); return;}
+if(!S.part3Started){S.part3Started=true; S.step=34; save();}
+startStep();
+}
+function startFinalPhase(){
+if(S.part3Done){S.step=STEPS.length-1; save(); go("scene"); return;}
+if(!S.finalStarted){S.finalStarted=true;}
+S.step=49; save(); startStep();
+}
+function restartPart3(){
+S.step=34; S.part3Started=true; S.r3Done=false; S.part3Done=false; S.finalStarted=false; S.score3=0; S.score4=0; S.heroPoints3=null; S.heroRank3=null; S.heroPointsF=null; S.heroRankF=null;
+S.doneSteps=S.doneSteps.filter(function(x){return x<34;});
+S.newsOpen=null;
+if(S.talkLog){Object.keys(THREADS).forEach(function(id){let last=null; for(let i=0;i<34;i++){const s2=STEPS[i]; if(s2&&s2.type==="talk"&&s2.thread===id)last=s2;} if(last)S.talkLog[id]=last.msgs.slice(); else delete S.talkLog[id];});}
+supAlloc=null;
+save(); toast("第3部の最初からやり直します"); startStep();
+}
 function startPart2(){
 if(S.part2Done){S.step=STEPS.length-1; save(); go("scene"); return;}
 if(!S.part2Started){S.part2Started=true; S.step=17; save();}
@@ -1384,7 +1717,7 @@ function duck(on){if(musicAudio&&musicKey)musicAudio.volume=(S.vol/100)*(on?0.25
 function fmtT(s){if(!isFinite(s)||s<0)s=0; s=Math.round(s); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2);}
 let mbSeeking=false;
 function mbSync(){const sk=document.getElementById("mb-seek"); const curs=document.querySelectorAll(".mpc-cur"), durs=document.querySelectorAll(".mpc-dur"), mseeks=document.querySelectorAll(".mpc-seek"); if(!musicAudio){document.getElementById("mb-cur").textContent="0:00"; document.getElementById("mb-dur").textContent="0:00"; if(sk)sk.value=0; curs.forEach(function(e){e.textContent="0:00";}); durs.forEach(function(e){e.textContent="0:00";}); mseeks.forEach(function(e){e.value=0;}); return;} const d=musicAudio.duration; document.getElementById("mb-cur").textContent=fmtT(musicAudio.currentTime); document.getElementById("mb-dur").textContent=isFinite(d)?fmtT(d):"0:00"; if(sk&&!mbSeeking)sk.value=(isFinite(d)&&d>0)?Math.round(musicAudio.currentTime/d*1000):0; curs.forEach(function(e){e.textContent=fmtT(musicAudio.currentTime);}); durs.forEach(function(e){e.textContent=isFinite(d)?fmtT(d):"0:00";}); mseeks.forEach(function(e){if(document.activeElement!==e)e.value=(isFinite(d)&&d>0)?Math.round(musicAudio.currentTime/d*1000):0;});}
-const MUS_QUEUE=["signal","verynice","rushhour","bgm"];
+const MUS_QUEUE=["signal","verynice","rushhour","engarde","jellypop","hotsummer","notalone","bgm"];
 let musPlayed={};
 function musLoopFor(key){return S.musRep==="one"||(key==="bgm"&&S.musRep==="off"&&!S.musShuf);}
 const MUS_ICO_REP='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>';
@@ -1439,8 +1772,12 @@ else if(st.type==="support"){go("support");}
 else if(st.type==="call"){startCall(st);}
 else if(st.type==="rank"){if(S.heroPoints===null){S.heroPoints=computeHeroPoints(); S.heroRank=computeRank(S.heroPoints); save();} playMusic("bgm"); go("rank");}
 else if(st.type==="rank2"){if(S.heroPoints2===null){S.heroPoints2=computeHeroPoints2(); S.heroRank2=computeRank2(S.heroPoints2); save();} S.rankView=2; save(); playMusic("bgm"); go("rank");}
+else if(st.type==="rank3"){if(S.heroPoints3===null){S.heroPoints3=computeHeroPoints3(); S.heroRank3=computeRank3(S.heroPoints3); save();} S.rankView=3; save(); playMusic("bgm"); go("rank");}
+else if(st.type==="rankf"){if(S.heroPointsF===null){S.heroPointsF=computeHeroPointsF(); S.heroRankF=computeRankF(S.heroPointsF); save();} S.rankView=4; save(); playMusic("bgm"); go("rank");}
 else if(st.type==="fin"){go("scene");}
 else if(st.type==="fin2"){go("scene");}
+else if(st.type==="fin3"){go("scene");}
+else if(st.type==="fin4"){go("scene");}
 else {go("scene"); if(st.music)setTimeout(function(){playMusic(st.music);},350);}
 }
 function completeStep(fx,note){
@@ -1449,6 +1786,8 @@ if(S.step<STEPS.length-1){S.step++; S.doneSteps.push(S.step-1);}
 save();
 if(curStep().type==="fin"){S.part1Done=true; save();}
 if(curStep().type==="fin2"){S.part2Done=true; save();}
+if(curStep().type==="fin3"){S.r3Done=true; save();}
+if(curStep().type==="fin4"){S.part3Done=true; save();}
 startStep();
 }
 /* ---- home ---- */
@@ -1508,11 +1847,19 @@ settings:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="
 function renderHome(){
 const st=curStep(); const un=unreadApps(); const h=CAST.hiroto;
 let banner;
-if(S.part2Done){banner='<div class="badge">第2部・完</div><div class="t">'+(heroAlive2()?"第2回発表 "+S.heroRank2+"位で生存":"第2回発表で脱落")+'</div><div class="d">'+(heroAlive2()?"28人の戦いはアーティストバトルへ続く。タップで第2部フィナーレを読み返せます。":"最後の枠には届かなかった。タップで第2部フィナーレへ（第2部のやり直しもできます）。")+"</div>";}
+if(S.part3Done){banner='<div class="badge">第3部・完｜全編完結</div><div class="t">'+(heroDebut()?"最終 "+S.heroRankF+"位 ― デビュー決定":"最終 "+S.heroRankF+"位 ― あと一歩")+'</div><div class="d">'+(heroDebut()?"ZEROBASEONEの9人に、井汲大翔の名前が刻まれた。タップでフィナーレを読み返せます。":"デビューには届かなかったが、ファイナルの舞台に立った。タップでフィナーレを読み返せます。")+"</div>";}
+else if(S.r3Done&&!S.finalStarted){banner=heroAlive3()?'<div class="badge">第3部｜第3回発表</div><div class="t">第3回発表 '+S.heroRank3+'位で生存 ― ファイナルへ</div><div class="d">タップで第3回フィナーレへ。そこからファイナル編に進めます。</div>':'<div class="badge">第3部｜第3回発表</div><div class="t">第3回発表で脱落</div><div class="d">タップで第3回フィナーレへ（第3部のやり直しもできます）。</div>';}
+else if(S.part3Started){banner='<div class="badge">'+esc(st.badge)+"｜STEP "+(S.step+1)+"/"+STEPS.length+'</div><div class="t">'+esc(st.title)+'</div><div class="d">'+esc(st.desc)+"</div>";}
+else if(S.part2Done&&heroAlive2()){banner='<div class="badge">第3部 開幕</div><div class="t">第3部「アーティストバトル」へ</div><div class="d">28人の戦いが最終章に入る。大翔は『En Garde』チームで最後の扉に挑む。タップで第2部フィナーレへ――そこから第3部に進めます。</div>';}
+else if(S.part2Done){banner='<div class="badge">第2部・完</div><div class="t">第2回発表で脱落</div><div class="d">最後の枠には届かなかった。タップで第2部フィナーレへ（第2部のやり直しもできます）。</div>';}
 else if(S.part1Done&&!S.part2Started){banner='<div class="badge">第2部 開幕</div><div class="t">第2部「デュアルポジションバトル」へ</div><div class="d">52人の戦いが始まる。大翔は「Rush Hour」チームで再びステージに立つ。タップで第1部フィナーレへ――そこから第2部に進めます。</div>';}
 else{banner='<div class="badge">'+esc(st.badge)+"｜STEP "+(S.step+1)+"/"+STEPS.length+'</div><div class="t">'+esc(st.title)+'</div><div class="d">'+esc(st.desc)+"</div>";}
 let proj;
-if(S.part2Done){proj=heroAlive2()?'<span>第2回順位</span><b>'+S.heroRank2+'位</b><span style="color:var(--sub)">'+fmt(S.heroPoints2)+'点</span>':'<span>第2回結果</span><b>脱落</b><span style="color:var(--sub)">'+fmt(S.heroPoints2||0)+'点</span>';}
+if(S.part3Done){proj='<span>最終順位</span><b>'+S.heroRankF+'位</b><span style="color:var(--sub)">'+fmt(S.heroPointsF||0)+'点'+(heroDebut()?" · デビュー決定":"")+'</span>';}
+else if(S.finalStarted){const pf=computeHeroPointsF(); proj='<span>推定ポイント（ファイナル）</span><b>'+fmt(pf)+'</b><span style="color:var(--sub)">推定 '+computeRankF(pf)+'位</span>';}
+else if(S.heroPoints3!==null&&S.heroPoints3!==undefined){proj=heroAlive3()?'<span>第3回順位</span><b>'+S.heroRank3+'位</b><span style="color:var(--sub)">'+fmt(S.heroPoints3)+'点</span>':'<span>第3回結果</span><b>脱落</b><span style="color:var(--sub)">'+fmt(S.heroPoints3)+'点</span>';}
+else if(S.part3Started){const p3=computeHeroPoints3(); const r3=computeRank3(p3); proj='<span>推定ポイント（第3回）</span><b>'+fmt(p3)+'</b><span style="color:var(--sub)">推定 '+(r3===null?"脱落圏":r3+"位")+'</span>';}
+else if(S.part2Done){proj=heroAlive2()?'<span>第2回順位</span><b>'+S.heroRank2+'位</b><span style="color:var(--sub)">'+fmt(S.heroPoints2)+'点</span>':'<span>第2回結果</span><b>脱落</b><span style="color:var(--sub)">'+fmt(S.heroPoints2||0)+'点</span>';}
 else if(S.part2Started){const p2=computeHeroPoints2(); const r2=computeRank2(p2); proj='<span>推定ポイント（第2回）</span><b>'+fmt(p2)+'</b><span style="color:var(--sub)">推定 '+(r2===null?"脱落圏":r2+"位")+"</span>";}
 else if(S.part1Done&&S.heroRank){proj='<span>第1回順位</span><b>'+S.heroRank+'位</b><span style="color:var(--sub)">'+fmt(S.heroPoints)+'点</span>';}
 else{const pts=computeHeroPoints(); proj='<span>推定ポイント</span><b>'+fmt(pts)+'</b><span style="color:var(--sub)">推定 '+computeRank(pts)+'位</span>';}
@@ -1548,6 +1895,8 @@ const st=curStep(); const body=document.getElementById("scene-body"); const ch=d
 ch.innerHTML=""; nx.innerHTML="";
 if(st.type==="fin"){renderFin(body,ch,nx); return;}
 if(st.type==="fin2"){renderFin2(body,ch,nx); return;}
+if(st.type==="fin3"){renderFin3(body,ch,nx); return;}
+if(st.type==="fin4"){renderFin4(body,ch,nx); return;}
 if(st.type!=="scene"){body.innerHTML=""; return;}
 let html='<span class="scene-loc">'+esc(st.loc||st.desc)+'</span><div class="scene-text">'+nwFill(st.pages.join("\n\n"))+"</div>";
 if(st.music){const tr=TRACKS[st.music]; html+='<div class="stage-card"><div class="sc-t">♪ '+esc(tr.title)+'</div><div class="sc-s">'+esc(tr.artist)+"｜"+esc(tr.note)+'</div><button class="ghost-btn" style="width:100%;margin:0" onclick="playMusic(\''+st.music+'\')">▶ 再生する</button></div>';}
@@ -1556,9 +1905,10 @@ if(st.choices&&st.choices.length){ch.innerHTML=st.choices.map(function(c,i){retu
 else{nx.innerHTML='<button class="big-btn" onclick="completeStep(null,null)">次へ進む ›</button>';}
 }
 function sceneChoice(i){const st=curStep(); const c=st.choices[i]; completeStep(c.fx,c.note);}
+function fin1Move(){const r=S.heroRank; if(r===null||r===undefined)return "この世界線でも、彼はその場所を守り切った。"; if(r<21)return "この世界線では、あなたの裏側の仕事が、その数字を"+r+"位へと動かした。"; if(r===21)return "この世界線でも、彼は史実と同じ21位だった。まずは、越えるべき最初の関門を越えた。"; return "史実の21位には届かなかったが、生存ライン（52位）は越えた。巻き返しは、ここからだ。";}
 function renderFin(body,ch,nx){
 const rank=S.heroRank, pts=S.heroPoints;
-body.innerHTML='<span class="scene-loc">2023年3月 · 第1部 エピローグ</span><div class="scene-text">第1回生存者発表式が終わった。\n会場の外、冷たい夜風の中で、大翔が待っていた。\n\n<span class="who">大翔</span>「……残れた。まず、ここは越えたな」\n史実の記録では、この日の彼は21位だった。この世界線では、あなたの裏側の仕事が、その数字を少しだけ動かした。\n\n次なるミッションは「デュアルポジションバトル」。\n彼が選ぶのは、華やかなステージの中心――キリングパートだと言う。\n<span class="who">大翔</span>「次も、見ててや。……ここから先も、一緒に」\n\n三度目の挑戦は、まだ折り返してもいない。</div>'
+body.innerHTML='<span class="scene-loc">2023年3月 · 第1部 エピローグ</span><div class="scene-text">第1回生存者発表式が終わった。\n会場の外、冷たい夜風の中で、大翔が待っていた。\n\n<span class="who">大翔</span>「……残れた。まず、ここは越えたな」\n史実の記録では、この日の彼は21位だった。'+fin1Move()+'\n\n次なるミッションは「デュアルポジションバトル」。\n彼が挑むのは、ラップとダンス、2つのポジションを同時に魅せる戦いだ。\n<span class="who">大翔</span>「次も、見ててや。……ここから先も、一緒に」\n\n三度目の挑戦は、まだ折り返してもいない。</div>'
 +'<div class="fin-box"><h3>第1部 結果</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · 第1回生存者発表 '+fmt(pts)+'点（史実：21位／1,381,864点）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（52位）は突破。デビュー圏（9位）までは、まだ大きな壁がある。第2部では「デュアルポジションバトル」でRicky・拓斗らと組む『Rush Hour』チームの戦いが待っている。</p></div>';
 nx.innerHTML=(S.part2Done?"":'<button class="big-btn" onclick="startPart2()">'+(S.part2Started?"第2部のつづきへ ›":"第2部へ進む ›")+"</button>")+'<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 }
@@ -1568,7 +1918,7 @@ if(heroAlive2()){
 const rank=S.heroRank2;
 body.innerHTML='<span class="scene-loc">2023年3月 · 第2部 エピローグ</span><div class="scene-text">第2回生存者発表式が終わった。52人から、28人へ。\n大翔の名前は、呼ばれた。\n\n<span class="who">大翔</span>「……残れた。ほんまに、残れた」\n放送では彼は、こう言ったという。「とても不思議な気持ちです。これが夢か現実か分かりませんが、恩返しできるようベストを尽くします」\n\n史実の記録では、この日の彼は28位――最後の1枠での生存だった。この世界線では、'+(rank===28?'裏側の仕事が、その最後の1枠を守り切った':'あなたの裏側の仕事が、その数字を'+rank+'位へと動かした')+'。\nRush Hourの衝突も、涙も、調停も、742点の悔しさも、全部がこの結果につながっている。\n\n<span class="who">大翔</span>「次はアーティストバトルや。……ここから、もっと上に行くで」\n三度目の挑戦は、後半戦に入る。</div>'
 +'<div class="fin-box"><h3>第2部 結果</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · 第2回生存者発表 '+fmt(pts)+'点（史実：28位／1,077,299点）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（28位）を突破。次なるミッションはアーティストバトル。史実の大翔は第3回発表で21位まで戻し、最後の夜に散る――その先を書き換える戦いは、第3部へ続く。</p></div>';
-nx.innerHTML='<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
+nx.innerHTML=(S.part3Done?"":'<button class="big-btn" onclick="startPart3()">'+(S.part3Started?"第3部のつづきへ ›":"第3部へ進む ›")+"</button>")+'<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 return;
 }
 const rankTxt=(S.heroRank2!==null&&S.heroRank2!==undefined)?S.heroRank2+"位":"31位以下";
@@ -1576,6 +1926,34 @@ const gap=1077299-pts;
 body.innerHTML='<span class="scene-loc">2023年3月 · 第2部 エピローグ</span><div class="scene-text">第2回生存者発表式。\n28位――最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n\n史実の記録では、彼はこの最後の1枠に滑り込んでいた。この世界線では、あと'+fmt(gap)+'点が、届かなかった。\n\n<span class="who">大翔</span>「……ごめんな、なおさん。俺は、やりきったつもりやったんやけど」\n謝る背中を見て、胸が詰まった。ステージで全てを出し切った男に、かける言葉は簡単には見つからない。\nそれでも、この戦いの記録は消えない。Rush Hourの5人と過ごした日々も、拓斗の涙に隣で寄り添った時間も。\n\n――もう一度、この第2部を戦い直すこともできる。裏側の配分ひとつで、運命は変わるのだから。</div>'
 +'<div class="fin-box"><h3>第2部 結果</h3><div class="fin-rank" style="color:var(--danger)">脱落（'+rankTxt+'）</div><div class="fin-sub">井汲大翔 · 第2回生存者発表 '+fmt(pts)+'点（史実：28位／1,077,299点で生存）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（28位＝1,077,299点相当）まで、あと'+fmt(gap)+'点だった。サポート配分と選択を変えて、第2部の最初から挑み直せます。</p></div>';
 nx.innerHTML='<button class="big-btn" onclick="restartPart2()">第2部の最初からやり直す</button><button class="ghost-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
+}
+function renderFin3(body,ch,nx){
+const pts=S.heroPoints3||0;
+if(heroAlive3()){
+const rank=S.heroRank3;
+body.innerHTML='<span class="scene-loc">2023年4月 · 第3部 エピローグ（前半）</span><div class="scene-text">第3回生存者発表式が終わった。28人から、18人へ。\n大翔の名前は、呼ばれた。\n\n<span class="who">大翔</span>「……残れた。ファイナルや。ほんまに、ファイナルまで来た」\n史実の記録では、この夜が彼の最後の夜だった。21位で名前を呼ばれず、静かにステージを降りた場所。\nこの世界線では、'+(rank===18?'最後の1枠を、裏側の仕事と本人のステージが掴み取った':'あなたの裏側の仕事が、その数字を'+rank+'位へと動かし、彼をファイナルの舞台へ押し上げた')+'。\n\n残るは、ファイナル。18人から9人へ。デビューの扉は、もう目の前にある。\n<span class="who">大翔</span>「あと一週間。……最後まで、頼むで。なおさん」</div>'
++'<div class="fin-box"><h3>第3回 結果</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · 第3回生存者発表 '+fmt(pts)+'点（史実：21位／1,582,819点で脱落）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（18位）を突破し、ファイナル進出が決定。ファイナルでは『Jelly Pop』『Hot Summer』の2ステージと、生放送での最終投票によって、デビューする9人が決まる。</p></div>';
+nx.innerHTML=(S.part3Done?"":'<button class="big-btn" onclick="startFinalPhase()">ファイナルへ進む ›</button>')+'<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
+return;
+}
+const rankTxt=(S.heroRank3!==null&&S.heroRank3!==undefined)?S.heroRank3+"位":"22位以下（順位の確定できない脱落圏）";
+const gap=Math.max(0,2022976-pts);
+body.innerHTML='<span class="scene-loc">2023年4月 · 第3部 エピローグ</span><div class="scene-text">第3回生存者発表式。\n18位――最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n\n史実の記録でも、彼はこの夜、21位でステージを降りている。この世界線では、'+rankTxt+'。生存ラインまで、あと'+fmt(gap)+'点が届かなかった。\n放送で彼は、こう言い残したという。\n「僕が不足していて良い結果にはなりませんでしたが、応援してくださった間、スタークリエイターの皆さんが幸せだったなら、僕はとても嬉しいです。ありがとうございました」\n\n<span class="who">大翔</span>「……ごめんな、なおさん。……でも、悔いはないわ。全部、出したから」\n三度目の挑戦は、ここで幕を閉じた。En Gardeの6人と過ごした日々も、夜通しの練習も、この結果ごと、確かに存在した時間だった。\n\n――もう一度、この第3部を戦い直すこともできる。裏側の配分ひとつで、運命は変わるのだから。</div>'
++'<div class="fin-box"><h3>第3回 結果</h3><div class="fin-rank" style="color:var(--danger)">脱落（'+rankTxt+'）</div><div class="fin-sub">井汲大翔 · 第3回生存者発表 '+fmt(pts)+'点（史実：21位／1,582,819点で脱落）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>生存ライン（18位＝2,022,976点）まで、あと'+fmt(gap)+'点だった。サポート配分と選択を変えて、第3部の最初から挑み直せます（第2部までの結果は保持されます）。</p></div>';
+nx.innerHTML='<button class="big-btn" onclick="restartPart3()">第3部の最初からやり直す</button><button class="ghost-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
+}
+function renderFin4(body,ch,nx){
+const pts=S.heroPointsF||0, rank=S.heroRankF;
+if(heroDebut()){
+body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\nデビュー圏の名前が、一つずつ読み上げられていく。\nそして――大翔の名前が、呼ばれた。\n\n<span class="who">大翔</span>「……デビューや。なおさん、俺、デビューするんや……！」\n史実の記録では、彼は第3回発表の21位で、この舞台に立つことすらなかった。この世界線では、あなたの裏側の仕事と、彼自身のステージが、'+rank+'位という結果を引き寄せた。\n日プで36位、創造営で15位、ボイプラでは――ついに、9人の枠の中へ。\n\nそして2023年7月10日。ZEROBASEONEは1stミニアルバム『YOUTH IN THE SHADE』のタイトル曲「In Bloom」でデビューした。その9人の中に、井汲大翔の名前が刻まれている。\n三度目の正直は、実った。\n\n――担当をデビューさせる件、完。</div>'
++'<div class="fin-box"><h3>最終結果 ― デビュー</h3><div class="fin-rank">'+rank+'位</div><div class="fin-sub">井汲大翔 · ファイナル '+fmt(pts)+'点（史実：第3回発表21位で脱落・ファイナル未進出）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>ZEROBASEONEのメンバーとしてデビューが決定。日プ編・創造営編から続いた三部作は、ここに完結します。応援ありがとうございました。</p></div>';
+nx.innerHTML='<button class="big-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
+return;
+}
+const gap9=Math.max(0,1196622-pts);
+body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育館 ――そして、その後</span><div class="scene-text">ファイナル生放送。\n9位――デビュー圏の最後の名前が読み上げられた時、呼ばれたのは大翔ではなかった。\n最終順位は、'+rank+'位。デビューまで、あと'+fmt(gap9)+'点だった。\n\nそれでも。史実の記録で21位に終わった男は、この世界線ではファイナルの舞台に立ち、18人の中から最後の9席を争った。\n<span class="who">大翔</span>「……ここまで来れたんやもんな。日プでも、創造営でも、立てんかった場所や。……ありがとう、なおさん」\n\nその後の彼は、歩みを止めなかった。（以下は史実の記録）\n個人Instagramを開設し、6月にはワン・ツーハオとの合同ファンミーティングを東京・大阪で開催（全公演完売）。7月にはRBWの新チーム「New ID」のメンバーとなり、8月のRBWファミリーコンサートでは、思い出の『En Garde』でステージの幕を開けた。\nデビューの形は変わっても、彼の物語は続いていく。\n\n――三度目の挑戦に寄り添った日々は、ここで一区切り。担当をデビューさせる件【ボイプラ編】、完。</div>'
++'<div class="fin-box"><h3>最終結果 ― あと一歩</h3><div class="fin-rank" style="color:var(--gold)">'+rank+'位</div><div class="fin-sub">井汲大翔 · ファイナル '+fmt(pts)+'点（史実：第3回発表21位で脱落・ファイナル未進出）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>デビュー圏（9位＝1,196,622点）まで、あと'+fmt(gap9)+'点だった。第3部の最初から（第3回発表の結果も含めて）挑み直すこともできます。</p></div>';
+nx.innerHTML='<button class="big-btn" onclick="restartPart3()">第3部の最初からやり直す</button><button class="ghost-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 }
 /* ---- chat ---- */
 function threadSteps(id){return STEPS.map(function(s,i){return {s:s,i:i};}).filter(function(x){return x.s.type==="talk"&&x.s.thread===id;});}
@@ -1709,8 +2087,17 @@ const tr=TRACKS[musicKey]; const playing=musicAudio&&!musicAudio.paused;
 return '<div class="mp-now"><div class="mp-now-head"><button class="mp-now-ic" onclick="musSkip(-1)" aria-label="前の曲">⏮</button><button class="mp-now-ic" onclick="toggleMusic()">'+(playing?"⏸":"▶")+'</button><button class="mp-now-ic" onclick="musSkip(1)" aria-label="次の曲">⏭</button><div class="mp-now-meta"><div class="t">'+esc(tr.title)+'</div><div class="s">'+esc(tr.artist)+" · "+(playing?"再生中":"一時停止中")+'（下部バーと連動）</div></div></div>'
 +'<div class="mp-now-seek"><span class="mpc-cur">0:00</span><input type="range" class="mpc-seek" min="0" max="1000" value="0" oninput="mpcSeek(this)" aria-label="再生位置"><span class="mpc-dur">0:00</span></div></div>';
 }
+function curEst(){
+if(S.finalStarted){const p=computeHeroPointsF(); return {pts:p,rk:computeRankF(p)};}
+if(S.part3Started){const p=computeHeroPoints3(); return {pts:p,rk:computeRank3(p)};}
+if(S.part2Started){const p=computeHeroPoints2(); return {pts:p,rk:computeRank2(p)};}
+const p=computeHeroPoints(); return {pts:p,rk:computeRank(p)};
+}
 function renderMnetContents(){
-let items=[["signal","♪","난 빛나 (Here I Am)","BOYS PLANET シグナルソング · 公式ステージ"],["verynice","♪","아주 NICE (VERY NICE)","K対Gグループバトル · Gチーム"],["rushhour","♪","Rush Hour","デュアルポジションバトル · Awesome Hour"]].map(function(x){
+let mpList=[["signal","♪","난 빛나 (Here I Am)","BOYS PLANET シグナルソング · 公式ステージ"],["verynice","♪","아주 NICE (VERY NICE)","K対Gグループバトル · Gチーム"],["rushhour","♪","Rush Hour","デュアルポジションバトル · Awesome Hour"]];
+if(S.step>=42)mpList.push(["engarde","♪","En Garde (준비, 시작!)","アーティストバトル · En Butter"]);
+if(S.finalStarted)mpList.push(["jellypop","♪","Jelly Pop","ファイナル · Jelly Popチーム"]);
+let items=mpList.map(function(x){
 const tr=TRACKS[x[0]];
 const on=musicKey===x[0]; const playing=on&&musicAudio&&!musicAudio.paused;
 return '<div class="mp-content'+(on?" on":"")+'" onclick="playMusic(\''+x[0]+'\')"><div class="thumb">'+(playing?"⏸":"▶")+'</div><div><div class="ct">'+esc(tr.title)+'</div><div class="cs">'+esc(x[3])+"<br>"+esc(tr.note)+"</div></div></div>";
@@ -1721,7 +2108,7 @@ document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","コンテ�
 mbSync();
 }
 function renderMnetMy(){
-const pts=S.part2Started?computeHeroPoints2():computeHeroPoints(); const rk=S.part2Started?computeRank2(pts):computeRank(pts);
+const ce=curEst(); const pts=ce.pts; const rk=ce.rk;
 document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","マイページ","home")
 +'<div class="mp-card" style="margin-top:16px"><div class="row1">'+avHTML("hiroto")+'<div><div class="nm">スタークリエイター（なお）</div><div class="inf">応援中：井汲大翔（Gグループ）</div></div></div>'
 +'<div class="mp-est"><span>大翔への累計投票</span><b>'+S.mnetCast+'票</b></div>'
@@ -1733,8 +2120,8 @@ document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","マイペ�
 function renderMnet(){
 if(mpView==="contents"){renderMnetContents(); return;}
 if(mpView==="my"){renderMnetMy(); return;}
-const h=CAST.hiroto; const pts=S.part2Started?computeHeroPoints2():computeHeroPoints(); const rk=S.part2Started?computeRank2(pts):computeRank(pts);
-const top9=S.part2Started?[["hanbin",1],["yujin",2],["matthew",3],["zhanghao",4],["jiwoong",5],["gyuvin",6],["taerae",7],["keita",8],["jay",9]]:[["hanbin",1],["matthew",2],["jiwoong",3],["yujin",4],["zhanghao",5],["gyuvin",6],["hoetaek",7],["keita",8],["jay",9]];
+const h=CAST.hiroto; const ce=curEst(); const pts=ce.pts; const rk=ce.rk;
+const top9=S.part3Started?[["hanbin",1],["zhanghao",2],["jiwoong",3],["taerae",4],["yujin",5],["keita",6],["gyuvin",7],["ricky",8],["matthew",9]]:S.part2Started?[["hanbin",1],["yujin",2],["matthew",3],["zhanghao",4],["jiwoong",5],["gyuvin",6],["taerae",7],["keita",8],["jay",9]]:[["hanbin",1],["matthew",2],["jiwoong",3],["yujin",4],["zhanghao",5],["gyuvin",6],["hoetaek",7],["keita",8],["jay",9]];
 let t9=top9.map(function(r){const c=CAST[r[0]]||ROSTER_MAP[r[0]]; const nm=c.name||c.n; return '<div class="mp-t9row"><span class="rk">'+r[1]+'</span>'+avHTML(r[0],"sm")+"<span>"+esc(nm)+"</span></div>";}).join("");
 t9+='<div class="mp-t9row hero"><span class="rk" style="color:var(--pink)">?</span>'+avHTML("hiroto","sm")+'<span>井汲大翔（'+(rk===null?"脱落圏":"推定 "+rk+"位")+'）</span></div>';
 const voted=S.mnetLeft<=0;
@@ -1744,8 +2131,8 @@ document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","公式投�
 +'<button class="mp-votebtn'+(voted?" done":"")+'" onclick="mnetVoteAsk()">'+(voted?"本日の投票済み ✓":"<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true' style='vertical-align:-3px'><rect x='4' y='4.5' width='16' height='16' rx='3.5'/><path d='M8.6 12.4l2.4 2.4 4.4-4.9'/></svg> 大翔に投票する（残り"+S.mnetLeft+"票）")+"</button>"
 +'<div class="mp-done-note'+(S.mnetCast>0?" on":"")+'">✓ 投票が反映されました（大翔への累計 '+S.mnetCast+'票）</div>'
 +'<div class="mp-est"><span>現在の推定ポイント（ゲーム内推定）</span><b>'+fmt(pts)+'点 · '+(rk===null?"脱落圏":rk+"位相当")+'</b></div>'
-+'<div class="mp-note">'+(S.part2Started?"投票期間：第2回 2023.02.24 〜 03.17 10:00 (KST)":"投票期間：第1回 2023.02.02 〜 02.24 10:00 (KST)")+'<br>1日1端末につき最大9人まで投票可能。結果は生存者発表式で公表されます。</div></div>'
-+'<div class="mp-top9"><h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M8 21h8M12 16.5V21M7.5 4h9v4.5a4.5 4.5 0 0 1-9 0V4z"/><path d="M7.5 5.5H4.8A1.3 1.3 0 0 0 3.5 6.8c0 1.9 1.7 3.2 4 3.2M16.5 5.5h2.7a1.3 1.3 0 0 1 1.3 1.3c0 1.9-1.7 3.2-4 3.2"/></svg> '+(S.part2Started?"第6話放送時点の上位9（デビュー圏）":"第2話放送時点の上位9（デビュー圏）")+'</h4>'+t9+'</div>'
++'<div class="mp-note">'+(S.finalStarted?"投票期間：ファイナル 2023.04.07 〜 04.20（生放送中に2次投票あり）":S.part3Started?"投票期間：第3回 2023.03.24 〜 04.07 10:00 (KST)":S.part2Started?"投票期間：第2回 2023.02.24 〜 03.17 10:00 (KST)":"投票期間：第1回 2023.02.02 〜 02.24 10:00 (KST)")+'<br>1日1端末につき最大9人まで投票可能。結果は生存者発表式で公表されます。</div></div>'
++'<div class="mp-top9"><h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M8 21h8M12 16.5V21M7.5 4h9v4.5a4.5 4.5 0 0 1-9 0V4z"/><path d="M7.5 5.5H4.8A1.3 1.3 0 0 0 3.5 6.8c0 1.9 1.7 3.2 4 3.2M16.5 5.5h2.7a1.3 1.3 0 0 1 1.3 1.3c0 1.9-1.7 3.2-4 3.2"/></svg> '+(S.finalStarted?"ファイナル進出者・第3回発表の上位9（デビュー圏）":S.part3Started?"第10話放送時点の上位9（デビュー圏）":S.part2Started?"第6話放送時点の上位9（デビュー圏）":"第2話放送時点の上位9（デビュー圏）")+'</h4>'+t9+'</div>'
 +'<p style="margin:0 16px;font-size:11px;color:var(--sub2);line-height:1.7">※推定ポイント・順位はゲーム内の目安表示です。実際の投票は当時のMnet Plusアプリで行われました。</p>'
 +mpTabsHTML();
 }
@@ -2049,7 +2436,7 @@ function nwSrcHTML(src){return '<span class="src" style="background:'+(NW_SRC_BG
 const NW_HEART_ON='<svg width="15" height="15" viewBox="0 0 24 24" fill="#e0245e" aria-hidden="true"><path d="M20.83 4.59a5.5 5.5 0 0 0-7.79 0L12 5.64l-1.04-1.05a5.5 5.5 0 0 0-7.79 7.78l1.05 1.05L12 21.23l7.78-7.78 1.05-1.05a5.5 5.5 0 0 0 0-7.81z"/></svg>';
 const NW_HEART_OFF='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
 const NW_SHARE='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
-function nwFill(s){return String(s).replace(/\{rank\}/g,S.heroRank||"――").replace(/\{points\}/g,S.heroPoints?fmt(S.heroPoints):"").replace(/\{rank2txt\}/g,(S.heroRank2!==null&&S.heroRank2!==undefined)?S.heroRank2+"位":"31位以下（脱落圏）").replace(/\{points2\}/g,(S.heroPoints2!==null&&S.heroPoints2!==undefined)?fmt(S.heroPoints2):"").replace(/\{after2\}/g,heroAlive2()?"この世界線で裏側のサポートがその数字をどう動かしたかは、順位表のとおり。生き残った先には、アーティストバトルが待っている。":"この世界線で裏側のサポートがその数字をどう動かしたかは、順位表のとおり。最後の1枠には届かず、大翔の三度目の挑戦は、この夜で幕を閉じた。");}
+function nwFill(s){return String(s).replace(/\{rank\}/g,S.heroRank||"――").replace(/\{points\}/g,S.heroPoints?fmt(S.heroPoints):"").replace(/\{rank2txt\}/g,(S.heroRank2!==null&&S.heroRank2!==undefined)?S.heroRank2+"位":"31位以下（脱落圏）").replace(/\{points2\}/g,(S.heroPoints2!==null&&S.heroPoints2!==undefined)?fmt(S.heroPoints2):"").replace(/\{after2\}/g,heroAlive2()?"この世界線で裏側のサポートがその数字をどう動かしたかは、順位表のとおり。生き残った先には、アーティストバトルが待っている。":"この世界線で裏側のサポートがその数字をどう動かしたかは、順位表のとおり。最後の1枠には届かず、大翔の三度目の挑戦は、この夜で幕を閉じた。").replace(/\{takutoR2\}/g,(S.heroRank2!==null&&S.heroRank2!==undefined&&S.heroRank2<=25)?"26":"25").replace(/\{rank3txt\}/g,(S.heroRank3!==null&&S.heroRank3!==undefined)?S.heroRank3+"位":"22位以下（脱落圏）").replace(/\{points3\}/g,(S.heroPoints3!==null&&S.heroPoints3!==undefined)?fmt(S.heroPoints3):"").replace(/\{after3\}/g,heroAlive3()?"この世界線で裏側のサポートがその数字をどう動かしたかは、順位表のとおり。生き残った先には、ファイナルが待っている。":"この世界線で裏側のサポートがその数字をどう動かしたかは、順位表のとおり。最後の扉には届かず、大翔の三度目の挑戦は、この夜で幕を閉じた。").replace(/\{rankftxt\}/g,(S.heroRankF!==null&&S.heroRankF!==undefined)?S.heroRankF+"位":"――").replace(/\{pointsf\}/g,(S.heroPointsF!==null&&S.heroPointsF!==undefined)?fmt(S.heroPointsF):"").replace(/\{afterF\}/g,heroDebut()?"井汲大翔はデビュー組の9人に入り、ZEROBASEONEのメンバーとしてデビューすることが決まった。日プ、創造営を経た三度目の挑戦が、ついに実を結んだ。":"井汲大翔はデビュー圏には届かなかったが、史実では立つことのできなかったファイナルの舞台に立った。三度目の挑戦は、確かに前へ進んだ。");}
 function newsItemHTML(n){
 return '<div class="news-item" onclick="openNews(\''+n.id+'\')">'+nwSrcHTML(n.src)+'<h3>'+esc(nwFill(n.title))+'</h3><p>'+esc(nwFill(n.lead))+'</p><div class="tm">'+esc(n.time)+"</div></div>";
 }
@@ -2129,10 +2516,10 @@ return '<div class="sup-item"><div class="t">'+esc(m.t)+'</div><div class="d">'+
 document.getElementById("support-body").innerHTML=headHTML("裏側サポート","BOYS PLANET · 2023","home")
 +'<div class="sup-head"><h3>'+esc(st.title)+'</h3><p>なおの持ち時間と人脈は有限だ。どこに力を注ぐかで、大翔のポイント（＝順位）が動く。配分の合計は'+SUPPORT_POINTS+'ポイントまで。</p></div>'
 +'<div class="sup-pts"><span>残りポイント</span><b>'+left+" / "+SUPPORT_POINTS+'</b></div><div style="margin:0 20px"><div class="sup-prog"><i style="width:'+(used/SUPPORT_POINTS*100)+'%"></i></div></div>'
-+(function(){let g=0; SUPPORT_MENUS.forEach(function(m){const p=supAlloc[m.id]||0; g+=Math.min(p,3)*m.eff+Math.max(0,p-3)*m.eff*0.5;}); if(st.phase>=3){const ep=Math.round(HIROTO_R2_BASE*(0.63+0.0048*Math.max(0,S.score2+Math.round(g)))); const rk=computeRank2(ep); return '<div class="sup-pts" style="margin-top:8px"><span>配分の見込み</span><b style="font-size:13px">+'+Math.round(g)+' スコア → 推定 '+fmt(ep)+'点・'+(rk===null?"脱落圏":rk+"位")+'</b></div>';} const ep=Math.round(HIROTO_BASE_POINTS*(0.72+0.0085*Math.max(0,S.score+g))); return '<div class="sup-pts" style="margin-top:8px"><span>配分の見込み</span><b style="font-size:13px">+'+Math.round(g)+' スコア → 推定 '+fmt(ep)+'点・'+computeRank(ep)+'位</b></div>';})()
++(function(){let g=0; SUPPORT_MENUS.forEach(function(m){const p=supAlloc[m.id]||0; g+=Math.min(p,3)*m.eff+Math.max(0,p-3)*m.eff*0.5;}); if(st.phase>=7){const epF=Math.round(1000000*(0.40+0.020*Math.max(0,S.score4+Math.round(g)))); const rkF=computeRankF(epF); return '<div class="sup-pts" style="margin-top:8px"><span>配分の見込み</span><b style="font-size:13px">+'+Math.round(g)+' スコア → 推定 '+fmt(epF)+'点・'+rkF+'位</b></div>';} if(st.phase>=5){const ep3=Math.round(HIROTO_R3_BASE*(0.33+0.0095*Math.max(0,S.score3+Math.round(g)))); const rk3=computeRank3(ep3); return '<div class="sup-pts" style="margin-top:8px"><span>配分の見込み</span><b style="font-size:13px">+'+Math.round(g)+' スコア → 推定 '+fmt(ep3)+'点・'+(rk3===null?"脱落圏":rk3+"位")+'</b></div>';} if(st.phase>=3){const ep=Math.round(HIROTO_R2_BASE*(0.63+0.0048*Math.max(0,S.score2+Math.round(g)))); const rk=computeRank2(ep); return '<div class="sup-pts" style="margin-top:8px"><span>配分の見込み</span><b style="font-size:13px">+'+Math.round(g)+' スコア → 推定 '+fmt(ep)+'点・'+(rk===null?"脱落圏":rk+"位")+'</b></div>';} const ep=Math.round(HIROTO_BASE_POINTS*(0.72+0.0085*Math.max(0,S.score+g))); return '<div class="sup-pts" style="margin-top:8px"><span>配分の見込み</span><b style="font-size:13px">+'+Math.round(g)+' スコア → 推定 '+fmt(ep)+'点・'+computeRank(ep)+'位</b></div>';})()
 +items
 +'<button class="big-btn" onclick="supConfirm()">この配分で進める</button>'
-+(st.phase>=3?'<p style="margin:4px 24px;font-size:11px;color:var(--sub2);line-height:1.7">※各項目は3ポイントまでは効率が高い（逓減あり）。史実の第2回発表で大翔は28位（1,077,299点）＝最後の生存枠。29位は1,016,789点。配分と選択で順位が変動します。</p>':'<p style="margin:4px 24px;font-size:11px;color:var(--sub2);line-height:1.7">※各項目は3ポイントまでは効率が高い（逓減あり）。史実の第1回発表で大翔は21位（1,381,864点）。配分と選択で順位が変動します。</p>');
++(st.phase>=7?'<p style="margin:4px 24px;font-size:11px;color:var(--sub2);line-height:1.7">※各項目は3ポイントまでは効率が高い（逓減あり）。史実のファイナルでは、デビュー圏の9位（ハン・ユジン）が1,196,622点。大翔は史実ではファイナル未進出のため、本人の基準ポイントはありません。配分と選択で順位が変動します。</p>':st.phase>=5?'<p style="margin:4px 24px;font-size:11px;color:var(--sub2);line-height:1.7">※各項目は3ポイントまでは効率が高い（逓減あり）。史実の第3回発表で大翔は21位（1,582,819点）で脱落。生存ライン18位は2,022,976点。配分と選択で順位が変動します。</p>':st.phase>=3?'<p style="margin:4px 24px;font-size:11px;color:var(--sub2);line-height:1.7">※各項目は3ポイントまでは効率が高い（逓減あり）。史実の第2回発表で大翔は28位（1,077,299点）＝最後の生存枠。29位は1,016,789点。配分と選択で順位が変動します。</p>':'<p style="margin:4px 24px;font-size:11px;color:var(--sub2);line-height:1.7">※各項目は3ポイントまでは効率が高い（逓減あり）。史実の第1回発表で大翔は21位（1,381,864点）。配分と選択で順位が変動します。</p>');
 }
 function supAdj(id,d){const used=SUPPORT_MENUS.reduce(function(a,m){return a+supAlloc[m.id];},0); const nv=supAlloc[id]+d; if(nv<0||nv>5)return; if(d>0&&used>=SUPPORT_POINTS){toast("ポイントが足りません"); return;} supAlloc[id]=nv; renderSupport();}
 function supConfirm(){
@@ -2154,12 +2541,67 @@ top.forEach(function(r,i){r.rank=i+1;});
 if(hp<=923750){const h=top.find(function(r){return r.id==="hiroto";}); if(h)h.rank=null;}
 return top.concat(ELIM_R2.slice(2).map(function(e){return {id:e[1],points:e[2],rank:e[0]};}));
 }
+function rankRows3(){
+const hp=(S.heroPoints3!==null&&S.heroPoints3!==undefined)?S.heroPoints3:computeHeroPoints3();
+const top=ANNOUNCE_R3.map(function(r){return {id:r[0],points:r[1]};});
+top.push({id:"hiroto",points:hp});
+top.push({id:"zihao",points:1889270});
+top.push({id:"woongki",points:1817478});
+top.sort(function(a,b){return b.points-a.points;});
+top.forEach(function(r,i){r.rank=i+1;});
+if(hp<=HIROTO_R3_BASE){const h=top.find(function(r){return r.id==="hiroto";}); if(h)h.rank=null;}
+return top.concat(ELIM_R3.slice(2).map(function(e){return {id:e[1],points:e[2],rank:e[0]};}));
+}
+function rankRowsF(){
+const hp=(S.heroPointsF!==null&&S.heroPointsF!==undefined)?S.heroPointsF:computeHeroPointsF();
+const rows=finOthers().map(function(r){return {id:r[0],points:r[1]};});
+rows.push({id:"hiroto",points:hp});
+rows.sort(function(a,b){return b.points-a.points;});
+rows.forEach(function(r,i){r.rank=i+1;});
+return rows;
+}
 function rankSetView(v){S.rankView=v; save(); renderRankScreen();}
 function renderRankScreen(){
-const showR2=(S.heroPoints2!==null&&S.heroPoints2!==undefined)||curStep().type==="rank2";
-const view=showR2?(S.rankView||2):1;
+const has2=(S.heroPoints2!==null&&S.heroPoints2!==undefined)||curStep().type==="rank2";
+const has3=(S.heroPoints3!==null&&S.heroPoints3!==undefined)||curStep().type==="rank3";
+const has4=(S.heroPointsF!==null&&S.heroPointsF!==undefined)||curStep().type==="rankf";
+let view=S.rankView||1;
+if(view===4&&!has4)view=3; if(view===3&&!has3)view=2; if(view===2&&!has2)view=1;
 let html=headHTML("順位表","BOYS PLANET ランキング","home");
-if(showR2){html+='<div class="rank-tabs"><span class="'+(view===1?"on":"")+'" onclick="rankSetView(1)">第1回発表</span><span class="'+(view===2?"on":"")+'" onclick="rankSetView(2)">第2回発表</span></div>';}
+if(has2||has3||has4){html+='<div class="rank-tabs"><span class="'+(view===1?"on":"")+'" onclick="rankSetView(1)">第1回発表</span>'+(has2?'<span class="'+(view===2?"on":"")+'" onclick="rankSetView(2)">第2回発表</span>':"")+(has3?'<span class="'+(view===3?"on":"")+'" onclick="rankSetView(3)">第3回発表</span>':"")+(has4?'<span class="'+(view===4?"on":"")+'" onclick="rankSetView(4)">ファイナル</span>':"")+"</div>";}
+if(view===4){
+const announcedF=S.part3Done||curStep().type==="rankf";
+if(!announcedF){html+='<div class="rank-hero"><h3>ファイナルはまだです</h3><p>第3部を進めると、ファイナルの結果がここに表示されます。</p></div>';}
+else{
+const ptsF=S.heroPointsF||0;
+html+='<div class="rank-hero"><span class="live">FINAL</span><h3>ファイナル順位発表</h3><p>スターマスター：ファン・ミニョン｜蚕室室内体育館・生放送｜総投票数 9,398,916票（184か国）<br>大翔の結果：<b style="color:var(--gold)">'+S.heroRankF+'位 · '+fmt(ptsF)+'点'+(heroDebut()?" ― デビュー決定":"")+'</b>（史実：ファイナル未進出）</p></div>';
+html+=rankRowsF().map(function(r){const m=ROSTER_MAP[r.id]; const c=CAST[r.id]; const nm=r.id==="hiroto"?"井汲大翔":(c?c.name:(m?m.n:r.id)); const gr=r.id==="hiroto"?"G":(c?c.grp:(m?m.g:""));
+let cls="rank-row"; if(r.rank<=9)cls+=" top9"; if(r.id==="hiroto")cls+=" hero";
+return '<div class="'+cls+'" style="cursor:pointer" onclick="openProfile(\''+r.id+'\')"><span class="rk">'+r.rank+"</span>"+avHTML(r.id,"sm")+'<span><span class="nm">'+esc(nm)+'</span><span class="gr '+(gr==="G"?"g":"k")+'">'+gr+'</span></span><span class="pts">'+fmt(r.points)+'点</span></div>'+(r.rank===9?'<div class="rank-zone">―― デビュー圏（9位）ライン ――</div>':"");
+}).join("");
+html+='<p style="margin:14px 20px;font-size:11px;color:var(--sub2);line-height:1.7">※大翔以外の順位・ポイントはファイナルの公表値（出典：Wikipedia『BOYS PLANET』）。ファイナルは全員のポイントが公表されているため、大翔の順位も正確に確定します。大翔のポイントはプレイ内容で変動します。なお、大翔が進出した世界線では史実18位のナ・カムデンがファイナルの枠（18人）から外れるため、表は他の17名＋大翔で構成しています。</p>';
+if(curStep().type==="rankf"&&!S.part3Done){html+='<button class="big-btn" onclick="completeStep(null,null)">結果を受け止める ›</button>';}
+}
+document.getElementById("rank-body").innerHTML=html;
+return;
+}
+if(view===3){
+const announced3=S.r3Done||curStep().type==="rank3";
+if(!announced3){html+='<div class="rank-hero"><h3>第3回生存者発表式はまだです</h3><p>第3部を進めると、発表式の結果がここに表示されます。<br>（参考）史実の第3回発表：1位 ソン・ハンビン 5,389,363点／生存ライン18位</p></div>';}
+else{
+const pts3=S.heroPoints3||0;
+const resTxt3=heroAlive3()?(S.heroRank3+'位 · '+fmt(pts3)+'点'):((S.heroRank3!==null&&S.heroRank3!==undefined)?(S.heroRank3+'位 · '+fmt(pts3)+'点 ― 生存ラインに届かず'):('脱落圏 · '+fmt(pts3)+'点'));
+html+='<div class="rank-hero"><span class="live">ANNOUNCEMENT</span><h3>第3回 生存者発表式</h3><p>スターマスター：チョン・ソミ｜28人 → 18人生存｜総投票数 31,750,293票（182か国）<br>大翔の結果：<b style="color:var(--gold)">'+resTxt3+'</b>（史実21位で脱落）</p></div>';
+html+=rankRows3().map(function(r){const m=ROSTER_MAP[r.id]; const c=CAST[r.id]; const nm=r.id==="hiroto"?"井汲大翔":(c?c.name:(m?m.n:r.id)); const gr=r.id==="hiroto"?"G":(c?c.grp:(m?m.g:""));
+let cls="rank-row"; if(r.rank!==null&&r.rank<=9)cls+=" top9"; if(r.id==="hiroto")cls+=" hero";
+return '<div class="'+cls+'" style="cursor:pointer" onclick="openProfile(\''+r.id+'\')"><span class="rk">'+(r.rank===null?"―":r.rank)+"</span>"+avHTML(r.id,"sm")+'<span><span class="nm">'+esc(nm)+'</span><span class="gr '+(gr==="G"?"g":"k")+'">'+gr+'</span></span><span class="pts">'+((r.points===null||r.points===undefined)?"―":fmt(r.points)+"点")+'</span></div>'+(r.rank===9?'<div class="rank-zone">―― デビュー圏（9位）ライン ――</div>':"")+(r.rank===18?'<div class="rank-zone" style="color:var(--danger)">―― 生存ライン（18位） ――</div>':"");
+}).join("");
+html+='<p style="margin:14px 20px;font-size:11px;color:var(--sub2);line-height:1.7">※大翔以外の生存者の順位・ポイントは第3回生存者発表式の公表値（出典：Wikipedia『BOYS PLANET』／namu.wiki）。脱落者は19位・20位のみポイントが公表されており、22位以下は順位のみのため「―」表示。大翔のポイントはプレイ内容で変動し、1,582,819点以下の場合は正確な順位を確定できません（「―」表示）。</p>';
+if(curStep().type==="rank3"&&!S.r3Done){html+='<button class="big-btn" onclick="completeStep(null,null)">結果を受け止める ›</button>';}
+}
+document.getElementById("rank-body").innerHTML=html;
+return;
+}
 if(view===2){
 const announced2=S.part2Done||curStep().type==="rank2";
 if(!announced2){html+='<div class="rank-hero"><h3>第2回生存者発表式はまだです</h3><p>第2部を進めると、発表式の結果がここに表示されます。<br>（参考）史実の第2回発表：1位 ソン・ハンビン 7,043,213点／生存ライン28位</p></div>';}
@@ -2195,7 +2637,7 @@ document.getElementById("rank-body").innerHTML=html;
 function renderMembers(){
 let html=headHTML("メンバー","主要キャスト＆全93名名簿","home");
 html+='<div class="mem-sec">主要キャスト（写真つき）</div><div class="mem-grid">'+CAST_ORDER.map(function(id){const c=CAST[id]; return '<div class="mem-cell" onclick="openProfile(\''+id+'\')"><img src="'+c.img+'" alt=""><div class="nm">'+esc(c.name)+'</div><div class="sb2">'+(c.grp?c.grp+"グループ · ":"")+starStr(c.star)+"</div></div>";}).join("")+"</div>";
-html+='<div class="mem-sec">マスター陣</div>'+["minhyun","sunmi","jingu","seokhoon","hanbyul","solji","kooyoung","youngjun","lipj","ph1"].map(function(id){const c=CAST[id]; return '<div class="mrow" onclick="openProfile(\''+id+'\')">'+avHTML(id,"sm")+'<span class="nm">'+esc(c.name)+'</span><span class="inf">'+esc(c.agency)+"</span></div>";}).join("");
+html+='<div class="mem-sec">マスター陣</div>'+["minhyun","sunmi","jingu","minhyeok","key","gwon","somi","jaehwan","seokhoon","hanbyul","solji","kooyoung","youngjun","lipj","ph1"].map(function(id){const c=CAST[id]; return '<div class="mrow" onclick="openProfile(\''+id+'\')">'+avHTML(id,"sm")+'<span class="nm">'+esc(c.name)+'</span><span class="inf">'+esc(c.agency)+"</span></div>";}).join("");
 let chips=""; [["all","すべて"],["K","Kグループ"],["G","Gグループ"],["alive","生存"],["out","脱落"]].forEach(function(f){chips+='<span class="'+(memFilter===f[0]?"on":"")+'" onclick="memSetFilter(\''+f[0]+'\')">'+f[1]+"</span>";});
 html+='<div class="mem-sec">全参加者名簿（93名）</div><div class="mem-search" style="position:static;padding-top:0"><input id="mem-q" type="text" placeholder="名前・読みで検索" value="'+esc(S.memQuery)+'" oninput="S.memQuery=this.value;save();renderMembersList()"></div><div class="mem-chips">'+chips+'</div><div id="mem-list"></div>';
 document.getElementById("members-body").innerHTML=html;
@@ -2255,7 +2697,8 @@ sub.innerHTML=(ln.who==="me"?'<span class="me-t">なお：</span>':'<span style=
 if(ln.v){const v=VOICES[ln.v]; if(v)sub.innerHTML+='<div class="bubble voice-bub call-voice" onclick="event.stopPropagation();playVoice(\''+ln.v+'\',this)"><span class="play">▶</span><span class="wave"></span><span style="font-size:12px;opacity:.65">'+v.label+"</span></div>";}
 if(callState.idx===st.script.length-1&&!callState.chose){
 callState.chose=true;
-document.getElementById("call-choices").innerHTML='<button onclick="callChoice(0)">「一緒にデビューまで行こう」</button><button onclick="callChoice(1)">「まずは明日。絶対に残ろう」</button>';
+const chs=st.callChoices||[{label:"「一緒にデビューまで行こう」",resp:"……約束、やな。じゃあ、俺も約束する。今度こそ、最後まで行く"},{label:"「まずは明日。絶対に残ろう」",resp:"うん。……絶対に、残る。ほな、おやすみ。なおさん"}];
+document.getElementById("call-choices").innerHTML=chs.map(function(c,i){return '<button onclick="callChoice('+i+')">'+esc(c.label)+"</button>";}).join("");
 }
 }else if(callState.chose&&!callState.done){
 }
@@ -2264,8 +2707,8 @@ function callChoice(i){
 if(!callState)return;
 document.getElementById("call-choices").innerHTML="";
 const sub=document.getElementById("call-sub");
-if(i===0)sub.innerHTML='<span style="color:var(--accent);font-weight:700">大翔：</span>……約束、やな。じゃあ、俺も約束する。今度こそ、最後まで行く';
-else sub.innerHTML='<span style="color:var(--accent);font-weight:700">大翔：</span>うん。……絶対に、残る。ほな、おやすみ。なおさん';
+const chs=callState.st.callChoices||[{resp:"……約束、やな。じゃあ、俺も約束する。今度こそ、最後まで行く"},{resp:"うん。……絶対に、残る。ほな、おやすみ。なおさん"}];
+sub.innerHTML='<span style="color:var(--accent);font-weight:700">大翔：</span>'+esc(chs[Math.min(i,chs.length-1)].resp);
 callState.done=true;
 sub.innerHTML+='<br><span style="color:var(--gold);font-size:12.5px">― 下のボタンで通話を終了できます</span>';
 }
@@ -2282,10 +2725,10 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音楽</span><button onclick="S.musicOn=!S.musicOn; if(!S.musicOn)stopMusic(); save(); renderSettings()">'+(S.musicOn?"ON":"OFF")+"</button></div>"
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
-+'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）6本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」（iTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v3.1｜第2部の整合性監査（ゲート・数値・リスタート導線）\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v3.1 ›</span></div>'
++'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.0｜第3部（アーティストバトル〜ファイナル・両エンディング）を追加し三部作が完結\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.0 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v3.1<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第2部ではデュアルポジションバトル「Rush Hour」と第2回生存者発表式（史実28位＝最後の生存枠）を扱い、プレイ次第で脱落分岐もあります。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.0<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
