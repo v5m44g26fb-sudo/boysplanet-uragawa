@@ -50,8 +50,6 @@ main.noscroll{overflow:hidden}
 .appicon .ic{width:58px;height:58px;border-radius:18px;display:block;box-shadow:0 6px 16px rgba(2,6,18,.35)}
 .appicon .ic svg{width:58px;height:58px;display:block;border-radius:18px}
 .appicon:active .ic{transform:scale(.9)}
-.appicon[data-app="members"] .ic{background:linear-gradient(150deg,#37306e,#241d4e)}
-.appicon[data-app="settings"] .ic{background:linear-gradient(150deg,#33506e,#1d3049)}
 .appicon span{font-size:11.5px;color:var(--sub);font-weight:500}
 .appicon .bdg{position:absolute;top:-5px;right:calc(50% - 36px);background:#ff4d5e;color:#fff;font-size:10.5px;border-radius:999px;padding:1.5px 6.5px;font-weight:800;border:2px solid #0a1730;z-index:2}
 #stat-strip{margin:12px 16px 0;background:linear-gradient(165deg,rgba(30,50,98,.65),rgba(16,28,56,.9));border:1px solid var(--line-soft);border-radius:18px;padding:15px 16px 13px;font-size:12px;color:var(--sub);box-shadow:var(--shadow)}
@@ -124,7 +122,7 @@ main.noscroll{overflow:hidden}
 #chat-inputbar{display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;align-items:center;flex:0 0 auto}
 #chat-fake{flex:1;background:#f2f2f7;border-radius:999px;color:#999;padding:11px 15px;font-size:16px;min-height:44px;display:flex;align-items:center}
 .av{width:48px;height:48px;border-radius:50%;flex:0 0 auto;object-fit:cover;background:#2a4a7f;border:1px solid rgba(255,255,255,.08)}
-.av-init{width:48px;height:48px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2c5f8a,#7cc7ff);color:#fff;font-weight:700;font-size:19px}
+.av-init{width:48px;height:48px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2c5f8a,#7cc7ff);color:#fff;font-weight:600;font-size:19px;font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;line-height:1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07),inset 0 2px 2px rgba(255,255,255,.30),inset 0 -2px 3px rgba(0,0,0,.16)}
 .av.sm,.av-init.sm{width:34px;height:34px;font-size:14px}
 .av-init.grp{background:linear-gradient(135deg,#5b2ea6,#c792ff)}
 /* twitter (2023) */
@@ -149,7 +147,7 @@ main.noscroll{overflow:hidden}
 .tw-user-row .uhd{color:#536471;font-size:13.5px}
 .tw-replyctx{border-bottom:1px solid #eff3f4}
 .tw-replyctx .ctxp{display:flex;gap:8px;padding:11px 16px 0;align-items:center;color:#536471;font-size:12.5px;min-width:0}
-.tw-replyctx .ctxp .cav{width:20px;height:20px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:10px;cursor:pointer;object-fit:cover}
+.tw-replyctx .ctxp .cav{width:20px;height:20px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:10px;cursor:pointer;object-fit:cover;font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;line-height:1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 1px 1px rgba(255,255,255,.32),inset 0 -1px 2px rgba(0,0,0,.18)}
 .tw-replyctx .ctxp .ctx-tx{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
 .tw-replyctx .ctxp .ctx-to{flex:0 0 auto}
 .tw-replyctx .tweet{border-bottom:none}
@@ -214,6 +212,7 @@ main.noscroll{overflow:hidden}
 .tw-av{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;cursor:pointer;object-fit:cover}
 .tw-av.sq{border-radius:11px}
 .tw-av.self{background:linear-gradient(165deg,#ffb59d 0%,#fb8659 55%,#f96a3f 100%);font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;font-weight:600;font-size:16px;line-height:1;box-shadow:inset 0 0 0 1px rgba(23,10,0,.06),inset 0 2px 2px rgba(255,255,255,.35),inset 0 -2px 3px rgba(160,50,10,.16)}
+.tw-av.ini{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;font-weight:600;font-size:16px;line-height:1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 2px 2px rgba(255,255,255,.32),inset 0 -2px 3px rgba(0,0,0,.18)}
 .tw-bdg{width:16px;height:16px;flex:0 0 auto;vertical-align:-2.5px;margin-left:2px}
 .tweet{display:flex;gap:10px;padding:12px 16px;border-bottom:1px solid #eff3f4;cursor:pointer;background:#fff}
 .tweet:active{background:#f7f9f9}
@@ -268,6 +267,7 @@ main.noscroll{overflow:hidden}
 .tw-pf-avrow{display:flex;justify-content:space-between;align-items:flex-end;margin-top:-26px}
 .tw-pf-avrow .tw-av{width:66px;height:66px;font-size:23px;border:3.5px solid #fff;cursor:default}
 .tw-pf-avrow .tw-av.self{font-size:25px}
+.tw-pf-avrow .tw-av.ini{font-size:25px}
 .tw-pf-avrow .tw-av.sq{border-radius:16px}
 .tw-followbtn{border-radius:999px;padding:8px 17px;font-size:13.5px;font-weight:700;cursor:pointer;border:1px solid #cfd9de;background:#0f1419;color:#fff;min-height:36px}
 .tw-followbtn.foling{background:#fff;color:#0f1419}
@@ -1467,11 +1467,18 @@ function twReplies(t){return Math.max(1,Math.round(twNum(t.like)/23));}
 function twDateObj(t){const m=String(t.time).match(/(\d+)\.(\d+)\.(\d+)/); if(!m)return {short:String(t.time),full:String(t.time)}; return {short:m[2]+"月"+m[3]+"日",full:m[1]+"年"+m[2]+"月"+m[3]+"日"};}
 function twClock(t){let h=0; const s=t.id||""; for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%997; const H=10+(h%13), mm=h%60; return (H<12?"午前"+H:"午後"+(H===12?12:H-12))+":"+String(mm).padStart(2,"0");}
 const TW_PALETTE=["#794bc4","#e0245e","#ff7a00","#00ba7c","#f91880","#1d9bf0","#7856ff","#0f7ae5"];
+/* イニシャルアバター用：パレット色から自分用アバターと同じ3段グラデーション（淡→素色→深）を生成する */
+function twShade(hex,amt){const n=parseInt(hex.slice(1),16); let r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+if(amt>=0){r=Math.round(r+(255-r)*amt); g=Math.round(g+(255-g)*amt); b=Math.round(b+(255-b)*amt);}
+else{r=Math.round(r*(1+amt)); g=Math.round(g*(1+amt)); b=Math.round(b*(1+amt));}
+return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);}
+function twIniGrad(hex){return "linear-gradient(165deg,"+twShade(hex,.42)+" 0%,"+hex+" 55%,"+twShade(hex,-.20)+" 100%)";}
+function iniBgFor(str){let h=0; str=String(str||"?"); for(let i=0;i<str.length;i++)h=(h*33+str.charCodeAt(i))%997; return twIniGrad(TW_PALETTE[h%TW_PALETTE.length]);}
 function twAvHTML(handle,name){
 if(handle==="@_mnetboysplanet")return '<div class="tw-av sq" style="background:linear-gradient(135deg,#155e9e,#7a4fd0)">BP</div>';
 if(handle===TW_SELF.handle)return '<div class="tw-av self">'+esc(String(name||"な").slice(0,1))+"</div>";
 let h=0; for(let i=0;i<handle.length;i++)h=(h*33+handle.charCodeAt(i))%997;
-return '<div class="tw-av" style="background:'+TW_PALETTE[h%TW_PALETTE.length]+'">'+esc(String(name||"?").slice(0,1))+"</div>";
+return '<div class="tw-av ini" style="background:'+twIniGrad(TW_PALETTE[h%TW_PALETTE.length])+'">'+esc(String(name||"?").slice(0,1))+"</div>";
 }
 function twAi(paths){
 return '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+paths+"</svg>";
@@ -1610,7 +1617,7 @@ return mine.map(function(t){
 const p=twParentOf(t);
 let ctx="";
 if(p){let hsh=0; for(let i=0;i<p.handle.length;i++)hsh=(hsh*33+p.handle.charCodeAt(i))%997;
-const cavBg=(p.handle==="@_mnetboysplanet")?"linear-gradient(135deg,#155e9e,#7a4fd0)":TW_PALETTE[hsh%TW_PALETTE.length];
+const cavBg=(p.handle==="@_mnetboysplanet")?"linear-gradient(135deg,#155e9e,#7a4fd0)":twIniGrad(TW_PALETTE[hsh%TW_PALETTE.length]);
 const cavTx=(p.handle==="@_mnetboysplanet")?"BP":esc(p.name.slice(0,1));
 ctx='<div class="ctxp"><span class="cav" style="background:'+cavBg+'" onclick="event.stopPropagation();twOpenProfile(\''+p.handle+'\')">'+cavTx+'</span><span class="ctx-tx"><b>'+esc(p.name)+'</b> '+esc(p.handle)+" · "+esc(p.text.replace(/\n/g," "))+'</span><span class="ctx-to">への返信</span></div>';}
 return '<div class="tw-replyctx">'+ctx+twTweetHTML(t)+"</div>";
@@ -1738,14 +1745,14 @@ function igOpenComments(pid){
 let hsh=0; for(let i=0;i<pid.length;i++)hsh=(hsh*31+pid.charCodeAt(i))%997;
 const cs=[IG_COMMENTS[hsh%IG_COMMENTS.length],IG_COMMENTS[(hsh+1)%IG_COMMENTS.length],IG_COMMENTS[(hsh+3)%IG_COMMENTS.length]];
 let html='<div class="sheet-title">コメント</div>';
-cs.forEach(function(c){html+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:linear-gradient(135deg,#a83a8c,#5e2a9e)">'+esc(c[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(c[0])+'</b>　'+esc(c[1])+"</div></div>";});
+cs.forEach(function(c){html+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:'+iniBgFor(c[0])+'">'+esc(c[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(c[0])+'</b>　'+esc(c[1])+"</div></div>";});
 html+='<div class="sheet-item" style="color:#8e8e8e" onclick="toast(\'コメントの投稿は公式アカウント運用のため制限されています\')">💬 コメントを追加…</div>';
 openSheet(html);
 }
 function openIgActivity(){
 const rows=[["roto_dan_jp","さんが boysplanet.official の投稿をいいねしました","2時間前"],["bp_live_jp","さんが boysplanet.official をフォローし始めました","5時間前"],["planet_fan_kr","さんが boysplanet.official の投稿をいいねしました","昨日"]];
 let html='<div class="sheet-title">アクティビティ</div>';
-rows.forEach(function(r){html+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:linear-gradient(135deg,#a83a8c,#5e2a9e)">'+esc(r[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(r[0])+"</b>"+esc(r[1])+'<div style="color:#8e8e8e;font-size:12px">'+esc(r[2])+"</div></div></div>";});
+rows.forEach(function(r){html+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:'+iniBgFor(r[0])+'">'+esc(r[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(r[0])+"</b>"+esc(r[1])+'<div style="color:#8e8e8e;font-size:12px">'+esc(r[2])+"</div></div></div>";});
 openSheet(html);
 }
 function openStory(i){
@@ -1903,9 +1910,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.8｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.8 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.9｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.9 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.8<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.9<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
