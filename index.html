@@ -1956,9 +1956,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v2.4｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v2.4 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v2.5｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v2.5 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v2.4<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v2.5<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
