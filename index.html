@@ -134,7 +134,7 @@ main.noscroll{overflow:hidden}
 .tw-scroll::-webkit-scrollbar{display:none}
 .tw-top{display:flex;align-items:center;gap:4px;padding:6px 8px 2px;background:rgba(255,255,255,.94);flex:0 0 auto}
 .tw-top .backbtn{color:#0f1419;margin-left:-6px}
-.tw-top .me-av{width:31px;height:31px;border-radius:50%;background:linear-gradient(135deg,#3d5fd1,#7a4fd0);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex:0 0 auto}
+.tw-top .me-av{width:31px;height:31px;border-radius:50%;background:linear-gradient(165deg,#ffb59d 0%,#fb8659 55%,#f96a3f 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;line-height:1;box-shadow:inset 0 0 0 1px rgba(23,10,0,.06),inset 0 1.5px 1.5px rgba(255,255,255,.35),inset 0 -1.5px 2.5px rgba(160,50,10,.16);flex:0 0 auto}
 .tw-top .bird{flex:1;display:flex;justify-content:center;color:#1d9bf0}
 .tw-top .ttl{flex:1;font-weight:800;font-size:16.5px;color:#0f1419;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tw-top .spark{width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#0f1419;flex:0 0 auto}
@@ -213,6 +213,7 @@ main.noscroll{overflow:hidden}
 .tw-dots{cursor:pointer;padding:2px 8px;margin-right:-8px}
 .tw-av{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;cursor:pointer;object-fit:cover}
 .tw-av.sq{border-radius:11px}
+.tw-av.self{background:linear-gradient(165deg,#ffb59d 0%,#fb8659 55%,#f96a3f 100%);font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,"Segoe UI",sans-serif;font-weight:600;font-size:16px;line-height:1;box-shadow:inset 0 0 0 1px rgba(23,10,0,.06),inset 0 2px 2px rgba(255,255,255,.35),inset 0 -2px 3px rgba(160,50,10,.16)}
 .tw-bdg{width:16px;height:16px;flex:0 0 auto;vertical-align:-2.5px;margin-left:2px}
 .tweet{display:flex;gap:10px;padding:12px 16px;border-bottom:1px solid #eff3f4;cursor:pointer;background:#fff}
 .tweet:active{background:#f7f9f9}
@@ -266,6 +267,7 @@ main.noscroll{overflow:hidden}
 .tw-pf-main{padding:0 16px}
 .tw-pf-avrow{display:flex;justify-content:space-between;align-items:flex-end;margin-top:-26px}
 .tw-pf-avrow .tw-av{width:66px;height:66px;font-size:23px;border:3.5px solid #fff;cursor:default}
+.tw-pf-avrow .tw-av.self{font-size:25px}
 .tw-pf-avrow .tw-av.sq{border-radius:16px}
 .tw-followbtn{border-radius:999px;padding:8px 17px;font-size:13.5px;font-weight:700;cursor:pointer;border:1px solid #cfd9de;background:#0f1419;color:#fff;min-height:36px}
 .tw-followbtn.foling{background:#fff;color:#0f1419}
@@ -318,7 +320,8 @@ main.noscroll{overflow:hidden}
 #notif-banner{position:absolute;top:calc(8px + env(safe-area-inset-top));left:10px;right:10px;z-index:45;background:rgba(250,250,252,.97);color:#111;border-radius:22px;padding:11px 14px;display:none;gap:11px;align-items:center;box-shadow:0 14px 34px rgba(0,0,0,.4);cursor:pointer}
 #notif-banner.on{display:flex;animation:nbIn .35s cubic-bezier(.22,.8,.32,1) both}
 @keyframes nbIn{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
-#notif-banner .nb-ic{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:19px;flex:0 0 auto;color:#fff}
+#notif-banner .nb-ic{width:36px;height:36px;border-radius:9px;flex:0 0 auto;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+#notif-banner .nb-ic svg{width:36px;height:36px;display:block}
 #notif-banner .nb-tx{flex:1;min-width:0}
 #notif-banner .nb-tx .a{font-size:13px;display:flex;justify-content:space-between;gap:8px}
 #notif-banner .nb-tx .a span{color:#8e8e93;font-size:11.5px}
@@ -1197,7 +1200,7 @@ const APP_ICONS=(function(){
 function gearTeeth(){let s=""; for(let i=0;i<8;i++){s+='<rect x="28.1" y="11.5" width="3.8" height="10" rx="1.9" transform="rotate('+(i*45)+" 30 30)\"/>";} return s;}
 return {
 talk:'<svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60" fill="#06C755"/><path d="M30 8c12.2 0 22 8.1 22 18.1 0 10-9.8 18-22 18-2.6 0-5.1-.4-7.4-1.1C19.9 44.9 14.9 48 14.9 48l2.4-7.2C11.9 37.3 8 32.1 8 26.1 8 16.1 17.8 8 30 8z" fill="#fff"/><text x="30" y="31.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11.5" font-weight="900" letter-spacing=".5" fill="#06C755">LINE</text></svg>',
-mnet:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-mnet-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff2e92"/><stop offset=".55" stop-color="#b565f0"/><stop offset="1" stop-color="#39d0f5"/></linearGradient></defs><rect width="60" height="60" fill="#fff"/><rect x="8.5" y="16.5" width="40" height="31" rx="9.5" fill="none" stroke="url(#ic-mnet-g)" stroke-width="3.6"/><path d="M17.5 41.5v-15c0-3.4 2.6-4.4 4.6-1.6l5.4 11c1 2 2.9 2 3.9 0l5.4-11c2-2.8 4.6-1.8 4.6 1.6v15" fill="none" stroke="#f91f8e" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M51.5 6.5v9M47 11h9" stroke="#f91f8e" stroke-width="4" stroke-linecap="round"/></svg>',
+mnet:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-mnet-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff2e92"/><stop offset=".55" stop-color="#b565f0"/><stop offset="1" stop-color="#39d0f5"/></linearGradient></defs><rect width="60" height="60" fill="#fff"/><rect x="6" y="13.5" width="48" height="35" rx="10.5" fill="none" stroke="url(#ic-mnet-g)" stroke-width="4.3"/><g transform="translate(29.5 31) scale(1.22) translate(-29.5 -32.75)"><path d="M17.5 41.5v-15c0-3.4 2.6-4.4 4.6-1.6l5.4 11c1 2 2.9 2 3.9 0l5.4-11c2-2.8 4.6-1.8 4.6 1.6v15" fill="none" stroke="#f91f8e" stroke-width="5.3" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M52 4v11M46.5 9.5h11" stroke="#f91f8e" stroke-width="4.6" stroke-linecap="round"/></svg>',
 twitter:'<svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60" fill="#1d9bf0"/><g transform="translate(14.5,15.5) scale(1.3)"><path fill="#fff" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></g></svg>',
 insta:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-ig-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".82" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-ig-g)"/><rect x="16.5" y="16.5" width="27" height="27" rx="8" fill="none" stroke="#fff" stroke-width="3.1"/><circle cx="30" cy="30" r="6.4" fill="none" stroke="#fff" stroke-width="3.1"/><circle cx="38.6" cy="21.4" r="2" fill="#fff"/></svg>',
 news:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-nw-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d4e89"/><stop offset="1" stop-color="#122c50"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-nw-g)"/><g><rect x="15" y="13" width="30" height="34" rx="2.5" fill="#fff"/><rect x="19" y="17.5" width="22" height="5" fill="#173f6e"/><rect x="19" y="25.5" width="10" height="8.5" fill="#9db8d2"/><rect x="31.5" y="25.5" width="9.5" height="2.1" fill="#5a708c"/><rect x="31.5" y="29.3" width="9.5" height="2.1" fill="#5a708c"/><rect x="31.5" y="33.1" width="9.5" height="2.1" fill="#5a708c"/><rect x="19" y="37" width="22" height="2.1" fill="#8fa5bd"/><rect x="19" y="40.8" width="22" height="2.1" fill="#8fa5bd"/></g></svg>',
@@ -1339,11 +1342,11 @@ let nbShownStep=-1, nbTimer=null;
 function maybeNotify(){
 if(nbShownStep===S.step)return;
 const un=unreadApps();
-const cand=[["twitter","🐦","Twitter","linear-gradient(150deg,#1d9bf0,#0f6cb8)",un.tw],["news","📰","ニュース","linear-gradient(150deg,#173f6e,#122c50)",un.nw],["insta","📷","Instagram","linear-gradient(150deg,#a83a8c,#5e2a9e)",un.ig]].filter(function(c){return c[4]>0;});
+const cand=[["twitter","Twitter",un.tw],["news","ニュース",un.nw],["insta","Instagram",un.ig]].filter(function(c){return c[2]>0;});
 if(!cand.length)return;
 nbShownStep=S.step; const c=cand[0];
 const el=document.getElementById("notif-banner"); if(!el)return;
-el.innerHTML='<div class="nb-ic" style="background:'+c[3]+'">'+c[1]+'</div><div class="nb-tx"><div class="a"><b>'+c[2]+'</b><span>今</span></div><div class="b">新しい投稿が'+c[4]+'件あります</div></div>';
+el.innerHTML='<div class="nb-ic">'+(APP_ICONS[c[0]]||"")+'</div><div class="nb-tx"><div class="a"><b>'+c[1]+'</b><span>今</span></div><div class="b">新しい投稿が'+c[2]+'件あります</div></div>';
 el.onclick=function(){el.classList.remove("on"); go(c[0]);};
 el.classList.add("on");
 clearTimeout(nbTimer); nbTimer=setTimeout(function(){el.classList.remove("on");},4200);
@@ -1466,6 +1469,7 @@ function twClock(t){let h=0; const s=t.id||""; for(let i=0;i<s.length;i++)h=(h*3
 const TW_PALETTE=["#794bc4","#e0245e","#ff7a00","#00ba7c","#f91880","#1d9bf0","#7856ff","#0f7ae5"];
 function twAvHTML(handle,name){
 if(handle==="@_mnetboysplanet")return '<div class="tw-av sq" style="background:linear-gradient(135deg,#155e9e,#7a4fd0)">BP</div>';
+if(handle===TW_SELF.handle)return '<div class="tw-av self">'+esc(String(name||"な").slice(0,1))+"</div>";
 let h=0; for(let i=0;i<handle.length;i++)h=(h*33+handle.charCodeAt(i))%997;
 return '<div class="tw-av" style="background:'+TW_PALETTE[h%TW_PALETTE.length]+'">'+esc(String(name||"?").slice(0,1))+"</div>";
 }
@@ -1899,9 +1903,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.7｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.7 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.8｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.8 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.7<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.8<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
