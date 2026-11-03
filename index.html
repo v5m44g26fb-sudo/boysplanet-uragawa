@@ -190,6 +190,15 @@ main.noscroll{overflow:hidden}
 .twc-count{font-size:13px;color:#536471;font-variant-numeric:tabular-nums}
 .twc-count.warn{color:#ffad1f;font-weight:700}
 .twc-count.over{color:#f4212e;font-weight:700}
+.twc-imgwrap{padding:2px 16px 0}
+.twc-img{position:relative;border-radius:16px;overflow:hidden;border:1px solid #e8eef2}
+.twc-img img{width:100%;display:block;max-height:210px;object-fit:cover;object-position:top}
+.twc-img button{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(15,20,25,.75);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.twc-picbtn{background:none;border:none;font-size:19px;cursor:pointer;padding:4px 2px;line-height:1}
+.pic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:4px 14px 6px}
+.pic-grid .cell{aspect-ratio:1;overflow:hidden;border-radius:10px;cursor:pointer;background:#e8eef2}
+.pic-grid .cell img{width:100%;height:100%;object-fit:cover;display:block}
+.tw-dots{cursor:pointer;padding:2px 8px;margin-right:-8px}
 .tw-av{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;cursor:pointer;object-fit:cover}
 .tw-av.sq{border-radius:11px}
 .tw-bdg{width:16px;height:16px;flex:0 0 auto;vertical-align:-2.5px;margin-left:2px}
@@ -570,7 +579,7 @@ main.noscroll{overflow:hidden}
 </section>
 <section class="screen" id="screen-settings"><div id="settings-body"></div></section>
 </main>
-<div id="music-bar"><div class="mb-row"><span class="note">🎵</span><div class="ti"><div class="a" id="mb-title"></div><div class="b" id="mb-sub"></div></div><button id="mb-toggle">⏸</button><button id="mb-stop">✕</button></div><div class="mb-seek"><span id="mb-cur">0:00</span><input type="range" id="mb-seek" min="0" max="1000" value="0" aria-label="再生位置"><span id="mb-dur">0:00</span></div><div class="mb-modes"><button class="mb-tgl" id="mb-shuf" onclick="musToggleShuf()">🔀 シャッフル</button><button class="mb-tgl" id="mb-rep" onclick="musCycleRep()">🔁 リピート：オフ</button></div></div>
+<div id="music-bar"><div class="mb-row"><span class="note">🎵</span><div class="ti"><div class="a" id="mb-title"></div><div class="b" id="mb-sub"></div></div><button id="mb-prev" onclick="musSkip(-1)" aria-label="前の曲">⏮</button><button id="mb-toggle">⏸</button><button id="mb-next" onclick="musSkip(1)" aria-label="次の曲">⏭</button><button id="mb-stop">✕</button></div><div class="mb-seek"><span id="mb-cur">0:00</span><input type="range" id="mb-seek" min="0" max="1000" value="0" aria-label="再生位置"><span id="mb-dur">0:00</span></div><div class="mb-modes"><button class="mb-tgl" id="mb-shuf" onclick="musToggleShuf()">🔀 シャッフル</button><button class="mb-tgl" id="mb-rep" onclick="musCycleRep()">🔁 リピート：オフ</button></div></div>
 <div id="notif-banner"></div>
 <div id="sheet"></div>
 <div id="story-viewer"></div>
@@ -1044,7 +1053,7 @@ loc:"2023年2月24日 · 第1回生存者発表式（MC：ヨ・ジング）"},
 /* ============ ENGINE ============ */
 const SAVE_KEY = "bpSaveV1";
 let S = null;
-function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[]};}
+function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null};}
 
 function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
 function load(){try{const r=localStorage.getItem(SAVE_KEY); if(r){S=Object.assign(defState(),JSON.parse(r)); return;}}catch(e){} S=defState();}
@@ -1072,6 +1081,7 @@ function musModeSync(){const sh=document.getElementById("mb-shuf"), rp=document.
 function musApplyLoop(){if(musicAudio)musicAudio.loop=musLoopFor(musicKey);}
 function musToggleShuf(){S.musShuf=!S.musShuf; musPlayed={}; if(musicKey)musPlayed[musicKey]=true; musApplyLoop(); save(); musModeSync(); toast(S.musShuf?"シャッフルをONにしました":"シャッフルをOFFにしました");}
 function musCycleRep(){S.musRep=(S.musRep==="off")?"all":(S.musRep==="all"?"one":"off"); musApplyLoop(); save(); musModeSync(); toast("リピート："+(S.musRep==="all"?"すべて":S.musRep==="one"?"1曲":"オフ"));}
+function musSkip(dir){if(!musicKey||!TRACKS[musicKey]){playMusic(MUS_QUEUE[0]); return;} if(dir>0){let nx; if(S.musShuf){const rest=MUS_QUEUE.filter(function(k){return k!==musicKey;}); nx=rest[Math.floor(Math.random()*rest.length)];} else {nx=MUS_QUEUE[(MUS_QUEUE.indexOf(musicKey)+1)%MUS_QUEUE.length];} playMusic(nx,true); return;} if(musicAudio&&musicAudio.currentTime>3){musicAudio.currentTime=0; mbSync(); return;} const i=MUS_QUEUE.indexOf(musicKey); playMusic(MUS_QUEUE[(i-1+MUS_QUEUE.length)%MUS_QUEUE.length],true);}
 function musEnded(){if(S.musRep==="all"){let nx; if(S.musShuf){const rest=MUS_QUEUE.filter(function(k){return k!==musicKey;}); nx=rest[Math.floor(Math.random()*rest.length)];} else {nx=MUS_QUEUE[(MUS_QUEUE.indexOf(musicKey)+1)%MUS_QUEUE.length];} playMusic(nx,true); return;} if(S.musShuf){const rest=MUS_QUEUE.filter(function(k){return !musPlayed[k];}); if(rest.length){playMusic(rest[Math.floor(Math.random()*rest.length)],true); return;}} document.getElementById("mb-toggle").textContent="▶"; mbSync(); musUiSync();}
 function musUiSync(){if(curScreen==="mnet"&&typeof mpView!=="undefined"&&mpView==="contents")renderMnetContents();}
 function playMusic(key,auto){if(!S.musicOn)return; const tr=TRACKS[key]; if(!tr)return; stopVoice(); if(musicAudio&&musicKey===key){musicAudio.play().catch(function(){}); document.getElementById("mb-toggle").textContent="⏸"; musUiSync(); return;} stopMusic(); if(!auto)musPlayed={}; musPlayed[key]=true; musicAudio=new Audio(tr.src); musicAudio.loop=musLoopFor(key); musicAudio.volume=(S.vol/100)*0.8; musicKey=key; musicAudio.addEventListener("timeupdate",mbSync); musicAudio.addEventListener("loadedmetadata",mbSync); musicAudio.addEventListener("ended",musEnded); musicAudio.play().catch(function(){}); const mb=document.getElementById("music-bar"); mb.classList.add("on"); document.getElementById("mb-title").textContent=tr.title; document.getElementById("mb-sub").textContent=tr.artist+"｜"+tr.note; document.getElementById("mb-toggle").textContent="⏸"; mbSync(); musUiSync();}
@@ -1343,7 +1353,7 @@ function mpcSeek(el){if(!musicAudio)return; const d=musicAudio.duration; if(isFi
 function mpNowHTML(){
 if(!musicKey||!TRACKS[musicKey])return "";
 const tr=TRACKS[musicKey]; const playing=musicAudio&&!musicAudio.paused;
-return '<div class="mp-now"><div class="mp-now-head"><button class="mp-now-ic" onclick="toggleMusic()">'+(playing?"⏸":"▶")+'</button><div class="mp-now-meta"><div class="t">'+esc(tr.title)+'</div><div class="s">'+esc(tr.artist)+" · "+(playing?"再生中":"一時停止中")+'（下部バーと連動）</div></div></div>'
+return '<div class="mp-now"><div class="mp-now-head"><button class="mp-now-ic" onclick="musSkip(-1)" aria-label="前の曲">⏮</button><button class="mp-now-ic" onclick="toggleMusic()">'+(playing?"⏸":"▶")+'</button><button class="mp-now-ic" onclick="musSkip(1)" aria-label="次の曲">⏭</button><div class="mp-now-meta"><div class="t">'+esc(tr.title)+'</div><div class="s">'+esc(tr.artist)+" · "+(playing?"再生中":"一時停止中")+'（下部バーと連動）</div></div></div>'
 +'<div class="mp-now-seek"><span class="mpc-cur">0:00</span><input type="range" class="mpc-seek" min="0" max="1000" value="0" oninput="mpcSeek(this)" aria-label="再生位置"><span class="mpc-dur">0:00</span></div></div>';
 }
 function renderMnetContents(){
@@ -1447,7 +1457,7 @@ const d=twDateObj(t);
 return '<article class="tweet" onclick="twOpenTweet(\''+t.id+'\')">'
 +'<div style="flex:0 0 auto" onclick="event.stopPropagation();twOpenProfile(\''+t.handle+'\')">'+twAvHTML(t.handle,t.name)+"</div>"
 +'<div class="meta"><div class="nm"><span class="nmn" onclick="event.stopPropagation();twOpenProfile(\''+t.handle+'\')">'+esc(t.name)+"</span>"+twBadge(t)+' <span class="hd">'+esc(t.handle)+" · "+d.short+"</span></div>"
-+'<div class="tx">'+esc(t.text)+'</div><div class="acts">'+twActsHTML(t,false)+"</div></div></article>";
++'<div class="tx">'+esc(t.text)+'</div>'+(t.img?'<img class="tw-tweet-img" src="'+t.img+'" alt="">':"")+'<div class="acts">'+twActsHTML(t,false)+"</div></div></article>";
 }
 function twIco(path){return '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="'+path+'"/></svg>';}
 function twNavHTML(){
@@ -1466,6 +1476,9 @@ function twOpenProfile(handle){twUI.view="profile"; twUI.profile=handle; twUI.pf
 function twToggleLike(id){twLiked[id]=!twLiked[id]; twPersist(); renderTwitter();}
 function twToggleRT(id){twRTed[id]=!twRTed[id]; twPersist(); renderTwitter();}
 function twToggleFollow(handle){twFollow[handle]=!twFollow[handle]; twPersist(); toast(twFollow[handle]?"フォローしました":"フォローを解除しました"); renderTwitter();}
+function twMineMenu(id){openSheet('<div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twAskDelete(\''+id+'\')">🗑 ツイートを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twAskDelete(id){openSheet('<div class="sheet-title">ツイートを削除しますか？</div><div class="sheet-sub">この操作は取り消せません。タイムラインやプロフィールからも削除されます。</div><div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twDoDelete(\''+id+'\')">削除する</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twDoDelete(id){S.myTweets=(S.myTweets||[]).filter(function(t){return t.id!==id;}); if(twLiked[id])delete twLiked[id]; if(twRTed[id])delete twRTed[id]; twPersist(); closeSheet(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートを削除しました");}
 function twBackHeadHTML(title){return '<div class="tw-detail-head"><button class="backbtn" onclick="twGo(\'feed\')">‹</button><div class="ttl">'+esc(title)+"</div></div>";}
 function twFeedHeadHTML(){
 return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av" style="cursor:pointer" onclick="twOpenProfile(\''+TW_SELF.handle+'\')">な</div><div class="bird">'+TW_BIRD+'</div><div class="spark">✨</div></div>'
@@ -1484,8 +1497,9 @@ function twDetailHTML(){
 const t=twAll().find(function(x){return x.id===twUI.detail;});
 if(!t)return '<div class="tw-empty"><div class="ed">ツイートが見つかりませんでした。</div></div>';
 const d=twDateObj(t); const quotes=Math.max(1,Math.round(twNum(t.rt)/9));
-let h='<div class="tw-detail-av"><div style="flex:0 0 auto;cursor:pointer" onclick="twOpenProfile(\''+t.handle+'\')">'+twAvHTML(t.handle,t.name)+'</div><div class="who"><div class="nm">'+esc(t.name)+twBadge(t)+'</div><div class="hd">'+esc(t.handle)+'</div></div><span style="color:#536471;font-size:17px">⋯</span></div>'
+let h='<div class="tw-detail-av"><div style="flex:0 0 auto;cursor:pointer" onclick="twOpenProfile(\''+t.handle+'\')">'+twAvHTML(t.handle,t.name)+'</div><div class="who"><div class="nm">'+esc(t.name)+twBadge(t)+'</div><div class="hd">'+esc(t.handle)+'</div></div>'+(t.mine?'<span class="tw-dots" style="color:#536471;font-size:17px" onclick="twMineMenu(\''+t.id+'\')">⋯</span>':'<span style="color:#536471;font-size:17px">⋯</span>')+'</div>'
 +'<div class="tw-detail-tx">'+esc(t.text)+"</div>"
++(t.img?'<div style="padding:10px 16px 0"><img class="tw-tweet-img" style="margin-top:0" src="'+t.img+'" alt=""></div>':"")
 +'<div class="tw-detail-meta">'+twClock(t)+" · "+d.full+" · <b>"+twFmt(twViews(t))+"</b> 回表示</div>"
 +'<div class="tw-counts"><span><b>'+twFmt(twNum(t.rt)+(twRTed[t.id]?1:0))+"</b> 件のリツイート</span><span><b>"+twFmt(quotes)+"</b> 件の引用</span><span><b>"+twFmt(twNum(t.like)+(twLiked[t.id]?1:0))+"</b> 件のいいね</span></div>"
 +'<div class="tw-detail-acts">'+twActsHTML(t,true)+"</div>"
@@ -1530,6 +1544,11 @@ const cid=map[t.id]; if(!cid)return null;
 const c=CAST[cid]; return c?c.img:null;
 }
 function twMediaHTML(handle){
+if(handle===TW_SELF.handle){
+const mine=(S.myTweets||[]).filter(function(t){return t.img;});
+if(!mine.length)return '<div class="tw-empty"><div class="ed">メディア付きのツイートはまだありません。ツイートに写真を添付すると、ここに表示されます。</div></div>';
+return '<div class="tw-media-grid">'+mine.map(function(t){return '<div class="cell" onclick="twOpenTweet(\''+t.id+'\')"><img src="'+t.img+'" alt=""></div>';}).join("")+"</div>";
+}
 const mine=TWITTER.filter(function(t){return t.handle===handle&&t.at<=S.step&&twMediaImg(t);}).slice().reverse();
 if(!mine.length)return '<div class="tw-empty"><div class="ed">メディア付きのツイートはまだありません。</div></div>';
 return '<div class="tw-media-grid">'+mine.map(function(t){return '<div class="cell" onclick="twOpenTweet(\''+t.id+'\')"><img src="'+twMediaImg(t)+'" alt=""></div>';}).join("")+"</div>";
@@ -1595,12 +1614,22 @@ return list.map(function(t){const d=twDateObj(t); return '<div class="tw-notif" 
 }
 function twDmHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">メッセージ</div><div class="spark">✉️</div></div>';}
 function twDmHTML(){return '<div class="tw-empty"><div class="et">受信トレイへようこそ！</div><div class="ed">既存の会話がここに表示されます。合宿期間中、スタッフ用アカウントのダイレクトメッセージは運用チームが管理しています。</div></div>';}
-function twComposeHTML(){return '<div class="tw-compose" id="tw-compose"><div class="twc-head"><button class="twc-cancel" onclick="twComposeClose()">キャンセル</button><div class="twc-title">ツイート</div><button class="twc-post" id="twc-post" onclick="twPost()" disabled>ツイートする</button></div><div class="twc-body">'+twAvHTML(TW_SELF.handle,TW_SELF.name)+'<textarea id="twc-text" maxlength="280" placeholder="いまどうしてる？" oninput="twcUpd()"></textarea></div><div class="twc-foot"><span class="twc-globe">🌐 全員が返信できます</span><span class="twc-count" id="twc-count">280</span></div></div>';}
-function twComposeOpen(){const c=document.getElementById("tw-compose"); if(!c)return; c.classList.add("on"); twcUpd(); const t=document.getElementById("twc-text"); if(t)setTimeout(function(){try{t.focus({preventScroll:true});}catch(e){}},60);}
-function twComposeClose(){const c=document.getElementById("tw-compose"); if(c)c.classList.remove("on");}
-function twcUpd(){const t=document.getElementById("twc-text"), b=document.getElementById("twc-post"), cnt=document.getElementById("twc-count"); if(!t)return; const left=280-t.value.length; if(cnt){cnt.textContent=left; cnt.className="twc-count"+(left<0?" over":(left<=20?" warn":""));} if(b)b.disabled=!t.value.trim();}
+let twcSess={text:"",img:null};
+const TW_PIC_CHOICES=["hiroto","keita","zhanghao","hanbin","matthew","jiwoong"];
+function twcImgHTML(){return twcSess.img?'<div class="twc-img"><img src="'+twcSess.img+'" alt=""><button onclick="twPicRemove()" aria-label="写真をはずす">✕</button></div>':"";}
+function twComposeHTML(){return '<div class="tw-compose" id="tw-compose"><div class="twc-head"><button class="twc-cancel" onclick="twComposeClose()">キャンセル</button><div class="twc-title">ツイート</div><button class="twc-post" id="twc-post" onclick="twPost()" disabled>ツイートする</button></div><div class="twc-body">'+twAvHTML(TW_SELF.handle,TW_SELF.name)+'<textarea id="twc-text" maxlength="280" placeholder="いまどうしてる？" oninput="twcUpd()">'+esc(twcSess.text)+'</textarea></div><div class="twc-imgwrap" id="twc-imgwrap">'+twcImgHTML()+'</div><div class="twc-foot"><button class="twc-picbtn" onclick="twPicSheet()" aria-label="写真を追加">🖼</button><span class="twc-globe">🌐 全員が返信できます</span><span class="twc-count" id="twc-count">280</span></div></div>';}
+function twComposeOpen(){const c=document.getElementById("tw-compose"); if(!c)return; if(!twcSess.text&&!twcSess.img&&S.twDraft){twcSess={text:S.twDraft.text||"",img:S.twDraft.img||null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=twcSess.text; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=twcImgHTML();} c.classList.add("on"); twcUpd(); const t=document.getElementById("twc-text"); if(t)setTimeout(function(){try{t.focus({preventScroll:true});}catch(e){}},60);}
+function twComposeHide(){const c=document.getElementById("tw-compose"); if(c)c.classList.remove("on");}
+function twComposeClose(){const cur=document.getElementById("twc-text"); if(cur)twcSess.text=cur.value; const has=!!twcSess.text.trim()||!!twcSess.img; if(!has){twComposeHide(); return;} const d=S.twDraft; if(d&&(d.text||"")===twcSess.text&&(d.img||null)===twcSess.img){twComposeHide(); return;} openSheet('<div class="sheet-title">下書きを保存しますか？</div><div class="sheet-sub">保存した下書きは、次にツイート画面を開いたときに復元されます。</div><div class="sheet-item" style="color:#1d9bf0;font-weight:700" onclick="twDraftSave()">📝 下書きを保存</div><div class="sheet-item" style="color:#f4212e" onclick="twDraftDiscard()">下書きを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twDraftSave(){S.twDraft={text:twcSess.text,img:twcSess.img}; save(); twcSess={text:"",img:null}; closeSheet(); twComposeHide(); toast("下書きを保存しました");}
+function twDraftDiscard(){S.twDraft=null; save(); twcSess={text:"",img:null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=""; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=""; closeSheet(); twComposeHide(); toast("下書きを削除しました");}
+function twcImgSync(){const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=twcImgHTML(); twcUpd();}
+function twPicSheet(){const cells=TW_PIC_CHOICES.map(function(id){const c=CAST[id]; if(!c||!c.img)return ""; return '<div class="cell" onclick="twPicPick(\''+c.img+'\')"><img src="'+c.img+'" alt=""></div>';}).join(""); openSheet('<div class="sheet-title">写真を選ぶ</div><div class="sheet-sub">ゲーム内の写真から選べます</div><div class="pic-grid">'+cells+'</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twPicPick(src){twcSess.img=src; closeSheet(); twcImgSync();}
+function twPicRemove(){twcSess.img=null; twcImgSync();}
+function twcUpd(){const t=document.getElementById("twc-text"), b=document.getElementById("twc-post"), cnt=document.getElementById("twc-count"); if(t)twcSess.text=t.value; const v=twcSess.text; const left=280-v.length; if(cnt){cnt.textContent=left; cnt.className="twc-count"+(left<0?" over":(left<=20?" warn":""));} if(b)b.disabled=!(v.trim()||twcSess.img);}
 function twStoryDate(){const vis=TWITTER.filter(function(t){return t.at<=S.step;}); if(!vis.length)return "2023.2.2"; return vis.reduce(function(a,b){return b.at>=a.at?b:a;}).time;}
-function twPost(){const t=document.getElementById("twc-text"); if(!t)return; const v=t.value.trim(); if(!v)return; S.myTweets=S.myTweets||[]; S.myTweets.unshift({id:"my"+Date.now(),name:TW_SELF.name,handle:TW_SELF.handle,text:v,rt:"0",like:"0",time:twStoryDate(),mine:true}); save(); twComposeClose(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートしました");}
+function twPost(){const t=document.getElementById("twc-text"); if(t)twcSess.text=t.value; const v=twcSess.text.trim(); if(!v&&!twcSess.img)return; S.myTweets=S.myTweets||[]; const nt={id:"my"+Date.now(),name:TW_SELF.name,handle:TW_SELF.handle,text:v,rt:"0",like:"0",time:twStoryDate(),mine:true}; if(twcSess.img)nt.img=twcSess.img; S.myTweets.unshift(nt); twcSess={text:"",img:null}; S.twDraft=null; save(); twComposeHide(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートしました");}
 function renderTwitter(){
 const el=document.getElementById("screen-twitter"); if(!el)return;
 const old=el.querySelector(".tw-scroll"); const keepTop=(!twUI._reset&&old)?old.scrollTop:0;
@@ -1823,9 +1852,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.5｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.5 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.6｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.6 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.5<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.6<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
