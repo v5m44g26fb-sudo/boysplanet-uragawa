@@ -348,7 +348,8 @@ main.noscroll{overflow:hidden}
 .news-tabs span{flex:0 0 auto;padding:6px 13px;border-radius:999px;background:#f0f0f3;color:#444;font-size:12.5px;font-weight:600;cursor:pointer}
 .news-tabs span.on{background:#111;color:#fff}
 .news-like{display:flex;gap:8px;align-items:center;margin-top:16px}
-.news-like button{border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 15px;font-size:13px;cursor:pointer;color:#111;min-height:38px}
+.news-like button{border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 15px;font-size:13px;cursor:pointer;color:#111;min-height:38px;display:inline-flex;align-items:center;gap:6px}
+.news-like button svg{flex:0 0 auto;display:block}
 .news-like button.on{background:#fff0f3;border-color:#f9a8c0;color:#e0245e;font-weight:700}
 /* members filter chips */
 .mem-chips{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap}
@@ -389,7 +390,7 @@ main.noscroll{overflow:hidden}
 .mpc-seek::-moz-range-thumb{width:13px;height:13px;border:none;border-radius:50%;background:#fff;box-shadow:0 1px 5px rgba(0,0,0,.5)}
 /* news */
 .news-item{padding:14px 16px;border-bottom:1px solid #eee;cursor:pointer}
-.news-item .src{font-size:11px;color:#1d9bf0;font-weight:700}
+.src{display:inline-block;font-size:10.5px;font-weight:800;color:#fff;background:#33373f;border-radius:5px;padding:3px 8px;letter-spacing:.04em;line-height:1.35;box-shadow:inset 0 1px 1px rgba(255,255,255,.22),inset 0 -1px 1px rgba(0,0,0,.25)}
 .news-item h3{margin:4px 0 5px;font-size:15.5px;line-height:1.5;color:#111}
 .news-item p{margin:0;font-size:13px;color:#666;line-height:1.65}
 .news-item .tm{font-size:11px;color:#aaa;margin-top:5px}
@@ -1089,7 +1090,7 @@ function starStr(n){if(n===null||n===undefined)return "―"; return "★".repeat
 function computeHeroPoints(){return Math.round(HIROTO_BASE_POINTS*(0.72+0.0085*Math.max(0,S.score)));}
 function computeRank(points){let r=1; ANNOUNCE_R1.forEach(function(row){if(row[1]>points)r++;}); return r;}
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
-function avHTML(id,cls){const c=CAST[id]; cls=cls||""; if(c&&c.img)return '<img class="av '+cls+'" src="'+c.img+'" alt="">'; const nm=c?c.name:(ROSTER_MAP[id]?ROSTER_MAP[id].n:id); return '<div class="av-init '+cls+'">'+esc(nm.slice(0,1))+'</div>';}
+function avHTML(id,cls){const c=CAST[id]; cls=cls||""; if(c&&c.img)return '<img class="av '+cls+'" src="'+c.img+'" alt="">'; const nm=c?c.name:(ROSTER_MAP[id]?ROSTER_MAP[id].n:id); return '<div class="av-init '+cls+'" style="background:'+iniBgFor(nm)+'">'+esc(nm.slice(0,1))+'</div>';}
 function grpAvHTML(ids){return '<div class="av-init grp">'+ids.length+'</div>';}
 let toastTimer=null;
 function toast(t){const el=document.getElementById("toast"); el.textContent=t; el.classList.add("show"); clearTimeout(toastTimer); toastTimer=setTimeout(function(){el.classList.remove("show");},2400);}
@@ -1737,16 +1738,21 @@ function nwSetTab(s){newsTab=s; renderNews();}
 function nwLikeBase(id){let h=0; for(let i=0;i<id.length;i++)h=(h*31+id.charCodeAt(i))%997; return 84+h%260;}
 function nwToggleLike(id){nwLiked[id]=!nwLiked[id]; renderNews();}
 function nwBack(){S.newsOpen=null; save(); renderNews();}
+const NW_SRC_BG={"Kstyle":"#101418","モデルプレス":"#1d3557"};
+function nwSrcHTML(src){return '<span class="src" style="background:'+(NW_SRC_BG[src]||"#33373f")+'">'+esc(src)+'</span>';}
+const NW_HEART_ON='<svg width="15" height="15" viewBox="0 0 24 24" fill="#e0245e" aria-hidden="true"><path d="M20.83 4.59a5.5 5.5 0 0 0-7.79 0L12 5.64l-1.04-1.05a5.5 5.5 0 0 0-7.79 7.78l1.05 1.05L12 21.23l7.78-7.78 1.05-1.05a5.5 5.5 0 0 0 0-7.81z"/></svg>';
+const NW_HEART_OFF='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
+const NW_SHARE='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
 function newsItemHTML(n){
-return '<div class="news-item" onclick="openNews(\''+n.id+'\')"><span class="src">'+esc(n.src)+'</span><h3>'+esc(n.title.replace(/\{rank\}/g,S.heroRank||"――"))+'</h3><p>'+esc(n.lead.replace(/\{rank\}/g,S.heroRank||"――").replace(/\{points\}/g,S.heroPoints?fmt(S.heroPoints):""))+'</p><div class="tm">'+esc(n.time)+"</div></div>";
+return '<div class="news-item" onclick="openNews(\''+n.id+'\')">'+nwSrcHTML(n.src)+'<h3>'+esc(n.title.replace(/\{rank\}/g,S.heroRank||"――"))+'</h3><p>'+esc(n.lead.replace(/\{rank\}/g,S.heroRank||"――").replace(/\{points\}/g,S.heroPoints?fmt(S.heroPoints):""))+'</p><div class="tm">'+esc(n.time)+"</div></div>";
 }
 function renderNews(){
 const el=document.getElementById("news-list");
 if(S.newsOpen){const n=NEWS.find(function(x){return x.id===S.newsOpen;});
 if(n){let body=n.body.replace(/\{rank\}/g,S.heroRank||"??").replace(/\{points\}/g,S.heroPoints?fmt(S.heroPoints):"―");
 const rel=NEWS.filter(function(x){return x.at<=S.step&&x.id!==n.id;}).slice().reverse().slice(0,3);
-el.innerHTML='<header class="app-head"><button class="backbtn" onclick="nwBack()">‹</button><div style="flex:1;min-width:0"><h1>ニュース</h1></div></header>'+'<div class="news-detail"><span class="src">'+esc(n.src)+'</span><h2>'+esc(n.title.replace(/\{rank\}/g,S.heroRank||"――"))+'</h2><div class="tm" style="font-size:11px;color:#aaa">'+esc(n.time)+'</div><div class="body" style="margin-top:12px">'+esc(body)+"</div>"
-+'<div class="news-like"><button class="'+(nwLiked[n.id]?"on":"")+'" onclick="nwToggleLike(\''+n.id+'\')">♥ 応援 '+(nwLikeBase(n.id)+(nwLiked[n.id]?1:0))+'</button><button onclick="toast(\'リンクをコピーしました\')">↗ 共有</button></div>'
+el.innerHTML='<header class="app-head"><button class="backbtn" onclick="nwBack()">‹</button><div style="flex:1;min-width:0"><h1>ニュース</h1></div></header>'+'<div class="news-detail">'+nwSrcHTML(n.src)+'<h2>'+esc(n.title.replace(/\{rank\}/g,S.heroRank||"――"))+'</h2><div class="tm" style="font-size:11px;color:#aaa">'+esc(n.time)+'</div><div class="body" style="margin-top:12px">'+esc(body)+"</div>"
++'<div class="news-like"><button class="'+(nwLiked[n.id]?"on":"")+'" onclick="nwToggleLike(\''+n.id+'\')">'+(nwLiked[n.id]?NW_HEART_ON:NW_HEART_OFF)+'応援 '+(nwLikeBase(n.id)+(nwLiked[n.id]?1:0))+'</button><button onclick="toast(\'リンクをコピーしました\')">'+NW_SHARE+'共有</button></div>'
 +(rel.length?'<div style="margin-top:22px;font-weight:800;color:#111;font-size:15px">関連記事</div></div>'+rel.map(newsItemHTML).join(""):"</div>");
 return;}}
 const srcs=["all"]; NEWS.forEach(function(n){if(srcs.indexOf(n.src)<0)srcs.push(n.src);});
@@ -1937,9 +1943,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v2.0｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v2.0 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v2.1｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v2.1 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v2.0<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v2.1<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
