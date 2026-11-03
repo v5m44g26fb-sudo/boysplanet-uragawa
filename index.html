@@ -642,6 +642,111 @@ main.noscroll{overflow:hidden}
 .mp-done-est .er b.big{font-size:21px;color:var(--gold)}
 .mp-delta{font-weight:900;font-size:12.5px}
 .mp-delta.up{color:#37d67a}.mp-delta.dn{color:#ff8296}.mp-delta.eq{color:var(--sub2)}
+/* ==== v4.4: mnet plus contents (player + video cards + fancams) ==== */
+.mp-sec{margin:16px 16px 8px;font-size:13px;font-weight:800;color:var(--sub);letter-spacing:.05em}
+.mp-player{margin:14px 16px 6px;background:rgba(10,16,36,.96);border:1px solid rgba(199,146,255,.4);border-radius:18px;overflow:hidden}
+.mp-pstage{position:relative;aspect-ratio:16/9;background:linear-gradient(140deg,#2a0f52,#7a1fa2 55%,#1b3a7a);display:flex;align-items:center;justify-content:center}
+.mp-pstage::after{content:"✦";position:absolute;right:14px;top:8px;font-size:26px;color:rgba(255,255,255,.4)}
+.mp-pstage .pbtn{width:64px;height:64px;border-radius:50%;background:rgba(10,8,24,.55);border:1.5px solid rgba(255,255,255,.75);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(2px)}
+.mp-pstage .pbtn:active{transform:scale(.94)}
+.mp-pstage .plive{position:absolute;left:12px;top:10px;background:#e0245e;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 7px;letter-spacing:.08em}
+.mp-pstage .pkey{position:absolute;left:12px;bottom:10px;color:#fff;font-size:12.5px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.mp-pmeta{padding:12px 15px 13px}
+.mp-pmeta .t{font-weight:800;font-size:14.5px}
+.mp-pmeta .s{font-size:11.5px;color:var(--sub);margin-top:3px}
+.mp-pctl{display:flex;align-items:center;gap:8px;padding:0 12px 13px}
+.mp-pctl .cb{width:40px;height:40px;flex:0 0 auto;border-radius:50%;background:var(--accent-d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;border:none}
+.mp-pctl .mb2{margin-left:auto;display:flex;gap:6px}
+.mp-pctl .mode{border:1px solid rgba(199,146,255,.4);background:rgba(22,32,66,.9);color:var(--sub);border-radius:999px;padding:7px 11px;font-size:11px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;min-height:34px}
+.mp-pctl .mode.on{color:#c792ff;border-color:#c792ff;background:rgba(199,146,255,.13)}
+.mp-vcard{display:flex;gap:12px;margin:0 16px 12px;background:rgba(22,32,66,.92);border:1px solid rgba(199,146,255,.25);border-radius:16px;padding:11px 12px;cursor:pointer;align-items:flex-start}
+.mp-vcard.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-d)}
+.mp-vthumb{position:relative;width:128px;flex:0 0 auto;aspect-ratio:16/9;border-radius:9px;background:linear-gradient(140deg,#3b1470,#ad3ec2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;overflow:hidden}
+.mp-vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mp-vthumb .dur{position:absolute;right:5px;bottom:5px;background:rgba(0,0,0,.75);color:#fff;font-size:9.5px;font-weight:700;border-radius:4px;padding:2px 5px;z-index:2}
+.mp-vthumb .ply{position:relative;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.mp-vcard .vt{flex:1;min-width:0}
+.mp-vcard .vt .t{font-weight:700;font-size:13.5px;line-height:1.45}
+.mp-vcard .vt .s{font-size:11px;color:var(--sub);margin-top:4px;line-height:1.6}
+.mp-fgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:0 16px 6px}
+.mp-fcard{background:rgba(22,32,66,.92);border:1px solid rgba(199,146,255,.25);border-radius:16px;overflow:hidden;cursor:pointer}
+.mp-fcard.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-d)}
+.mp-fcard .fth{position:relative;aspect-ratio:4/5;background:#223}
+.mp-fcard .fth img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.mp-fcard .fth .ply{position:absolute;left:8px;bottom:8px;width:30px;height:30px;border-radius:50%;background:rgba(10,8,24,.6);border:1.2px solid rgba(255,255,255,.8);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.mp-fcard .ft{padding:9px 11px 11px}
+.mp-fcard .ft .t{font-weight:700;font-size:12.5px;line-height:1.45}
+.mp-fcard .ft .s{font-size:10.5px;color:var(--sub);margin-top:3px;line-height:1.55}
+/* ==== v4.4: instagram profile / story extras ==== */
+.ig-st .ring.seen{background:#dbdbdb}
+.ig-cmt-like{display:flex;flex-direction:column;align-items:center;gap:1px;margin-left:auto;flex:0 0 auto;color:#8e8e8e;font-size:10px;cursor:pointer;padding:2px 0 0 8px}
+.ig-cmt-like.on{color:#ed4956}
+.sv-foot{display:flex;align-items:center;gap:12px;padding:10px 14px calc(12px + env(safe-area-inset-bottom));flex:0 0 auto;position:relative;z-index:3}
+.sv-foot .sv-in{flex:1;display:flex;align-items:center;border:1.5px solid rgba(255,255,255,.75);border-radius:999px;padding:0 6px 0 15px;min-height:44px}
+.sv-foot input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:14px;min-height:40px}
+.sv-foot input::placeholder{color:rgba(255,255,255,.85)}
+.sv-foot .sv-send{color:#fff;font-weight:700;font-size:13.5px;padding:8px 6px;cursor:pointer;display:none}
+.sv-foot .sv-send.on{display:block}
+.sv-foot .sv-ic{color:#fff;font-size:21px;cursor:pointer;padding:4px}
+.sv-foot .sv-ic.on{color:#ed4956}
+.ig-pf-head{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff}
+.ig-pf-head .un{font-weight:800;font-size:16.5px;color:#111;display:flex;align-items:center;gap:5px}
+.ig-pf-top{display:flex;align-items:center;gap:26px;padding:8px 16px 4px;background:#fff}
+.ig-pf-top .avw{flex:0 0 auto}
+.ig-pf-top .ring2{width:80px;height:80px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75)}
+.ig-pf-top .ring2 .in2{width:100%;height:100%;border-radius:50%;border:3px solid #fff;background:linear-gradient(150deg,#155e9e,#7a4fd0);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:21px}
+.ig-pf-cnt{flex:1;display:flex;text-align:center}
+.ig-pf-cnt div{flex:1}
+.ig-pf-cnt b{display:block;font-size:16.5px;color:#111}
+.ig-pf-cnt span{font-size:12.5px;color:#111}
+.ig-pf-bio{padding:8px 16px 2px;font-size:13.5px;line-height:1.6;color:#111;background:#fff;white-space:pre-wrap}
+.ig-pf-bio .lk{color:#00376b;font-weight:600}
+.ig-pf-btns{display:flex;gap:7px;padding:12px 16px 4px;background:#fff}
+.ig-pf-btns button{flex:1;border:none;border-radius:9px;padding:9px 0;font-size:13.5px;font-weight:700;cursor:pointer;min-height:38px}
+.ig-pf-btns .fol{background:#0095f6;color:#fff}
+.ig-pf-btns .msg{background:#efefef;color:#111;flex:1}
+.ig-hls{display:flex;gap:17px;padding:12px 16px 6px;overflow-x:auto;background:#fff;scrollbar-width:none}
+.ig-hls::-webkit-scrollbar{display:none}
+.ig-hl{text-align:center;flex:0 0 auto;width:62px;cursor:pointer}
+.ig-hl .ring{width:60px;height:60px;border-radius:50%;padding:2.5px;background:#dbdbdb;margin:0 auto}
+.ig-hl .ring img,.ig-hl .ring .av-init{width:100%;height:100%;border-radius:50%;border:2.5px solid #fff;object-fit:cover}
+.ig-hl .lb{font-size:11px;color:#111;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ig-pf-tabs{display:flex;background:#fff;border-top:1px solid #e6e6e6;margin-top:8px}
+.ig-pf-tabs span{flex:1;text-align:center;padding:9px 0;color:#8e8e8e;cursor:pointer;border-bottom:1.5px solid transparent;display:flex;justify-content:center}
+.ig-pf-tabs span.on{color:#111;border-bottom-color:#111}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#fff}
+.ig-grid .cell{position:relative;aspect-ratio:1/1;cursor:pointer;background:#dde}
+.ig-grid .cell img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-grid .cell .ric{position:absolute;right:5px;top:5px;color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+/* ==== v4.4: twitter notif tabs / dm ==== */
+.tw-ntabs{display:flex;background:#fff;border-bottom:1px solid #e6ecf0}
+.tw-ntabs span{flex:1;text-align:center;padding:13px 0 0;font-size:14px;font-weight:700;color:#536471;cursor:pointer}
+.tw-ntabs span i{font-style:normal;display:inline-block;padding-bottom:11px;border-bottom:3.5px solid transparent}
+.tw-ntabs span.on{color:#0f1419}
+.tw-ntabs span.on i{border-bottom-color:#1d9bf0}
+.tw-notif.new{background:#eaf6fe}
+.tw-dm-search{margin:10px 14px 4px;background:#eff3f4;border-radius:999px;display:flex;align-items:center;gap:8px;padding:0 14px;color:#536471}
+.tw-dm-search input{flex:1;background:none;border:none;outline:none;font-size:14px;color:#0f1419;min-height:40px}
+.tw-dm-sec{padding:14px 16px 5px;font-size:14.5px;font-weight:800;color:#0f1419}
+.tw-dm-row{display:flex;gap:11px;padding:11px 16px;cursor:pointer;align-items:flex-start}
+.tw-dm-row:active{background:#f7f9f9}
+.tw-dm-row .dm-meta{flex:1;min-width:0}
+.tw-dm-row .dm-nm{font-size:14.5px;color:#0f1419;display:flex;gap:5px;align-items:baseline}
+.tw-dm-row .dm-nm b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tw-dm-row .dm-nm .hd{color:#536471;font-size:13px;font-weight:400;white-space:nowrap}
+.tw-dm-row .dm-nm .dt{margin-left:auto;color:#536471;font-size:12.5px;font-weight:400;flex:0 0 auto}
+.tw-dm-row .dm-pv{font-size:13.5px;color:#536471;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.tw-dm-body{padding:14px 14px 8px}
+.tw-dm-time{text-align:center;font-size:11.5px;color:#536471;margin:10px 0 12px}
+.tw-dm-msg{max-width:76%;padding:10px 13px;border-radius:20px;font-size:14.5px;line-height:1.55;margin:3px 0;width:fit-content}
+.tw-dm-msg.in{background:#eff3f4;color:#0f1419;border-bottom-left-radius:5px}
+.tw-dm-msg.me{background:#1d9bf0;color:#fff;margin-left:auto;border-bottom-right-radius:5px}
+.tw-dm-note{text-align:center;font-size:11.5px;color:#8a94a0;margin:12px 24px;line-height:1.6}
+.tw-dm-bar{display:flex;align-items:center;gap:9px;padding:9px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid #e6ecf0;background:#fff}
+.tw-dm-bar .inw{flex:1;background:#eff3f4;border-radius:999px;display:flex;align-items:center;padding:0 6px 0 15px}
+.tw-dm-bar input{flex:1;background:none;border:none;outline:none;font-size:14.5px;color:#0f1419;min-height:40px}
+.tw-dm-bar .snd{color:#1d9bf0;font-size:19px;cursor:pointer;padding:7px;display:none}
+.tw-dm-bar .snd.on{display:block}
 </style>
 </head>
 <body>
@@ -2332,11 +2437,18 @@ document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","投票完�
 mpCountUp(document.getElementById("mp-done-pts"), v.before.pts, v.after.pts);
 }
 function mpcSeek(el){if(!musicAudio)return; const d=musicAudio.duration; if(isFinite(d)&&d>0){musicAudio.currentTime=(+el.value)/1000*d; mbSync();}}
+/* v4.4: コンテンツ用プレイヤーパネル（16:9ステージ＋シーク＋前後＋シャッフル/リピート）。
+   再生実体は従来の音楽プレイヤー（下部バー）と同一で、時刻表示は mbSync が .mpc-* を同期する */
 function mpNowHTML(){
 if(!musicKey||!TRACKS[musicKey])return "";
 const tr=TRACKS[musicKey]; const playing=musicAudio&&!musicAudio.paused;
-return '<div class="mp-now"><div class="mp-now-head"><button class="mp-now-ic" onclick="musSkip(-1)" aria-label="前の曲">⏮</button><button class="mp-now-ic" onclick="toggleMusic()">'+(playing?"⏸":"▶")+'</button><button class="mp-now-ic" onclick="musSkip(1)" aria-label="次の曲">⏭</button><div class="mp-now-meta"><div class="t">'+esc(tr.title)+'</div><div class="s">'+esc(tr.artist)+" · "+(playing?"再生中":"一時停止中")+'（下部バーと連動）</div></div></div>'
-+'<div class="mp-now-seek"><span class="mpc-cur">0:00</span><input type="range" class="mpc-seek" min="0" max="1000" value="0" oninput="mpcSeek(this)" aria-label="再生位置"><span class="mpc-dur">0:00</span></div></div>';
+const shuf=!!S.musShuf, rep=S.musRep||"off";
+return '<div class="mp-player"><div class="mp-pstage"><span class="plive">Mnet Plus</span><button class="pbtn" onclick="toggleMusic()" aria-label="'+(playing?"一時停止":"再生")+'">'+(playing?"⏸":"▶")+'</button><span class="pkey">'+esc(tr.title)+'</span></div>'
++'<div class="mp-pmeta"><div class="t">'+esc(tr.title)+'</div><div class="s">'+esc(tr.artist)+" · "+esc(tr.note)+'</div></div>'
++'<div class="mp-now-seek" style="margin:0 15px"><span class="mpc-cur">0:00</span><input type="range" class="mpc-seek" min="0" max="1000" value="0" oninput="mpcSeek(this)" aria-label="再生位置"><span class="mpc-dur">0:00</span></div>'
++'<div class="mp-pctl"><button class="cb" onclick="musSkip(-1)" aria-label="前の曲">⏮</button><button class="cb" onclick="toggleMusic()">'+(playing?"⏸":"▶")+'</button><button class="cb" onclick="musSkip(1)" aria-label="次の曲">⏭</button>'
++'<span class="mb2"><button class="mode'+(shuf?" on":"")+'" onclick="musToggleShuf();renderMnetContents()">'+mpIco('<path d="M16 3.5h4.5V8"/><path d="M4 20L20 3.5"/><path d="M16 20.5h4.5V16"/><path d="M14.5 13.8L20 20.5"/><path d="M4 4l5.2 5.2"/>')+'シャッフル</button>'
++'<button class="mode'+(rep!=="off"?" on":"")+'" onclick="musCycleRep();renderMnetContents()">'+(rep==="one"?MUS_ICO_REP1:MUS_ICO_REP)+' リピート：'+(rep==="all"?"すべて":rep==="one"?"1曲":"オフ")+'</button></span></div></div>';
 }
 function curEst(){
 if(S.finalStarted){const p=computeHeroPointsF(); return {pts:p,rk:computeRankF(p)};}
@@ -2345,18 +2457,38 @@ if(S.part2Started){const p=computeHeroPoints2(); return {pts:p,rk:computeRank2(p
 const p=computeHeroPoints(); return {pts:p,rk:computeRank(p)};
 }
 function renderMnetContents(){
-let mpList=[["signal","♪","난 빛나 (Here I Am)","BOYS PLANET シグナルソング · 公式ステージ"],["verynice","♪","아주 NICE (VERY NICE)","K対Gグループバトル · Gチーム"],["rushhour","♪","Rush Hour","デュアルポジションバトル · Awesome Hour"]];
-if(S.step>=42)mpList.push(["engarde","♪","En Garde (준비, 시작!)","アーティストバトル · En Butter"]);
-if(S.finalStarted)mpList.push(["jellypop","♪","Jelly Pop","ファイナル · Jelly Popチーム"]);
+/* v4.4: ステージ映像カード（16:9＋話数・公開日メタ）＋大翔の個人チッケム枠。
+   メタは既存の作中データ（ニュース記事・ツイートの日付と記録）の範囲で構成する */
+let mpList=[
+["signal","난 빛나 (Here I Am)","BOYS PLANET シグナルソング · 公式ステージ","2022.12.29 公開",""],
+["verynice","아주 NICE (VERY NICE)","K対Gグループバトル · Gチーム","第4話 · 2023.2.9 放送",""],
+["rushhour","Rush Hour","デュアルポジションバトル · Awesome Hour","第7話 · 2023.3.16 放送",""]];
+if(S.step>=42)mpList.push(["engarde","En Garde (준비, 시작!)","アーティストバトル · En Butter","第10話 · 2023.4.6 放送","チーム動画 再生数162万回（5曲中1位 · 4月7日時点）"]);
+if(S.finalStarted)mpList.push(["jellypop","Jelly Pop","ファイナル · Jelly Popチーム","2023.4.20 · 蚕室から生放送",""]);
 let items=mpList.map(function(x){
 const tr=TRACKS[x[0]];
 const on=musicKey===x[0]; const playing=on&&musicAudio&&!musicAudio.paused;
-return '<div class="mp-content'+(on?" on":"")+'" onclick="playMusic(\''+x[0]+'\')"><div class="thumb">'+(playing?"⏸":"▶")+'</div><div><div class="ct">'+esc(tr.title)+'</div><div class="cs">'+esc(x[3])+"<br>"+esc(tr.note)+"</div></div></div>";
+const dur=(x[0]==="signal")?"4:05":(x[0]==="verynice")?"3:16":"";
+return '<div class="mp-vcard'+(on?" on":"")+'" onclick="mpPlayToggle(\''+x[0]+'\')"><div class="mp-vthumb"><span class="ply">'+(playing?"⏸":"▶")+'</span>'+(dur?'<span class="dur">'+dur+"</span>":"")+'</div><div class="vt"><div class="t">'+esc(tr.title)+'</div><div class="s">'+esc(x[2])+"<br>"+esc(x[3])+(x[4]?"<br>"+esc(x[4]):"")+"<br>"+esc(tr.note)+"</div></div></div>";
 }).join("");
+let fams="";
+const hiroImg=(CAST.hiroto&&CAST.hiroto.img)||"";
+function famCard(key,t,s,gate){if(!gate)return ""; const on=musicKey===key; const playing=on&&musicAudio&&!musicAudio.paused;
+return '<div class="mp-fcard'+(on?" on":"")+'" onclick="mpPlayToggle(\''+key+'\')"><div class="fth">'+(hiroImg?'<img src="'+hiroImg+'" alt="">':"")+'<span class="ply">'+(playing?"⏸":"▶")+'</span></div><div class="ft"><div class="t">'+esc(t)+'</div><div class="s">'+esc(s)+"</div></div></div>";}
+const fam1=famCard("signal","히로토 개인캠 ｜ 난 빛나 (Here I Am)","シグナルソングテスト · 個人チッケム評価 Gグループ4位",S.step>=6);
+const fam2=famCard("engarde","히로토 개인캠 ｜ En Garde","アーティストバトル · 個人チッケム全体9位（9.6万回）",S.step>=43);
+if(fam1||fam2)fams='<div class="mp-sec">井汲大翔 個人チッケム（개인캠）</div><div class="mp-fgrid">'+fam1+fam2+"</div>";
 document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","コンテンツ","home")
-+'<p style="margin:14px 16px 12px;font-size:12.5px;color:var(--sub);line-height:1.7">公式ステージ映像（音声は公式音源・長尺版で再生されます）</p>'
-+items+mpNowHTML()+mpTabsHTML();
++mpNowHTML()
++'<div class="mp-sec">ステージ映像</div>'
++'<p style="margin:0 16px 12px;font-size:12px;color:var(--sub);line-height:1.7">タップで再生（音声は公式音源で流れます）。再生中は上のプレイヤーと下部バーで操作できます。</p>'
++items+fams+mpTabsHTML();
 mbSync();
+}
+/* コンテンツのカード用：同じ曲なら再生/一時停止を切り替え、新規なら再生開始 */
+function mpPlayToggle(key){
+if(musicKey===key&&musicAudio){toggleMusic(); renderMnetContents();}
+else playMusic(key);
 }
 function renderMnetMy(){
 const ce=curEst(); const pts=ce.pts; const rk=ce.rk;
@@ -2407,6 +2539,9 @@ const TW_REPLY_POOL=[
 {name:"チッケム職人",handle:"@fancam_shokunin",text:"チッケム無限ループ中。中毒性がすごい"},
 {name:"関西の星推し",handle:"@kansai_no_hoshi",text:"関西から全力で推してます！！"}];
 let twUI={view:"feed",tab:"rec",detail:null,profile:null,pfTab:"tw",_reset:true,query:"",_focusQ:false};
+/* v4.4: 通知タブとDMスレッドの状態（セッション内のみ、セーブ形式は不変） */
+let twNotifTab="all", twDmThread=null, twDmReplied=false;
+const twDmExtra={};
 const twLiked={}, twRTed={}, twFollow={};
 ["@_mnetboysplanet","@bp_live_jp","@roto_dan_jp"].forEach(function(h){twFollow[h]=true;});
 const TW_SELF={name:"なお",handle:"@nao_oshigoto"};
@@ -2471,7 +2606,7 @@ return '<nav class="tw-nav">'
 +btn("dm",twIco("M3.5 5.5h17v13h-17zM3.8 6.4L12 12l8.2-5.6"))
 +"</nav>";
 }
-function twGo(view){twUI.view=view; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter();}
+function twGo(view){twUI.view=view; twUI.detail=null; twUI.profile=null; twDmThread=null; twUI._reset=true; renderTwitter();}
 function twOpenTweet(id){twUI.view="detail"; twUI.detail=id; twUI._reset=true; renderTwitter();}
 function twOpenProfile(handle){twUI.view="profile"; twUI.profile=handle; twUI.pfTab="tw"; twUI._reset=true; renderTwitter();}
 function twToggleLike(id){twLiked[id]=!twLiked[id]; twPersist(); renderTwitter();}
@@ -2613,7 +2748,12 @@ h+='<div class="tw-sec-head">おすすめユーザー</div>';
 ["@_mnetboysplanet","@roto_dan_jp"].forEach(function(handle){h+=twUserRowHTML(handle);});
 return h;
 }
-function twNotifHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">通知</div><div class="spark"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2z"/></svg></div></div>';}
+function twNotifHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">通知</div><div class="spark"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2z"/></svg></div></div>'+twNotifTabsHTML();}
+function twNotifTabsHTML(){
+function tb(v,lb){return '<span class="'+(twNotifTab===v?"on":"")+'" onclick="twSetNotifTab(\''+v+'\')"><i>'+lb+"</i></span>";}
+return '<div class="tw-ntabs">'+tb("all","すべて")+tb("verified","認証済み")+tb("mention","メンション")+"</div>";
+}
+function twSetNotifTab(t){twNotifTab=t; twUI._reset=true; renderTwitter();}
 function twNotifIcon(type){
 const P={
 star:'<svg width="23" height="23" viewBox="0 0 24 24" fill="#794bc4" aria-hidden="true"><path d="M12 2.6l2.83 6.36 6.97.72-5.2 4.73 1.45 6.84L12 17.77l-6.05 3.48 1.45-6.84-5.2-4.73 6.97-.72z"/></svg>',
@@ -2623,21 +2763,81 @@ follow:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circ
 return P[type]||P.star;
 }
 function twNotifHTML(){
+/* v4.4: タブ（すべて／認証済み／メンション）で絞り込み。当ステップの新着には未読ハイライト。
+   メンションは自分のツイートへの返信として、既存の返信プール文から構成する */
+if(twNotifTab==="mention"){
+const mine=(S.myTweets||[]);
+if(!mine.length)return '<div class="tw-empty"><div class="et">メンションはまだありません</div><div class="ed">ツイートを投稿すると、あなたへの返信やメンションがここに表示されます。</div></div>';
+const latest=mine[0]; const d=twDateObj(latest);
+const reps=[TW_REPLY_POOL[1],TW_REPLY_POOL[2],TW_REPLY_POOL[3]];
+return reps.map(function(r){return '<div class="tw-notif" onclick="twOpenTweet(\''+latest.id+'\')"><div class="nic">'+twNotifIcon("star")+'</div><div class="ntx"><span class="avw">'+twAvHTML(r.handle,r.name)+'</span><div class="nh"><b>'+esc(r.name)+"</b>さんが返信しました · "+d.short+'</div><div class="ex">'+esc(r.text)+'</div><div class="ex" style="color:#8899a6">返信先: '+esc(latest.text.length>48?latest.text.slice(0,48)+"…":latest.text)+"</div></div></div>";}).join("");
+}
 const list=TWITTER.filter(function(t){return t.at<=S.step&&twFollow[t.handle];}).slice().reverse();
 if(!list.length)return '<div class="tw-empty"><div class="et">通知はまだありません</div><div class="ed">フォロー中のアカウントの新しいツイートなどが、ここに表示されます。</div></div>';
 function exOf(t){return t.text.length>72?t.text.slice(0,72)+"…":t.text;}
-const rows=list.map(function(t){const d=twDateObj(t); return {icon:"star",handle:t.handle,name:t.name,act:"さんがツイートしました",date:d.short,ex:exOf(t),open:"twOpenTweet('"+t.id+"')"};});
+let rows=list.map(function(t){const d=twDateObj(t); return {icon:"star",handle:t.handle,name:t.name,act:"さんがツイートしました",date:d.short,ex:exOf(t),open:"twOpenTweet('"+t.id+"')",offi:t.handle==="@_mnetboysplanet",isNew:t.at===S.step};});
 /* アクティビティ分（いいね／RT／フォロー）は既存アカウントと既存ツイートから構成するUI定型表示 */
 const off=list.find(function(t){return t.handle==="@_mnetboysplanet";});
 const roto=TWITTER.find(function(t){return t.handle==="@roto_dan_jp"&&t.at<=S.step;});
 const live=TWITTER.find(function(t){return t.handle==="@bp_live_jp"&&t.at<=S.step;});
-if(off&&roto){const d=twDateObj(off); rows.splice(Math.min(1,rows.length),0,{icon:"like",handle:roto.handle,name:roto.name,act:"さんがツイートをいいねしました",date:d.short,ex:exOf(off),open:"twOpenTweet('"+off.id+"')"});}
-if(off&&live){const d=twDateObj(off); rows.push({icon:"rt",handle:live.handle,name:live.name,act:"さんがツイートをリツイートしました",date:d.short,ex:exOf(off),open:"twOpenTweet('"+off.id+"')"});}
-if(roto){const d=twDateObj(list[0]); rows.push({icon:"follow",handle:roto.handle,name:roto.name,act:"さんがあなたをフォローしました",date:d.short,ex:"",open:"twOpenProfile('"+roto.handle+"')"});}
-return rows.map(function(r){return '<div class="tw-notif" onclick="'+r.open+'"><div class="nic">'+twNotifIcon(r.icon)+'</div><div class="ntx"><span class="avw">'+twAvHTML(r.handle,r.name)+'</span><div class="nh"><b>'+esc(r.name)+"</b>"+esc(r.act)+" · "+r.date+"</div>"+(r.ex?'<div class="ex">'+esc(r.ex)+"</div>":"")+"</div></div>";}).join("");
+if(off&&roto){const d=twDateObj(off); rows.splice(Math.min(1,rows.length),0,{icon:"like",handle:roto.handle,name:roto.name,act:"さんがツイートをいいねしました",date:d.short,ex:exOf(off),open:"twOpenTweet('"+off.id+"')",offi:true,isNew:false});}
+if(off&&live){const d=twDateObj(off); rows.push({icon:"rt",handle:live.handle,name:live.name,act:"さんがツイートをリツイートしました",date:d.short,ex:exOf(off),open:"twOpenTweet('"+off.id+"')",offi:true,isNew:false});}
+if(roto){const d=twDateObj(list[0]); rows.push({icon:"follow",handle:roto.handle,name:roto.name,act:"さんがあなたをフォローしました",date:d.short,ex:"",open:"twOpenProfile('"+roto.handle+"')",offi:false,isNew:false});}
+if(twNotifTab==="verified"){rows=rows.filter(function(r){return r.offi;}); if(!rows.length)return '<div class="tw-empty"><div class="et">認証済みアカウントからの通知はまだありません</div><div class="ed">公式アカウント（@_mnetboysplanet）の新しいツイートや、それへの反応がここに表示されます。</div></div>';}
+return rows.map(function(r){return '<div class="tw-notif'+(r.isNew?" new":"")+'" onclick="'+r.open+'"><div class="nic">'+twNotifIcon(r.icon)+'</div><div class="ntx"><span class="avw">'+twAvHTML(r.handle,r.name)+'</span><div class="nh"><b>'+esc(r.name)+"</b>"+esc(r.act)+" · "+r.date+"</div>"+(r.ex?'<div class="ex">'+esc(r.ex)+"</div>":"")+"</div></div>";}).join("");
 }
-function twDmHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">メッセージ</div><div class="spark"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5.5h17v13h-17zM3.8 6.4L12 12l8.2-5.6"/></svg></div></div>';}
-function twDmHTML(){return '<div class="tw-empty"><div class="et">受信トレイへようこそ！</div><div class="ed">既存の会話がここに表示されます。合宿期間中、スタッフ用アカウントのダイレクトメッセージは運用チームが管理しています。</div></div>';}
+/* v4.4: DM（会話リスト／リクエスト／スレッド）。相手は既存のファンアカウント。
+   スレッド本文は、そのアカウントのツイートの文脈に沿った短い定型分のみで構成する */
+function twDmHeadHTML(){
+if(twDmThread){const pr=twProfileOf(twDmThread); return '<div class="tw-top"><button class="backbtn" onclick="twDmClose()">‹</button><div style="flex:0 0 auto">'+twAvHTML(twDmThread,pr.name)+'</div><div class="ttl" style="text-align:left">'+esc(pr.name)+'</div><div class="spark"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div></div>';}
+return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">メッセージ</div><div class="spark"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 5.5h17v13h-17zM3.8 6.4L12 12l8.2-5.6"/></svg></div></div>';
+}
+const TW_DM_BASE=[
+{w:"in",t:"はじめまして！ロト団の端っこです。大翔くんの日本側サポート、本当にありがとうございます"},
+{w:"in",t:"日プも創造営も見てきたので、今回こそ…って毎日Mnet Plusで投票してます。現場の空気だけでも伝えてもらえたら嬉しいです"}];
+function twDmMsgs(){return TW_DM_BASE.concat(twDmExtra["roto"]||[]);}
+function twDmHTML(){
+if(twDmThread==="roto"){
+const msgs=twDmMsgs();
+let h='<div class="tw-dm-body"><div class="tw-dm-time">2023年2月10日</div>';
+msgs.forEach(function(m){h+='<div class="tw-dm-msg '+m.w+'">'+esc(m.t)+"</div>";});
+h+='<div class="tw-dm-note">このアカウントはスタッフ用です。返信は運用チームの確認を経て送信されます。</div></div>';
+return h;
+}
+const hasConvo=S.step>=6;
+let h='<div class="tw-dm-search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg><input type="text" placeholder="メッセージを検索" oninput="twDmFilter(this.value)"></div>';
+if(hasConvo){
+const msgs=twDmMsgs(); const last=msgs[msgs.length-1];
+const pr=twProfileOf("@roto_dan_jp");
+h+='<div id="tw-dm-convo"><div class="tw-dm-row" onclick="twDmOpen()"><div style="flex:0 0 auto">'+twAvHTML("@roto_dan_jp",pr.name)+'</div><div class="dm-meta"><div class="dm-nm"><b>'+esc(pr.name)+'</b><span class="hd">@roto_dan_jp</span><span class="dt">2月10日</span></div><div class="dm-pv">'+esc(last.w==="me"?"あなた: "+last.t:last.t)+"</div></div></div></div>";
+}
+if(!hasConvo)h+='<div class="tw-empty"><div class="et">受信トレイへようこそ！</div><div class="ed">既存の会話がここに表示されます。合宿期間中、スタッフ用アカウントのダイレクトメッセージは運用チームが管理しています。</div></div>';
+h+='<div class="tw-dm-sec">メッセージリクエスト</div>'
++'<div class="tw-dm-row" onclick="twDmRequest()"><div style="flex:0 0 auto">'+twAvHTML("@planet_jumin","プラネット住民")+'</div><div class="dm-meta"><div class="dm-nm"><b>プラネット住民</b><span class="hd">@planet_jumin</span><span class="dt">2月9日</span></div><div class="dm-pv">大翔くんのチッケム、もっと伸びてほしい…！</div></div></div>'
++'<p style="margin:8px 16px;font-size:11.5px;color:#8a94a0;line-height:1.6">リクエストの承認は運用チームが行います。承認するまで、相手に既読は付きません。</p>';
+return h;
+}
+function twDmFilter(q){
+const row=document.getElementById("tw-dm-convo"); if(!row)return;
+const hit=("ロト団の端っこ @roto_dan_jp").toLowerCase().indexOf(String(q||"").toLowerCase())>=0;
+row.style.display=hit?"":"none";
+}
+function twDmOpen(){twDmThread="roto"; twUI._reset=true; renderTwitter();}
+function twDmClose(){twDmThread=null; twUI._reset=true; renderTwitter();}
+function twDmRequest(){
+openSheet('<div class="sheet-title">メッセージリクエスト</div><div class="sheet-sub">プラネット住民（@planet_jumin）さんからのリクエストです。<br>「大翔くんのチッケム、もっと伸びてほしい…！」<br><br>承認は運用チームが行うため、この画面からは承認できません。</div><div class="sheet-item" onclick="closeSheet()">閉じる</div>');
+}
+function twDmBarHTML(){
+return '<div class="tw-dm-bar"><span style="color:#1d9bf0;font-size:19px">＋</span><div class="inw"><input id="tw-dm-input" type="text" placeholder="メッセージを送信" autocomplete="off" enterkeyhint="send" oninput="twDmSync()" onkeydown="if(event.key===\'Enter\')twDmSend()"><span class="snd" id="tw-dm-send" onclick="twDmSend()"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span></div></div>';
+}
+function twDmSync(){const inp=document.getElementById("tw-dm-input"), b=document.getElementById("tw-dm-send"); if(b)b.classList.toggle("on",!!(inp&&inp.value.trim()));}
+function twDmSend(){
+const inp=document.getElementById("tw-dm-input"); if(!inp||!inp.value.trim())return;
+if(!twDmExtra["roto"])twDmExtra["roto"]=[];
+twDmExtra["roto"].push({w:"me",t:inp.value.trim()});
+if(!twDmReplied){twDmReplied=true; twDmExtra["roto"].push({w:"in",t:"ありがとうございます…！無理のない範囲で大丈夫です。応援、届いてますように"});}
+twUI._reset=true; renderTwitter();
+}
 let twcSess={text:"",img:null,draftId:null};
 function twDraftsArr(){if(!Array.isArray(S.twDrafts))S.twDrafts=[]; return S.twDrafts;}
 const TW_PIC_CHOICES=["hiroto","keita","zhanghao","hanbin","matthew","jiwoong"];
@@ -2672,8 +2872,9 @@ else if(twUI.view==="search"){head=twSearchHeadHTML(); body=twSearchHTML(); fab=
 else if(twUI.view==="notif"){head=twNotifHeadHTML(); body=twNotifHTML(); fab=true;}
 else if(twUI.view==="dm"){head=twDmHeadHTML(); body=twDmHTML();}
 else{twUI.view="feed"; head=twFeedHeadHTML(); body=twFeedHTML(); fab=true;}
-el.innerHTML=head+'<div class="tw-scroll">'+body+"</div>"+twNavHTML()+(fab?'<button class="tw-fab" onclick="twComposeOpen()" aria-label="ツイートを投稿">'+TW_FAB_SVG+"</button>":"")+twComposeHTML();
-const sc=el.querySelector(".tw-scroll"); if(sc)sc.scrollTop=keepTop;
+const dmBar=(twUI.view==="dm"&&twDmThread)?twDmBarHTML():"";
+el.innerHTML=head+'<div class="tw-scroll">'+body+"</div>"+dmBar+twNavHTML()+(fab?'<button class="tw-fab" onclick="twComposeOpen()" aria-label="ツイートを投稿">'+TW_FAB_SVG+"</button>":"")+twComposeHTML();
+const sc=el.querySelector(".tw-scroll"); if(sc)sc.scrollTop=(twUI.view==="dm"&&twDmThread)?sc.scrollHeight:keepTop;
 twUI._reset=false;
 if(twUI._focusQ&&twUI.view==="search"){const inp=el.querySelector("#tw-q"); if(inp){try{inp.focus({preventScroll:true}); inp.setSelectionRange(inp.value.length,inp.value.length);}catch(e){}}}
 twUI._focusQ=false;
@@ -2715,6 +2916,9 @@ const IG_COMMENTS=[
 ["bp_watch_jp","毎週楽しみにしてます。次回も期待"],
 ["sc_hiroto_oshi","チッケムも何回も見た。絶対デビューしようね"]];
 const igLiked={}, igSaved={};
+/* v4.4: ストーリー既読・コメントいいね・プロフィール表示の状態（セッション内のみ、セーブ形式は不変） */
+const igSeen={}, igCLiked={};
+let igView="feed", igPfTab="grid", igStoryLike=false, igFollowOff=true;
 let igStoryIdx=0;
 function igToggleLike(id){igLiked[id]=!igLiked[id]; renderInsta();}
 function igToggleSave(id){igSaved[id]=!igSaved[id]; toast(igSaved[id]?"保存しました":"保存を取り消しました"); renderInsta();}
@@ -2724,37 +2928,70 @@ function igLikeStr(p){return "いいね！"+(igLikeNum(p)+(igLiked[p.id]?1:0)).t
 function igOpenComments(pid){
 let hsh=0; for(let i=0;i<pid.length;i++)hsh=(hsh*31+pid.charCodeAt(i))%997;
 const cs=[IG_COMMENTS[hsh%IG_COMMENTS.length],IG_COMMENTS[(hsh+1)%IG_COMMENTS.length],IG_COMMENTS[(hsh+3)%IG_COMMENTS.length]];
+const ctimes=["2時間前","5時間前","8時間前"];
 let html='<div class="sheet-title">コメント</div>';
-cs.forEach(function(c){html+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:'+iniBgFor(c[0])+'">'+esc(c[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(c[0])+'</b>　'+esc(c[1])+"</div></div>";});
+/* 投稿者（公式）の固定コメント */
+html+='<div class="sheet-item" style="cursor:default;align-items:flex-start"><div class="av-init sm grp" style="flex:0 0 auto">BP</div><div style="font-size:13.5px;line-height:1.55;flex:1;min-width:0"><b>boysplanet.official</b> '+twBadgeSVG("#0095f6")+'<br>応援コメントありがとうございます✨ 投票はMnet Plusアプリからお願いします！<div style="color:#8e8e8e;font-size:11.5px;margin-top:2px">📌 投稿者が固定 · 1日前</div></div></div>';
+cs.forEach(function(c,ci){
+const key=pid+":"+ci; const base=18+((hsh+ci*7)%160); const on=!!igCLiked[key];
+html+='<div class="sheet-item" style="cursor:default;align-items:flex-start"><div class="av-init sm" style="background:'+iniBgFor(c[0])+';flex:0 0 auto">'+esc(c[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55;flex:1;min-width:0"><b>'+esc(c[0])+'</b>　'+esc(c[1])+'<div style="color:#8e8e8e;font-size:11.5px;margin-top:2px">'+ctimes[ci]+' · いいね！'+(base+(on?1:0))+'件 · <span style="cursor:pointer" onclick="toast(\'返信は公式アカウント運用のため制限されています\')">返信する</span></div></div><span class="ig-cmt-like'+(on?" on":"")+'" onclick="igToggleCLike(\''+pid+"\',"+ci+')"><span style="font-size:14px">'+(on?"♥":"♡")+"</span>"+(base+(on?1:0))+"</span></div>";});
 html+='<div class="sheet-item" style="color:#8e8e8e" onclick="toast(\'コメントの投稿は公式アカウント運用のため制限されています\')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> コメントを追加…</div>';
 openSheet(html);
 }
+function igToggleCLike(pid,ci){const k=pid+":"+ci; igCLiked[k]=!igCLiked[k]; igOpenComments(pid);}
 function openIgActivity(){
-const rows=[["roto_dan_jp","さんが boysplanet.official の投稿をいいねしました","2時間前"],["bp_live_jp","さんが boysplanet.official をフォローし始めました","5時間前"],["planet_fan_kr","さんが boysplanet.official の投稿をいいねしました","昨日"]];
+/* v4.4: 期間セクション分け（今週／今月）。行は既存のファンアカウント名から構成する定型表示 */
+const wk=[["roto_dan_jp","さんが boysplanet.official の投稿をいいねしました","2時間前"],["bp_live_jp","さんが boysplanet.official をフォローし始めました","5時間前"],["planet_fan_kr","さんが boysplanet.official の投稿をいいねしました","昨日"]];
+const mo=[["star.creator_jp","さんが boysplanet.official の投稿にコメントしました：「大翔くん最高…！」","3日前"],["sc_hiroto_oshi","さんが boysplanet.official をフォローし始めました","先週"],["bp_watch_jp","さんが boysplanet.official の投稿をいいねしました","先週"]];
 let html='<div class="sheet-title">アクティビティ</div>';
-rows.forEach(function(r){html+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:'+iniBgFor(r[0])+'">'+esc(r[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(r[0])+"</b>"+esc(r[1])+'<div style="color:#8e8e8e;font-size:12px">'+esc(r[2])+"</div></div></div>";});
+function sec(t,rows){let h='<div style="padding:10px 20px 2px;font-weight:800;font-size:13.5px;color:#111">'+t+"</div>"; rows.forEach(function(r){h+='<div class="sheet-item" style="cursor:default"><div class="av-init sm" style="background:'+iniBgFor(r[0])+'">'+esc(r[0].slice(0,1))+'</div><div style="font-size:13.5px;line-height:1.55"><b>'+esc(r[0])+"</b>"+esc(r[1])+'<div style="color:#8e8e8e;font-size:12px">'+esc(r[2])+"</div></div></div>";}); return h;}
+html+=sec("今週",wk)+sec("今月",mo);
 openSheet(html);
 }
 function openStory(i){
-igStoryIdx=i; const sv=document.getElementById("story-viewer"); if(!sv)return;
+igStoryIdx=i; igSeen[i]=true; igStoryLike=false; const sv=document.getElementById("story-viewer"); if(!sv)return;
 const s=IG_STORIES[i]; const c=s[1]?CAST[s[1]]:null;
 let bars=IG_STORIES.map(function(_,j){return '<i class="'+(j<=i?"done":"")+'"></i>';}).join("");
 sv.innerHTML='<div class="sv-bars">'+bars+'</div><div class="sv-head">'+(c?'<img class="av sm" src="'+c.img+'" alt="">':'<div class="av-init sm grp">BP</div>')+"<span>"+esc(s[0])+'</span><span style="color:rgba(255,255,255,.65);font-weight:400">'+esc(s[3])+'</span><span class="x" onclick="closeStory()">✕</span></div>'
 +(c?'<img class="sv-img" src="'+c.img+'" alt="">':'<div class="sv-ph">BOYS PLANET</div>')
-+'<div class="sv-nav l" onclick="storyNav(-1)"></div><div class="sv-nav r" onclick="storyNav(1)"></div>';
++'<div class="sv-nav l" onclick="storyNav(-1)"></div><div class="sv-nav r" onclick="storyNav(1)"></div>'
++'<div class="sv-foot"><div class="sv-in"><input id="sv-input" type="text" placeholder="'+esc(s[0])+'さんへメッセージを送信" oninput="svInputSync()" onkeydown="if(event.key===\'Enter\')svSend()"><span class="sv-send" id="sv-send" onclick="svSend()">送信</span></div>'
++'<span class="sv-ic" id="sv-like" onclick="svToggleLike()">♡</span><span class="sv-ic" onclick="toast(\'リンクをコピーしました\')"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span></div>';
 sv.classList.add("on");
 }
+function svInputSync(){const inp=document.getElementById("sv-input"), b=document.getElementById("sv-send"); if(b)b.classList.toggle("on",!!(inp&&inp.value.trim()));}
+function svSend(){const inp=document.getElementById("sv-input"); if(!inp||!inp.value.trim())return; inp.value=""; svInputSync(); toast("メッセージを送信しました");}
+function svToggleLike(){igStoryLike=!igStoryLike; const el=document.getElementById("sv-like"); if(el){el.textContent=igStoryLike?"♥":"♡"; el.classList.toggle("on",igStoryLike);}}
 function storyNav(d){const n=igStoryIdx+d; if(n<0){return;} if(n>=IG_STORIES.length){closeStory(); return;} openStory(n);}
-function closeStory(){const sv=document.getElementById("story-viewer"); if(sv){sv.classList.remove("on"); sv.innerHTML="";}}
+function closeStory(){const sv=document.getElementById("story-viewer"); if(sv){sv.classList.remove("on"); sv.innerHTML="";} if(document.getElementById("insta-list"))renderInsta();}
+function igGoProfile(){igView="profile"; igPfTab="grid"; renderInsta(); const m=document.getElementById("main"); if(m)m.scrollTop=0;}
+function igGoFeed(){igView="feed"; renderInsta();}
+function igPfSetTab(t){igPfTab=t; renderInsta();}
+function igToggleFollowOff(){igFollowOff=!igFollowOff; toast(igFollowOff?"フォローしました":"フォローを解除しました"); renderInsta();}
+function igProfileHTML(posts){
+const hlNames=["お知らせ","舞台裏","ステージ","合宿","練習中","舞台裏2"];
+let h='<div class="ig-pf-head"><button class="backbtn" onclick="igGoFeed()">‹</button><div class="un">boysplanet.official '+twBadgeSVG("#0095f6")+'</div><span style="margin-left:auto;display:flex;gap:18px;align-items:center"><span style="cursor:pointer" onclick="openIgActivity()"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M10.3 21a2.2 2.2 0 0 0 3.4 0"/></svg></span><span style="color:#111;font-size:17px">⋯</span></span></div>'
++'<div class="ig-pf-top"><div class="avw"><div class="ring2"><div class="in2">BP</div></div></div><div class="ig-pf-cnt"><div><b>'+posts.length+'</b><span>投稿</span></div><div><b>312万</b><span>フォロワー</span></div><div><b>9</b><span>フォロー中</span></div></div></div>'
++'<div class="ig-pf-bio"><b>BOYS PLANET 公式</b>\nMnet [BOYS PLANET]\n毎週木曜 午後8:50〜 放送\nスタークリエイターの投票はMnet Plusで受付中\n<span class="lk">mnet.world/boysplanet</span></div>'
++'<div class="ig-pf-btns"><button class="msg" style="'+(igFollowOff?"":"background:#0095f6;color:#fff")+'" onclick="igToggleFollowOff()">'+(igFollowOff?"フォロー中":"フォローする")+'</button><button class="msg" onclick="toast(\'ダイレクトメッセージは公式アカウントでは制限されています\')">メッセージ</button></div>'
++'<div class="ig-hls">'+IG_STORIES.map(function(s,i){const c=s[1]?CAST[s[1]]:null; const face=c?'<img src="'+c.img+'" alt="">':'<div class="av-init grp" style="font-size:15px">'+s[2]+"</div>"; return '<div class="ig-hl" onclick="openStory('+i+')"><div class="ring">'+face+'</div><div class="lb">'+hlNames[i]+"</div></div>";}).join("")+"</div>"
++'<div class="ig-pf-tabs"><span class="'+(igPfTab==="grid"?"on":"")+'" onclick="igPfSetTab(\'grid\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4" y="4" width="16" height="16"/><path d="M4 9.3h16M4 14.6h16M9.3 4v16M14.6 4v16"/></svg></span><span class="'+(igPfTab==="reels"?"on":"")+'" onclick="igPfSetTab(\'reels\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="M4 9h16M8 4l2.5 5M13.5 4L16 9"/><path d="M10.3 12.4l4.5 2.6-4.5 2.6z" fill="currentColor" stroke="none"/></svg></span><span class="'+(igPfTab==="tag"?"on":"")+'" onclick="igPfSetTab(\'tag\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="12" cy="10.3" r="2.6"/><path d="M6.8 18.2c.8-2.3 2.8-3.5 5.2-3.5s4.4 1.2 5.2 3.5"/></svg></span></div>';
+function cell(p,rico){const c=CAST[p.img]; if(!c)return ""; return '<div class="cell" onclick="igGoFeed()"><img src="'+c.img+'" alt="">'+(rico?'<span class="ric"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 5.6v12.8L19 12z"/></svg></span>':"")+"</div>";}
+if(igPfTab==="grid")h+='<div class="ig-grid">'+posts.map(function(p){return cell(p,false);}).join("")+"</div>";
+else if(igPfTab==="reels")h+='<div class="ig-grid">'+posts.map(function(p){return cell(p,true);}).join("")+"</div>";
+else{const tag=posts.filter(function(p){return p.img==="hiroto";}); h+=tag.length?'<div class="ig-grid">'+tag.map(function(p){return cell(p,false);}).join("")+"</div>":'<p style="padding:24px 16px;color:#888;font-size:13px;background:#fff">タグ付けされた投稿はまだありません。</p>';}
+return h;
+}
 function renderInsta(){
 const el=document.getElementById("insta-list");
 const posts=INSTA.filter(function(p){return p.at<=S.step;}).slice().reverse();
-let storiesHTML='<div class="ig-stories">'+IG_STORIES.map(function(s,i){const c=s[1]?CAST[s[1]]:null; const face=c?'<img src="'+c.img+'" alt="">':'<div class="av-init grp" style="font-size:15px">'+s[2]+"</div>"; return '<div class="ig-st" onclick="openStory('+i+')"><div class="ring">'+face+'</div><div class="lb">'+esc(s[0])+"</div></div>";}).join("")+"</div>";
+if(igView==="profile"){el.innerHTML=headHTML("Instagram","プロフィール","home")+igProfileHTML(posts); return;}
+let storiesHTML='<div class="ig-stories">'+IG_STORIES.map(function(s,i){const c=s[1]?CAST[s[1]]:null; const face=c?'<img src="'+c.img+'" alt="">':'<div class="av-init grp" style="font-size:15px">'+s[2]+"</div>"; return '<div class="ig-st" onclick="openStory('+i+')"><div class="ring'+(igSeen[i]?" seen":"")+'">'+face+'</div><div class="lb">'+esc(s[0])+"</div></div>";}).join("")+"</div>";
 el.innerHTML=headHTML("Instagram","2023","home")
 +'<div style="display:flex;align-items:center;padding:2px 16px 0"><span style="font-size:21px;font-weight:700;color:#111;font-family:Georgia,serif;font-style:italic">Instagram</span><span style="margin-left:auto;font-size:18px;color:#111"><span style="cursor:pointer" onclick="openIgActivity()"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>&nbsp;&nbsp;<span style="cursor:pointer" onclick="toast(\'ダイレクトメッセージは公式アカウントでは制限されています\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span></span></div>'
 +storiesHTML
-+'<div class="ig-head" style="margin-top:10px"><div class="av-init grp" style="width:38px;height:38px;font-size:15px">BP</div><div><div style="font-weight:700;font-size:14.5px;color:#111">boysplanet.official '+twBadgeSVG("#0095f6")+'</div><div style="font-size:12px;color:#666">BOYS PLANET 公式</div></div></div>'
-+(posts.map(function(p){const c=CAST[p.img]; const liked=!!igLiked[p.id], saved=!!igSaved[p.id]; return '<div class="ig-post"><div class="ph">'+avHTML(p.img,"sm")+'<div style="flex:1;min-width:0"><div class="nm">boysplanet.official</div><div class="lc">Planet Camp, Paju</div></div><span style="color:#111;font-size:16px">⋯</span></div>'+(c?'<img class="img" src="'+c.img+'" alt="">':"")+'<div class="ig-actrow"><span style="cursor:pointer;color:'+(liked?"#ed4956":"#111")+'" onclick="igToggleLike(\''+p.id+'\')">'+(liked?"♥":"♡")+'</span><span style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span style="cursor:pointer" onclick="toast(\'リンクをコピーしました\')">➤</span><span class="bk" style="cursor:pointer;opacity:'+(saved?"1":".45")+'" onclick="igToggleSave(\''+p.id+'\')">'+(saved?'<svg width="20" height="20" viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M7 3.8h10c.3 0 .5.2.5.5V20L12 16.1 6.5 20V4.3c0-.3.2-.5.5-.5z"/></svg>':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.8h10c.3 0 .5.2.5.5V20L12 16.1 6.5 20V4.3c0-.3.2-.5.5-.5z"/></svg>')+'</span></div><div class="ig-likes">'+igLikeStr(p)+'</div><div class="cap"><b>boysplanet.official</b>'+esc(p.cap)+'</div><div class="ig-comments" style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')">コメント'+igCmts(p)+'件をすべて見る</div><div style="padding:3px 14px 0;font-size:11px;color:#8e8e8e;letter-spacing:.02em">'+esc(p.time)+"</div></div>";}).join("")||'<p style="padding:20px 16px;color:#888">まだ投稿がありません。</p>');
++'<div class="ig-head" style="margin-top:10px;cursor:pointer" onclick="igGoProfile()"><div class="av-init grp" style="width:38px;height:38px;font-size:15px">BP</div><div><div style="font-weight:700;font-size:14.5px;color:#111">boysplanet.official '+twBadgeSVG("#0095f6")+'</div><div style="font-size:12px;color:#666">BOYS PLANET 公式</div></div></div>'
++(posts.map(function(p){const c=CAST[p.img]; const liked=!!igLiked[p.id], saved=!!igSaved[p.id]; return '<div class="ig-post"><div class="ph">'+avHTML(p.img,"sm")+'<div style="flex:1;min-width:0;cursor:pointer" onclick="igGoProfile()"><div class="nm">boysplanet.official</div><div class="lc">Planet Camp, Paju</div></div><span style="color:#111;font-size:16px">⋯</span></div>'+(c?'<img class="img" src="'+c.img+'" alt="">':"")+'<div class="ig-actrow"><span style="cursor:pointer;color:'+(liked?"#ed4956":"#111")+'" onclick="igToggleLike(\''+p.id+'\')">'+(liked?"♥":"♡")+'</span><span style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span style="cursor:pointer" onclick="toast(\'リンクをコピーしました\')">➤</span><span class="bk" style="cursor:pointer;opacity:'+(saved?"1":".45")+'" onclick="igToggleSave(\''+p.id+'\')">'+(saved?'<svg width="20" height="20" viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M7 3.8h10c.3 0 .5.2.5.5V20L12 16.1 6.5 20V4.3c0-.3.2-.5.5-.5z"/></svg>':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.8h10c.3 0 .5.2.5.5V20L12 16.1 6.5 20V4.3c0-.3.2-.5.5-.5z"/></svg>')+'</span></div><div class="ig-likes">'+igLikeStr(p)+'</div><div class="cap"><b>boysplanet.official</b>'+esc(p.cap)+'</div><div class="ig-comments" style="cursor:pointer" onclick="igOpenComments(\''+p.id+'\')">コメント'+igCmts(p)+'件をすべて見る</div><div style="padding:3px 14px 0;font-size:11px;color:#8e8e8e;letter-spacing:.02em">'+esc(p.time)+"</div></div>";}).join("")||'<p style="padding:20px 16px;color:#888">まだ投稿がありません。</p>');
 }
 /* ---- support ---- */
 let supAlloc=null;
@@ -3055,7 +3292,7 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.3｜機能レベルの大幅改修：iOS 16様式のロック画面（作中日時・通知連動）／Mnet Plus投票の推しメン選択式への拡張／思い出コレクション新設\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.3 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.4｜SNSとMnet Plusの深掘り：コンテンツのプレイヤー作り込みと個人チッケム枠／Instagramプロフィール画面とストーリー・コメントの作り込み／Twitter通知タブとDM会話の実装\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.4 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
 +'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.3<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。</div>';
 }
