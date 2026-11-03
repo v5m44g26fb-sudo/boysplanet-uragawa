@@ -47,15 +47,9 @@ main.noscroll{overflow:hidden}
 #story-banner .badge{display:inline-block;background:rgba(10,20,60,.35);border:1px solid rgba(200,230,255,.4);border-radius:999px;padding:2.5px 11px;font-size:11px;font-weight:700;margin-bottom:9px;letter-spacing:.06em}
 #apps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 6px;padding:18px 16px 6px}
 .appicon{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;position:relative;background:none;border:none;color:var(--txt);padding:2px 0;user-select:none}
-.appicon .ic{width:58px;height:58px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:27px;background:linear-gradient(150deg,var(--panel3),var(--panel2));border:1px solid var(--line-soft);box-shadow:0 6px 16px rgba(2,6,18,.35),inset 0 1px 0 rgba(255,255,255,.07)}
+.appicon .ic{width:58px;height:58px;border-radius:18px;display:block;box-shadow:0 6px 16px rgba(2,6,18,.35)}
+.appicon .ic svg{width:58px;height:58px;display:block;border-radius:18px}
 .appicon:active .ic{transform:scale(.9)}
-.appicon[data-app="talk"] .ic{background:linear-gradient(150deg,#0a8a44,#066e35)}
-.appicon[data-app="mnet"] .ic{background:linear-gradient(150deg,#5b2ea6,#2c1660)}
-.appicon[data-app="twitter"] .ic{background:linear-gradient(150deg,#1d9bf0,#0f6cb8)}
-.appicon[data-app="news"] .ic{background:linear-gradient(150deg,#173f6e,#122c50)}
-.appicon[data-app="insta"] .ic{background:linear-gradient(150deg,#a83a8c,#5e2a9e)}
-.appicon[data-app="support"] .ic{background:linear-gradient(150deg,#155e9e,#0f3a68)}
-.appicon[data-app="rank"] .ic{background:linear-gradient(150deg,#6e5410,#453a0d)}
 .appicon[data-app="members"] .ic{background:linear-gradient(150deg,#37306e,#241d4e)}
 .appicon[data-app="settings"] .ic{background:linear-gradient(150deg,#33506e,#1d3049)}
 .appicon span{font-size:11.5px;color:var(--sub);font-weight:500}
@@ -190,6 +184,24 @@ main.noscroll{overflow:hidden}
 .twc-count{font-size:13px;color:#536471;font-variant-numeric:tabular-nums}
 .twc-count.warn{color:#ffad1f;font-weight:700}
 .twc-count.over{color:#f4212e;font-weight:700}
+.twc-draftsbtn{background:none;border:none;color:#1d9bf0;font-size:14.5px;font-weight:600;cursor:pointer;padding:6px 4px;white-space:nowrap}
+.twc-ringbox{display:flex;align-items:center;gap:8px}
+.twc-ring{transform:rotate(-90deg);flex:0 0 auto;display:block}
+.twc-ring circle{fill:none;stroke-width:2.2}
+.twc-ring .rbg{stroke:#e6ecf0}
+.twc-ring .rfg{stroke:#1d9bf0;stroke-linecap:round;transition:stroke-dashoffset .12s ease,stroke .12s ease}
+.twc-ringbox.warn .rfg{stroke:#ffad1f}
+.twc-ringbox.over .rfg{stroke:#f4212e}
+.twc-ringbox .twc-count{display:none}
+.twc-ringbox.warn .twc-count,.twc-ringbox.over .twc-count{display:inline}
+.tw-pinlab{font-size:12.5px;color:#536471;font-weight:600;padding:10px 16px 0 58px}
+.tw-draft-row{display:flex;align-items:flex-start;gap:10px;padding:12px 20px;cursor:pointer;border-top:1px solid #eff3f4}
+.tw-draft-row:active{background:#f7f9f9}
+.tw-draft-tx{flex:1;min-width:0;font-size:14.5px;line-height:1.5;color:#0f1419;white-space:pre-wrap;word-break:break-word;max-height:66px;overflow:hidden}
+.tw-draft-date{font-size:12px;color:#536471;margin-top:4px}
+.tw-draft-img{margin-top:6px}
+.tw-draft-img img{width:64px;height:64px;object-fit:cover;border-radius:10px;display:block}
+.tw-draft-del{background:none;border:none;font-size:16px;cursor:pointer;padding:4px 2px;line-height:1;flex:0 0 auto}
 .twc-imgwrap{padding:2px 16px 0}
 .twc-img{position:relative;border-radius:16px;overflow:hidden;border:1px solid #e8eef2}
 .twc-img img{width:100%;display:block;max-height:210px;object-fit:cover;object-position:top}
@@ -1053,10 +1065,14 @@ loc:"2023年2月24日 · 第1回生存者発表式（MC：ヨ・ジング）"},
 /* ============ ENGINE ============ */
 const SAVE_KEY = "bpSaveV1";
 let S = null;
-function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null};}
+function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null,twDrafts:[],twPinned:null};}
 
 function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
-function load(){try{const r=localStorage.getItem(SAVE_KEY); if(r){S=Object.assign(defState(),JSON.parse(r)); return;}}catch(e){} S=defState();}
+function load(){try{const r=localStorage.getItem(SAVE_KEY); if(r){S=Object.assign(defState(),JSON.parse(r)); twMigrate(); return;}}catch(e){} S=defState();}
+function twMigrate(){/* v1.6までの単一下書き（twDraft）を複数下書き（twDrafts）へ読み替える */
+if(!Array.isArray(S.twDrafts))S.twDrafts=[];
+if(S.twDraft&&(S.twDraft.text||S.twDraft.img)){S.twDrafts.unshift({text:S.twDraft.text||"",img:S.twDraft.img||null,ts:Date.now()});}
+S.twDraft=null;}
 function clampStats(){S.trust=Math.max(0,Math.min(100,S.trust));S.mental=Math.max(0,Math.min(100,S.mental));S.pop=Math.max(0,Math.min(100,S.pop));}
 function applyFx(fx){if(!fx)return; if(fx.trust)S.trust+=fx.trust; if(fx.mental)S.mental+=fx.mental; if(fx.pop)S.pop+=fx.pop; if(fx.score)S.score+=fx.score; clampStats();}
 function fmt(n){return n.toLocaleString("ja-JP");}
@@ -1173,6 +1189,23 @@ function renderTitle(){
  +'</div>';
 }
 
+/* ホームのアプリアイコン：2023年当時の実物をSVGで再現
+   LINE=#06C755の白吹き出し／Twitter=X改称前の青地に白い鳥／Instagram=グラデーション+カメラ
+   Mnet Plus=公式アプリアイコン（白地にグラデーション枠+ピンクのMと+、App Store掲載アイコンで確認）
+   ニュース=媒体横断リーダーのため新聞グリフ／機能系はiOS標準アイコンの文法で */
+const APP_ICONS=(function(){
+function gearTeeth(){let s=""; for(let i=0;i<8;i++){s+='<rect x="28.1" y="11.5" width="3.8" height="10" rx="1.9" transform="rotate('+(i*45)+" 30 30)\"/>";} return s;}
+return {
+talk:'<svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60" fill="#06C755"/><path d="M30 8c12.2 0 22 8.1 22 18.1 0 10-9.8 18-22 18-2.6 0-5.1-.4-7.4-1.1C19.9 44.9 14.9 48 14.9 48l2.4-7.2C11.9 37.3 8 32.1 8 26.1 8 16.1 17.8 8 30 8z" fill="#fff"/><text x="30" y="31.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11.5" font-weight="900" letter-spacing=".5" fill="#06C755">LINE</text></svg>',
+mnet:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-mnet-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff2e92"/><stop offset=".55" stop-color="#b565f0"/><stop offset="1" stop-color="#39d0f5"/></linearGradient></defs><rect width="60" height="60" fill="#fff"/><rect x="8.5" y="16.5" width="40" height="31" rx="9.5" fill="none" stroke="url(#ic-mnet-g)" stroke-width="3.6"/><path d="M17.5 41.5v-15c0-3.4 2.6-4.4 4.6-1.6l5.4 11c1 2 2.9 2 3.9 0l5.4-11c2-2.8 4.6-1.8 4.6 1.6v15" fill="none" stroke="#f91f8e" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M51.5 6.5v9M47 11h9" stroke="#f91f8e" stroke-width="4" stroke-linecap="round"/></svg>',
+twitter:'<svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60" fill="#1d9bf0"/><g transform="translate(14.5,15.5) scale(1.3)"><path fill="#fff" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></g></svg>',
+insta:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-ig-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".82" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-ig-g)"/><rect x="16.5" y="16.5" width="27" height="27" rx="8" fill="none" stroke="#fff" stroke-width="3.1"/><circle cx="30" cy="30" r="6.4" fill="none" stroke="#fff" stroke-width="3.1"/><circle cx="38.6" cy="21.4" r="2" fill="#fff"/></svg>',
+news:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-nw-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d4e89"/><stop offset="1" stop-color="#122c50"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-nw-g)"/><g><rect x="15" y="13" width="30" height="34" rx="2.5" fill="#fff"/><rect x="19" y="17.5" width="22" height="5" fill="#173f6e"/><rect x="19" y="25.5" width="10" height="8.5" fill="#9db8d2"/><rect x="31.5" y="25.5" width="9.5" height="2.1" fill="#5a708c"/><rect x="31.5" y="29.3" width="9.5" height="2.1" fill="#5a708c"/><rect x="31.5" y="33.1" width="9.5" height="2.1" fill="#5a708c"/><rect x="19" y="37" width="22" height="2.1" fill="#8fa5bd"/><rect x="19" y="40.8" width="22" height="2.1" fill="#8fa5bd"/></g></svg>',
+members:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-mb-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b84ad"/><stop offset="1" stop-color="#33567f"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-mb-g)"/><g fill="#fff"><circle cx="41" cy="23" r="5.6" opacity=".72"/><path d="M41 30.5c4.9 0 8.6 3.1 9.3 7.6.1 1-.7 1.9-1.7 1.9h-6.4c.3-1.3.5-2.6.5-4 0-2-.6-3.9-1.7-5.5z" opacity=".72"/><circle cx="24.5" cy="21.5" r="7"/><path d="M24.5 30.5c6.3 0 10.5 4.4 10.5 10.6 0 1.1-.9 1.9-1.9 1.9H15.9c-1 0-1.9-.8-1.9-1.9 0-6.2 4.2-10.6 10.5-10.6z"/></g></svg>',
+support:'<svg viewBox="0 0 60 60" aria-hidden="true"><rect width="60" height="60" fill="#fff"/><circle cx="30" cy="30" r="21.5" fill="none" stroke="#d3dbe4" stroke-width="2"/><path d="M30 13.5L36.5 30 30 46.5 23.5 30Z" fill="#e9eef4"/><path d="M30 13.5L36.5 30 30 30Z" fill="#ff3b30"/><circle cx="30" cy="30" r="2.4" fill="#8a97a5"/></svg>',
+rank:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-rk-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7bc2e"/><stop offset="1" stop-color="#dd8f06"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-rk-g)"/><g fill="#fff"><rect x="25" y="21" width="10" height="24" rx="1.6"/><rect x="13" y="29" width="10" height="16" rx="1.6" opacity=".88"/><rect x="37" y="25" width="10" height="20" rx="1.6" opacity=".88"/></g><text x="30" y="38.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="900" fill="#dd8f06">1</text></svg>',
+settings:'<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="ic-st-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f2f7"/><stop offset="1" stop-color="#c7c7cc"/></linearGradient></defs><rect width="60" height="60" fill="url(#ic-st-g)"/><g fill="#636368">'+gearTeeth()+'<circle cx="30" cy="30" r="11"/></g><circle cx="30" cy="30" r="5.2" fill="#d9d9de"/></svg>'
+};})();
 function renderHome(){
 const st=curStep(); const un=unreadApps(); const h=CAST.hiroto;
 let banner;
@@ -1182,9 +1215,9 @@ let proj;
 if(S.part1Done&&S.heroRank){proj='<span>第1回順位</span><b>'+S.heroRank+'位</b><span style="color:var(--sub)">'+fmt(S.heroPoints)+'点</span>';}
 else{const pts=computeHeroPoints(); proj='<span>推定ポイント</span><b>'+fmt(pts)+'</b><span style="color:var(--sub)">推定 '+computeRank(pts)+'位</span>';}
 const apps=[
-["talk","💬","トーク",un.talk],["mnet","🗳️","Mnet Plus",0],["twitter","🐦","Twitter",un.tw],["news","📰","ニュース",un.nw],["insta","📷","Instagram",un.ig],["members","👥","メンバー",0],["support","🧭","サポート",0],["rank","🏆","順位表",0],["settings","⚙️","設定",0]
+["talk","トーク",un.talk],["mnet","Mnet Plus",0],["twitter","Twitter",un.tw],["news","ニュース",un.nw],["insta","Instagram",un.ig],["members","メンバー",0],["support","サポート",0],["rank","順位表",0],["settings","設定",0]
 ];
-let appHTML=apps.map(function(a){return '<button class="appicon" data-app="'+a[0]+'" onclick="appTap(\''+a[0]+'\')"><span class="ic">'+a[1]+"</span><span>"+a[2]+"</span>"+(a[3]?'<span class="bdg">'+a[3]+"</span>":"")+"</button>";}).join("");
+let appHTML=apps.map(function(a){return '<button class="appicon" data-app="'+a[0]+'" onclick="appTap(\''+a[0]+'\')"><span class="ic">'+(APP_ICONS[a[0]]||"")+"</span><span>"+a[1]+"</span>"+(a[2]?'<span class="bdg">'+a[2]+"</span>":"")+"</button>";}).join("");
 document.getElementById("screen-home").innerHTML=
 '<div id="home-hero"><div class="date">2023.02 · BOYS PLANET</div><h2>担当をデビューさせる件<br></h2><p>三度目のサバイバル。三度目の再会。<br>史実の21位を覆し、9位以内のデビューへ――裏側から運命を動かす物語。</p></div>'
 +'<div id="story-banner" onclick="startStep()">'+banner+"</div>"
@@ -1476,9 +1509,12 @@ function twOpenProfile(handle){twUI.view="profile"; twUI.profile=handle; twUI.pf
 function twToggleLike(id){twLiked[id]=!twLiked[id]; twPersist(); renderTwitter();}
 function twToggleRT(id){twRTed[id]=!twRTed[id]; twPersist(); renderTwitter();}
 function twToggleFollow(handle){twFollow[handle]=!twFollow[handle]; twPersist(); toast(twFollow[handle]?"フォローしました":"フォローを解除しました"); renderTwitter();}
-function twMineMenu(id){openSheet('<div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twAskDelete(\''+id+'\')">🗑 ツイートを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twMineMenu(id){const pin=(S.twPinned===id);
+openSheet((pin?'<div class="sheet-item" onclick="twUnpin()">📌 固定を解除</div>':'<div class="sheet-item" onclick="twPin(\''+id+'\')">📌 プロフィールに固定</div>')+'<div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twAskDelete(\''+id+'\')">🗑 ツイートを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twPin(id){S.twPinned=id; save(); closeSheet(); renderTwitter(); toast("プロフィールに固定しました");}
+function twUnpin(){S.twPinned=null; save(); closeSheet(); renderTwitter(); toast("固定を解除しました");}
 function twAskDelete(id){openSheet('<div class="sheet-title">ツイートを削除しますか？</div><div class="sheet-sub">この操作は取り消せません。タイムラインやプロフィールからも削除されます。</div><div class="sheet-item" style="color:#f4212e;font-weight:700" onclick="twDoDelete(\''+id+'\')">削除する</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
-function twDoDelete(id){S.myTweets=(S.myTweets||[]).filter(function(t){return t.id!==id;}); if(twLiked[id])delete twLiked[id]; if(twRTed[id])delete twRTed[id]; twPersist(); closeSheet(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートを削除しました");}
+function twDoDelete(id){S.myTweets=(S.myTweets||[]).filter(function(t){return t.id!==id;}); if(S.twPinned===id)S.twPinned=null; if(twLiked[id])delete twLiked[id]; if(twRTed[id])delete twRTed[id]; twPersist(); closeSheet(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートを削除しました");}
 function twBackHeadHTML(title){return '<div class="tw-detail-head"><button class="backbtn" onclick="twGo(\'feed\')">‹</button><div class="ttl">'+esc(title)+"</div></div>";}
 function twFeedHeadHTML(){
 return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av" style="cursor:pointer" onclick="twOpenProfile(\''+TW_SELF.handle+'\')">な</div><div class="bird">'+TW_BIRD+'</div><div class="spark">✨</div></div>'
@@ -1530,7 +1566,10 @@ let h='<div class="tw-pf-banner"></div><div class="tw-pf-main"><div class="tw-pf
 +'<div class="tw-pf-meta">'+(pr.loc?"<span>📍 "+esc(pr.loc)+"</span>":"")+(pr.link?"<span>🔗 "+esc(pr.link)+"</span>":"")+"<span>🗓 "+esc(pr.joined)+"</span></div>"
 +'<div class="tw-pf-counts"><span><b>'+esc(pr.following)+"</b> フォロー中</span><span><b>"+esc(pr.followers)+"</b> フォロワー</span></div></div>"
 +'<div class="tw-pf-tabs"><span class="'+(twUI.pfTab==="tw"?"on":"")+'" onclick="twSetPfTab(\'tw\')"><i>ツイート</i></span><span class="'+(twUI.pfTab==="rp"?"on":"")+'" onclick="twSetPfTab(\'rp\')"><i>返信</i></span><span class="'+(twUI.pfTab==="md"?"on":"")+'" onclick="twSetPfTab(\'md\')"><i>メディア</i></span><span class="'+(twUI.pfTab==="lk"?"on":"")+'" onclick="twSetPfTab(\'lk\')"><i>いいね</i></span></div>';
-if(twUI.pfTab==="tw"){const mine=(handle===TW_SELF.handle)?(S.myTweets||[]).slice():TWITTER.filter(function(t){return t.handle===handle&&t.at<=S.step;}).slice().reverse(); h+=mine.length?mine.map(twTweetHTML).join(""):'<div class="tw-empty"><div class="ed">まだツイートがありません。</div></div>';}
+if(twUI.pfTab==="tw"){let mine=(handle===TW_SELF.handle)?(S.myTweets||[]).slice():TWITTER.filter(function(t){return t.handle===handle&&t.at<=S.step;}).slice().reverse(); let pinT=null;
+if(handle===TW_SELF.handle&&S.twPinned){pinT=(S.myTweets||[]).find(function(t){return t.id===S.twPinned;})||null; if(pinT)mine=mine.filter(function(t){return t.id!==pinT.id;});}
+if(pinT)h+='<div class="tw-pinlab">📌 固定されたツイート</div>'+twTweetHTML(pinT);
+h+=(mine.length?mine.map(twTweetHTML).join(""):(pinT?"":'<div class="tw-empty"><div class="ed">まだツイートがありません。</div></div>'));}
 else if(twUI.pfTab==="rp"){h+=twRepliesHTML(handle);}
 else if(twUI.pfTab==="md"){h+=twMediaHTML(handle);}
 else if(twUI.pfTab==="lk"){const liked=twAll().filter(function(t){return twLiked[t.id]&&(t.at===undefined||t.at<=S.step);}).slice().reverse(); h+=liked.length?liked.map(twTweetHTML).join(""):'<div class="tw-empty"><div class="ed">いいねしたツイートがここに表示されます。</div></div>';}
@@ -1614,22 +1653,30 @@ return list.map(function(t){const d=twDateObj(t); return '<div class="tw-notif" 
 }
 function twDmHeadHTML(){return '<div class="tw-top"><button class="backbtn" onclick="go(\'home\')">‹</button><div class="me-av">な</div><div class="ttl">メッセージ</div><div class="spark">✉️</div></div>';}
 function twDmHTML(){return '<div class="tw-empty"><div class="et">受信トレイへようこそ！</div><div class="ed">既存の会話がここに表示されます。合宿期間中、スタッフ用アカウントのダイレクトメッセージは運用チームが管理しています。</div></div>';}
-let twcSess={text:"",img:null};
+let twcSess={text:"",img:null,draftId:null};
+function twDraftsArr(){if(!Array.isArray(S.twDrafts))S.twDrafts=[]; return S.twDrafts;}
 const TW_PIC_CHOICES=["hiroto","keita","zhanghao","hanbin","matthew","jiwoong"];
 function twcImgHTML(){return twcSess.img?'<div class="twc-img"><img src="'+twcSess.img+'" alt=""><button onclick="twPicRemove()" aria-label="写真をはずす">✕</button></div>':"";}
-function twComposeHTML(){return '<div class="tw-compose" id="tw-compose"><div class="twc-head"><button class="twc-cancel" onclick="twComposeClose()">キャンセル</button><div class="twc-title">ツイート</div><button class="twc-post" id="twc-post" onclick="twPost()" disabled>ツイートする</button></div><div class="twc-body">'+twAvHTML(TW_SELF.handle,TW_SELF.name)+'<textarea id="twc-text" maxlength="280" placeholder="いまどうしてる？" oninput="twcUpd()">'+esc(twcSess.text)+'</textarea></div><div class="twc-imgwrap" id="twc-imgwrap">'+twcImgHTML()+'</div><div class="twc-foot"><button class="twc-picbtn" onclick="twPicSheet()" aria-label="写真を追加">🖼</button><span class="twc-globe">🌐 全員が返信できます</span><span class="twc-count" id="twc-count">280</span></div></div>';}
-function twComposeOpen(){const c=document.getElementById("tw-compose"); if(!c)return; if(!twcSess.text&&!twcSess.img&&S.twDraft){twcSess={text:S.twDraft.text||"",img:S.twDraft.img||null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=twcSess.text; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=twcImgHTML();} c.classList.add("on"); twcUpd(); const t=document.getElementById("twc-text"); if(t)setTimeout(function(){try{t.focus({preventScroll:true});}catch(e){}},60);}
+function twComposeHTML(){return '<div class="tw-compose" id="tw-compose"><div class="twc-head"><button class="twc-cancel" onclick="twComposeClose()">キャンセル</button><div class="twc-title">ツイート</div><button class="twc-draftsbtn" id="twc-draftsbtn" style="display:none" onclick="twDraftsOpen()">下書き</button><button class="twc-post" id="twc-post" onclick="twPost()" disabled>ツイートする</button></div><div class="twc-body">'+twAvHTML(TW_SELF.handle,TW_SELF.name)+'<textarea id="twc-text" placeholder="いまどうしてる？" oninput="twcUpd()">'+esc(twcSess.text)+'</textarea></div><div class="twc-imgwrap" id="twc-imgwrap">'+twcImgHTML()+'</div><div class="twc-foot"><button class="twc-picbtn" onclick="twPicSheet()" aria-label="写真を追加">🖼</button><span class="twc-globe">🌐 全員が返信できます</span><span class="twc-ringbox" id="twc-ringbox"><svg class="twc-ring" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle class="rbg" cx="13" cy="13" r="11"></circle><circle class="rfg" id="twc-ringfg" cx="13" cy="13" r="11" stroke-dasharray="69.12" stroke-dashoffset="69.12"></circle></svg><span class="twc-count" id="twc-count"></span></span></div></div>';}
+function twComposeOpen(){const c=document.getElementById("tw-compose"); if(!c)return; c.classList.add("on"); twcUpd(); const t=document.getElementById("twc-text"); if(t)setTimeout(function(){try{t.focus({preventScroll:true});}catch(e){}},60);}
 function twComposeHide(){const c=document.getElementById("tw-compose"); if(c)c.classList.remove("on");}
-function twComposeClose(){const cur=document.getElementById("twc-text"); if(cur)twcSess.text=cur.value; const has=!!twcSess.text.trim()||!!twcSess.img; if(!has){twComposeHide(); return;} const d=S.twDraft; if(d&&(d.text||"")===twcSess.text&&(d.img||null)===twcSess.img){twComposeHide(); return;} openSheet('<div class="sheet-title">下書きを保存しますか？</div><div class="sheet-sub">保存した下書きは、次にツイート画面を開いたときに復元されます。</div><div class="sheet-item" style="color:#1d9bf0;font-weight:700" onclick="twDraftSave()">📝 下書きを保存</div><div class="sheet-item" style="color:#f4212e" onclick="twDraftDiscard()">下書きを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
-function twDraftSave(){S.twDraft={text:twcSess.text,img:twcSess.img}; save(); twcSess={text:"",img:null}; closeSheet(); twComposeHide(); toast("下書きを保存しました");}
-function twDraftDiscard(){S.twDraft=null; save(); twcSess={text:"",img:null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=""; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=""; closeSheet(); twComposeHide(); toast("下書きを削除しました");}
+function twComposeClose(){const cur=document.getElementById("twc-text"); if(cur)twcSess.text=cur.value; const has=!!twcSess.text.trim()||!!twcSess.img; const resetSess=function(){twcSess={text:"",img:null,draftId:null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=""; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML="";}; if(!has){resetSess(); twComposeHide(); return;} const src=twcSess.draftId?twDraftsArr().find(function(d){return d.ts===twcSess.draftId;}):null; if(src&&(src.text||"")===twcSess.text&&(src.img||null)===twcSess.img){resetSess(); twComposeHide(); return;} openSheet('<div class="sheet-title">下書きを保存しますか？</div><div class="sheet-sub">保存した下書きは、ツイート画面の「下書き」から選んで再開できます。</div><div class="sheet-item" style="color:#1d9bf0;font-weight:700" onclick="twDraftSave()">📝 下書きを保存</div><div class="sheet-item" style="color:#f4212e" onclick="twDraftDiscard()">下書きを削除</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
+function twDraftSave(){const ds=twDraftsArr(); if(twcSess.draftId){const d=ds.find(function(x){return x.ts===twcSess.draftId;}); if(d){d.text=twcSess.text; d.img=twcSess.img; d.ts=Date.now();} else ds.unshift({text:twcSess.text,img:twcSess.img,ts:Date.now()});} else ds.unshift({text:twcSess.text,img:twcSess.img,ts:Date.now()}); save(); twcSess={text:"",img:null,draftId:null}; closeSheet(); twComposeHide(); toast("下書きを保存しました");}
+function twDraftDiscard(){if(twcSess.draftId){const ds=twDraftsArr(); const i=ds.findIndex(function(x){return x.ts===twcSess.draftId;}); if(i>=0)ds.splice(i,1);} S.twDraft=null; save(); twcSess={text:"",img:null,draftId:null}; const ta=document.getElementById("twc-text"); if(ta)ta.value=""; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=""; closeSheet(); twComposeHide(); toast("下書きを削除しました");}
+function twDraftsOpen(){const cur=document.getElementById("twc-text"); if(cur)twcSess.text=cur.value; const ds=twDraftsArr(); if(!ds.length){toast("下書きはありません"); return;}
+let h='<div class="sheet-title">下書き</div><div class="sheet-sub">タップすると、その下書きから再開できます。</div>';
+h+=ds.map(function(d,i){const dt=new Date(d.ts||Date.now()); const dstr=dt.getFullYear()+"/"+(dt.getMonth()+1)+"/"+dt.getDate(); return '<div class="tw-draft-row" onclick="twDraftResume('+i+')"><div class="tw-draft-tx">'+(d.text?esc(d.text):'<span style="color:#888">（写真のみの下書き）</span>')+(d.img?'<span class="tw-draft-img"><img src="'+d.img+'" alt=""></span>':"")+'<div class="tw-draft-date">'+dstr+'</div></div><button class="tw-draft-del" onclick="event.stopPropagation();twDraftDelete('+i+')" aria-label="この下書きを削除">🗑</button></div>';}).join("");
+h+='<div class="sheet-item" onclick="closeSheet()">キャンセル</div>';
+openSheet(h);}
+function twDraftResume(i){const d=twDraftsArr()[i]; if(!d)return; twcSess={text:d.text||"",img:d.img||null,draftId:d.ts}; closeSheet(); const ta=document.getElementById("twc-text"); if(ta)ta.value=twcSess.text; const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=twcImgHTML(); twcUpd(); if(ta)setTimeout(function(){try{ta.focus({preventScroll:true});}catch(e){}},60);}
+function twDraftDelete(i){const ds=twDraftsArr(); const d=ds[i]; if(!d)return; ds.splice(i,1); if(twcSess.draftId===d.ts)twcSess.draftId=null; S.twDraft=null; save(); toast("下書きを削除しました"); if(ds.length)twDraftsOpen(); else closeSheet(); twcUpd();}
 function twcImgSync(){const w=document.getElementById("twc-imgwrap"); if(w)w.innerHTML=twcImgHTML(); twcUpd();}
 function twPicSheet(){const cells=TW_PIC_CHOICES.map(function(id){const c=CAST[id]; if(!c||!c.img)return ""; return '<div class="cell" onclick="twPicPick(\''+c.img+'\')"><img src="'+c.img+'" alt=""></div>';}).join(""); openSheet('<div class="sheet-title">写真を選ぶ</div><div class="sheet-sub">ゲーム内の写真から選べます</div><div class="pic-grid">'+cells+'</div><div class="sheet-item" onclick="closeSheet()">キャンセル</div>');}
 function twPicPick(src){twcSess.img=src; closeSheet(); twcImgSync();}
 function twPicRemove(){twcSess.img=null; twcImgSync();}
-function twcUpd(){const t=document.getElementById("twc-text"), b=document.getElementById("twc-post"), cnt=document.getElementById("twc-count"); if(t)twcSess.text=t.value; const v=twcSess.text; const left=280-v.length; if(cnt){cnt.textContent=left; cnt.className="twc-count"+(left<0?" over":(left<=20?" warn":""));} if(b)b.disabled=!(v.trim()||twcSess.img);}
+function twcUpd(){const t=document.getElementById("twc-text"), b=document.getElementById("twc-post"), cnt=document.getElementById("twc-count"), rb=document.getElementById("twc-ringbox"), fg=document.getElementById("twc-ringfg"), db=document.getElementById("twc-draftsbtn"); if(t)twcSess.text=t.value; const v=twcSess.text; const left=280-v.length; const st=(left<0?" over":(left<=20?" warn":"")); if(cnt){cnt.textContent=left; cnt.className="twc-count"+st;} if(rb)rb.className="twc-ringbox"+st; if(fg){const p=Math.max(0,Math.min(1,v.length/280)); fg.style.strokeDashoffset=(69.12*(1-p)).toFixed(2);} if(b)b.disabled=(!(v.trim()||twcSess.img))||left<0; if(db)db.style.display=(S&&Array.isArray(S.twDrafts)&&S.twDrafts.length)?"":"none";}
 function twStoryDate(){const vis=TWITTER.filter(function(t){return t.at<=S.step;}); if(!vis.length)return "2023.2.2"; return vis.reduce(function(a,b){return b.at>=a.at?b:a;}).time;}
-function twPost(){const t=document.getElementById("twc-text"); if(t)twcSess.text=t.value; const v=twcSess.text.trim(); if(!v&&!twcSess.img)return; S.myTweets=S.myTweets||[]; const nt={id:"my"+Date.now(),name:TW_SELF.name,handle:TW_SELF.handle,text:v,rt:"0",like:"0",time:twStoryDate(),mine:true}; if(twcSess.img)nt.img=twcSess.img; S.myTweets.unshift(nt); twcSess={text:"",img:null}; S.twDraft=null; save(); twComposeHide(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートしました");}
+function twPost(){const t=document.getElementById("twc-text"); if(t)twcSess.text=t.value; const v=twcSess.text.trim(); if(!v&&!twcSess.img)return; S.myTweets=S.myTweets||[]; const nt={id:"my"+Date.now(),name:TW_SELF.name,handle:TW_SELF.handle,text:v,rt:"0",like:"0",time:twStoryDate(),mine:true}; if(twcSess.img)nt.img=twcSess.img; S.myTweets.unshift(nt); if(twcSess.draftId){const ds=twDraftsArr(); const di=ds.findIndex(function(x){return x.ts===twcSess.draftId;}); if(di>=0)ds.splice(di,1);} twcSess={text:"",img:null,draftId:null}; S.twDraft=null; save(); twComposeHide(); twUI.view="feed"; twUI.tab="rec"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); toast("ツイートしました");}
 function renderTwitter(){
 const el=document.getElementById("screen-twitter"); if(!el)return;
 const old=el.querySelector(".tw-scroll"); const keepTop=(!twUI._reset&&old)?old.scrollTop:0;
@@ -1852,9 +1899,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）4本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.6｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.6 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v1.7｜2023年2〜4月時点の実物UIを基準に制作\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v1.7 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.6<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v1.7<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
