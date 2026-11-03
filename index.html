@@ -762,6 +762,8 @@ main.noscroll{overflow:hidden}
 .mp-hist .hsub{font-size:11.5px;color:#b9a8d9;margin-bottom:8px;line-height:1.6}
 .mp-hrow{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:#e8e2f5}
 .mp-hrow:first-of-type{border-top:none}
+.mp-hrow.tap{cursor:pointer}
+.mp-hrow.tap:active{background:rgba(255,255,255,.06)}
 .mp-hrow .hd{color:#b9a8d9;flex:0 0 auto}
 .mp-hrow .hv{text-align:right;min-width:0}
 .mp-hrow .hv b{color:#fff}
@@ -788,6 +790,8 @@ main.noscroll{overflow:hidden}
 .cv-close b{color:#fff}
 .cv-close .cl{font-weight:700}
 .cv-note{padding:12px 16px 4px;color:rgba(255,255,255,.85);font-size:11.5px;line-height:1.7}
+.cv-membtn{display:block;width:calc(100% - 32px);margin:16px 16px 0;padding:13px 14px;background:rgba(255,255,255,.94);color:#274b73;border:none;border-radius:14px;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(20,40,80,.18)}
+.cv-membtn:active{transform:scale(.99)}
 .mp-hrow .mv{display:block;margin-top:3px;font-size:11.5px;color:#cfc2ea;line-height:1.6}
 .mp-hrow .mv b{color:#fff}
 .mp-hrow .mv .up{color:#ff7ab8;font-weight:700}
@@ -2367,7 +2371,8 @@ function openCallView(i){callViewStep=i; go("callview");}
 function cvLineHTML(ln){
 if(ln.who==="me")return '<div class="msgrow me"><div class="msgcol"><div class="bubble">'+esc(ln.text)+"</div></div></div>";
 let h='<div class="msgrow">'+avHTML("hiroto","sm")+'<div class="msgcol"><div class="msgname">井汲大翔</div><div class="bubble">'+esc(ln.text)+"</div>";
-if(ln.v){const v=VOICES[ln.v]; if(v)h+='<div class="bubble voice-bub" onclick="playVoice(\''+ln.v+'\',this)"><span class="play">▶</span><span class="wave"></span><span style="font-size:12px;opacity:.65">'+v.label+"</span></div>";}
+/* v4.8: ボイス行は通話本編の字幕内ボイスバブルと同一のクラス（call-voice＝幅いっぱい＋上の余白）にし、再生状態の見た目まで揃える */
+if(ln.v){const v=VOICES[ln.v]; if(v)h+='<div class="bubble voice-bub call-voice" onclick="playVoice(\''+ln.v+'\',this)"><span class="play">▶</span><span class="wave"></span><span style="font-size:12px;opacity:.65">'+v.label+"</span></div>";}
 return h+"</div></div>";
 }
 function renderCallView(){
@@ -2381,6 +2386,10 @@ html+='<div class="cv-body"><div class="cv-date">'+(d?d[0]+"年"+d[1]+"月"+d[2]
 const chs=st.callChoices||[{label:"「一緒にデビューまで行こう」",resp:"……約束、やな。じゃあ、俺も約束する。今度こそ、最後まで行く"},{label:"「まずは明日。絶対に残ろう」",resp:"うん。……絶対に、残る。ほな、おやすみ。なおさん"}];
 html+='<div class="cv-close"><b>締めの選択肢（当時のもの）</b><br>'+chs.map(function(c){return '<span class="cl">なお：</span>'+esc(c.label)+'<br><span class="cl">大翔：</span>'+esc(c.resp);}).join("<br>")+"</div>";
 html+="</div>";
+/* v4.8: 末尾に、その通話に対応する思い出カードを開くボタンを置く。
+   対応付けと未解放時の案内は、通話履歴の行タップと同じ callToMemory を使い、
+   「履歴→読み返し→思い出」の往復を閉じる */
+html+='<button class="cv-membtn" onclick="callToMemory('+i+')">この通話の思い出カードを開く ›</button>';
 html+='<p class="cv-note">※読み返し専用の表示です。物語の進行やセーブには影響しません。実際に選んだ返事は記録されていないため、締めは当時の選択肢を両方とも載せています。</p>';
 el.innerHTML=html;
 }
@@ -2576,8 +2585,10 @@ const after=curEst();
 mpLastVote={names:mpPicks.map(function(id){return mpNameOf(id);}), heroIn:heroIn, before:before, after:after, prevSeen:S.mpEstSeen, cast:S.mnetCast};
 S.mpEstSeen={pts:after.pts, rk:after.rk};
 /* v4.5: 投票履歴（作中日時つき）と推定スナップショットをマイページ用に記録 */
+/* v4.8: 投票単位の推定変動を表示するため、投票直前・直後の推定（curEst の before/after）も
+   各行に記録する。旧セーブの既存行にはこの項目が無いため、表示側は従来の日単位表示に劣化させる */
 if(!Array.isArray(S.mpVoteHist))S.mpVoteHist=[];
-S.mpVoteHist.unshift({d:mpDateLabel(),names:mpLastVote.names.slice(),heroIn:heroIn,cast:S.mnetCast,left:S.mnetLeft});
+S.mpVoteHist.unshift({d:mpDateLabel(),names:mpLastVote.names.slice(),heroIn:heroIn,cast:S.mnetCast,left:S.mnetLeft,bPts:before.pts,bRk:before.rk,aPts:after.pts,aRk:after.rk});
 if(S.mpVoteHist.length>20)S.mpVoteHist.length=20;
 mpSnapEst();
 save(); mpView="done"; renderMnet();
@@ -2745,7 +2756,20 @@ openSheet('<div class="sheet-title">推定の記録</div><div class="sheet-sub">
 /* v4.7: 投票履歴の各行に、その投票日の推定の動きを併記する。
    投票記録の日付（v.d）と mpEstHist の日付を突き合わせ、その日の最後の記録を、
    その日の記録の直前の記録（無ければその日の最初の記録）と比べる。表示のみ */
+/* v4.8: v4.8以降の投票は、投票確定時に記録した直前・直後の推定（bPts/bRk → aPts/aRk）で
+   投票単位の動きを表示する。項目を持たない旧セーブの行は、従来の日単位の突き合わせに劣化させる */
 function mpVoteMoveHTML(v){
+if(typeof v.bPts==="number"&&typeof v.aPts==="number"){
+const rkT=function(r){return (r===null||r===undefined)?"脱落圏":r+"位";};
+const bN=(v.bRk===null||v.bRk===undefined), aN=(v.aRk===null||v.aRk===undefined);
+let rp;
+if(!bN&&!aN){const dd=v.bRk-v.aRk; rp=rkT(v.bRk)+" → "+rkT(v.aRk)+(dd>0?' <span class="up">▲'+dd+"</span>":dd<0?' <span class="dn">▼'+(-dd)+"</span>":" ― 変動なし");}
+else if(bN&&!aN)rp='脱落圏 → '+rkT(v.aRk)+' <span class="up">▲浮上</span>';
+else if(!bN&&aN)rp=rkT(v.bRk)+' → 脱落圏 <span class="dn">▼</span>';
+else rp="脱落圏のまま";
+const pd=v.aPts-v.bPts;
+return '<span class="mv">この投票での推定の動き：'+rp+"<br>"+fmt(v.bPts)+"点 → "+fmt(v.aPts)+"点（"+(pd>0?"+"+fmt(pd):pd<0?"−"+fmt(-pd):"±0")+"点）</span>";
+}
 const eh=Array.isArray(S.mpEstHist)?S.mpEstHist:[];
 if(!eh.length)return "";
 let fi=-1, li=-1;
@@ -2768,14 +2792,14 @@ mpSnapEst(); /* v4.5: 開いた時点の推定を推移に記録（値と日付�
 const ce=curEst(); const pts=ce.pts; const rk=ce.rk;
 let hist="";
 const vh=Array.isArray(S.mpVoteHist)?S.mpVoteHist:[];
-hist+='<div class="mp-hist"><h3>投票履歴</h3><div class="hsub">投票した作中の日付ごとに記録されます（最大20件）。各行には、その日の推定順位の動き（推定の記録との日付突き合わせ）も併記します。</div>';
+hist+='<div class="mp-hist"><h3>投票履歴</h3><div class="hsub">投票した作中の日付ごとに記録されます（最大20件）。各行には推定順位の動きも併記します（v4.8以降の投票は投票ごとの前後比較、それ以前の記録はその日の推定記録との日付突き合わせ）。</div>';
 if(!vh.length)hist+='<div class="mp-hempty">まだ投票履歴がありません。투표（投票）タブから投票すると、ここに残ります。</div>';
 else vh.forEach(function(v){
 hist+='<div class="mp-hrow"><span class="hd">'+esc(v.d)+'</span><span class="hv">'+v.names.map(esc).join("、")+"<br>"+(v.heroIn?"井汲大翔への累計 <b>"+v.cast+"票</b>":"今回は大翔を含まない投票")+" · 残り"+v.left+"回"+mpVoteMoveHTML(v)+"</span></div>";
 });
 hist+="</div>";
 const eh=Array.isArray(S.mpEstHist)?S.mpEstHist:[];
-hist+='<div class="mp-hist"><h3>推定順位の推移</h3><div class="hsub">マイページを開いた時と投票した時の推定（curEst）を記録したものです。計算方法は従来どおりで、この記録自体が順位に影響することはありません。グラフの点をタップすると、その記録の詳細（日付・順位・ポイント・前回比）が見られます。</div>';
+hist+='<div class="mp-hist"><h3>推定順位の推移</h3><div class="hsub">マイページを開いた時と投票した時の推定（curEst）を記録したものです。計算方法は従来どおりで、この記録自体が順位に影響することはありません。グラフの点やリストの行をタップすると、その記録の詳細（日付・順位・ポイント・前回比）が見られます。</div>';
 if(eh.length>=2){const ewin=eh.slice(-12); hist+=mpEstChartHTML(ewin, eh.length-ewin.length);}
 else if(eh.length===1)hist+='<div class="mp-hempty">記録が1件のため、グラフは2件目から表示されます。</div>';
 if(!eh.length)hist+='<div class="mp-hempty">記録がありません。</div>';
@@ -2787,7 +2811,9 @@ let dl="";
 if(older&&e.rk!==null&&older.rk!==null){const d=older.rk-e.rk; dl=d>0?' <span class="up">▲'+d+"</span>":d<0?' <span class="dn">▼'+(-d)+"</span>":"";}
 else if(older&&e.rk!==null&&older.rk===null)dl=' <span class="up">▲浮上</span>';
 else if(older&&e.rk===null&&older.rk!==null)dl=' <span class="dn">▼脱落圏</span>';
-hist+='<div class="mp-hrow"><span class="hd">'+esc(e.d)+'</span><span class="hv"><b>'+fmt(e.pts)+"点</b> · "+(e.rk===null?"脱落圏":e.rk+"位")+dl+"</span></div>";
+/* v4.8: リストの行もグラフの点と同じ詳細シート（mpEstDetail）を開けるようにし、導線を統一する。
+   rows[i] の全体インデックスは eh.length-1-i（rows は末尾12件の逆順） */
+hist+='<div class="mp-hrow tap" onclick="mpEstDetail('+(eh.length-1-i)+')"><span class="hd">'+esc(e.d)+'</span><span class="hv"><b>'+fmt(e.pts)+"点</b> · "+(e.rk===null?"脱落圏":e.rk+"位")+dl+' <span style="color:#b9a8d9">›</span></span></div>';
 });
 }
 hist+="</div>";
@@ -3599,9 +3625,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.7｜推定順位グラフの点をタップで記録の詳細（日付・順位・ポイント・前回比）を表示／通話履歴の行に「読み返す」を追加し通話スクリプトを閲覧専用で再表示／投票履歴の各行にその日の推定順位の動きを併記\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.7 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.8｜通話の読み返し画面の末尾から対応する思い出カードを開く導線を追加／推定推移リストの行タップでも記録の詳細を表示／投票履歴の推定変動を投票ごとの前後比較に精緻化／読み返しのボイス行を通話本編の字幕内ボイスバブルと同じ見た目に\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.8 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.7<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。v4.4ではSNSとMnet Plusの残りの層（コンテンツのプレイヤーと個人チッケム枠、Instagramのプロフィール画面とストーリー・コメント、Twitterの通知タブとDM会話）を深掘りしました。v4.5ではLINEまわりを精緻化し、トーク一覧の日時表示を作中日付に連動させ（日付の根拠は作中の明記・発表の前日/翌日の派生・到達済み投稿の掲載日に限り、推測では作りません）、通話履歴画面を新設して到達した通話を日付ごとに振り返れるようにし、思い出コレクションに恋愛場面のカード5枚（全21枚）を追加し、Mnet Plusのマイページに作中日時つきの投票履歴と推定順位の推移（既存の推定ロジックの値を記録するだけのもの）を追加しました。v4.6では、トーク一覧を各スレッドの最終メッセージの作中日時（dateAtStepで解決できた日付）が新しい順に並べ替えるようにし（日付が解決できないスレッドは従来の定義順を保って後ろにまとめます）、通話履歴の行をタップすると対応する思い出カードの詳細を開ける導線を付け（未解放の場合は解放条件を案内します）、Mnet Plusマイページの推定推移に順位と推定ポイントの折れ線グラフ（直近12件・リストと併記）を加え、投票タブに前回投票の要約（作中日時と推しメン名）を小さく出すようにしました。v4.7では、推定推移グラフの各点をタップすると、その記録の日付・順位・ポイント・前回比をシートで表示するようにし、通話履歴の行に「読み返す」を追加して到達済みの通話の会話をそのまま閲覧専用で読み返せるようにし（実際に選んだ締めの返事は記録されていないため、当時の選択肢を両方載せます）、投票履歴の各行に、その投票日の推定順位・ポイントの動きを推定の記録との日付突き合わせで併記しました。いずれも史実データ・推定の計算式・時系列ゲート・セーブ形式には影響しません。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.8<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。v4.4ではSNSとMnet Plusの残りの層（コンテンツのプレイヤーと個人チッケム枠、Instagramのプロフィール画面とストーリー・コメント、Twitterの通知タブとDM会話）を深掘りしました。v4.5ではLINEまわりを精緻化し、トーク一覧の日時表示を作中日付に連動させ（日付の根拠は作中の明記・発表の前日/翌日の派生・到達済み投稿の掲載日に限り、推測では作りません）、通話履歴画面を新設して到達した通話を日付ごとに振り返れるようにし、思い出コレクションに恋愛場面のカード5枚（全21枚）を追加し、Mnet Plusのマイページに作中日時つきの投票履歴と推定順位の推移（既存の推定ロジックの値を記録するだけのもの）を追加しました。v4.6では、トーク一覧を各スレッドの最終メッセージの作中日時（dateAtStepで解決できた日付）が新しい順に並べ替えるようにし（日付が解決できないスレッドは従来の定義順を保って後ろにまとめます）、通話履歴の行をタップすると対応する思い出カードの詳細を開ける導線を付け（未解放の場合は解放条件を案内します）、Mnet Plusマイページの推定推移に順位と推定ポイントの折れ線グラフ（直近12件・リストと併記）を加え、投票タブに前回投票の要約（作中日時と推しメン名）を小さく出すようにしました。v4.7では、推定推移グラフの各点をタップすると、その記録の日付・順位・ポイント・前回比をシートで表示するようにし、通話履歴の行に「読み返す」を追加して到達済みの通話の会話をそのまま閲覧専用で読み返せるようにし（実際に選んだ締めの返事は記録されていないため、当時の選択肢を両方載せます）、投票履歴の各行に、その投票日の推定順位・ポイントの動きを推定の記録との日付突き合わせで併記しました。v4.8では、通話の読み返し画面の末尾に、その通話に対応する思い出カードを開くボタンを置いて「通話履歴→読み返し→思い出」の導線を閉じ、推定推移リストの行をタップしてもグラフと同じ記録の詳細シートが開くように導線を統一し、投票履歴の推定変動を、投票確定時の直前・直後の推定を各行に記録する投票単位の前後比較に精緻化しました（旧セーブの投票記録は項目を持たないため、従来どおり日単位の表示のままです）。読み返し画面のボイス行は、通話本編の字幕内ボイスバブルと同じクラスに揃え、幅いっぱいのバーと再生状態の見た目を一致させました。いずれも史実データ・推定の計算式・時系列ゲート・セーブ形式には影響しません。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
