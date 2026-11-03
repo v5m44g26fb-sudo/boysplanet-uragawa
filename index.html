@@ -747,6 +747,27 @@ main.noscroll{overflow:hidden}
 .tw-dm-bar input{flex:1;background:none;border:none;outline:none;font-size:14.5px;color:#0f1419;min-height:40px}
 .tw-dm-bar .snd{color:#1d9bf0;font-size:19px;cursor:pointer;padding:7px;display:none}
 .tw-dm-bar .snd.on{display:block}
+/* ==== v4.5: LINE精緻化（トーク一覧の日時スタンプ／通話履歴） ==== */
+.thread-l .trt{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex:0 0 auto;padding-top:2px}
+.ch-ic{width:46px;height:46px;border-radius:50%;background:#06c755;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.ch-date{position:sticky;top:0;background:#f2f2f7;color:#666;font-size:12px;font-weight:700;padding:7px 16px 6px;z-index:2}
+.ch-row{display:flex;gap:12px;padding:11px 16px;align-items:center;background:#fff;border-bottom:1px solid #f0f0f3}
+.ch-row .meta{flex:1;min-width:0}
+.ch-row .nm{font-weight:700;font-size:15px;color:#111}
+.ch-row .pv{color:#888;font-size:12.5px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-row .tm{color:#aaa;font-size:11.5px;flex:0 0 auto}
+/* ==== v4.5: mnet plus my page history ==== */
+.mp-hist{margin:0 16px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px 16px}
+.mp-hist h3{font-size:13.5px;margin:0 0 4px;color:#fff}
+.mp-hist .hsub{font-size:11.5px;color:#b9a8d9;margin-bottom:8px;line-height:1.6}
+.mp-hrow{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:#e8e2f5}
+.mp-hrow:first-of-type{border-top:none}
+.mp-hrow .hd{color:#b9a8d9;flex:0 0 auto}
+.mp-hrow .hv{text-align:right;min-width:0}
+.mp-hrow .hv b{color:#fff}
+.mp-hrow .up{color:#ff7ab8;font-weight:700}
+.mp-hrow .dn{color:#7ab8ff;font-weight:700}
+.mp-hempty{font-size:12.5px;color:#b9a8d9;line-height:1.7;padding:4px 0 2px}
 </style>
 </head>
 <body>
@@ -758,8 +779,9 @@ main.noscroll{overflow:hidden}
 <section class="screen" id="screen-home"></section>
 <section class="screen" id="screen-scene"><div id="scene-body"></div><div class="choice-list" id="scene-choices"></div><div id="scene-next"></div></section>
 <section class="screen light" id="screen-chatlist"><div id="chat-list"></div></section>
+<section class="screen light" id="screen-callhist"><div id="callhist-body"></div></section>
 <section class="screen light" id="screen-chat">
-<header class="app-head"><button class="backbtn" id="chat-back">‹</button><div style="flex:1;min-width:0"><h1 id="chat-title">トーク</h1><div class="sub" id="chat-sub"></div></div><div class="chat-head-ic"><span onclick="toggleChatSearch()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg></span><span onclick="toast('通話は物語の場面で行われます')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3l1.5 4.5-2.3 1.7a12.5 12.5 0 0 0 5.1 5.1L14 12.5l4.5 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg></span><span onclick="openChatMenu()">☰</span></div></header>
+<header class="app-head"><button class="backbtn" id="chat-back">‹</button><div style="flex:1;min-width:0"><h1 id="chat-title">トーク</h1><div class="sub" id="chat-sub"></div></div><div class="chat-head-ic"><span onclick="toggleChatSearch()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg></span><span onclick="go('callhist')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3l1.5 4.5-2.3 1.7a12.5 12.5 0 0 0 5.1 5.1L14 12.5l4.5 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg></span><span onclick="openChatMenu()">☰</span></div></header>
 <div class="chat-searchrow" id="chat-searchrow"><input id="chat-q" type="text" placeholder="トーク内を検索"><span class="cnt" id="chat-qcnt"></span><span style="cursor:pointer;font-size:15px;color:#33506e" onclick="closeChatSearch()">✕</span></div>
 <div id="chat-body"></div>
 <div class="choice-list" id="chat-choices" style="padding:4px 14px"></div>
@@ -1852,7 +1874,7 @@ loc:"2023年4月20日 · 蚕室室内体育館（MC：ファン・ミニョン�
 /* ============ ENGINE ============ */
 const SAVE_KEY = "bpSaveV1";
 let S = null;
-function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,score2:0,part2Started:false,part2Done:false,heroPoints2:null,heroRank2:null,score3:0,part3Started:false,r3Done:false,heroPoints3:null,heroRank3:null,finalStarted:false,score4:0,heroPointsF:null,heroRankF:null,part3Done:false,rankView:1,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null,twDrafts:[],twPinned:null,memMax:-1,mpEstSeen:null};}
+function defState(){return {step:0,trust:20,mental:62,pop:18,score:0,doneSteps:[],part1Done:false,heroPoints:null,heroRank:null,score2:0,part2Started:false,part2Done:false,heroPoints2:null,heroRank2:null,score3:0,part3Started:false,r3Done:false,heroPoints3:null,heroRank3:null,finalStarted:false,score4:0,heroPointsF:null,heroRankF:null,part3Done:false,rankView:1,mnetLeft:3,mnetCast:0,seenApps:{},talkLog:{},newsOpen:null,profileId:null,memQuery:"",musicOn:true,seOn:true,vol:80,twLiked:{},twRTed:{},twFollow:null,musRep:"off",musShuf:false,myTweets:[],twDraft:null,twDrafts:[],twPinned:null,memMax:-1,mpEstSeen:null,mpVoteHist:[],mpEstHist:[]};}
 
 function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
 function load(){try{const r=localStorage.getItem(SAVE_KEY); if(r){S=Object.assign(defState(),JSON.parse(r)); twMigrate(); return;}}catch(e){} S=defState();}
@@ -1953,7 +1975,7 @@ function toggleMusic(){if(!musicAudio)return; if(musicAudio.paused){musicAudio.p
 function stopVoice(){if(voiceAudio){try{voiceAudio.pause();}catch(e){} voiceAudio=null;} if(voiceBtn){voiceBtn.classList.remove("playing"); const p=voiceBtn.querySelector(".play"); if(p)p.textContent="▶"; voiceBtn=null;} duck(false);}
 function playVoice(key,btn){const v=VOICES[key]; if(!v)return; if(voiceAudio&&voiceBtn===btn){stopVoice(); return;} stopVoice(); duck(true); voiceAudio=new Audio(v.src); voiceAudio.volume=S.vol/100; voiceBtn=btn; btn.classList.add("playing"); const p=btn.querySelector(".play"); if(p)p.textContent="⏸"; voiceAudio.onended=function(){stopVoice();}; voiceAudio.onerror=function(){stopVoice(); toast("音声ファイルを読み込めませんでした");}; voiceAudio.play().catch(function(){stopVoice(); toast("音声を再生できませんでした");});}
 /* ---- navigation ---- */
-const SCREENS=["lock","title","home","scene","chatlist","chat","mnet","twitter","news","insta","support","rank","members","profile","memory","call","settings"];
+const SCREENS=["lock","title","home","scene","chatlist","chat","callhist","mnet","twitter","news","insta","support","rank","members","profile","memory","call","settings"];
 let curScreen="home";
 function headHTML(title,sub,to){return '<header class="app-head"><button class="backbtn" onclick="go(\''+(to||"home")+'\')">‹</button><div style="flex:1;min-width:0"><h1>'+esc(title)+'</h1>'+(sub?'<div class="sub">'+esc(sub)+'</div>':"")+"</div></header>";}
 function go(name){
@@ -1970,6 +1992,7 @@ if(name==="title")renderTitle();
 if(name==="home")renderHome();
 if(name==="scene")renderScene();
 if(name==="chatlist")renderChatList();
+if(name==="callhist")renderCallHist();
 if(name==="mnet")renderMnet();
 if(name==="twitter"){twUI.view="feed"; twUI.detail=null; twUI.profile=null; twUI._reset=true; renderTwitter(); S.seenApps.twitter=S.step; save();}
 if(name==="news"){renderNews(); S.seenApps.news=S.step; save();}
@@ -2053,9 +2076,7 @@ function renderTitle(){
    （順位発表＝放送時刻20:50／前夜通話＝深夜帯／サポート＝午前…）から決める。
    通知は進行度連動（現在のトーク／当ステップのSNS新着／Mnet Plusの投票状況／最新ニュース）。 */
 function storyNow(){
-const st=curStep(); let ymd=null;
-if(st&&(st.loc||st.desc)){const m=String(st.loc||"").match(/(\d{4})年(\d{1,2})月(\d{1,2})日/)||String(st.desc||"").match(/(\d{4})年(\d{1,2})月(\d{1,2})日/); if(m)ymd=[+m[1],+m[2],+m[3]];}
-if(!ymd){let bv=-1; [TWITTER,NEWS,INSTA].forEach(function(arr){(arr||[]).forEach(function(x){if(x.at<=S.step&&x.time){const p=String(x.time).split(".").map(Number); const v=(p[0]||2023)*10000+(p[1]||1)*100+(p[2]||1); if(v>bv){bv=v; ymd=p;}}});});}
+const st=curStep(); let ymd=dateAtStep(S.step); /* v4.5: 日付解決を dateAtStep に共通化（解決順は従来どおり） */
 if(!ymd)ymd=[2023,1,30];
 const wd="日月火水木金土"[new Date(ymd[0],ymd[1]-1,ymd[2]).getDay()];
 const ty=st?st.type:"scene"; let hh=20,mm=50;
@@ -2231,6 +2252,82 @@ body.innerHTML='<span class="scene-loc">2023年4月20日 · 蚕室室内体育�
 +'<div class="fin-box"><h3>最終結果 ― あと一歩</h3><div class="fin-rank" style="color:var(--gold)">'+rank+'位</div><div class="fin-sub">井汲大翔 · ファイナル '+fmt(pts)+'点（史実：第3回発表21位で脱落・ファイナル未進出）</div><p>信頼度 <b>'+S.trust+'</b> ／ メンタル <b>'+S.mental+'</b> ／ 注目度 <b>'+S.pop+'</b></p><p>デビュー圏（9位＝1,196,622点）まで、あと'+fmt(gap9)+'点だった。第3部の最初から（第3回発表の結果も含めて）挑み直すこともできます。</p></div>';
 nx.innerHTML='<button class="big-btn" onclick="restartPart3()">第3部の最初からやり直す</button><button class="ghost-btn" onclick="go(\'home\')">ホームに戻る</button><button class="ghost-btn" onclick="go(\'rank\')">順位表を見る</button>';
 }
+/* ================= v4.5: 作中日付ヘルパー／通話履歴／Mnet履歴 =================
+   日付の根拠は次の範囲に限る（推測では作らない）：
+   (1) ステップの loc に「YYYY年M月D日」と明記された日付。
+   (2) STEP_DATES：desc に「○○発表の前日／翌日」と明記され、基準日（発表日）が
+       loc に明記されているステップからの派生日。
+   (3) SNSアンカー：そのステップまでに到達した Twitter／ニュース／Instagram 投稿の
+       最新の掲載日（v4.3ロック画面の storyNow が「現在の作中日付」に使うのと同じ規約）。
+   どれにも当たらなければ null を返し、表示は時刻のみに落とす。 */
+const STEP_DATES={
+14:[2023,2,23],  /* 第1回発表（2/24・step15 loc）の前日＝desc明記。思い出カードの日付とも一致 */
+17:[2023,2,25],  /* 第1回発表の翌日＝desc明記 */
+31:[2023,3,22],  /* 第2回発表（3/23・step32 loc）の前日＝desc明記 */
+34:[2023,3,24],  /* 第2回発表の翌日＝desc明記 */
+46:[2023,4,12],  /* 第3回発表（4/13・step47 loc）の前日＝desc明記 */
+52:[2023,4,19]   /* ファイナル生放送（4/20・step53 loc）の前日＝desc明記 */
+};
+function dateAtStep(i){
+const st=STEPS[i];
+if(st){const m=String(st.loc||"").match(/(\d{4})年(\d{1,2})月(\d{1,2})日/)||String(st.desc||"").match(/(\d{4})年(\d{1,2})月(\d{1,2})日/); if(m)return [+m[1],+m[2],+m[3]];}
+if(STEP_DATES[i])return STEP_DATES[i].slice();
+let bv=-1,ymd=null;
+[TWITTER,NEWS,INSTA].forEach(function(arr){(arr||[]).forEach(function(x){if(x.at<=i&&x.time){const p=String(x.time).split(".").map(Number); const v=(p[0]||2023)*10000+(p[1]||1)*100+(p[2]||1); if(v>bv){bv=v; ymd=p;}}});});
+return ymd;
+}
+function ymdDiffDays(a,b){return Math.round((Date.UTC(b[0],b[1]-1,b[2])-Date.UTC(a[0],a[1]-1,a[2]))/86400000);}
+/* LINE式の相対表記：同日＝時刻／前日＝昨日／6日以内＝曜日／それ以前＝M/D（年が違えば YYYY/M/D）。
+   メッセージ側・現在側のどちらかでも日付が引けない場合は時刻のみを表示する */
+function lineListStamp(stepIdx,timeStr){
+const md=dateAtStep(stepIdx), cd=dateAtStep(S.step);
+if(!md||!cd)return timeStr;
+const d=ymdDiffDays(md,cd);
+if(d<=0)return timeStr;
+if(d===1)return "昨日";
+if(d<=6)return "日月火水木金土"[new Date(md[0],md[1]-1,md[2]).getDay()]+"曜日";
+return (md[0]!==cd[0]?md[0]+"/":"")+md[1]+"/"+md[2];
+}
+/* そのトークステップの最終メッセージの表示時刻（renderMsgs と同じ時刻歩行で再現） */
+function lastMsgTimeStr(stepIdx,threadId,msgs){
+const saved=curThread; curThread=threadId;
+let mins=lineBaseMin(msgs), last="";
+(msgs||[]).forEach(function(m){if(m.f!=="sys"){last=lineFmtTime(mins); mins+=lineStepMin(m);}});
+curThread=saved;
+return last;
+}
+/* ---- 通話履歴（v4.5で新設）：到達済みの通話を日付見出しでグループ表示 ---- */
+const CALL_STEPS=[14,31,46,52];
+function callDone(i){return (S.doneSteps||[]).indexOf(i)>=0||(typeof S.memMax==="number"&&S.memMax>=i)||S.step>i;}
+function callTimeStr(i){return lineFmtTime(23*60+(7+(i*7)%40));} /* storyNow の前夜通話＝23時台の規約と同一 */
+function renderCallHist(){
+const done=CALL_STEPS.filter(callDone);
+let html=headHTML("通話履歴","LINE","chatlist");
+if(!done.length){
+html+='<p style="padding:22px 16px;color:#888;font-size:13px;line-height:1.9">まだ通話履歴はありません。<br>物語の中で大翔からの電話がかかってくると、ここに日付ごとに残ります。</p>';
+}else{
+done.slice().reverse().forEach(function(i){
+const st=STEPS[i], d=STEP_DATES[i];
+const wd="日月火水木金土"[new Date(d[0],d[1]-1,d[2]).getDay()];
+html+='<div class="ch-date">'+d[0]+"年"+d[1]+"月"+d[2]+"日（"+wd+"）</div>"
++'<div class="ch-row">'+avHTML("hiroto")+'<div class="meta"><div class="nm">井汲大翔</div><div class="pv">'+esc(st.title)+' · 着信</div></div><div class="tm">'+callTimeStr(i)+"</div></div>";
+});
+html+='<p style="padding:14px 16px;color:#aaa;font-size:11.5px;line-height:1.7">通話は物語の場面の中で行われます。履歴は到達した通話だけが残ります。</p>';
+}
+document.getElementById("callhist-body").innerHTML=html;
+}
+/* ---- Mnet Plus マイページ用：投票履歴と推定の推移（v4.5） ----
+   推定ポイント・順位は既存の curEst() の値をそのまま記録するだけで、計算式には触れない */
+function mpDateLabel(){const d=dateAtStep(S.step); return d?d[0]+"年"+d[1]+"月"+d[2]+"日":"作中日時不明";}
+function mpSnapEst(){
+if(!Array.isArray(S.mpEstHist))S.mpEstHist=[];
+const ce=curEst(), d=mpDateLabel();
+const last=S.mpEstHist[S.mpEstHist.length-1];
+if(last&&last.pts===ce.pts&&last.rk===ce.rk&&last.d===d)return;
+S.mpEstHist.push({d:d,pts:ce.pts,rk:ce.rk});
+if(S.mpEstHist.length>40)S.mpEstHist=S.mpEstHist.slice(-40);
+save();
+}
 /* ---- chat ---- */
 function threadSteps(id){return STEPS.map(function(s,i){return {s:s,i:i};}).filter(function(x){return x.s.type==="talk"&&x.s.thread===id;});}
 let lineQuery="";
@@ -2246,7 +2343,8 @@ const th=THREADS[id];
 if(lineQuery&&((th.title||"")+" "+pv).indexOf(lineQuery)<0)return;
 const unread=(curStep().type==="talk"&&curStep().thread===id&&!S.doneSteps.includes(S.step))?'<span class="ubdg">1</span>':"";
 const av=th.group?grpAvHTML(th.members):avHTML(th.members[0]);
-rows+='<div class="thread-l" onclick="openThread(\''+id+'\')">'+av+'<div class="meta"><div class="nm">'+esc(th.title)+'</div><div class="pv">'+(pvV?pv:esc(pv))+'</div></div>'+unread+"</div>";
+const stamp=last?lineListStamp(last.i,lastMsgTimeStr(last.i,id,last.s.msgs)):"";
+rows+='<div class="thread-l" onclick="openThread(\''+id+'\')">'+av+'<div class="meta"><div class="nm">'+esc(th.title)+'</div><div class="pv">'+(pvV?pv:esc(pv))+'</div></div><div class="trt"><div class="tm">'+esc(stamp)+"</div>"+unread+"</div></div>";
 });
 if(!rows)return '<p style="padding:20px 16px;color:#888;font-size:13px">'+(lineQuery?"「"+esc(lineQuery)+"」に一致するトークはありません。":"まだトークはありません。")+"</p>";
 return rows;
@@ -2254,7 +2352,8 @@ return rows;
 function renderChatListRows(){const el=document.getElementById("chat-rows"); if(el)el.innerHTML=chatRowsHTML();}
 function renderChatList(){
 S.seenApps.talk=S.step;
-document.getElementById("chat-list").innerHTML=headHTML("トーク","LINE", "home").replace('class="app-head"','class="app-head" style="position:sticky"')+'<div class="line-search"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg></span><input id="line-q" type="text" placeholder="トークルームとメッセージを検索" value="'+esc(lineQuery)+'" oninput="lineQuery=this.value;renderChatListRows()"></div><div id="chat-rows">'+chatRowsHTML()+"</div>";
+const chCount=CALL_STEPS.filter(callDone).length;
+document.getElementById("chat-list").innerHTML=headHTML("トーク","LINE", "home").replace('class="app-head"','class="app-head" style="position:sticky"')+'<div class="thread-l" style="min-height:62px;border-bottom:1px solid #f0f0f3" onclick="go(\'callhist\')"><div class="ch-ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3l1.5 4.5-2.3 1.7a12.5 12.5 0 0 0 5.1 5.1L14 12.5l4.5 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg></div><div class="meta"><div class="nm" style="font-size:14.5px">通話履歴</div><div class="pv">大翔との電話を日付ごとに振り返る</div></div><div class="trt"><div class="tm">'+(chCount?chCount+"件":"")+'</div></div></div>'+'<div class="line-search"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM15.3 15.3L20.5 20.5"/></svg></span><input id="line-q" type="text" placeholder="トークルームとメッセージを検索" value="'+esc(lineQuery)+'" oninput="lineQuery=this.value;renderChatListRows()"></div><div id="chat-rows">'+chatRowsHTML()+"</div>";
 save();
 }
 function openThread(id,fromStep){
@@ -2391,6 +2490,11 @@ S.mnetLeft--; if(heroIn){S.mnetCast++; S.pop=Math.min(100,S.pop+1); clampStats()
 const after=curEst();
 mpLastVote={names:mpPicks.map(function(id){return mpNameOf(id);}), heroIn:heroIn, before:before, after:after, prevSeen:S.mpEstSeen, cast:S.mnetCast};
 S.mpEstSeen={pts:after.pts, rk:after.rk};
+/* v4.5: 投票履歴（作中日時つき）と推定スナップショットをマイページ用に記録 */
+if(!Array.isArray(S.mpVoteHist))S.mpVoteHist=[];
+S.mpVoteHist.unshift({d:mpDateLabel(),names:mpLastVote.names.slice(),heroIn:heroIn,cast:S.mnetCast,left:S.mnetLeft});
+if(S.mpVoteHist.length>20)S.mpVoteHist.length=20;
+mpSnapEst();
 save(); mpView="done"; renderMnet();
 }
 function mpCountUp(el,from,to){
@@ -2491,13 +2595,38 @@ if(musicKey===key&&musicAudio){toggleMusic(); renderMnetContents();}
 else playMusic(key);
 }
 function renderMnetMy(){
+mpSnapEst(); /* v4.5: 開いた時点の推定を推移に記録（値と日付が変わった時だけ） */
 const ce=curEst(); const pts=ce.pts; const rk=ce.rk;
+let hist="";
+const vh=Array.isArray(S.mpVoteHist)?S.mpVoteHist:[];
+hist+='<div class="mp-hist"><h3>投票履歴</h3><div class="hsub">投票した作中の日付ごとに記録されます（最大20件）。</div>';
+if(!vh.length)hist+='<div class="mp-hempty">まだ投票履歴がありません。투표（投票）タブから投票すると、ここに残ります。</div>';
+else vh.forEach(function(v){
+hist+='<div class="mp-hrow"><span class="hd">'+esc(v.d)+'</span><span class="hv">'+v.names.map(esc).join("、")+"<br>"+(v.heroIn?"井汲大翔への累計 <b>"+v.cast+"票</b>":"今回は大翔を含まない投票")+" · 残り"+v.left+"回</span></div>";
+});
+hist+="</div>";
+const eh=Array.isArray(S.mpEstHist)?S.mpEstHist:[];
+hist+='<div class="mp-hist"><h3>推定順位の推移</h3><div class="hsub">マイページを開いた時と投票した時の推定（curEst）を記録したものです。計算方法は従来どおりで、この記録自体が順位に影響することはありません。</div>';
+if(!eh.length)hist+='<div class="mp-hempty">記録がありません。</div>';
+else{
+const rows=eh.slice(-12).reverse();
+rows.forEach(function(e,i){
+const older=rows[i+1]||eh[eh.length-rows.length-1];
+let dl="";
+if(older&&e.rk!==null&&older.rk!==null){const d=older.rk-e.rk; dl=d>0?' <span class="up">▲'+d+"</span>":d<0?' <span class="dn">▼'+(-d)+"</span>":"";}
+else if(older&&e.rk!==null&&older.rk===null)dl=' <span class="up">▲浮上</span>';
+else if(older&&e.rk===null&&older.rk!==null)dl=' <span class="dn">▼脱落圏</span>';
+hist+='<div class="mp-hrow"><span class="hd">'+esc(e.d)+'</span><span class="hv"><b>'+fmt(e.pts)+"点</b> · "+(e.rk===null?"脱落圏":e.rk+"位")+dl+"</span></div>";
+});
+}
+hist+="</div>";
 document.getElementById("mnet-body").innerHTML=headHTML("Mnet Plus","マイページ","home")
 +'<div class="mp-card" style="margin-top:16px"><div class="row1">'+avHTML("hiroto")+'<div><div class="nm">スタークリエイター（なお）</div><div class="inf">応援中：井汲大翔（Gグループ）</div></div></div>'
 +'<div class="mp-est"><span>大翔への累計投票</span><b>'+S.mnetCast+'票</b></div>'
 +'<div class="mp-est"><span>本日の残り投票数</span><b>'+S.mnetLeft+'票</b></div>'
 +'<div class="mp-est"><span>現在の推定順位</span><b>'+(rk===null?"脱落圏":rk+"位")+' · '+fmt(pts)+'点</b></div>'
 +'<div class="mp-note">投票は毎日リセットされます（ゲーム内では物語の進行に合わせて管理）。推定順位はゲーム内の目安表示です。</div></div>'
++hist
 +mpTabsHTML();
 }
 function renderMnet(){
@@ -3221,12 +3350,17 @@ const MEMORIES=[
 {at:14,part:"第1部",kind:"通話",title:"発表前夜の電話",img:null,date:"2023年2月23日 · 第1回発表の前夜",hint:"「発表前夜の電話」到達で解放",quote:"「明日、発表ですね。……大丈夫です。なおさんが、ついててくれるんで」"},
 {at:16,part:"第1部",kind:"フィナーレ",title:"第1回生存者発表式",img:"hiroto",date:"2023年2月24日",hint:"第1部クリアで解放",rank:"r1",quote:"93人から52人へ。三度目の挑戦は、最初の関門を越えた。"},
 {at:20,part:"第2部",kind:"場面",title:"Awesome Hour結成",img:"ricky",date:"2023年3月",hint:"「Awesome Hour結成」到達で解放",quote:"リッキー、拓斗、ジンシャン、ソンミン、そして大翔。「Rush Hour」に集まった5人。"},
+{at:24,part:"第2部",kind:"トーク",title:"夜のレッスン室",img:null,date:"2023年3月",hint:"「夜のレッスン室」到達で解放",quote:"「……なおさんには、弱いとこばっかり見せてる気がするわ」――「信頼、か。……うん。信頼やな」"},
 {at:28,part:"第2部",kind:"ステージ",title:"本番「Rush Hour」",img:"ricky",date:"2023年3月",hint:"「本番 Rush Hour」到達で解放",quote:"RAP＆DANCE部門4位、742点。届かなかったベネフィットと、それでも確かに残った手応え。"},
 {at:31,part:"第2部",kind:"通話",title:"発表前夜の電話（第2回）",img:null,date:"2023年3月22日 · 第2回発表の前夜",hint:"「発表前夜の電話（第2回）」到達で解放",quote:"「……あのさ、なおさん。ほんまは、今夜、言いたいことがあって」――「……いや、今はまだ言わへん」"},
 {at:33,part:"第2部",kind:"フィナーレ",title:"第2回生存者発表式",img:"hiroto",date:"2023年3月23日",hint:"第2部クリアで解放",rank:"r2",quote:"52人から28人へ。最後の枠を懸けた夜が終わり、最終章の扉が見えた。"},
+{at:35,part:"第3部",kind:"トーク",title:"言いかけた言葉",img:null,date:"2023年3月下旬",hint:"「28人に残って」到達で解放",quote:"「ファイナルまで行ったら、言うわ。……だから、絶対に行く」――第2回発表の前夜、電話で言いかけた言葉の行き先が決まった。"},
+{at:41,part:"第3部",kind:"場面",title:"夜通しの差し入れ",img:null,date:"2023年4月",hint:"「夜通しの作り直し」到達で解放",quote:"振付を作り直した夜明け前。ほっと一息ついたところで温かい飲み物を渡すと、大翔は両手で受け取った。"},
 {at:42,part:"第3部",kind:"ステージ",title:"本番「En Garde」",img:"gunwook",date:"2023年4月",hint:"「本番 En Garde」到達で解放",quote:"597点で3位。けれどチームステージ動画の再生数は5曲中1位。数字と熱量の温度差が、彼らを押した。"},
 {at:44,part:"第3部",kind:"トーク",title:"En Gardeのあと",img:null,date:"2023年4月",hint:"「En Gardeのあと」到達で解放",quote:"「En Garde、やりきりました。……あとは、信じて待つだけですね」"},
+{at:46,part:"第3部",kind:"通話",title:"発表前夜の電話（第3回）",img:null,date:"2023年4月12日 · 第3回発表の前夜",hint:"「発表前夜の電話（第3回）」到達で解放",quote:"「はは。……終わるまで、待っててな」"},
 {at:47,part:"第3部",kind:"発表",title:"第3回生存者発表式",img:"hiroto",date:"2023年4月13日",hint:"「第3回生存者発表式」到達で解放",rank:"r3",quote:"28人から18人へ。史実では散ったこの夜を越えられるかどうかが、問われた。"},
+{at:51,part:"第3部",kind:"トーク",title:"最後の一週間",img:null,date:"2023年4月",hint:"「最後の一週間」到達で解放",quote:"「言いかけてた話も、やで。全部終わったら――一番に、なおさんに言う」"},
 {at:52,part:"第3部",kind:"通話",title:"ファイナル前夜の電話",img:null,date:"2023年4月19日 · ファイナルの前夜",hint:"「ファイナル前夜の電話」到達で解放",quote:"「明日、全部決まります。……悔いは、ないです」"},
 {at:53,part:"第3部",kind:"ステージ",title:"ファイナル生放送",img:"hiroto",date:"2023年4月20日 · 蚕室室内体育館",hint:"「ファイナル生放送」到達で解放",quote:"「Jelly Pop」と「Hot Summer」。18人、最後のステージが始まる。"},
 {at:55,part:"第3部",kind:"フィナーレ",title:"三度目の正直",img:"hiroto",date:"2023年4月20日",hint:"エンディング到達で解放",rank:"rf",quote:null}
@@ -3292,9 +3426,9 @@ document.getElementById("settings-body").innerHTML=headHTML("設定","アプリ�
 +'<div class="set-row"><span class="grow">音量</span><input type="range" min="0" max="100" value="'+S.vol+'" oninput="S.vol=+this.value; if(musicAudio)musicAudio.volume=S.vol/100*0.8; save()"></div>'
 +'<div class="set-row"><span class="grow">ボイス・音楽の出典</span></div>'
 +'<div style="margin:0 16px;background:var(--panel2);border:1px solid var(--line-soft);border-radius:14px;padding:14px 16px;font-size:12px;color:var(--sub);line-height:1.9">ボイス：井汲大翔ボイス（AnyVoice生成）8本<br>音楽：公式音源・長尺版（BOYS PLANET「난 빛나 (Here I Am)」／SEVENTEEN「VERY NICE」）、Crush「Rush Hour (Feat. j-hope of BTS)」／En Butter「En Garde」／BOYS PLANET「Jelly Pop」「Hot Summer」「Not Alone」（いずれもiTunes公式プレビュー30秒）、Kevin MacLeod「The Descent」(CC-BY)<br>写真：Mnet公式プロフィール写真（KProfiles掲載分より、ファイル名で同一性を確認）<br>史実データ：Wikipedia『BOYS PLANET』（順位・ポイント・スター評価等）</div>'
-+'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.4｜SNSとMnet Plusの深掘り：コンテンツのプレイヤー作り込みと個人チッケム枠／Instagramプロフィール画面とストーリー・コメントの作り込み／Twitter通知タブとDM会話の実装\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.4 ›</span></div>'
++'<div class="set-row" style="cursor:pointer" onclick="toast(\'v4.5｜LINEまわりの精緻化：トーク一覧の日時表示を作中日付に連動（根拠のある日付のみ）／通話履歴画面を新設し日付ごとにグループ表示／思い出カードを5枚追加（全21枚）／Mnet Plusマイページに投票履歴と推定順位の推移を追加\')"><span class="grow">バージョン</span><span style="color:var(--sub)">v4.5 ›</span></div>'
 +'<div class="set-row"><span class="grow">セーブデータをリセット</span><button onclick="if(confirm(\'最初から遊び直しますか？\')){localStorage.removeItem(SAVE_KEY); location.reload();}">リセット</button></div>'
-+'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.3<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。</div>';
++'<div style="margin:14px 16px;font-size:11.5px;color:var(--sub2);line-height:1.8">『担当をデビューさせる件』v4.5<br>本作は史実を土台にした創作フィクションです。登場人物の会話・演出は創作であり、実在の人物の発言ではありません。三部作：第1作『日プ編』、第2作『創造営編』の続編。第3部ではアーティストバトル「En Garde」と第3回生存者発表式（史実21位で脱落）、ファイナルを扱い、プレイ次第でデビュー／あと一歩の両エンディングに分岐します。v4.1では新規の章は追加せず、本編の既存の場面（トーク・通話・舞台裏・各フィナーレ）に、二人の距離が三部を通して少しずつ縮まっていく恋愛ラインを織り込みました。v4.2ではその接続部を監査し、第2回発表前夜の通話で彼が「言いかけた」場面を明確に植え直し、デビューエンディングの時系列の並びを整え、重なっていた文面を書き分け、ファイナル生放送に「Hot Summer」チームのステージ描写を加えました。v4.3では機能レベルの大幅改修として、起動時に2023年当時のiOS 16様式のロック画面（作中日時と進行度に連動する通知つき）を追加し、Mnet Plusの投票を「推しメン選択→確認→完了演出→見込み順位の変動表示」の体験に拡張し、各部の節目の場面カードを集める「思い出」コレクションを新設しました。いずれも史実データ・順位計算・セーブ形式（bpSaveV1、追加項目は後方互換）には影響しません。v4.4ではSNSとMnet Plusの残りの層（コンテンツのプレイヤーと個人チッケム枠、Instagramのプロフィール画面とストーリー・コメント、Twitterの通知タブとDM会話）を深掘りしました。v4.5ではLINEまわりを精緻化し、トーク一覧の日時表示を作中日付に連動させ（日付の根拠は作中の明記・発表の前日/翌日の派生・到達済み投稿の掲載日に限り、推測では作りません）、通話履歴画面を新設して到達した通話を日付ごとに振り返れるようにし、思い出コレクションに恋愛場面のカード5枚（全21枚）を追加し、Mnet Plusのマイページに作中日時つきの投票履歴と推定順位の推移（既存の推定ロジックの値を記録するだけのもの）を追加しました。</div>';
 }
 /* ---- misc ---- */
 document.getElementById("mb-toggle").onclick=toggleMusic;
